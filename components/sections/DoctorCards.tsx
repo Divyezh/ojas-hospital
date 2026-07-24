@@ -21,10 +21,8 @@ export function DoctorCards({ selectedDepartmentFilter }: DoctorCardsProps) {
     { id: 'all', label: 'All Specialists', count: DOCTORS.length },
     { id: 'cardiology', label: 'Cardiology' },
     { id: 'neurology', label: 'Neurology' },
-    { id: 'oncology', label: 'Oncology' },
     { id: 'orthopedics', label: 'Orthopedics' },
     { id: 'pediatrics', label: 'Pediatrics' },
-    { id: 'emergency', label: 'Emergency' },
   ];
 
   const filteredDoctors = activeTab === 'all'
@@ -72,8 +70,8 @@ export function DoctorCards({ selectedDepartmentFilter }: DoctorCardsProps) {
       {/* Automated Multi-Column Gallery */}
       <div className="relative h-[75vh] min-h-150 overflow-hidden bg-maroon-900/60 border-y border-maroon-800/80 px-4 sm:px-8 py-4">
         {/* Gradient overlays for smooth fading at top and bottom */}
-        <div className="absolute top-0 left-0 w-full h-1/4 bg-linear-to-b from-white/90 to-transparent z-10 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-full h-1/4 bg-linear-to-t from-white/90 to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 left-0 w-full h-1/4 bg-linear-to-b from-maroon-900/90 to-transparent z-10 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-full h-1/4 bg-linear-to-t from-maroon-900/90 to-transparent z-10 pointer-events-none" />
 
         {/* Mobile View: 2 Columns */}
         <div className="max-w-7xl mx-auto grid grid-cols-2 gap-3 sm:gap-4 h-full relative z-0 lg:hidden">
@@ -99,8 +97,33 @@ interface DoctorColumnProps {
   speed?: number;
 }
 
+const getColorGradient = (colorName: string) => {
+  const colorMap: Record<string, string> = {
+    'Royal Blue': 'from-blue-600 to-blue-900',
+    'Emerald Green': 'from-emerald-500 to-emerald-800',
+    'Crimson Red': 'from-rose-600 to-rose-900',
+    'Deep Purple': 'from-purple-700 to-purple-950',
+    'Navy Blue': 'from-slate-700 to-slate-950',
+    'Orange': 'from-orange-500 to-orange-800',
+    'Forest Green': 'from-green-700 to-green-950',
+    'Teal': 'from-teal-600 to-teal-900',
+    'Rose Pink': 'from-pink-500 to-pink-800',
+    'Lime Green': 'from-lime-500 to-lime-800',
+    'Magenta': 'from-fuchsia-600 to-fuchsia-900',
+    'Indigo': 'from-indigo-600 to-indigo-900',
+    'Cyan': 'from-cyan-500 to-cyan-800',
+    'Gold': 'from-yellow-500 to-amber-700',
+    'Dark Red': 'from-red-700 to-red-950',
+    'Steel Blue': 'from-sky-600 to-sky-900',
+    'Violet': 'from-violet-600 to-violet-900',
+    'Turquoise': 'from-teal-400 to-teal-700',
+    'Amber': 'from-amber-500 to-amber-800',
+    'Deep Cyan': 'from-cyan-700 to-cyan-950',
+  };
+  return colorMap[colorName] || 'from-blue-600 to-blue-900';
+};
+
 function DoctorColumn({ doctors, direction, speed = 30 }: DoctorColumnProps) {
-  // Multiply the array to ensure we have enough content to scroll infinitely.
   // We use an even number of repeats so 50% translation matches a full cycle.
   const repeatCount = 6;
   const displayDoctors = Array(repeatCount).fill(doctors).flat();
@@ -125,16 +148,29 @@ function DoctorColumn({ doctors, direction, speed = 30 }: DoctorColumnProps) {
             hoverLift
             className="bg-white text-slate-900 border-maroon-100 p-0 overflow-hidden shadow-2xl group transition-transform duration-500 shrink-0"
           >
-            {/* Doctor Portrait Image */}
-            <div className="relative h-40 sm:h-56 lg:h-64 w-full overflow-hidden bg-slate-100">
-              <Image
-                src={doc.image}
-                alt={doc.name}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-100"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-maroon-900/60 to-transparent opacity-60" />
+            {/* Doctor Avatar Monogram */}
+            <div className="relative h-40 sm:h-56 lg:h-64 w-full overflow-hidden bg-slate-100 flex items-center justify-center">
+              {doc.image ? (
+                <Image
+                  src={doc.image}
+                  alt={doc.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-100"
+                />
+              ) : (
+                <div 
+                  className={`absolute inset-0 bg-linear-to-br ${getColorGradient(doc.color || 'Royal Blue')} flex flex-col items-center justify-center group-hover:scale-105 transition-transform duration-700`}
+                >
+                  <span className="text-5xl sm:text-7xl lg:text-8xl font-black text-white/90 tracking-tighter drop-shadow-lg" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    {doc.initials}
+                  </span>
+                  {/* Premium overlay glow */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-white/10 opacity-60 mix-blend-overlay" />
+                  <div className="absolute inset-0 bg-cyan-400/10 mix-blend-overlay" />
+                </div>
+              )}
+              <div className="absolute inset-0 bg-linear-to-t from-maroon-900/60 to-transparent opacity-60 pointer-events-none" />
 
               {/* Rating */}
               <div className="absolute top-0 right-0 w-1/3 min-h-150 rounded-l-[100px] bg-maroon-50/50 backdrop-blur-3xl -z-10 hidden lg:block" />

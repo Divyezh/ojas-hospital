@@ -348,14 +348,13 @@ body {
 
 /* Testimonial Redesign Styles */
 .testimonial-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 32px 28px;
   background: linear-gradient(160deg, var(--color-maroon-900), var(--color-maroon-800));
   border-radius: 16px;
   border-top: 2px solid var(--color-gold);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
   position: relative;
   transition: box-shadow 0.3s ease;
 }
@@ -367,89 +366,96 @@ body {
 
 .quote-mark {
   font-family: 'Fraunces', Georgia, serif;
-  font-size: 64px;
+  font-size: 48px;
   line-height: 1;
   color: var(--color-gold);
-  opacity: 0.5;
+  opacity: 0.45;
   margin-bottom: 4px;
 }
 
-.rating-row { 
-  display: flex; 
-  gap: 4px; 
-  margin-bottom: 12px; 
-}
-
-.rating-row svg {
-  width: 16px;
-  height: 16px;
-  color: var(--color-gold);
-}
-
-.badge-verified {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: var(--color-maroon-800);
-  border: 1px solid rgba(199,154,75,0.3);
-  font-size: 12px;
-  color: var(--color-gold-soft);
-}
-
-.badge-verified svg { 
-  width: 14px; 
-  height: 14px; 
-}
-
-.quote-text {
-  text-align: left;
-  max-width: 90%;
-  margin: 16px auto;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  position: relative;
-  color: var(--color-cream);
-  opacity: 0.9;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.quote-text.expanded {
-  -webkit-line-clamp: unset;
-}
-
-.quote-fade {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 32px;
-  background: linear-gradient(180deg, transparent, var(--color-maroon-900));
-  pointer-events: none;
-}
-
-.read-more {
-  color: var(--color-gold);
-  font-size: 12px;
-  font-weight: 600;
-  margin-top: -8px;
-  margin-bottom: 16px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-.read-more:hover {
-  text-decoration: underline;
-}
-
-.patient-meta {
+/* Reviewer identity block */
+.reviewer-row {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: auto;
+  margin-bottom: 12px;
+}
+.reviewer-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(199,154,75,0.4);
+  object-fit: cover;
+}
+.reviewer-info { display: flex; flex-direction: column; text-align: left; }
+.reviewer-info strong { color: #fff; font-size: 15px; }
+.reviewer-meta {
+  font-size: 12px;
+  color: var(--color-gold-soft);
+  opacity: 0.85;
+}
+
+/* Rating row */
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.rating-row svg { width: 15px; height: 15px; color: var(--color-gold); }
+.rating-time {
+  margin-left: 6px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* Quote text */
+.quote-text {
   text-align: left;
+  color: rgba(255,255,255,0.85);
+  font-size: 15px;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.quote-text.expanded { -webkit-line-clamp: unset; }
+.read-more {
+  align-self: flex-start;
+  margin-top: 6px;
+  background: none; border: none;
+  color: var(--color-gold);
+  font-size: 13px; font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Google source badge — pinned to bottom */
+.badge-google {
+  margin-top: auto;
+  padding-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  width: 100%;
+}
+.badge-google svg { width: 14px; height: 14px; }
+
+/* Marquee Animations */
+.animate-marquee {
+  animation: marquee var(--duration) linear infinite;
+}
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - var(--gap))); }
+}
+@keyframes marquee-vertical {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-100% - var(--gap))); }
 }

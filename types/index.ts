@@ -26,7 +26,9 @@ export interface Doctor {
   rating: number;
   reviewCount: number;
   availability: string;
-  image: string;
+  image?: string;
+  initials?: string;
+  color?: string;
   specialties: string[];
   bio: string;
 }
@@ -43,15 +45,12 @@ export interface Facility {
 
 export interface Testimonial {
   id: string;
-  patientName: string;
-  patientAge: number;
-  treatment: string;
-  department: string;
+  name: string;
+  meta?: string;
   rating: number;
-  quote: string;
+  text: string;
   avatar: string;
-  verified: boolean;
-  date: string;
+  timeAgo: string;
 }
 
 export interface GalleryItem {
