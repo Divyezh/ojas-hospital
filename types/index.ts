@@ -1,0 +1,106 @@
+export interface Department {
+  id: string;
+  name: string;
+  slug: string;
+  iconName: string;
+  description: string;
+  fullDescription: string;
+  headOfDepartment: string;
+  features: string[];
+  image: string;
+  stats: {
+    surgeries: string;
+    satisfaction: string;
+    specialists: number;
+  };
+}
+
+export interface Doctor {
+  id: string;
+  name: string;
+  title: string;
+  departmentId: string;
+  departmentName: string;
+  qualifications: string;
+  experienceYears: number;
+  rating: number;
+  reviewCount: number;
+  availability: string;
+  image: string;
+  specialties: string[];
+  bio: string;
+}
+
+export interface Facility {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  features: string[];
+  badgeText?: string;
+}
+
+export interface Testimonial {
+  id: string;
+  patientName: string;
+  patientAge: number;
+  treatment: string;
+  department: string;
+  rating: number;
+  quote: string;
+  avatar: string;
+  verified: boolean;
+  date: string;
+}
+
+export interface GalleryItem {
+  id: string;
+  title: string;
+  category: 'facilities' | 'operating-rooms' | 'lounges' | 'diagnostics' | 'all';
+  image: string;
+  caption: string;
+}
+
+export interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
+  category: 'general' | 'appointments' | 'insurance' | 'emergency';
+}
+
+export interface HospitalStat {
+  label: string;
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  description: string;
+}
+
+export interface EmergencyInfo {
+  hotline: string;
+  ambulance: string;
+  erWaitTime: string;
+  traumaCenterLevel: string;
+  address: string;
+}
+
+export interface AppointmentFormData {
+  patientName: string;
+  email: string;
+  phone: string;
+  department: string;
+  doctor?: string;
+  preferredDate: string;
+  preferredTime: string;
+  notes?: string;
+  urgency: 'routine' | 'urgent' | 'emergency';
+}
+
+export interface ContactFormData {
+  fullName: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+}
