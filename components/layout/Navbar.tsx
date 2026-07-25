@@ -8,12 +8,20 @@ import { SITE_CONFIG } from '@/constants/metadata';
 import { EMERGENCY_INFO } from '@/constants/hospitalData';
 
 interface NavbarProps {
-  onOpenAppointment: () => void;
+  onOpenAppointment?: () => void;
 }
 
 export function Navbar({ onOpenAppointment }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleAppointmentClick = () => {
+    if (onOpenAppointment) {
+      onOpenAppointment();
+    } else {
+      window.location.href = '/#contact';
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +56,7 @@ export function Navbar({ onOpenAppointment }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <a href="#" className="flex items-center group">
-          <img src="/ojas.png" alt="Ojas Logo" className="h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105" />
+          <img src="/ojas.png" alt="Ojas Multispeciality Hospital Logo" className="h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105" />
         </a>
 
         {/* Desktop Navigation Links */}
@@ -77,7 +85,7 @@ export function Navbar({ onOpenAppointment }: NavbarProps) {
           <Button
             variant="primary"
             size="md"
-            onClick={onOpenAppointment}
+            onClick={handleAppointmentClick}
             leftIcon={<Calendar className="h-4 w-4" />}
           >
             Book Appointment
@@ -89,7 +97,7 @@ export function Navbar({ onOpenAppointment }: NavbarProps) {
           <Button
             variant="primary"
             size="sm"
-            onClick={onOpenAppointment}
+            onClick={handleAppointmentClick}
             className="text-xs px-3"
           >
             Book Now
@@ -140,7 +148,7 @@ export function Navbar({ onOpenAppointment }: NavbarProps) {
                 size="lg"
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  onOpenAppointment();
+                  handleAppointmentClick();
                 }}
                 className="w-full"
                 leftIcon={<Calendar className="h-5 w-5" />}

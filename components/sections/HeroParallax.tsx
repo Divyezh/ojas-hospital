@@ -13,7 +13,7 @@ export function HeroParallax({ onOpenAppointment }: HeroParallaxProps) {
   const whatsappUrl = `https://wa.me/917574840735`;
 
   // Staggered word animation variants for headline
-  const sentence = "Compassionate Healthcare You Can Trust.";
+  const sentence = "Best Multispeciality Hospital in Ahmedabad";
   const words = sentence.split(" ");
 
   const container: Variants = {
@@ -45,7 +45,7 @@ export function HeroParallax({ onOpenAppointment }: HeroParallaxProps) {
         >
           <ShieldCheck className="h-4 w-4 text-maroon-700" />
           <span className="text-[13px] sm:text-sm font-bold tracking-[0.02em] text-maroon-900 uppercase">
-            Multispecialist Care
+            Multispeciality Care in Rakhial
           </span>
         </motion.div>
 
@@ -61,7 +61,7 @@ export function HeroParallax({ onOpenAppointment }: HeroParallaxProps) {
             <motion.span
               variants={child}
               key={index}
-              className={word === "Healthcare" ? "text-gold" : "text-white"}
+              className={word === "Hospital" ? "text-gold" : "text-white"}
             >
               {word}
             </motion.span>
@@ -77,7 +77,7 @@ export function HeroParallax({ onOpenAppointment }: HeroParallaxProps) {
         >
           <Image
             src="/dr-hasmukh.png"
-            alt="Ojas Hospital lead physician"
+            alt="Experienced lead physician at Ojas Multispeciality Hospital in Ahmedabad"
             fill
             priority
             sizes="(max-width: 768px) 100vw, 600px"
@@ -92,7 +92,7 @@ export function HeroParallax({ onOpenAppointment }: HeroParallaxProps) {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="relative z-30 text-base sm:text-lg text-cream/90 max-w-2xl mx-auto mt-6 sm:mt-8 leading-relaxed"
         >
-          At Ojas Hospital, we are committed to providing compassionate, affordable, and high-quality healthcare with experienced doctors, advanced facilities, and patient-first care for every family.
+          At Ojas Hospital, we are committed to providing compassionate, affordable, and high-quality healthcare with experienced doctors, advanced facilities, and 24/7 emergency care for every family in Ahmedabad.
         </motion.p>
 
         {/* Action Buttons */}

@@ -49,9 +49,6 @@ export const DEFAULT_METADATA: Metadata = {
     telephone: false,
   },
   metadataBase: new URL(SITE_CONFIG.url),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     title: SITE_CONFIG.name,
     description: SITE_CONFIG.description,
@@ -65,7 +62,7 @@ export const DEFAULT_METADATA: Metadata = {
         alt: SITE_CONFIG.name,
       },
     ],
-    locale: 'en_US',
+    locale: 'en_IN',
     type: 'website',
   },
   twitter: {
@@ -91,7 +88,7 @@ export const DEFAULT_METADATA: Metadata = {
 export function generateHospitalJsonLd() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Hospital',
+    '@type': ['Hospital', 'MedicalOrganization', 'LocalBusiness'],
     'name': SITE_CONFIG.name,
     'description': SITE_CONFIG.description,
     'url': SITE_CONFIG.url,
@@ -126,11 +123,18 @@ export function generateHospitalJsonLd() {
       'closes': '23:59'
     },
     'medicalSpecialty': DEPARTMENTS.map(d => d.name),
-    'availableService': DEPARTMENTS.map(d => ({
-      '@type': 'MedicalProcedure',
-      'name': d.name,
-      'description': d.description
-    }))
+    'availableService': [
+      ...DEPARTMENTS.map(d => ({
+        '@type': 'MedicalProcedure',
+        'name': d.name,
+        'description': d.description
+      })),
+      {
+        '@type': 'MedicalClinic',
+        'name': '24/7 Emergency & Trauma Care',
+        'medicalSpecialty': 'Emergency'
+      }
+    ]
   };
 }
 

@@ -679,52 +679,31 @@ export const TESTIMONIALS: Testimonial[] = [
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "g1",
-    title: "Hospital Reception",
-    category: "facilities",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
-    caption: "Welcoming and clean reception area"
+    title: "Medical Camp 1",
+    category: "camps",
+    image: "/camp1.png",
+    caption: "Our latest community medical camp"
   },
   {
     id: "g2",
-    title: "Operation Theatre",
-    category: "operating-rooms",
-    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800",
-    caption: "Advanced sterile surgical suites"
+    title: "Medical Camp 2",
+    category: "camps",
+    image: "/camp2.png",
+    caption: "Free health checkups for the community"
   },
   {
     id: "g3",
-    title: "Doctors",
-    category: "facilities",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800",
-    caption: "Our team of experienced medical professionals"
+    title: "Medical Camp 3",
+    category: "camps",
+    image: "/camp3.png",
+    caption: "Spreading awareness and providing care"
   },
   {
     id: "g4",
-    title: "Medical Equipment",
-    category: "diagnostics",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
-    caption: "State-of-the-art diagnostic technology"
-  },
-  {
-    id: "g5",
-    title: "Patient Care",
-    category: "lounges",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
-    caption: "Compassionate care for every patient"
-  },
-  {
-    id: "g6",
-    title: "Hospital Building",
-    category: "facilities",
-    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800",
-    caption: "Ojas Hospital infrastructure"
-  },
-  {
-    id: "g7",
-    title: "Medical Camps",
-    category: "facilities",
-    image: "https://images.unsplash.com/photo-1581595220892-c0739db3ba8c?auto=format&fit=crop&q=80&w=800",
-    caption: "Community health and awareness camps"
+    title: "Medical Camp 4",
+    category: "camps",
+    image: "/camp4.png",
+    caption: "Dedicated to community healthcare"
   }
 ];
 

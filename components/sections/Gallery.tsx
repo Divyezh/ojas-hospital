@@ -16,10 +16,7 @@ export function Gallery() {
 
   const galleryTabs = [
     { id: 'all', label: 'All Photos' },
-    { id: 'operating-rooms', label: 'Operating Suites' },
-    { id: 'lounges', label: 'Patient Suites' },
-    { id: 'diagnostics', label: 'Diagnostics' },
-    { id: 'facilities', label: 'Facilities' },
+    { id: 'camps', label: 'Medical Camps' },
   ];
 
   const filteredItems = activeTab === 'all'
@@ -33,10 +30,10 @@ export function Gallery() {
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <Badge variant="primary">Virtual Tour</Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Explore Our <span className="gradient-text-primary">Medical Campus</span>
+            Explore Our <span className="gradient-text-primary">Medical Camps</span>
           </h2>
           <p className="text-base text-slate-600 leading-relaxed">
-            Take a visual tour of our infection-controlled operating theaters, quiet patient suites, and high-field diagnostic imaging labs.
+            Take a visual tour of our community healthcare initiatives and free medical camps organized for public welfare.
           </p>
 
           <div className="pt-2 pb-6 border-b border-slate-200">
@@ -74,7 +71,7 @@ export function Gallery() {
               >
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={`Ojas Hospital ${item.title}`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -105,7 +102,7 @@ export function Gallery() {
           <div className="relative h-[60vh] w-full rounded-2xl overflow-hidden mt-4 bg-slate-950">
             <Image
               src={selectedImage.image}
-              alt={selectedImage.title}
+              alt={`Ojas Hospital ${selectedImage.title}`}
               fill
               sizes="100vw"
               className="object-contain"

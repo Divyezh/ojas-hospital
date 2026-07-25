@@ -70,8 +70,38 @@ function TestimonialCardItem({ test }: { test: any }) {
 export function TestimonialCards() {
   const firstRow = TESTIMONIALS;
 
+  const averageRating = firstRow.reduce((acc, curr) => acc + curr.rating, 0) / firstRow.length;
+
+  const reviewSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    'name': 'Ojas Hospital',
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': averageRating.toFixed(1),
+      'reviewCount': firstRow.length.toString()
+    },
+    'review': firstRow.map(test => ({
+      '@type': 'Review',
+      'author': {
+        '@type': 'Person',
+        'name': test.name
+      },
+      'reviewRating': {
+        '@type': 'Rating',
+        'ratingValue': test.rating.toString(),
+        'bestRating': '5'
+      },
+      'reviewBody': test.text
+    }))
+  };
+
   return (
     <section id="testimonials" className="py-20 lg:py-28 bg-white relative overflow-hidden flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 w-full">
         {/* Header */}
         <div className="space-y-4 max-w-2xl">

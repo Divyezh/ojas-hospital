@@ -36,7 +36,7 @@ export function About() {
                 >
                   <Image
                     src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800"
-                    alt="State of the art Operating Theater"
+                    alt="Ojas Hospital state of the art neurosurgery operating theater with 3D imaging equipment in Ahmedabad"
                     fill
                     sizes="(max-width: 768px) 50vw, 25vw"
                     className="object-cover hover:scale-105 transition-transform duration-500"
@@ -79,7 +79,7 @@ export function About() {
                 >
                   <Image
                     src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800"
-                    alt="Ojas Medical Staff in Consultation"
+                    alt="Ojas Hospital expert medical staff and general physicians in consultation in Rakhial, Ahmedabad"
                     fill
                     sizes="(max-width: 768px) 50vw, 25vw"
                     className="object-cover hover:scale-105 transition-transform duration-500"

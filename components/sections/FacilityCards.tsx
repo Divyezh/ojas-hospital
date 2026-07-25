@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 export function FacilityCards() {
   const images = FACILITIES.map(f => ({
     src: f.image,
-    alt: f.title
+    alt: `Ojas Hospital ${f.title} Facility in Ahmedabad`
   }));
 
   return (

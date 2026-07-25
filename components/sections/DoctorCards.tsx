@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Star, Clock, Award } from 'lucide-react';
 import { Card, CardTitle } from '@/components/ui/card';
@@ -148,12 +149,13 @@ function DoctorColumn({ doctors, direction, speed = 30 }: DoctorColumnProps) {
             hoverLift
             className="bg-white text-slate-900 border-maroon-100 p-0 overflow-hidden shadow-2xl group transition-transform duration-500 shrink-0"
           >
+            <Link href={`/doctors/${doc.id}`} className="block h-full cursor-pointer">
             {/* Doctor Avatar Monogram */}
             <div className="relative h-40 sm:h-56 lg:h-64 w-full overflow-hidden bg-slate-100 flex items-center justify-center">
               {doc.image ? (
                 <Image
                   src={doc.image}
-                  alt={doc.name}
+                  alt={`Dr. ${doc.name}, Specialist at Ojas Hospital Ahmedabad`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-100"
@@ -228,6 +230,7 @@ function DoctorColumn({ doctors, direction, speed = 30 }: DoctorColumnProps) {
               </div>
 
             </div>
+            </Link>
           </Card>
         ))}
       </motion.div>

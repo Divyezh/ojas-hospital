@@ -74,7 +74,7 @@ export function LoadingScreen() {
             >
               <Image 
                 src="/logo.png"
-                alt="Ojas Hospital Logo"
+                alt="Ojas Multispeciality Hospital Logo"
                 fill
                 priority
                 className="object-contain"

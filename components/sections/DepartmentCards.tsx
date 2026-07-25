@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { HeartPulse, Brain, ShieldPlus, Activity, Baby, Siren, ArrowRight, CheckCircle2, User } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -49,12 +50,13 @@ export function DepartmentCards({ onSelectDepartment }: DepartmentCardsProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-[0_2px_12px_rgba(34,10,12,0.06)] hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(34,10,12,0.14)] transition-all duration-300 group">
+                <Link href={`/departments/${dept.id}`} className="block h-full cursor-pointer">
+                  <div className="h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-[0_2px_12px_rgba(34,10,12,0.06)] hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(34,10,12,0.14)] transition-all duration-300 group">
                   {/* Card Image Banner */}
                   <div className="relative h-40 w-full overflow-hidden">
                     <Image
                       src={dept.image}
-                      alt={dept.name}
+                      alt={`Ojas Hospital ${dept.name} department and specialists in Ahmedabad`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-400 ease-out"
@@ -63,7 +65,7 @@ export function DepartmentCards({ onSelectDepartment }: DepartmentCardsProps) {
                     
                     {/* Department Logo Badge */}
                     <div className="absolute top-3 left-3 h-8 w-24 flex items-center justify-center rounded-lg bg-white shadow-md px-2 py-1">
-                      <img src="/logo.png" alt="Ojas Logo" className="w-full h-full object-contain" />
+                      <img src="/logo.png" alt="Ojas Multispeciality Hospital Logo" className="w-full h-full object-contain" />
                     </div>
 
                     {/* Stats Badges */}
@@ -107,6 +109,7 @@ export function DepartmentCards({ onSelectDepartment }: DepartmentCardsProps) {
 
                   </div>
                 </div>
+                </Link>
               </motion.div>
             );
           })}
