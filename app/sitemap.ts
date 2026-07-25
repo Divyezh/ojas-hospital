@@ -3,6 +3,8 @@ import { SITE_CONFIG } from '@/constants/metadata';
 
 import { DEPARTMENTS, DOCTORS } from '@/constants/hospitalData';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
 
