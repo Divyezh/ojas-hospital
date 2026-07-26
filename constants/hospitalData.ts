@@ -50,7 +50,7 @@ export const DEPARTMENTS: Department[] = [
       "Fever & Infection Treatment",
       "Adult Immunizations"
     ],
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
+    image: "/general medicine.png",
     stats: { surgeries: "N/A", satisfaction: "98%", specialists: 4 }
   },
   {
@@ -67,7 +67,7 @@ export const DEPARTMENTS: Department[] = [
       "Appendectomy",
       "Gallbladder Surgery"
     ],
-    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800",
+    image: "/normal surgery.png",
     stats: { surgeries: "10,000+", satisfaction: "99%", specialists: 3 }
   },
   {
@@ -171,7 +171,7 @@ export const DEPARTMENTS: Department[] = [
       "Immediate Resuscitation",
       "Critical Care Transport"
     ],
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
+    image: "/emergency care.png",
     stats: { surgeries: "N/A", satisfaction: "99%", specialists: 5 }
   }
 ];
