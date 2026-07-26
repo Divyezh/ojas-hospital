@@ -2,26 +2,19 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Activity, Menu, X, Calendar, Phone, Stethoscope } from 'lucide-react';
+import { Activity, Menu, X, Calendar, Phone, Stethoscope, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SITE_CONFIG } from '@/constants/metadata';
 import { EMERGENCY_INFO } from '@/constants/hospitalData';
 
-interface NavbarProps {
-  onOpenAppointment?: () => void;
-}
-
-export function Navbar({ onOpenAppointment }: NavbarProps) {
+export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleAppointmentClick = () => {
-    if (onOpenAppointment) {
-      onOpenAppointment();
-    } else {
-      window.location.href = '/#contact';
-    }
+    window.open("https://wa.me/917574840735?text=Hello%20Ojas%20Hospital%2C%20I%20would%20like%20to%20inquire%20about%20appointments%20and%20medical%20services.", "_blank");
   };
 
   useEffect(() => {
@@ -56,7 +49,7 @@ export function Navbar({ onOpenAppointment }: NavbarProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
-        <a href="#" className="flex items-center group">
+        <Link href="/" className="flex items-center group">
           <Image 
             src="/ojas.png" 
             alt="Ojas Multispeciality Hospital Logo" 
@@ -65,7 +58,7 @@ export function Navbar({ onOpenAppointment }: NavbarProps) {
             priority
             className="h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105" 
           />
-        </a>
+        </Link>
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
@@ -106,9 +99,9 @@ export function Navbar({ onOpenAppointment }: NavbarProps) {
             variant="primary"
             size="md"
             onClick={handleAppointmentClick}
-            leftIcon={<Calendar className="h-4 w-4" />}
+            leftIcon={<MessageSquare className="h-4 w-4" />}
           >
-            Book Appointment
+            WhatsApp Us
           </Button>
         </div>
 
@@ -120,7 +113,7 @@ export function Navbar({ onOpenAppointment }: NavbarProps) {
             onClick={handleAppointmentClick}
             className="text-xs px-3"
           >
-            Book Now
+            WhatsApp
           </Button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -183,9 +176,9 @@ export function Navbar({ onOpenAppointment }: NavbarProps) {
                   handleAppointmentClick();
                 }}
                 className="w-full"
-                leftIcon={<Calendar className="h-5 w-5" />}
+                leftIcon={<MessageSquare className="h-5 w-5" />}
               >
-                Book Appointment Online
+                Contact on WhatsApp
               </Button>
             </div>
           </motion.div>

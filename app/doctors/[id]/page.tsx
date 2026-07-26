@@ -182,9 +182,9 @@ export default async function DoctorPage({ params }: Props) {
                 </p>
 
                 <div className="mt-8">
-                  <Link href="/#contact" className="inline-block bg-maroon-700 text-white px-8 py-3 rounded-full font-semibold shadow-md hover:bg-maroon-800 transition-colors">
-                    Book an Appointment
-                  </Link>
+                  <a href="https://wa.me/917574840735?text=Hello%20Ojas%20Hospital%2C%20I%20would%20like%20to%20inquire%20about%20appointments%20and%20medical%20services." target="_blank" rel="noopener noreferrer" className="inline-block bg-emerald-600 text-white px-8 py-3 rounded-full font-semibold shadow-md hover:bg-emerald-700 transition-colors">
+                    Contact on WhatsApp
+                  </a>
                 </div>
               </div>
             </div>

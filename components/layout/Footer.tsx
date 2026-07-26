@@ -34,7 +34,7 @@ export function Footer() {
         <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-2">Ready to experience compassionate, precision care?</h3>
         <p className="text-cream/80 text-sm sm:text-base mb-6">Our specialists are available 24/7 for consultations and emergencies.</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#appointment" className="btn-gold-fill">Book Appointment</a>
+          <a href="https://wa.me/917574840735?text=Hello%20Ojas%20Hospital%2C%20I%20would%20like%20to%20inquire%20about%20appointments%20and%20medical%20services." target="_blank" rel="noopener noreferrer" className="btn-gold-fill">Contact on WhatsApp</a>
           <a href="tel:7574840735" className="btn-outline-cream">
             <span className="pulse-ring" /> Call Hotline
           </a>
@@ -48,23 +48,13 @@ export function Footer() {
           {/* Col 1: Brand Info */}
           <motion.div custom={0} variants={columnVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10%' }} className="lg:col-span-1 space-y-4">
             <div className="flex items-center">
-              <div className="bg-white p-3 rounded-2xl shadow-lg border border-white/20 inline-block">
-                <Image src="/ojas.png" alt="Ojas Multispeciality Hospital Logo" width={240} height={80} className="h-12 w-auto object-contain" />
+              <div className="inline-block">
+                <Image src="/logo.png" alt="Ojas Multispeciality Hospital Logo" width={240} height={80} className="h-16 w-auto object-contain" />
               </div>
             </div>
             <p className="text-cream/70 leading-relaxed text-xs sm:text-sm">
-              Providing compassionate, world-class medical excellence with state-of-the-art robotic surgery, round-the-clock emergency trauma response, and pioneering clinical research.
+              Delivering compassionate, high-quality, and affordable multispeciality care to the heart of Rakhial, Ahmedabad. With our experienced specialists and 24/7 emergency response, we are dedicated to the health and well-being of every family we serve.
             </p>
-            <div className="flex flex-col space-y-2 pt-2">
-              <div className="cert-badge flex items-center space-x-2 bg-maroon-800 border border-maroon-700 px-3 py-1.5 rounded-full text-xs text-gold font-semibold w-max">
-                <ShieldCheck className="h-4 w-4" />
-                <span>JCI Certified</span>
-              </div>
-              <div className="cert-badge flex items-center space-x-2 bg-maroon-800 border border-maroon-700 px-3 py-1.5 rounded-full text-xs text-gold-soft font-semibold w-max">
-                <Award className="h-4 w-4" />
-                <span>Level 1 Trauma</span>
-              </div>
-            </div>
           </motion.div>
 
           {/* Col 2: Quick Links */}

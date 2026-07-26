@@ -5,11 +5,7 @@ import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 import { ShieldCheck, MessageSquare, ArrowRight } from 'lucide-react';
 
-interface HeroParallaxProps {
-  onOpenAppointment: () => void;
-}
-
-export function HeroParallax({ onOpenAppointment }: HeroParallaxProps) {
+export function HeroParallax() {
   const whatsappUrl = `https://wa.me/917574840735`;
 
   // Staggered word animation variants for headline

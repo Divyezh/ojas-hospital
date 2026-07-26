@@ -18,11 +18,7 @@ const iconMap: Record<string, React.ElementType> = {
   Siren,
 };
 
-interface DepartmentCardsProps {
-  onSelectDepartment: (deptId: string) => void;
-}
-
-export function DepartmentCards({ onSelectDepartment }: DepartmentCardsProps) {
+export function DepartmentCards() {
   return (
     <section id="departments" className="py-20 lg:py-28 bg-cream relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

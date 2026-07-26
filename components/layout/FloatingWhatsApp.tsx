@@ -17,7 +17,7 @@ export function FloatingWhatsApp() {
       animate={{ scale: 1, opacity: 1 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-6 left-6 z-40 flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-500 text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl shadow-emerald-600/40 border border-emerald-400/30 transition-colors group"
+      className="fixed bottom-6 right-6 z-40 flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-500 text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl shadow-emerald-600/40 border border-emerald-400/30 transition-colors group"
       aria-label="Chat with Ojas on WhatsApp"
     >
       <div className="relative">

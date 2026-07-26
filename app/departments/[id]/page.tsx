@@ -185,9 +185,9 @@ export default async function DepartmentPage({ params }: Props) {
             <div className="mt-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
               <h4 className="text-xl font-bold mb-2">Book an Appointment Today</h4>
               <p className="mb-4">Schedule a consultation with our {department.name} experts in Rakhial, Ahmedabad.</p>
-              <Link href="/#contact" className="inline-block bg-maroon-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-maroon-800 transition-colors">
-                Contact Us
-              </Link>
+              <a href="https://wa.me/917574840735?text=Hello%20Ojas%20Hospital%2C%20I%20would%20like%20to%20inquire%20about%20appointments%20and%20medical%20services." target="_blank" rel="noopener noreferrer" className="inline-block bg-emerald-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-emerald-700 transition-colors">
+                Contact on WhatsApp
+              </a>
             </div>
           </div>
         </article>

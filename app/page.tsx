@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 import dynamic from 'next/dynamic';
 import { Navbar } from '@/components/layout/Navbar';
@@ -21,28 +21,16 @@ const Footer = dynamic(() => import('@/components/layout/Footer').then(mod => mo
 export default function Home() {
   useSmoothScroll();
 
-  const [appointmentModalOpen, setAppointmentModalOpen] = useState(false);
-  const [selectedDepartment, setSelectedDepartment] = useState<string | undefined>();
-  const [selectedDoctor, setSelectedDoctor] = useState<string | undefined>();
-
-  const handleOpenAppointment = (deptId?: string, doctorId?: string) => {
-    setSelectedDepartment(deptId);
-    setSelectedDoctor(doctorId);
-    setAppointmentModalOpen(true);
-  };
-
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navigation Header */}
-      <Navbar onOpenAppointment={() => handleOpenAppointment()} />
+      <Navbar />
 
       {/* Main Page Sections */}
-      <Hero onOpenAppointment={() => handleOpenAppointment()} />
+      <Hero />
       <About />
       <Statistics />
-      <DepartmentCards
-        onSelectDepartment={(deptId) => handleOpenAppointment(deptId)}
-      />
+      <DepartmentCards />
       <FacilityCards />
       <DoctorCards />
       <TestimonialCards />
@@ -52,14 +40,6 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
-
-      {/* Appointment Modal */}
-      <AppointmentModal
-        isOpen={appointmentModalOpen}
-        onClose={() => setAppointmentModalOpen(false)}
-        defaultDepartment={selectedDepartment}
-        defaultDoctor={selectedDoctor}
-      />
     </div>
   );
 }
