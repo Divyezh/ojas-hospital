@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Activity, Phone, Mail, MapPin, ShieldCheck, Heart, Award, ArrowUpRight, ArrowRight } from 'lucide-react';
 import { SITE_CONFIG } from '@/constants/metadata';
 import { DEPARTMENTS, EMERGENCY_INFO } from '@/constants/hospitalData';
@@ -48,7 +49,7 @@ export function Footer() {
           <motion.div custom={0} variants={columnVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10%' }} className="lg:col-span-1 space-y-4">
             <div className="flex items-center">
               <div className="bg-white p-3 rounded-2xl shadow-lg border border-white/20 inline-block">
-                <img src="/ojas.png" alt="Ojas Multispeciality Hospital Logo" className="h-12 w-auto object-contain" />
+                <Image src="/ojas.png" alt="Ojas Multispeciality Hospital Logo" width={240} height={80} className="h-12 w-auto object-contain" />
               </div>
             </div>
             <p className="text-cream/70 leading-relaxed text-xs sm:text-sm">

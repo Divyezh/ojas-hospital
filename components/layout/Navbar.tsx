@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, Menu, X, Calendar, Phone, Stethoscope } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -56,7 +57,14 @@ export function Navbar({ onOpenAppointment }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <a href="#" className="flex items-center group">
-          <img src="/ojas.png" alt="Ojas Multispeciality Hospital Logo" className="h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105" />
+          <Image 
+            src="/ojas.png" 
+            alt="Ojas Multispeciality Hospital Logo" 
+            width={240}
+            height={80}
+            priority
+            className="h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105" 
+          />
         </a>
 
         {/* Desktop Navigation Links */}
@@ -65,6 +73,18 @@ export function Navbar({ onOpenAppointment }: NavbarProps) {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => {
+                if (link.href.startsWith('#')) {
+                  e.preventDefault();
+                  const targetId = link.href.replace('#', '');
+                  const element = document.getElementById(targetId);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.location.href = '/' + link.href;
+                  }
+                }
+              }}
               className={`px-3 py-2 text-sm font-semibold rounded-full transition-all ${isScrolled ? 'text-charcoal hover:text-maroon-700 hover:bg-maroon-100/50' : 'text-white/90 hover:text-white hover:bg-white/10'}`}
             >
               {link.name}
@@ -126,7 +146,19 @@ export function Navbar({ onOpenAppointment }: NavbarProps) {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    const targetId = link.href.replace('#', '');
+                    const element = document.getElementById(targetId);
+                    if (element) {
+                      setTimeout(() => {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    } else {
+                      window.location.href = '/' + link.href;
+                    }
+                  }}
                   className="px-4 py-3 text-base font-semibold text-slate-700 hover:text-maroon-700 hover:bg-maroon-50/50 rounded-2xl transition-colors"
                 >
                   {link.name}

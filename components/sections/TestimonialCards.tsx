@@ -36,7 +36,7 @@ function TestimonialCardItem({ test }: { test: any }) {
       <span className="quote-mark" aria-hidden="true">"</span>
 
       <div className="reviewer-row">
-        <img src={test.avatar} alt={test.name} className="reviewer-avatar" />
+        <Image src={test.avatar} alt={test.name} width={48} height={48} className="reviewer-avatar" />
         <div className="reviewer-info">
           <strong>{test.name}</strong>
           {test.meta && <span className="reviewer-meta">{test.meta}</span>}

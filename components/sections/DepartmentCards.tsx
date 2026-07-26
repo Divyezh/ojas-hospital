@@ -65,7 +65,7 @@ export function DepartmentCards({ onSelectDepartment }: DepartmentCardsProps) {
                     
                     {/* Department Logo Badge */}
                     <div className="absolute top-3 left-3 h-8 w-24 flex items-center justify-center rounded-lg bg-white shadow-md px-2 py-1">
-                      <img src="/logo.png" alt="Ojas Multispeciality Hospital Logo" className="w-full h-full object-contain" />
+                      <Image src="/logo.png" alt="Ojas Multispeciality Hospital Logo" width={96} height={32} className="w-full h-full object-contain" />
                     </div>
 
                     {/* Stats Badges */}

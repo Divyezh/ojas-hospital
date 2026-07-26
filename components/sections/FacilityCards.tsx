@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { FACILITIES } from '@/constants/hospitalData';
@@ -145,10 +146,12 @@ const Carousel_003 = ({
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>
-              <img
-                className="h-full w-full object-cover"
+              <Image
+                className="object-cover"
                 src={image.src}
                 alt={image.alt}
+                fill
+                sizes="320px"
               />
               <div className="absolute inset-x-0 bottom-0 p-5 bg-linear-to-t from-black/80 to-transparent">
                 <h3 className="text-white font-semibold text-lg text-center tracking-wide">{image.alt}</h3>

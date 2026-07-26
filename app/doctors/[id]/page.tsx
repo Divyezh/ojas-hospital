@@ -120,7 +120,6 @@ export default async function DoctorPage({ params }: Props) {
       <Navbar />
       <main className="grow pt-24 pb-16">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb Visual */}
           <nav className="text-sm mb-6 text-slate-500">
             <Link href="/" className="hover:text-maroon-700">Home</Link>
             <span className="mx-2">›</span>

@@ -31,7 +31,7 @@ export function LoadingScreen() {
 
   const logoVariants: Variants = {
     initial: { opacity: 1 },
-    exit: { 
+    exit: {
       opacity: 0,
       transition: { duration: 0.4, ease: "easeInOut" as any }
     }
@@ -41,7 +41,7 @@ export function LoadingScreen() {
     <AnimatePresence>
       {loading && (
         <div className="fixed inset-0 z-50 flex h-screen w-screen overflow-hidden">
-          {/* Stairs Background Columns */}
+
           {[...Array(columns)].map((_, i) => (
             <motion.div
               key={i}
@@ -53,7 +53,6 @@ export function LoadingScreen() {
             />
           ))}
 
-          {/* Centered Logo Container */}
           <motion.div
             variants={logoVariants}
             initial="initial"
@@ -61,18 +60,18 @@ export function LoadingScreen() {
             className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10"
           >
             <motion.div
-              animate={{ 
+              animate={{
                 scale: [1, 1.03, 1],
-                opacity: [0.9, 1, 0.9] 
+                opacity: [0.9, 1, 0.9]
               }}
-              transition={{ 
-                duration: 1.5, 
+              transition={{
+                duration: 1.5,
                 repeat: Infinity,
-                ease: "easeInOut" 
+                ease: "easeInOut"
               }}
               className="relative w-40 h-40 sm:w-56 sm:h-56 drop-shadow-2xl"
             >
-              <Image 
+              <Image
                 src="/logo.png"
                 alt="Ojas Multispeciality Hospital Logo"
                 fill
