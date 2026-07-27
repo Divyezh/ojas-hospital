@@ -161,7 +161,7 @@ function DoctorColumn({ doctors, direction, speed = 30 }: DoctorColumnProps) {
                 {doc.image ? (
                   <Image
                     src={doc.image}
-                    alt={`Dr. ${doc.name}, Specialist at Ojas Hospital Ahmedabad`}
+                    alt={`${doc.name}, Specialist at Ojas Hospital Ahmedabad`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-100"

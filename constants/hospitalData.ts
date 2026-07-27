@@ -11,7 +11,7 @@ export const EMERGENCY_INFO: EmergencyInfo = {
 export const HOSPITAL_STATS: HospitalStat[] = [
   {
     label: "Successful Treatments",
-    value: 50000,
+    value: 20000,
     suffix: "+",
     description: "Patients treated with compassionate care."
   },
@@ -23,7 +23,7 @@ export const HOSPITAL_STATS: HospitalStat[] = [
   },
   {
     label: "Patient Satisfaction",
-    value: 99,
+    value: 90,
     suffix: "%",
     description: "Based on patient reviews and feedback."
   },
@@ -68,7 +68,7 @@ export const DEPARTMENTS: Department[] = [
       "Gallbladder Surgery"
     ],
     image: "/normal surgery.png",
-    stats: { surgeries: "10,000+", satisfaction: "99%", specialists: 3 }
+    stats: { surgeries: "10,000+", satisfaction: "90%", specialists: 3 }
   },
   {
     id: "orthopedics",

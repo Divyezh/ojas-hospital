@@ -3,7 +3,83 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Award, Heart, Stethoscope, Sparkles } from 'lucide-react';
+import { CheckCircle2, Award, Heart, Stethoscope, Sparkles, Clock, ShieldCheck } from 'lucide-react';
+import { BentoGrid, BentoCard } from '@/registry/magicui/bento-grid';
+import { Marquee } from '@/registry/magicui/marquee';
+import { DEPARTMENTS } from '@/constants/hospitalData';
+import { cn } from '@/lib/utils';
+
+const hospitalFeatures = [
+  {
+    Icon: Clock,
+    name: "24/7 Emergency",
+    description: "Round the clock trauma and emergency care.",
+    href: "#",
+    cta: "Contact Hotline",
+    className: "col-span-3 lg:col-span-1",
+    background: (
+      <div className="absolute inset-0 bg-maroon-50/50 flex items-center justify-center mask-[linear-gradient(to_top,transparent_10%,#000_100%)]">
+        <Image src="/2477.png" alt="24/7 Emergency Care" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-60 group-hover:opacity-80 transition-opacity" />
+      </div>
+    ),
+  },
+  {
+    Icon: Heart,
+    name: "Comprehensive Care",
+    description: "Multispeciality departments offering world-class treatments.",
+    href: "#departments",
+    cta: "View Departments",
+    className: "col-span-3 lg:col-span-2",
+    background: (
+      <Marquee
+        pauseOnHover
+        className="absolute top-10 mask-[linear-gradient(to_top,transparent_40%,#000_100%)] [--duration:20s]"
+      >
+        {DEPARTMENTS.slice(0, 5).map((d, idx) => (
+          <figure
+            key={idx}
+            className={cn(
+              "relative w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
+              "border-maroon-900/10 bg-maroon-900/1 hover:bg-maroon-900/5",
+              "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
+            )}
+          >
+            <div className="flex flex-col">
+              <figcaption className="text-sm font-bold text-maroon-900">{d.name}</figcaption>
+              <blockquote className="mt-2 text-[10px] text-charcoal/60 line-clamp-3">{d.description}</blockquote>
+            </div>
+          </figure>
+        ))}
+      </Marquee>
+    ),
+  },
+  {
+    Icon: Award,
+    name: "Award-Winning",
+    description: "Voted Top 10 International Hospital Facilities in Ahmedabad.",
+    href: "#",
+    cta: "Read More",
+    className: "col-span-3 lg:col-span-2",
+    background: (
+      <div className="absolute inset-0 bg-gold/10 mask-[linear-gradient(to_top,transparent_10%,#000_100%)] flex items-center justify-center transition-all duration-300 ease-out group-hover:scale-105">
+        <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800" className="absolute h-full w-full object-cover opacity-20" alt="Award Winning" />
+      </div>
+    ),
+  },
+  {
+    Icon: ShieldCheck,
+    name: "25+ Years",
+    description: "Of medical leadership, innovation, and trust.",
+    className: "col-span-3 lg:col-span-1",
+    href: "#",
+    cta: "Our History",
+    background: (
+      <div className="absolute inset-0 bg-maroon-900 mask-[linear-gradient(to_top,transparent_10%,#000_100%)]">
+        <Image src="/years.png" alt="25+ Years Experience" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-60 group-hover:opacity-80 transition-opacity" />
+      </div>
+    ),
+  },
+];
 
 export function About() {
   const pillars = [
@@ -23,71 +99,20 @@ export function About() {
     <section id="about" className="py-20 lg:py-28 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Visual Grid */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <motion.div
-                  initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
-                  whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-                  viewport={{ once: true, margin: "-10%" }}
-                  transition={{ duration: 1, ease: "circOut" }}
-                  className="relative h-64 sm:h-72 rounded-3xl overflow-hidden shadow-soft-md border border-slate-100"
-                >
-                  <Image
-                    src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800"
-                    alt="Ojas Hospital state of the art neurosurgery operating theater with 3D imaging equipment in Ahmedabad"
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-10%" }}
-                  transition={{ type: "spring", stiffness: 100, damping: 10, delay: 0.2 }}
-                  className="bg-maroon-900 text-cream p-6 rounded-3xl space-y-2 shadow-xl"
-                >
-                  <span className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gold">25+</span>
-                  <p className="text-xs font-medium text-cream/80">Years of Medical Leadership & Innovation</p>
-                </motion.div>
-              </div>
-
-              <div className="space-y-4 pt-8">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-10%" }}
-                  transition={{ type: "spring", stiffness: 100, damping: 10, delay: 0.3 }}
-                  className="bg-cream text-charcoal p-6 rounded-3xl space-y-2 shadow-xl border border-maroon-100"
-                >
-                  <div className="flex items-center space-x-2 text-maroon-700">
-                    <Award className="h-5 w-5" />
-                    <span className="text-xs font-bold uppercase">Award-Winning</span>
-                  </div>
-                  <p className="text-xs text-charcoal/70">Voted Top 10 International Hospital Facilities</p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
-                  whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-                  viewport={{ once: true, margin: "-10%" }}
-                  transition={{ duration: 1, ease: "circOut", delay: 0.2 }}
-                  className="relative h-64 sm:h-72 rounded-3xl overflow-hidden shadow-soft-md border border-slate-100"
-                >
-                  <Image
-                    src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800"
-                    alt="Ojas Hospital expert medical staff and general physicians in consultation in Rakhial, Ahmedabad"
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </motion.div>
-              </div>
-            </div>
-          </div>
+          {/* Left Column: Bento Grid */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-6 relative"
+          >
+            <BentoGrid>
+              {hospitalFeatures.map((feature, idx) => (
+                <BentoCard key={idx} {...feature} />
+              ))}
+            </BentoGrid>
+          </motion.div>
 
           {/* Right Column: Content */}
           <motion.div

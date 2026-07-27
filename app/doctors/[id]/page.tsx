@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const title = `Dr. ${doctor.name} - ${doctor.departmentName} in Ahmedabad | Ojas Hospital`;
-  const description = `Consult Dr. ${doctor.name}, a leading ${doctor.title} specializing in ${doctor.departmentName} at Ojas Hospital, Rakhial, Ahmedabad. Book your appointment today.`;
+  const title = `${doctor.name} - ${doctor.departmentName} in Ahmedabad | Ojas Hospital`;
+  const description = `Consult ${doctor.name}, a leading ${doctor.title} specializing in ${doctor.departmentName} at Ojas Hospital, Rakhial, Ahmedabad. Book your appointment today.`;
 
   return {
     title,
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: doctor.image || SITE_CONFIG.ogImage,
           width: 1200,
           height: 630,
-          alt: `Dr. ${doctor.name} at Ojas Hospital`,
+          alt: `${doctor.name} at Ojas Hospital`,
         },
       ],
     },
@@ -64,7 +64,7 @@ export default async function DoctorPage({ params }: Props) {
   const physicianSchema = {
     '@context': 'https://schema.org',
     '@type': 'Physician',
-    'name': `Dr. ${doctor.name}`,
+    'name': doctor.name,
     'jobTitle': doctor.title,
     'medicalSpecialty': doctor.departmentName,
     'worksFor': {
@@ -101,7 +101,7 @@ export default async function DoctorPage({ params }: Props) {
       {
         '@type': 'ListItem',
         'position': 3,
-        'name': `Dr. ${doctor.name}`,
+        'name': doctor.name,
         'item': `${SITE_CONFIG.url}/doctors/${doctor.id}`
       }
     ]
@@ -125,7 +125,7 @@ export default async function DoctorPage({ params }: Props) {
             <span className="mx-2">›</span>
             <Link href="/#doctors" className="hover:text-maroon-700">Doctors</Link>
             <span className="mx-2">›</span>
-            <span className="text-slate-800 font-medium">Dr. {doctor.name}</span>
+            <span className="text-slate-800 font-medium">{doctor.name}</span>
           </nav>
 
           <div className="flex flex-col md:flex-row gap-8 mb-12">
@@ -134,7 +134,7 @@ export default async function DoctorPage({ params }: Props) {
                 {doctor.image ? (
                   <Image
                     src={doctor.image}
-                    alt={`Dr. ${doctor.name}, ${doctor.title} at Ojas Hospital Ahmedabad`}
+                    alt={`${doctor.name}, ${doctor.title} at Ojas Hospital Ahmedabad`}
                     fill
                     className="object-cover object-center"
                     priority
@@ -153,7 +153,7 @@ export default async function DoctorPage({ params }: Props) {
                   {doctor.departmentName}
                 </span>
                 <h1 className="text-4xl font-extrabold text-slate-900 mb-2">
-                  Dr. {doctor.name}
+                  {doctor.name}
                 </h1>
                 <p className="text-xl text-slate-600 font-medium mb-4">
                   {doctor.title}
@@ -172,18 +172,19 @@ export default async function DoctorPage({ params }: Props) {
               </header>
 
               <div className="prose prose-lg max-w-none text-slate-700">
-                <h2>About Dr. {doctor.name}</h2>
+                <h2>About {doctor.name}</h2>
                 <p>{doctor.bio}</p>
                 <p>
-                  As a leading <strong>{doctor.departmentName} specialist in Ahmedabad</strong>, Dr. {doctor.name} is dedicated to providing personalized and compassionate care. Practicing at Ojas Multispeciality Hospital in Rakhial, the doctor leverages advanced diagnostic and therapeutic techniques to ensure optimal health outcomes.
+                  As a leading <strong>{doctor.departmentName} specialist in Ahmedabad</strong>, {doctor.name} is dedicated to providing personalized and compassionate care. Practicing at Ojas Multispeciality Hospital in Rakhial, the doctor leverages advanced diagnostic and therapeutic techniques to ensure optimal health outcomes.
                 </p>
                 <p>
-                  Whether you are seeking a routine consultation, second opinion, or specialized medical intervention, you can trust Dr. {doctor.name}'s extensive clinical experience.
+                  Whether you are seeking a routine consultation, second opinion, or specialized medical intervention, you can trust {doctor.name}'s extensive clinical experience.
                 </p>
 
                 <div className="mt-8">
-                  <a href="https://wa.me/917574840735?text=Hello%20Ojas%20Hospital%2C%20I%20would%20like%20to%20inquire%20about%20appointments%20and%20medical%20services." target="_blank" rel="noopener noreferrer" className="inline-block bg-emerald-600 text-white px-8 py-3 rounded-full font-semibold shadow-md hover:bg-emerald-700 transition-colors">
-                    Contact on WhatsApp
+                  <a href="tel:+918980331402" className="inline-flex items-center gap-2 bg-maroon-600 text-white px-8 py-3 rounded-full font-semibold shadow-md hover:bg-maroon-700 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Call Dr. Ayush: +91 89803 31402
                   </a>
                 </div>
               </div>
