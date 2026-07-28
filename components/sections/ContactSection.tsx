@@ -18,6 +18,7 @@ const contactSchema = z.object({
   phone: z.string().min(8, 'Phone number must be at least 8 digits'),
   subject: z.string().min(3, 'Subject is required'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
+  honeyPot: z.string().optional(),
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
@@ -36,11 +37,20 @@ export function ContactSection() {
   });
 
   const onSubmit = async (data: ContactFormValues) => {
+    if (data.honeyPot) {
+      reset();
+      return;
+    }
+
     setIsSubmitting(true);
 
     const message = `*New Inquiry from ${data.fullName}*\n\n*Email:* ${data.email}\n*Phone:* ${data.phone}\n*Subject:* ${data.subject}\n\n*Message:*\n${data.message}`;
-    const whatsappNumber = '917574840735'; // Ojas business number
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    
+    // Obfuscate phone number parts
+    const p1 = '9175';
+    const p2 = '7484';
+    const p3 = '0735';
+    const whatsappUrl = `https://wa.me/${p1}${p2}${p3}?text=${encodeURIComponent(message)}`;
     
     window.open(whatsappUrl, '_blank');
 
@@ -86,13 +96,13 @@ export function ContactSection() {
                 <div>
                   <h3 className="text-sm font-bold text-charcoal">Emergency & General Hotlines</h3>
                   <p className="text-xs text-charcoal/70 mt-1">
-                    Phone: <a href="tel:+917574840735" className="font-bold text-charcoal">+91 75748 40735</a>
+                    Phone: <a href={`tel:+91${'75748'}${'40735'}`} className="font-bold text-charcoal">+91 75748 40735</a>
                   </p>
                   <p className="text-xs text-charcoal/70">
-                    Alternate: <a href="tel:+919737290729" className="font-bold text-charcoal">+91 97372 90729</a>
+                    Alternate: <a href={`tel:+91${'97372'}${'90729'}`} className="font-bold text-charcoal">+91 97372 90729</a>
                   </p>
                   <p className="text-xs text-charcoal/70 mt-1">
-                    Emergency: <a href="tel:+919825137768" className="font-bold text-maroon-700">+91 98251 37768</a>
+                    Emergency: <a href={`tel:+91${'98251'}${'37768'}`} className="font-bold text-maroon-700">+91 98251 37768</a>
                   </p>
                 </div>
               </div>
@@ -133,6 +143,16 @@ export function ContactSection() {
               </p>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                {/* Anti-spam Honeypot */}
+                <input
+                  type="text"
+                  {...register('honeyPot')}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold text-charcoal/80 mb-1">Full Name *</label>

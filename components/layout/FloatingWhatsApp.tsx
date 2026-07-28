@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare } from 'lucide-react';
 import { EMERGENCY_INFO } from '@/constants/hospitalData';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 
 export function FloatingWhatsApp() {
   const whatsappUrl = `https://wa.me/7574840735?text=${encodeURIComponent('Hello Ojas Hospital, I would like to inquire about appointments and medical services.')}`;
@@ -21,7 +21,7 @@ export function FloatingWhatsApp() {
       aria-label="Chat with Ojas on WhatsApp"
     >
       <div className="relative">
-        <MessageSquare className="h-6 w-6 fill-white text-emerald-600" />
+        <WhatsAppIcon className="h-6 w-6 text-white" />
         <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-emerald-300 animate-ping" />
       </div>
       <span className="hidden sm:inline text-sm font-bold tracking-wide">WhatsApp Support</span>

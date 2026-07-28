@@ -3,7 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
-import { ShieldCheck, MessageSquare, ArrowRight } from 'lucide-react';
+import { ShieldCheck, ArrowRight } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 
 export function HeroParallax() {
   const whatsappUrl = `https://wa.me/917574840735`;
@@ -104,7 +105,7 @@ export function HeroParallax() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl bg-gold text-maroon-900 font-bold hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(199,154,75,0.35)] transition-all tracking-[0.02em]"
           >
-            <MessageSquare className="h-5 w-5" />
+            <WhatsAppIcon className="h-5 w-5" />
             Chat on WhatsApp
           </a>
 

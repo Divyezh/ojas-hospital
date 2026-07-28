@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { DEPARTMENTS, EMERGENCY_INFO } from '@/constants/hospitalData';
 import { SITE_CONFIG } from '@/constants/metadata';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 
@@ -20,7 +21,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const department = DEPARTMENTS.find((d) => d.id === id);
-  
+
   if (!department) {
     return {
       title: 'Department Not Found',
@@ -151,7 +152,7 @@ export default async function DepartmentPage({ params }: Props) {
               src={department.image}
               alt={`Ojas Hospital ${department.name} department and specialists in Ahmedabad`}
               fill
-              className="object-cover"
+              className="object-cover object-top"
               priority
             />
           </div>
@@ -166,7 +167,7 @@ export default async function DepartmentPage({ params }: Props) {
             </p>
             <h3>Comprehensive {department.name} Treatments</h3>
             <p>
-              Our specialists are trained in the latest therapeutic and surgical methodologies. We emphasize a holistic approach to patient care, from initial consultation and accurate diagnosis to personalized treatment plans and post-operative rehabilitation. {department.description} Whether you are seeking a routine check-up, managing a chronic condition, or require complex surgical intervention, our experts are here to guide you every step of the way. 
+              Our specialists are trained in the latest therapeutic and surgical methodologies. We emphasize a holistic approach to patient care, from initial consultation and accurate diagnosis to personalized treatment plans and post-operative rehabilitation. {department.description} Whether you are seeking a routine check-up, managing a chronic condition, or require complex surgical intervention, our experts are here to guide you every step of the way.
             </p>
             <p>
               As a leading <strong>Multispeciality Hospital in Ahmedabad</strong>, Ojas Hospital provides seamless coordination between different departments. If your condition requires cross-specialty expertise, our {department.name} team works closely with our diagnostic, pathology, and intensive care units to offer a unified, comprehensive healthcare experience. Our modern patient suites and dedicated staff ensure that your stay is comfortable and conducive to a rapid recovery.
@@ -179,13 +180,14 @@ export default async function DepartmentPage({ params }: Props) {
               <li><strong>Patient-Centric Approach:</strong> We believe in empathetic care, ensuring that every patient and their family are well-informed and comfortable.</li>
             </ul>
             <p>
-              If you or a loved one are looking for expert {department.name.toLowerCase()} care, do not hesitate to reach out. At Ojas Hospital, your health and well-being are our highest priority. 
+              If you or a loved one are looking for expert {department.name.toLowerCase()} care, do not hesitate to reach out. At Ojas Hospital, your health and well-being are our highest priority.
             </p>
-            
+
             <div className="mt-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
               <h4 className="text-xl font-bold mb-2">Book an Appointment Today</h4>
               <p className="mb-4">Schedule a consultation with our {department.name} experts in Rakhial, Ahmedabad.</p>
-              <a href="https://wa.me/917574840735?text=Hello%20Ojas%20Hospital%2C%20I%20would%20like%20to%20inquire%20about%20appointments%20and%20medical%20services." target="_blank" rel="noopener noreferrer" className="inline-block bg-emerald-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-emerald-700 transition-colors">
+              <a href="https://wa.me/917574840735?text=Hello%20Ojas%20Hospital%2C%20I%20would%20like%20to%20inquire%20about%20appointments%20and%20medical%20services." target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-emerald-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-emerald-700 transition-colors">
+                <WhatsAppIcon className="h-5 w-5 mr-2" />
                 Contact on WhatsApp
               </a>
             </div>

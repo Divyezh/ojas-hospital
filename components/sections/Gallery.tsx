@@ -56,7 +56,7 @@ export function Gallery() {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" aria-live="polite">
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item, index) => (
               <motion.div
@@ -67,6 +67,15 @@ export function Gallery() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 onClick={() => setSelectedImage(item)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setSelectedImage(item);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`View ${item.title} full screen`}
                 className="group relative h-64 rounded-3xl overflow-hidden shadow-soft-sm cursor-pointer border border-slate-200"
               >
                 <Image

@@ -8,6 +8,7 @@ import { Activity, Menu, X, Calendar, Phone, Stethoscope, MessageSquare } from '
 import { Button } from '@/components/ui/button';
 import { SITE_CONFIG } from '@/constants/metadata';
 import { EMERGENCY_INFO } from '@/constants/hospitalData';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -99,7 +100,7 @@ export function Navbar() {
             variant="primary"
             size="md"
             onClick={handleAppointmentClick}
-            leftIcon={<MessageSquare className="h-4 w-4" />}
+            leftIcon={<WhatsAppIcon className="h-4 w-4" />}
           >
             WhatsApp Us
           </Button>
@@ -176,7 +177,7 @@ export function Navbar() {
                   handleAppointmentClick();
                 }}
                 className="w-full"
-                leftIcon={<MessageSquare className="h-5 w-5" />}
+                leftIcon={<WhatsAppIcon className="h-5 w-5" />}
               >
                 Contact on WhatsApp
               </Button>

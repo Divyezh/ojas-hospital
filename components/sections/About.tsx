@@ -16,7 +16,7 @@ const hospitalFeatures = [
     description: "Round the clock trauma and emergency care.",
     href: "#",
     cta: "Contact Hotline",
-    className: "col-span-3 lg:col-span-1",
+    className: "lg:col-span-1",
     background: (
       <div className="absolute inset-0 bg-maroon-50/50 flex items-center justify-center mask-[linear-gradient(to_top,transparent_10%,#000_100%)]">
         <Image src="/2477.png" alt="24/7 Emergency Care" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-60 group-hover:opacity-80 transition-opacity" />
@@ -29,7 +29,7 @@ const hospitalFeatures = [
     description: "Multispeciality departments offering world-class treatments.",
     href: "#departments",
     cta: "View Departments",
-    className: "col-span-3 lg:col-span-2",
+    className: "lg:col-span-2",
     background: (
       <Marquee
         pauseOnHover
@@ -59,7 +59,7 @@ const hospitalFeatures = [
     description: "Voted Top 10 International Hospital Facilities in Ahmedabad.",
     href: "#",
     cta: "Read More",
-    className: "col-span-3 lg:col-span-2",
+    className: "lg:col-span-2",
     background: (
       <div className="absolute inset-0 bg-gold/10 mask-[linear-gradient(to_top,transparent_10%,#000_100%)] flex items-center justify-center transition-all duration-300 ease-out group-hover:scale-105">
         <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800" className="absolute h-full w-full object-cover opacity-20" alt="Award Winning" />
@@ -70,7 +70,7 @@ const hospitalFeatures = [
     Icon: ShieldCheck,
     name: "25+ Years",
     description: "Of medical leadership, innovation, and trust.",
-    className: "col-span-3 lg:col-span-1",
+    className: "lg:col-span-1",
     href: "#",
     cta: "Our History",
     background: (

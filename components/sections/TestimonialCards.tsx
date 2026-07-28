@@ -50,7 +50,10 @@ function TestimonialCardItem({ test }: { test: any }) {
         <span className="rating-time">{test.timeAgo}</span>
       </div>
 
-      <p className={`quote-text ${expanded || textEndsWithEllipsis ? 'expanded' : ''}`}>
+      <p 
+        className={`quote-text ${expanded || textEndsWithEllipsis ? 'expanded' : ''}`}
+        aria-live="polite"
+      >
         {test.text}
       </p>
       

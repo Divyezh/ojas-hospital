@@ -41,8 +41,8 @@ export const DEPARTMENTS: Department[] = [
     name: "General Medicine",
     slug: "general-medicine",
     iconName: "Stethoscope",
-    description: "Comprehensive medical care for adult diseases and preventive health checkups.",
-    fullDescription: "Our General Medicine department provides primary and specialized care for acute and chronic adult illnesses, focusing on disease prevention, diagnosis, and non-surgical treatments.",
+    description: "Expert primary care and comprehensive health checkups for adults by top physicians in Ahmedabad.",
+    fullDescription: "Looking for a reliable general physician in Rakhial? Our General Medicine wing offers personalized, compassionate care for managing fevers, chronic conditions, and everyday health concerns, ensuring you stay healthy year-round.",
     headOfDepartment: "Chief Physician",
     features: [
       "Preventive Health Checkups",
@@ -58,8 +58,8 @@ export const DEPARTMENTS: Department[] = [
     name: "General Surgery",
     slug: "general-surgery",
     iconName: "Activity",
-    description: "Advanced surgical interventions including laparoscopic and open procedures.",
-    fullDescription: "Our surgical team is equipped to handle complex and routine general surgeries with a focus on minimally invasive techniques for faster recovery.",
+    description: "Safe, minimally invasive, and advanced surgical treatments tailored for your quick recovery.",
+    fullDescription: "When you need surgery, you want the best hands. Our expert surgeons at Ojas Hospital perform safe laparoscopic and open procedures with precision, minimizing pain and accelerating your return to daily life in Ahmedabad.",
     headOfDepartment: "Chief Surgeon",
     features: [
       "Laparoscopic Surgery",
@@ -75,8 +75,8 @@ export const DEPARTMENTS: Department[] = [
     name: "Orthopedics",
     slug: "orthopedics",
     iconName: "Bone",
-    description: "Treatment for bone, joint, and spine disorders including fracture management.",
-    fullDescription: "We provide comprehensive orthopedic care from trauma and fracture management to joint replacements and sports injury treatments.",
+    description: "Advanced bone, joint, and spine care to help you move pain-free and get back on your feet.",
+    fullDescription: "Struggling with joint pain or a sports injury? Our leading orthopedic specialists in Ahmedabad provide top-tier fracture management and joint replacement therapies, focusing on mobility and lasting relief.",
     headOfDepartment: "Chief Orthopedic Surgeon",
     features: [
       "Fracture & Trauma Care",
@@ -84,7 +84,7 @@ export const DEPARTMENTS: Department[] = [
       "Sports Injuries",
       "Spine Care"
     ],
-    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800",
+    image: "/orthopedics.png",
     stats: { surgeries: "5,000+", satisfaction: "98.5%", specialists: 3 }
   },
   {
@@ -92,8 +92,8 @@ export const DEPARTMENTS: Department[] = [
     name: "Gynecology",
     slug: "gynecology",
     iconName: "Baby",
-    description: "Women's health, maternity care, and advanced gynecological treatments.",
-    fullDescription: "Dedicated to women's health across all stages of life, offering maternity services, preventative screenings, and advanced surgical interventions.",
+    description: "Empathetic, world-class women's healthcare, from maternity journeys to specialized treatments.",
+    fullDescription: "Every woman deserves trusted care. Our gynecology team in Rakhial provides a safe, supportive environment for maternity, preventative screenings, and advanced surgical care, guiding you through every stage of womanhood.",
     headOfDepartment: "Chief Gynecologist",
     features: [
       "Maternity Care",
@@ -101,7 +101,7 @@ export const DEPARTMENTS: Department[] = [
       "Women's Health Screenings",
       "Gynecological Surgeries"
     ],
-    image: "https://images.unsplash.com/photo-1581595220892-c0739db3ba8c?auto=format&fit=crop&q=80&w=800",
+    image: "/gynacologist.png",
     stats: { surgeries: "8,000+", satisfaction: "99%", specialists: 4 }
   },
   {
@@ -109,8 +109,8 @@ export const DEPARTMENTS: Department[] = [
     name: "Pediatrics",
     slug: "pediatrics",
     iconName: "Smile",
-    description: "Compassionate healthcare for infants, children, and adolescents.",
-    fullDescription: "Providing expert pediatric care, vaccinations, and specialized treatments for childhood illnesses in a child-friendly environment.",
+    description: "Gentle, expert medical care for your little ones, ensuring they grow up healthy and strong.",
+    fullDescription: "Your child's health is our priority. From essential vaccinations to compassionate treatment of childhood illnesses, our pediatricians offer a comforting, child-friendly experience right here in Ahmedabad.",
     headOfDepartment: "Chief Pediatrician",
     features: [
       "Newborn Care",
@@ -118,7 +118,7 @@ export const DEPARTMENTS: Department[] = [
       "Pediatric Infections",
       "Growth & Development"
     ],
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
+    image: "/Pediatrics.png",
     stats: { surgeries: "N/A", satisfaction: "99.5%", specialists: 2 }
   },
 
@@ -127,8 +127,8 @@ export const DEPARTMENTS: Department[] = [
     name: "Dermatology",
     slug: "dermatology",
     iconName: "Activity",
-    description: "Advanced skin care and treatment for dermatological conditions.",
-    fullDescription: "Providing comprehensive medical and cosmetic dermatology services for skin, hair, and nail disorders.",
+    description: "Advanced medical and cosmetic skin care solutions to help you look and feel your absolute best.",
+    fullDescription: "Achieve healthy, radiant skin with Ahmedabad's trusted dermatologists. We specialize in treating complex skin, hair, and nail conditions, offering both medical therapies and modern cosmetic procedures.",
     headOfDepartment: "Chief Dermatologist",
     features: [
       "Acne Treatment",
@@ -136,7 +136,7 @@ export const DEPARTMENTS: Department[] = [
       "Hair Loss Treatment",
       "Cosmetic Procedures"
     ],
-    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800",
+    image: "/dermatology.png",
     stats: { surgeries: "N/A", satisfaction: "98%", specialists: 2 }
   },
   {
@@ -144,8 +144,8 @@ export const DEPARTMENTS: Department[] = [
     name: "Cardiology",
     slug: "cardiology",
     iconName: "HeartPulse",
-    description: "Expert cardiac care, diagnostics, and management of heart diseases.",
-    fullDescription: "Dedicated to heart health with advanced ECG, echo, and treatments for cardiovascular conditions.",
+    description: "Proactive heart health management and expert cardiac diagnostics you can trust with your life.",
+    fullDescription: "Your heart is in expert hands. We provide cutting-edge ECGs, echocardiograms, and dedicated cardiovascular treatments in Rakhial, helping you manage blood pressure and protect your long-term heart health.",
     headOfDepartment: "Chief Cardiologist",
     features: [
       "ECG & Echocardiogram",
@@ -153,7 +153,7 @@ export const DEPARTMENTS: Department[] = [
       "Hypertension Care",
       "Preventive Cardiology"
     ],
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
+    image: "/cardiologist.png",
     stats: { surgeries: "1,200+", satisfaction: "99%", specialists: 2 }
   },
 
@@ -162,8 +162,8 @@ export const DEPARTMENTS: Department[] = [
     name: "Emergency Care",
     slug: "emergency-care",
     iconName: "Siren",
-    description: "24x7 immediate response and critical care for medical emergencies.",
-    fullDescription: "Our casualty department is fully equipped to handle all medical and surgical emergencies around the clock.",
+    description: "Rapid-response 24/7 critical care when every second counts, right here in Ahmedabad.",
+    fullDescription: "Medical emergencies don't wait, and neither do we. Our 24x7 trauma and casualty center is fully equipped for immediate resuscitation and critical care, providing life-saving support around the clock.",
     headOfDepartment: "Emergency Head",
     features: [
       "24/7 Availability",
@@ -372,9 +372,9 @@ export const DOCTORS: Doctor[] = [
   {
     id: "doc-13",
     name: "Dr. Ayush Soni",
-    title: "Physician",
-    departmentId: "general-medicine",
-    departmentName: "General Medicine",
+    title: "Cosmetologist",
+    departmentId: "dermatology",
+    departmentName: "Dermatology",
     qualifications: "MBBS, MD",
     experienceYears: 12,
     rating: 4.7,
@@ -383,7 +383,7 @@ export const DOCTORS: Doctor[] = [
     initials: "AS",
     color: "Cyan",
     specialties: ["Consultation", "Treatment", "Specialist Care"],
-    bio: "Experienced Physician dedicated to providing premium healthcare services at Ojas Hospital."
+    bio: "Experienced Cosmetologist dedicated to providing premium healthcare services at Ojas Hospital."
   },
   {
     id: "doc-14",
@@ -542,14 +542,6 @@ export const FACILITIES: Facility[] = [
     features: ["Painless Procedures", "Cosmetic Dentistry", "Oral Surgery"]
   },
   {
-    id: "fac-6",
-    title: "Special Rooms",
-    category: "Inpatient",
-    description: "Private patient rooms offering comfort and personalized care.",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
-    features: ["Private Room", "TV & WiFi", "Sofa for Attendant"]
-  },
-  {
     id: "fac-7",
     title: "Deluxe Rooms",
     category: "Inpatient",
@@ -558,60 +550,12 @@ export const FACILITIES: Facility[] = [
     features: ["Premium Furnishings", "Mini Fridge", "VIP Services"]
   },
   {
-    id: "fac-8",
-    title: "Digital X-Ray",
-    category: "Diagnostics",
-    description: "High-resolution digital radiography for quick and accurate bone imaging.",
-    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800",
-    features: ["Low Radiation", "Instant Results", "High Clarity"]
-  },
-  {
-    id: "fac-9",
-    title: "ECG",
-    category: "Diagnostics",
-    description: "Electrocardiogram services for immediate cardiac assessment.",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
-    features: ["Cardiac Check", "Quick Reporting", "Painless Procedure"]
-  },
-  {
     id: "fac-10",
     title: "Sonography",
     category: "Diagnostics",
     description: "Advanced ultrasound imaging for soft tissue and internal organ diagnostics.",
     image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
     features: ["Pregnancy Scans", "Abdominal Scans", "Non-invasive"]
-  },
-  {
-    id: "fac-11",
-    title: "Laboratory",
-    category: "Diagnostics",
-    description: "In-house pathology lab for comprehensive blood and fluid testing.",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
-    features: ["Automated Analyzers", "Accurate Reports", "Home Collection Available"]
-  },
-  {
-    id: "fac-12",
-    title: "Nebulizer",
-    category: "Treatment",
-    description: "Respiratory therapy support for asthma and breathing difficulties.",
-    image: "https://images.unsplash.com/photo-1581595220892-c0739db3ba8c?auto=format&fit=crop&q=80&w=800",
-    features: ["Breathing Support", "Pediatric Friendly", "Sterile Equipment"]
-  },
-  {
-    id: "fac-13",
-    title: "Pharmacy",
-    category: "Services",
-    description: "In-house pharmacy stocked with authentic medicines and health supplies.",
-    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800",
-    features: ["Authentic Medicines", "24/7 Availability", "Surgical Supplies"]
-  },
-  {
-    id: "fac-14",
-    title: "Cashless Insurance Support",
-    category: "Services",
-    description: "Dedicated TPA desk to help with cashless mediclaim processing.",
-    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800",
-    features: ["Multiple TPAs", "Easy Processing", "Claim Assistance"]
   },
   {
     id: "fac-15",

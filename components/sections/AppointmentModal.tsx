@@ -21,6 +21,7 @@ const appointmentSchema = z.object({
   preferredTime: z.string().min(1, 'Preferred time is required'),
   notes: z.string().optional(),
   urgency: z.enum(['routine', 'urgent', 'emergency']),
+  honeyPot: z.string().optional(),
 });
 
 type AppointmentFormValues = z.infer<typeof appointmentSchema>;
@@ -67,13 +68,28 @@ export function AppointmentModal({
     : DOCTORS;
 
   const onSubmit = async (data: AppointmentFormValues) => {
+    if (data.honeyPot) {
+      reset();
+      onClose();
+      return;
+    }
+
     setIsSubmitting(true);
-    // Simulate server submission
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+
+    // Obfuscate WhatsApp number
+    const p1 = '9175';
+    const p2 = '7484';
+    const p3 = '0735';
+    
+    const message = `*New Appointment Request*\n\n*Patient:* ${data.patientName}\n*Email:* ${data.email}\n*Phone:* ${data.phone}\n*Date:* ${data.preferredDate} at ${data.preferredTime}\n*Dept:* ${data.department}\n*Urgency:* ${data.urgency}\n*Notes:* ${data.notes || 'None'}`;
+    const whatsappUrl = `https://wa.me/${p1}${p2}${p3}?text=${encodeURIComponent(message)}`;
+    
+    window.open(whatsappUrl, '_blank');
+
     setIsSubmitting(false);
 
     showToast(
-      `Appointment request submitted for ${data.patientName}! Confirmation sent to ${data.email}.`,
+      `Redirecting to WhatsApp to confirm appointment...`,
       'success'
     );
     reset();
@@ -88,6 +104,16 @@ export function AppointmentModal({
       description="Schedule an in-person or telehealth appointment with our board-certified specialists."
     >
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 pt-2">
+        {/* Anti-spam Honeypot */}
+        <input
+          type="text"
+          {...register('honeyPot')}
+          className="hidden"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
+
         {/* Patient Name */}
         <div>
           <label className="block text-xs font-bold text-slate-700 mb-1">Full Patient Name *</label>
