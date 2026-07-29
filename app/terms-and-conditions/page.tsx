@@ -39,7 +39,12 @@ export default function TermsAndConditions() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[#6D1B2B] mb-3">6. Governing Law</h2>
+            <h2 className="text-xl font-bold text-[#6D1B2B] mb-3">6. Visual Content and AI Usage</h2>
+            <p>To enhance the visual experience of our website, certain images and illustrations have been generated or enhanced using artificial intelligence (AI). These visuals are used solely for illustrative and promotional purposes and should not be interpreted as photographs of actual patients, medical professionals, or hospital facilities unless explicitly stated. Ojas Hospital is committed to providing accurate information regarding its healthcare services, doctors, and medical facilities.</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-[#6D1B2B] mb-3">7. Governing Law</h2>
             <p>These terms and conditions are governed by and construed in accordance with the laws of India. You irrevocably submit to the exclusive jurisdiction of the courts in {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state}.</p>
           </section>
         </div>

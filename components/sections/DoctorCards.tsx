@@ -20,10 +20,12 @@ export function DoctorCards({ selectedDepartmentFilter }: DoctorCardsProps) {
 
   const filterTabs = [
     { id: 'all', label: 'All Specialists', count: DOCTORS.length },
-    { id: 'cardiology', label: 'Cardiology' },
-    { id: 'neurology', label: 'Neurology' },
+    { id: 'general-surgery', label: 'General Surgery' },
+    { id: 'gynecology', label: 'Gynecology' },
     { id: 'orthopedics', label: 'Orthopedics' },
-    { id: 'pediatrics', label: 'Pediatrics' },
+    { id: 'dermatology', label: 'Dermatology' },
+    { id: 'ent', label: 'ENT' },
+    { id: 'physiotherapy', label: 'Physiotherapy' },
   ];
 
   const filteredDoctors = activeTab === 'all'

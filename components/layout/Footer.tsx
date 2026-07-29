@@ -147,11 +147,11 @@ export function Footer() {
 
         {/* 3. Map Card Enhancement */}
         <div className="mt-8 mb-12">
-          <div className="map-card shadow-soft-lg">
+          <div className="map-card shadow-soft-lg w-full h-48 sm:h-64 relative rounded-xl overflow-hidden">
             <iframe
-              src="https://maps.google.com/maps?q=Ojas+Hospital,+Jasval+Bhavan,+Char+Rasta,+Rakhial,+Ahmedabad,+Gujarat+380021,+India&z=15&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9366479768656!2d72.6288667753381!3d23.024564479169627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e86548a3f8205%3A0x6b86ec32e293817a!2sOjas%20Hospital!5e0!3m2!1sen!2sin!4v1722157582155!5m2!1sen!2sin"
+              className="absolute inset-0 w-full h-full border-0"
               allowFullScreen={true}
-              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Ojas Hospital Map"
             ></iframe>

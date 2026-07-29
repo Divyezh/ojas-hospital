@@ -45,13 +45,13 @@ export function ContactSection() {
     setIsSubmitting(true);
 
     const message = `*New Inquiry from ${data.fullName}*\n\n*Email:* ${data.email}\n*Phone:* ${data.phone}\n*Subject:* ${data.subject}\n\n*Message:*\n${data.message}`;
-    
+
     // Obfuscate phone number parts
     const p1 = '9175';
     const p2 = '7484';
     const p3 = '0735';
     const whatsappUrl = `https://wa.me/${p1}${p2}${p3}?text=${encodeURIComponent(message)}`;
-    
+
     window.open(whatsappUrl, '_blank');
 
     setIsSubmitting(false);
@@ -102,7 +102,7 @@ export function ContactSection() {
                     Alternate: <a href={`tel:+91${'97372'}${'90729'}`} className="font-bold text-charcoal">+91 97372 90729</a>
                   </p>
                   <p className="text-xs text-charcoal/70 mt-1">
-                    Emergency: <a href={`tel:+91${'98251'}${'37768'}`} className="font-bold text-maroon-700">+91 98251 37768</a>
+                    Emergency: <a href={`tel:+91${'98251'}${'37766'}`} className="font-bold text-maroon-700">+91 98251 37766</a>
                   </p>
                 </div>
               </div>
@@ -120,14 +120,12 @@ export function ContactSection() {
             </div>
 
             {/* Google Map */}
-            <div className="relative h-64 rounded-3xl overflow-hidden border border-maroon-100 shadow-md bg-white">
+            <div className="relative h-64 w-full rounded-3xl overflow-hidden border border-maroon-100 shadow-md bg-white">
               <iframe
-                src="https://maps.google.com/maps?q=Ojas+Hospital,+Jasval+Bhavan,+Char+Rasta,+Rakhial,+Ahmedabad,+Gujarat+380021,+India&z=16&output=embed"
-                width="100%"
-                height="100%"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9366479768656!2d72.6288667753381!3d23.024564479169627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e86548a3f8205%3A0x6b86ec32e293817a!2sOjas%20Hospital!5e0!3m2!1sen!2sin!4v1722157582155!5m2!1sen!2sin"
+                className="absolute inset-0 w-full h-full"
                 style={{ border: 0 }}
                 allowFullScreen={true}
-                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Ojas Hospital Google Map"
               ></iframe>
