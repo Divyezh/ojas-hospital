@@ -23,7 +23,7 @@ export function DoctorCards({ selectedDepartmentFilter }: DoctorCardsProps) {
     { id: 'general-surgery', label: 'General Surgery' },
     { id: 'gynecology', label: 'Gynecology' },
     { id: 'orthopedics', label: 'Orthopedics' },
-    { id: 'dermatology', label: 'Dermatology' },
+    { id: 'dermatology', label: 'Skin & Hair' },
     { id: 'ent', label: 'ENT' },
     { id: 'physiotherapy', label: 'Physiotherapy' },
   ];

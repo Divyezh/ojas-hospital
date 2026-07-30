@@ -61,8 +61,16 @@ const hospitalFeatures = [
     cta: "Read More",
     className: "lg:col-span-2",
     background: (
-      <div className="absolute inset-0 bg-gold/10 mask-[linear-gradient(to_top,transparent_10%,#000_100%)] flex items-center justify-center transition-all duration-300 ease-out group-hover:scale-105">
-        <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800" className="absolute h-full w-full object-cover opacity-20" alt="Award Winning" />
+      <div className="absolute inset-0 mask-[linear-gradient(to_top,transparent_10%,#000_100%)] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-br from-maroon-900 via-maroon-800 to-maroon-700 opacity-80" />
+        <div className="relative flex flex-col items-center justify-center gap-3 opacity-30 group-hover:opacity-50 transition-opacity duration-300">
+          <Award className="h-24 w-24 text-gold" strokeWidth={0.8} />
+          <div className="flex gap-2">
+            {[...Array(5)].map((_, i) => (
+              <div key={i} className="h-1.5 w-1.5 rounded-full bg-gold" />
+            ))}
+          </div>
+        </div>
       </div>
     ),
   },
@@ -100,7 +108,7 @@ export function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Bento Grid */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-10%" }}

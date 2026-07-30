@@ -149,14 +149,15 @@ export function Footer() {
         <div className="mt-8 mb-12">
           <div className="map-card shadow-soft-lg w-full h-48 sm:h-64 relative rounded-xl overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9366479768656!2d72.6288667753381!3d23.024564479169627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e86548a3f8205%3A0x6b86ec32e293817a!2sOjas%20Hospital!5e0!3m2!1sen!2sin!4v1722157582155!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.011093468482!2d72.6172763!3d23.0236317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8680a3df0bfd%3A0x17f2ff07e7c7d8b!2sOjas%20Hospital!5e0!3m2!1sen!2sin!4v1753847087000!5m2!1sen!2sin"
               className="absolute inset-0 w-full h-full border-0"
               allowFullScreen={true}
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Ojas Hospital Map"
+              title="Ojas Hospital Location on Google Maps"
             ></iframe>
             <div className="map-overlay">
-              <a href="https://maps.google.com/?q=Ojas+Hospital,+Ahmedabad" target="_blank" rel="noopener noreferrer" className="btn-gold-fill shadow-lg">
+              <a href="https://www.google.com/maps/place/Ojas+Hospital/@23.0236317,72.6198512,17z" target="_blank" rel="noopener noreferrer" className="btn-gold-fill shadow-lg">
                 <MapPin className="h-4 w-4 mr-2" /> Get Directions
               </a>
             </div>

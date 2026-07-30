@@ -6,98 +6,148 @@ import { motion, Variants } from 'framer-motion';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 
+const fadeUp = (delay: number): Variants => ({
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { delay, duration: 0.7, ease: 'easeOut' } },
+});
+
+const wordContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
+};
+
+const wordChild: Variants = {
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { type: 'spring', damping: 14, stiffness: 110 } },
+};
+
+interface PortraitCardProps {
+  src: string;
+  alt: string;
+  org: string;
+  role: string;
+}
+
+function PortraitCard({ src, alt, org, role }: PortraitCardProps) {
+  return (
+    <figure className="relative w-[min(85vw,320px)] h-[min(70vw,400px)] sm:w-[clamp(200px,24vw,340px)] sm:h-[clamp(280px,34vw,440px)] rounded-2xl overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority
+        sizes="(max-width: 640px) 85vw, (max-width: 1024px) 40vw, 340px"
+        className="object-cover object-top"
+      />
+      {/* Gradient scrim — text lives here, never outside the card */}
+      <figcaption className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-black/85 via-black/50 to-transparent flex flex-col justify-end items-center pb-4 px-4 gap-0.5">
+        <span
+          className="text-white/70 text-[10px] font-semibold tracking-[0.18em] uppercase"
+          style={{ fontFamily: 'var(--font-fraunces)' }}
+        >
+          {org}
+        </span>
+        <span
+          className="text-gold text-[16px] font-bold tracking-[0.06em] uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
+          style={{ fontFamily: 'var(--font-fraunces)' }}
+        >
+          {role}
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
+
 export function HeroParallax() {
-  const whatsappUrl = `https://wa.me/917574840735`;
-
-  // Staggered word animation variants for headline
-  const sentence = "Best Multispeciality Hospital in Ahmedabad";
-  const words = sentence.split(" ");
-
-  const container: Variants = {
-    hidden: { opacity: 0 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.1 * i },
-    }),
-  };
-
-  const child: Variants = {
-    visible: { opacity: 1, y: 0, transition: { type: "spring", damping: 12, stiffness: 100 } },
-    hidden: { opacity: 0, y: 40 },
-  };
+  const whatsappUrl = 'https://wa.me/917574840735';
+  const words = 'Best Multispeciality Hospital in Ahmedabad'.split(' ');
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-maroon-900 to-maroon-800 pt-20 pb-12">
-      {/* Background glow centered behind subject */}
+    <section
+      id="hero"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-linear-to-br from-maroon-900 to-maroon-800 pt-24 pb-16 px-6"
+    >
+      {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-175 rounded-full bg-[radial-gradient(circle,rgba(199,154,75,0.12),transparent_70%)] pointer-events-none z-0" />
 
-      <div className="relative z-10 flex flex-col items-center text-center w-full max-w-225 px-6 mt-10">
+      {/* ── HERO TOP — badge + headline ── */}
+      <div className="relative z-10 flex flex-col items-center text-center w-full max-w-4xl mb-12">
 
-        {/* Top Pill Tag */}
+        {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.5, type: 'spring' }}
-          className="inline-flex items-center space-x-2 bg-cream border border-gold/40 px-4 py-2 rounded-full shadow-lg shadow-black/20 mb-6 z-10"
+          variants={fadeUp(0.1)}
+          initial="hidden"
+          animate="visible"
+          className="inline-flex items-center gap-2 bg-cream border border-gold/40 px-4 py-2 rounded-full shadow-lg shadow-black/20 mb-7"
         >
           <ShieldCheck className="h-4 w-4 text-maroon-700" />
-          <span className="text-[13px] sm:text-sm font-bold tracking-[0.02em] text-maroon-900 uppercase">
+          <span className="text-[13px] font-bold tracking-[0.04em] text-maroon-900 uppercase">
             Multispeciality Care in Rakhial
           </span>
         </motion.div>
 
-        {/* Main Title */}
+        {/* Headline — capped to avoid overflow */}
         <motion.h1
-          className="relative z-10 text-[clamp(48px,8vw,96px)] leading-[1.05] font-bold text-white mb-4 sm:-mb-15 flex flex-wrap justify-center gap-x-3 sm:gap-x-4 drop-shadow-lg"
+          className="text-[clamp(36px,5.5vw,68px)] leading-[1.15] font-bold text-white max-w-225 flex flex-wrap justify-center gap-x-3 drop-shadow-lg"
           style={{ fontFamily: 'var(--font-fraunces)' }}
-          variants={container}
+          variants={wordContainer}
           initial="hidden"
           animate="visible"
         >
-          {words.map((word, index) => (
+          {words.map((word, i) => (
             <motion.span
-              variants={child}
-              key={index}
-              className={word === "Hospital" ? "text-gold" : "text-white"}
+              key={i}
+              variants={wordChild}
+              className={word === 'Hospital' ? 'text-gold' : 'text-white'}
             >
               {word}
             </motion.span>
           ))}
         </motion.h1>
+      </div>
 
-        {/* Doctor Portrait */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-          className="relative z-20 h-[clamp(380px,45vw,560px)] w-full max-w-150 flex justify-center drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)] pointer-events-none"
-        >
-          <Image
-            src="/dr-hasmukh.png"
-            alt="Experienced lead physician at Ojas Multispeciality Hospital in Ahmedabad"
-            fill
-            priority
-            sizes="(max-width: 768px) 100vw, 600px"
-            className="object-contain object-bottom"
-          />
-        </motion.div>
+      {/* ── PORTRAITS — visual anchor, sized up ── */}
+      <motion.div
+        variants={fadeUp(0.35)}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 flex flex-col sm:flex-row justify-center items-center sm:items-end gap-6 sm:gap-8 w-full mb-10 px-4"
+      >
+        <PortraitCard
+          src="/dr-hasmukh.png"
+          alt="Hasmukh Sir, Managing Director – Ojas Multispeciality Hospital"
+          org="Ojas Hospital"
+          role="Managing Director"
+        />
+        <PortraitCard
+          src="/Dr Ayush.png"
+          alt="Dr. Ayush, Director – Ojas Multispeciality Hospital"
+          org="Ojas Hospital"
+          role="Director"
+        />
+      </motion.div>
 
-        {/* Subtext */}
+      {/* ── HERO BOTTOM — subtext, buttons, stats ── */}
+      <div className="relative z-10 flex flex-col items-center text-center w-full max-w-2xl">
+
+        {/* Subtext — sits cleanly below portraits, no negative margin */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="relative z-30 text-base sm:text-lg text-cream/90 max-w-2xl mx-auto mt-6 sm:mt-8 leading-relaxed"
+          variants={fadeUp(0.55)}
+          initial="hidden"
+          animate="visible"
+          className="text-[17px] leading-[1.75] text-white/85 mb-9"
         >
-          At Ojas Hospital, we are committed to providing compassionate, affordable, and high-quality healthcare with experienced doctors, advanced facilities, and 24/7 emergency care for every family in Ahmedabad.
+          At Ojas Hospital, we are committed to providing compassionate, affordable,
+          and high-quality healthcare with experienced doctors, advanced facilities,
+          and 24/7 emergency care for every family in Ahmedabad.
         </motion.p>
 
-        {/* Action Buttons */}
+        {/* Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="relative z-30 flex flex-wrap items-center justify-center gap-4 mt-8"
+          variants={fadeUp(0.7)}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-wrap justify-center gap-4 mb-12"
         >
           <a
             href={whatsappUrl}
@@ -108,7 +158,6 @@ export function HeroParallax() {
             <WhatsAppIcon className="h-5 w-5" />
             Chat on WhatsApp
           </a>
-
           <a
             href="#departments"
             className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl border-[1.5px] border-white/40 text-white font-semibold hover:bg-white/10 hover:border-white transition-all group tracking-[0.02em]"
@@ -118,31 +167,30 @@ export function HeroParallax() {
           </a>
         </motion.div>
 
-        {/* Stats Row */}
+        {/* Stats row */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          className="relative z-30 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 mt-12 pt-8 sm:pt-10 border-t border-white/15 w-full"
+          variants={fadeUp(0.85)}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 pt-8 border-t border-white/15 w-full"
         >
-          <div className="flex flex-col items-center text-center">
-            <strong className="text-3xl text-gold font-bold" style={{ fontFamily: 'var(--font-fraunces)' }}>24×7</strong>
-            <span className="text-[13px] text-white/70 tracking-wide uppercase mt-1 font-semibold">Emergency Care</span>
-          </div>
-
-          <div className="hidden sm:block w-px h-10 bg-white/15"></div>
-
-          <div className="flex flex-col items-center text-center">
-            <strong className="text-3xl text-gold font-bold" style={{ fontFamily: 'var(--font-fraunces)' }}>180+</strong>
-            <span className="text-[13px] text-white/70 tracking-wide uppercase mt-1 font-semibold">Experienced Specialists</span>
-          </div>
-
-          <div className="hidden sm:block w-px h-10 bg-white/15"></div>
-
-          <div className="flex flex-col items-center text-center">
-            <strong className="text-3xl text-gold font-bold" style={{ fontFamily: 'var(--font-fraunces)' }}>4.2★</strong>
-            <span className="text-[13px] text-white/70 tracking-wide uppercase mt-1 font-semibold">Google Rating</span>
-          </div>
+          {[
+            { value: '24×7', label: 'Emergency Care' },
+            { value: '13', label: 'Specialists' },
+            { value: '4.2★', label: 'Google Rating' },
+          ].map(({ value, label }, i) => (
+            <React.Fragment key={label}>
+              {i > 0 && <div className="hidden sm:block w-px h-10 bg-white/15" />}
+              <div className="flex flex-col items-center text-center">
+                <strong className="text-3xl text-gold font-bold" style={{ fontFamily: 'var(--font-fraunces)' }}>
+                  {value}
+                </strong>
+                <span className="text-[13px] text-white/70 tracking-wide uppercase mt-1 font-semibold">
+                  {label}
+                </span>
+              </div>
+            </React.Fragment>
+          ))}
         </motion.div>
       </div>
     </section>

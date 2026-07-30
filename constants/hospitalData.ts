@@ -67,7 +67,7 @@ export const DEPARTMENTS: Department[] = [
       "Appendectomy",
       "Gallbladder Surgery"
     ],
-    image: "/normal surgery.png",
+    image: "/general surgery.png",
     stats: { surgeries: "10,000+", satisfaction: "90%", specialists: 3 }
   },
   {
@@ -84,7 +84,7 @@ export const DEPARTMENTS: Department[] = [
       "Sports Injuries",
       "Spine Care"
     ],
-    image: "/orthopedics.png",
+    image: "/orthopedics.png?v=2",
     stats: { surgeries: "5,000+", satisfaction: "98.5%", specialists: 3 }
   },
   {
@@ -123,11 +123,11 @@ export const DEPARTMENTS: Department[] = [
   },
   {
     id: "dermatology",
-    name: "Dermatology",
+    name: "Skin & Hair",
     slug: "dermatology",
     iconName: "Activity",
     description: "Skin, hair & nail treatment by expert dermatologists in Ahmedabad.",
-    fullDescription: "Trusted dermatology clinic in Ahmedabad treating acne, skin allergies, hair loss, and offering cosmetic skin care procedures.",
+    fullDescription: "Trusted skin & hair clinic in Ahmedabad treating acne, skin allergies, hair loss, and offering cosmetic skin care procedures.",
     headOfDepartment: "Chief Dermatologist",
     features: [
       "Acne Treatment",
@@ -135,7 +135,7 @@ export const DEPARTMENTS: Department[] = [
       "Hair Loss Treatment",
       "Cosmetic Procedures"
     ],
-    image: "/dermatology.png",
+    image: "/skin care.png",
     stats: { surgeries: "N/A", satisfaction: "98%", specialists: 2 }
   },
   {
@@ -244,7 +244,7 @@ export const DOCTORS: Doctor[] = [
     name: "Dr. Ayush Soni",
     title: "Skin & Hair Specialist",
     departmentId: "dermatology",
-    departmentName: "Dermatology",
+    departmentName: "Skin & Hair",
     qualifications: "Consultant",
     experienceYears: 10,
     rating: 4.7,
@@ -252,7 +252,7 @@ export const DOCTORS: Doctor[] = [
     availability: "Mon - Sat",
     initials: "AS",
     color: "Cyan",
-    specialties: ["Dermatology", "Skin Care", "Hair Treatment"],
+    specialties: ["Skin & Hair", "Skin Care", "Hair Treatment"],
     bio: "Experienced Skin & Hair Specialist dedicated to providing premium healthcare services at Ojas Hospital."
   },
   {
@@ -378,6 +378,15 @@ export const FACILITIES: Facility[] = [
     description: "Advanced ultrasound imaging for soft tissue and internal organ diagnostics.",
     image: "/sonography.png",
     features: ["Pregnancy Scans", "Abdominal Scans", "Non-invasive"]
+  },
+  {
+    id: "fac-11",
+    title: "Medical Store",
+    category: "Pharmacy",
+    description: "In-house pharmacy stocking all prescribed medicines, surgical supplies, and healthcare products.",
+    image: "/ojas medicial store.png",
+    features: ["All Medicines Available", "24/7 Access", "Doctor-prescribed Supplies"],
+    badgeText: "In-House"
   }
 ];
 
@@ -491,7 +500,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     id: "faq-6",
     question: "Which departments are available?",
-    answer: "We offer General Medicine, General Surgery, Orthopedics, Gynecology, Pediatrics, Ophthalmology, ENT, Dermatology, Cardiology, Urology, and more.",
+    answer: "We offer General Medicine, General Surgery, Orthopedics, Gynecology, Pediatrics, Ophthalmology, ENT, Skin & Hair, Cardiology, Urology, and more.",
     category: "general"
   },
   {
