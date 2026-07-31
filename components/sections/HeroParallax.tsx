@@ -24,11 +24,12 @@ const wordChild: Variants = {
 interface PortraitCardProps {
   src: string;
   alt: string;
+  name: string;
   org: string;
   role: string;
 }
 
-function PortraitCard({ src, alt, org, role }: PortraitCardProps) {
+function PortraitCard({ src, alt, name, org, role }: PortraitCardProps) {
   return (
     <figure className="relative w-[min(85vw,320px)] h-[min(70vw,400px)] sm:w-[clamp(200px,24vw,340px)] sm:h-[clamp(280px,34vw,440px)] rounded-2xl overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
       <Image
@@ -40,7 +41,13 @@ function PortraitCard({ src, alt, org, role }: PortraitCardProps) {
         className="object-cover object-top"
       />
       {/* Gradient scrim — text lives here, never outside the card */}
-      <figcaption className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-black/85 via-black/50 to-transparent flex flex-col justify-end items-center pb-4 px-4 gap-0.5">
+      <figcaption className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-black/85 via-black/50 to-transparent flex flex-col justify-end items-center pb-4 px-4 gap-0.5">
+        <span
+          className="text-white text-[15px] font-bold tracking-[0.04em] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
+          style={{ fontFamily: 'var(--font-fraunces)' }}
+        >
+          {name}
+        </span>
         <span
           className="text-white/70 text-[10px] font-semibold tracking-[0.18em] uppercase"
           style={{ fontFamily: 'var(--font-fraunces)' }}
@@ -48,7 +55,7 @@ function PortraitCard({ src, alt, org, role }: PortraitCardProps) {
           {org}
         </span>
         <span
-          className="text-gold text-[16px] font-bold tracking-[0.06em] uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
+          className="text-gold text-[14px] font-bold tracking-[0.06em] uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
           style={{ fontFamily: 'var(--font-fraunces)' }}
         >
           {role}
@@ -115,13 +122,15 @@ export function HeroParallax() {
       >
         <PortraitCard
           src="/dr-hasmukh.png"
-          alt="Hasmukh Sir, Managing Director – Ojas Multispeciality Hospital"
+          alt="Dr. Hasmukh Soni, Managing Director – Ojas Multispeciality Hospital"
+          name="Dr. Hasmukh Soni"
           org="Ojas Hospital"
           role="Managing Director"
         />
         <PortraitCard
           src="/Dr Ayush.png"
-          alt="Dr. Ayush, Director – Ojas Multispeciality Hospital"
+          alt="Dr. Ayush Soni, Director – Ojas Multispeciality Hospital"
+          name="Dr. Ayush Soni"
           org="Ojas Hospital"
           role="Director"
         />

@@ -25,17 +25,20 @@ export function Footer() {
 
       {/* 1. Pre-footer CTA band */}
       <section className="cta-band">
-        <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-2">Ready to experience compassionate, precision care?</h3>
-        <p className="text-cream/80 text-sm sm:text-base mb-6">Our specialists are available 24/7 for consultations and emergencies.</p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="https://wa.me/917574840735?text=Hello%20Ojas%20Hospital%2C%20I%20would%20like%20to%20inquire%20about%20appointments%20and%20medical%20services." target="_blank" rel="noopener noreferrer" className="btn-gold-fill">
-            <WhatsAppIcon className="h-5 w-5 mr-2" />
-            Contact on WhatsApp
-          </a>
-          <a href="tel:7574840735" className="btn-outline-cream">
-            <span className="pulse-ring" /> Call Hotline
-          </a>
+        <div className="cta-band-content">
+          <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-2">Ready to experience compassionate, precision care?</h3>
+          <p className="text-cream/80 text-sm sm:text-base mb-6">Our specialists are available 24/7 for consultations and emergencies.</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="https://wa.me/917574840735?text=Hello%20Ojas%20Hospital%2C%20I%20would%20like%20to%20inquire%20about%20appointments%20and%20medical%20services." target="_blank" rel="noopener noreferrer" className="btn-gold-fill">
+              <WhatsAppIcon className="h-5 w-5 mr-2" />
+              Contact on WhatsApp
+            </a>
+            <a href="tel:7574840735" className="btn-outline-cream">
+              <span className="pulse-ring" /> Call Hotline
+            </a>
+          </div>
         </div>
+        <span className="cta-band-wordmark" aria-hidden="true">OJAS</span>
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
