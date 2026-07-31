@@ -1,8 +1,8 @@
 import { Department, Doctor, Facility, Testimonial, GalleryItem, FAQItem, HospitalStat, EmergencyInfo } from '@/types';
 
 export const EMERGENCY_INFO: EmergencyInfo = {
-  hotline: "+91 98251 37766",
-  ambulance: "+91 98251 37766",
+  hotline: "+91 7574840735",
+  ambulance: "+91 7574840735",
   erWaitTime: "Available 24×7",
   traumaCenterLevel: "Emergency Care",
   address: "Jasval Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat – 380021",
