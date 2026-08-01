@@ -27,7 +27,7 @@ const hospitalFeatures = [
     Icon: Heart,
     name: "Comprehensive Care",
     description: "Multispeciality departments offering world-class treatments.",
-    href: "#departments",
+    href: "/departments",
     cta: "View Departments",
     className: "lg:col-span-2",
     background: (

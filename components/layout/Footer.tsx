@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Activity, Phone, Mail, MapPin, ShieldCheck, Heart, Award, ArrowUpRight } from 'lucide-react';
 import { SITE_CONFIG } from '@/constants/metadata';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
@@ -61,14 +62,16 @@ export function Footer() {
           <motion.div custom={1} variants={columnVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10%' }}>
             <h4 className="text-white font-semibold mb-4 tracking-wide text-base">Quick Links</h4>
             <ul className="space-y-3 text-xs sm:text-sm flex flex-col items-start">
-              <li><a href="#" className="footer-link">Home</a></li>
-              <li><a href="#about" className="footer-link">About</a></li>
-              <li><a href="#departments" className="footer-link">Departments</a></li>
-              <li><a href="#doctors" className="footer-link">Doctors</a></li>
-              <li><a href="#facilities" className="footer-link">Facilities</a></li>
-              <li><a href="#gallery" className="footer-link">Gallery</a></li>
-              <li><a href="#gallery" className="footer-link">Medical Camps</a></li>
-              <li><a href="#contact" className="footer-link">Contact</a></li>
+              <li><Link href="/" className="footer-link">Home</Link></li>
+              <li><Link href="/about" className="footer-link">About</Link></li>
+              <li><Link href="/departments" className="footer-link">Departments</Link></li>
+              <li><Link href="/doctors" className="footer-link">Doctors</Link></li>
+              <li><Link href="/facilities" className="footer-link">Facilities</Link></li>
+              <li><Link href="/gallery" className="footer-link">Gallery</Link></li>
+              <li><Link href="/events" className="footer-link">Events & Camps</Link></li>
+              <li><Link href="/media" className="footer-link">Media</Link></li>
+              <li><Link href="/awards" className="footer-link">Awards</Link></li>
+              <li><Link href="/contact" className="footer-link">Contact</Link></li>
             </ul>
           </motion.div>
 
@@ -78,10 +81,10 @@ export function Footer() {
             <ul className="space-y-3 text-xs sm:text-sm flex flex-col items-start">
               {DEPARTMENTS.slice(0, 8).map((dept) => (
                 <li key={dept.id}>
-                  <a href="#departments" className="footer-link footer-link-external space-x-1">
+                  <Link href={`/departments/${dept.id}`} className="footer-link footer-link-external space-x-1">
                     <span>{dept.name}</span>
                     <ArrowUpRight className="icon-arrow h-3 w-3 opacity-60" />
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

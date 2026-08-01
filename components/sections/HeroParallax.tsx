@@ -168,7 +168,7 @@ export function HeroParallax() {
             Chat on WhatsApp
           </a>
           <a
-            href="#departments"
+            href="/departments"
             className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl border-[1.5px] border-white/40 text-white font-semibold hover:bg-white/10 hover:border-white transition-all group tracking-[0.02em]"
           >
             Explore Departments

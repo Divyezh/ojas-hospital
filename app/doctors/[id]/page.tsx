@@ -4,8 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { DOCTORS } from '@/constants/hospitalData';
 import { SITE_CONFIG } from '@/constants/metadata';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
+
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -108,7 +107,7 @@ export default async function DoctorPage({ params }: Props) {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}
@@ -117,13 +116,12 @@ export default async function DoctorPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <Navbar />
-      <main className="grow pt-24 pb-16">
+      <div className="grow pt-24 pb-16">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="text-sm mb-6 text-slate-500">
             <Link href="/" className="hover:text-maroon-700">Home</Link>
             <span className="mx-2">›</span>
-            <Link href="/#doctors" className="hover:text-maroon-700">Doctors</Link>
+            <Link href="/doctors" className="hover:text-maroon-700">Doctors</Link>
             <span className="mx-2">›</span>
             <span className="text-slate-800 font-medium">{doctor.name}</span>
           </nav>
@@ -191,8 +189,7 @@ export default async function DoctorPage({ params }: Props) {
             </div>
           </div>
         </article>
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </>
   );
 }

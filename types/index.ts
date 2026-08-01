@@ -103,3 +103,35 @@ export interface ContactFormData {
   subject: string;
   message: string;
 }
+
+export interface HospitalEvent {
+  id: string;
+  title: string;
+  date: string;
+  location: string;
+  description: string;
+  category: 'Health Camp' | 'Medical Campaign' | 'Awareness Drive' | 'Vaccination Drive' | 'Community Event';
+  image: string;
+  isUpcoming: boolean;
+}
+
+export interface MediaCoverage {
+  id: string;
+  title: string;
+  outlet: string;
+  type: 'Electronic Media' | 'Print Media';
+  date: string;
+  link?: string;
+  thumbnail: string;
+  summary: string;
+}
+
+export interface Award {
+  id: string;
+  title: string;
+  issuingBody: string;
+  year: string;
+  recipient: string;
+  description?: string;
+  image?: string;
+}

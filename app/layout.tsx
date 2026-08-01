@@ -11,6 +11,8 @@ import { FloatingWhatsApp } from '@/components/layout/FloatingWhatsApp';
 import { BackToTop } from '@/components/layout/BackToTop';
 import { LoadingScreen } from '@/components/layout/LoadingScreen';
 import { CustomCursor } from '@/components/layout/CustomCursor';
+import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
 
 export const metadata: Metadata = DEFAULT_METADATA;
 
@@ -39,18 +41,31 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
+        <style dangerouslySetInnerHTML={{ __html: `
+          .skiptranslate, iframe.skiptranslate, #google_translate_element {
+            display: none !important;
+          }
+          body {
+            top: 0 !important;
+          }
+        `}} />
       </head>
       <body className={`antialiased min-h-screen bg-white text-charcoal selection:bg-maroon-700 selection:text-white ${fraunces.variable} ${inter.variable}`} style={{ fontFamily: 'var(--font-inter)' }} suppressHydrationWarning>
-        <ToastProvider>
-          <CustomCursor />
-          <LoadingScreen />
-          <ScrollProgress />
-          
-          <main>{children}</main>
+        <div id="google_translate_element" style={{ display: 'none' }} />
+        <div suppressHydrationWarning>
+          <ToastProvider>
+            <CustomCursor />
+            <LoadingScreen />
+            <ScrollProgress />
+            <Navbar />
 
-          <FloatingWhatsApp />
-          <BackToTop />
-        </ToastProvider>
+            <main>{children}</main>
+
+            <Footer />
+            <FloatingWhatsApp />
+            <BackToTop />
+          </ToastProvider>
+        </div>
       </body>
     </html>
   );

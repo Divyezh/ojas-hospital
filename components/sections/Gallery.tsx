@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, Maximize2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -41,9 +42,9 @@ export function Gallery() {
             <p className="text-sm text-slate-600 mb-4 max-w-2xl mx-auto">
               Ojas Hospital regularly organizes health awareness camps and community healthcare initiatives to promote preventive healthcare.
             </p>
-            <button className="bg-maroon-700 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-md hover:bg-maroon-800 transition-colors">
-              View Upcoming Camps
-            </button>
+            <Link href="/events" className="bg-maroon-700 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-md hover:bg-maroon-800 transition-colors inline-block">
+              View Upcoming Events
+            </Link>
           </div>
 
           <div className="pt-6 flex justify-center">
