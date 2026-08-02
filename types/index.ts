@@ -56,7 +56,7 @@ export interface Testimonial {
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'camps' | 'all';
+  category: 'camps' | 'media' | 'all';
   image: string;
   caption: string;
 }

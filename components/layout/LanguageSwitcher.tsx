@@ -15,22 +15,30 @@ export function LanguageSwitcher() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Add Google Translate initialization script
-    if (typeof window !== 'undefined') {
-      (window as any).googleTranslateElementInit = () => {
+    const initTranslate = () => {
+      if ((window as any).google && (window as any).google.translate && (window as any).google.translate.TranslateElement) {
         new (window as any).google.translate.TranslateElement({
           pageLanguage: 'en',
           includedLanguages: 'en,hi,gu',
           autoDisplay: false
         }, 'google_translate_element');
-      };
+      }
+    };
 
-      if (!document.getElementById('google-translate-script')) {
-        const script = document.createElement('script');
-        script.id = 'google-translate-script';
-        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        script.async = true;
-        document.body.appendChild(script);
+    // Add Google Translate initialization script
+    if (typeof window !== 'undefined') {
+      (window as any).googleTranslateElementInit = initTranslate;
+
+      if (!(window as any).google?.translate?.TranslateElement) {
+        if (!document.getElementById('google-translate-script')) {
+          const script = document.createElement('script');
+          script.id = 'google-translate-script';
+          script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+          script.async = true;
+          document.body.appendChild(script);
+        }
+      } else {
+        initTranslate();
       }
     }
 
@@ -87,12 +95,14 @@ export function LanguageSwitcher() {
     document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain}`;
     document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
 
-    // Set new cookies (avoid domain param on localhost and IP addresses)
-    document.cookie = `googtrans=/en/${langCode}; path=/;`;
-    const isLocalhost = domain === 'localhost' || domain === '127.0.0.1' || domain.includes('::1');
-    if (!isLocalhost) {
-      document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${domain}`;
-      document.cookie = `googtrans=/en/${langCode}; path=/; domain=${domain}`;
+    if (langCode !== 'en') {
+      // Set new cookies (avoid domain param on localhost and IP addresses)
+      document.cookie = `googtrans=/en/${langCode}; path=/;`;
+      const isLocalhost = domain === 'localhost' || domain === '127.0.0.1' || domain.includes('::1');
+      if (!isLocalhost) {
+        document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${domain}`;
+        document.cookie = `googtrans=/en/${langCode}; path=/; domain=${domain}`;
+      }
     }
     
     setCurrentLang(langCode);
@@ -101,7 +111,7 @@ export function LanguageSwitcher() {
     // Update dropdown in DOM if available
     const selectEl = document.querySelector('select.goog-te-combo') as HTMLSelectElement;
     if (selectEl) {
-      selectEl.value = langCode;
+      selectEl.value = langCode === 'en' ? '' : langCode;
       selectEl.dispatchEvent(new Event('change'));
     }
     

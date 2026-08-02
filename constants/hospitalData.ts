@@ -440,29 +440,64 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "g1",
     title: "Medical Camp 1",
     category: "camps",
-    image: "/camp1.png",
+    image: "/camp1.webp",
     caption: "Our latest community medical camp"
   },
   {
     id: "g2",
     title: "Medical Camp 2",
     category: "camps",
-    image: "/camp2.png",
+    image: "/camp2.webp",
     caption: "Free health checkups for the community"
   },
   {
     id: "g3",
     title: "Medical Camp 3",
     category: "camps",
-    image: "/camp3.png",
+    image: "/camp3.webp",
     caption: "Spreading awareness and providing care"
   },
   {
     id: "g4",
     title: "Medical Camp 4",
     category: "camps",
-    image: "/camp4.png",
+    image: "/camp4.webp",
     caption: "Dedicated to community healthcare"
+  },
+  {
+    id: "g5",
+    title: "Free Diabetes Camp Flyer",
+    category: "media",
+    image: "/media1.webp",
+    caption: "Campaign announcement flyer for the Free Diabetes Diagnosis & Treatment Camp."
+  },
+  {
+    id: "g6",
+    title: "Kite String Cleanliness Drive",
+    category: "media",
+    image: "/media2.webp",
+    caption: "Divya Bhaskar coverage of the Uttarayan kite string cleanliness and safety drive."
+  },
+  {
+    id: "g7",
+    title: "Multi-Specialty Diagnosis Camp",
+    category: "media",
+    image: "/media3.webp",
+    caption: "Campaign details flyer for the Bapunagar Multi-Specialty Health Diagnosis Camp."
+  },
+  {
+    id: "g8",
+    title: "Municipal School Health Camp",
+    category: "media",
+    image: "/media4.webp",
+    caption: "News coverage of free checkups and care for 2,000 municipal school students in Rakhial."
+  },
+  {
+    id: "g9",
+    title: "Bapunagar Health Camp Coverage",
+    category: "media",
+    image: "/media5.webp",
+    caption: "Newspaper clipping announcing the free multi-specialty diagnosis camp."
   }
 ];
 

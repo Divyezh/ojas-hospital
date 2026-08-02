@@ -18,6 +18,7 @@ export function Gallery() {
   const galleryTabs = [
     { id: 'all', label: 'All Photos' },
     { id: 'camps', label: 'Medical Camps' },
+    { id: 'media', label: 'Media Coverage' },
   ];
 
   const filteredItems = activeTab === 'all'
