@@ -401,15 +401,6 @@ export const TESTIMONIALS: Testimonial[] = [
     timeAgo: "a year ago"
   },
   {
-    id: "t2",
-    name: "Dr Bhargav Kumawat BNYS",
-    meta: "8 reviews",
-    rating: 5,
-    text: "Very nice hospital and good staff and Dr Ojas sir is very nice and polite to patient…",
-    avatar: "https://avatar.vercel.sh/bhargav",
-    timeAgo: "2 months ago"
-  },
-  {
     id: "t3",
     name: "Vikas Patel",
     rating: 4,

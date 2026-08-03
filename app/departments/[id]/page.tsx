@@ -150,6 +150,7 @@ export default async function DepartmentPage({ params }: Props) {
               src={department.image}
               alt={`Ojas Hospital ${department.name} department and specialists in Ahmedabad`}
               fill
+              sizes="(max-width: 896px) 100vw, 896px"
               className="object-cover object-top"
               priority
             />

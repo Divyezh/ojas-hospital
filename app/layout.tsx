@@ -26,7 +26,7 @@ export default function RootLayout({
   const faqJsonLd = generateFaqJsonLd();
 
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         {/* SEO Structured Data JSON-LD */}
         <script

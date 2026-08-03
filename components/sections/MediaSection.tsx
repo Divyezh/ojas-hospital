@@ -153,7 +153,7 @@ export function MediaSection() {
               src={selectedMedia.thumbnail}
               alt={selectedMedia.title}
               fill
-              sizes="100vw"
+              sizes="(max-width: 768px) 100vw, 608px"
               className="object-contain"
               priority
             />
