@@ -106,6 +106,7 @@ export function AppointmentModal({
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 pt-2">
         {/* Anti-spam Honeypot */}
         <input
+          id="appt-honeypot"
           type="text"
           {...register('honeyPot')}
           className="hidden"
@@ -116,9 +117,10 @@ export function AppointmentModal({
 
         {/* Patient Name */}
         <div>
-          <label className="block text-xs font-bold text-slate-700 mb-1">Full Patient Name *</label>
+          <label htmlFor="appt-patientName" className="block text-xs font-bold text-slate-700 mb-1">Full Patient Name *</label>
           <div className="relative">
             <input
+              id="appt-patientName"
               {...register('patientName')}
               type="text"
               placeholder="e.g. Eleanor Vance"
@@ -134,9 +136,10 @@ export function AppointmentModal({
         {/* Contact Email & Phone */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
+            <label htmlFor="appt-email" className="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
             <div className="relative">
               <input
+                id="appt-email"
                 {...register('email')}
                 type="email"
                 placeholder="dr.hjsoni@gmail.com"
@@ -150,9 +153,10 @@ export function AppointmentModal({
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
+            <label htmlFor="appt-phone" className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
             <div className="relative">
               <input
+                id="appt-phone"
                 {...register('phone')}
                 type="tel"
                 placeholder="+91 7574840735 ,9737290729"
@@ -169,8 +173,9 @@ export function AppointmentModal({
         {/* Department & Doctor Select */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Department Wing *</label>
+            <label htmlFor="appt-department" className="block text-xs font-bold text-slate-700 mb-1">Department Wing *</label>
             <select
+              id="appt-department"
               {...register('department')}
               className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-maroon-600 bg-white"
             >
@@ -187,8 +192,9 @@ export function AppointmentModal({
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Preferred Doctor (Optional)</label>
+            <label htmlFor="appt-doctor" className="block text-xs font-bold text-slate-700 mb-1">Preferred Doctor (Optional)</label>
             <select
+              id="appt-doctor"
               {...register('doctor')}
               className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-maroon-600 bg-white"
             >
@@ -205,9 +211,10 @@ export function AppointmentModal({
         {/* Date & Time Select */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Preferred Date *</label>
+            <label htmlFor="appt-preferredDate" className="block text-xs font-bold text-slate-700 mb-1">Preferred Date *</label>
             <div className="relative">
               <input
+                id="appt-preferredDate"
                 {...register('preferredDate')}
                 type="date"
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-maroon-600"
@@ -220,9 +227,10 @@ export function AppointmentModal({
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Preferred Time Slot *</label>
+            <label htmlFor="appt-preferredTime" className="block text-xs font-bold text-slate-700 mb-1">Preferred Time Slot *</label>
             <div className="relative">
               <select
+                id="appt-preferredTime"
                 {...register('preferredTime')}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-maroon-600 bg-white"
               >
@@ -239,8 +247,9 @@ export function AppointmentModal({
 
         {/* Notes */}
         <div>
-          <label className="block text-xs font-bold text-slate-700 mb-1">Medical Symptoms / Notes (Optional)</label>
+          <label htmlFor="appt-notes" className="block text-xs font-bold text-slate-700 mb-1">Medical Symptoms / Notes (Optional)</label>
           <textarea
+            id="appt-notes"
             {...register('notes')}
             rows={2}
             placeholder="Briefly describe your symptoms or reason for visit..."

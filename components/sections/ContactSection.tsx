@@ -144,6 +144,7 @@ export function ContactSection() {
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 {/* Anti-spam Honeypot */}
                 <input
+                  id="contact-honeypot"
                   type="text"
                   {...register('honeyPot')}
                   className="hidden"
@@ -154,8 +155,9 @@ export function ContactSection() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-charcoal/80 mb-1">Full Name *</label>
+                    <label htmlFor="contact-fullName" className="block text-xs font-bold text-charcoal/80 mb-1">Full Name *</label>
                     <input
+                      id="contact-fullName"
                       {...register('fullName')}
                       type="text"
                       placeholder="e.g. Eleanor Vance"
@@ -167,8 +169,9 @@ export function ContactSection() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-charcoal/80 mb-1">Email Address *</label>
+                    <label htmlFor="contact-email" className="block text-xs font-bold text-charcoal/80 mb-1">Email Address *</label>
                     <input
+                      id="contact-email"
                       {...register('email')}
                       type="email"
                       placeholder="eleanor@example.com"
@@ -182,8 +185,9 @@ export function ContactSection() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-charcoal/80 mb-1">Phone Number *</label>
+                    <label htmlFor="contact-phone" className="block text-xs font-bold text-charcoal/80 mb-1">Phone Number *</label>
                     <input
+                      id="contact-phone"
                       {...register('phone')}
                       type="tel"
                       placeholder="+1 (555) 000-0000"
@@ -195,8 +199,9 @@ export function ContactSection() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-charcoal/80 mb-1">Subject *</label>
+                    <label htmlFor="contact-subject" className="block text-xs font-bold text-charcoal/80 mb-1">Subject *</label>
                     <input
+                      id="contact-subject"
                       {...register('subject')}
                       type="text"
                       placeholder="Appointment or General Inquiry"
@@ -209,8 +214,9 @@ export function ContactSection() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-charcoal/80 mb-1">Message Details *</label>
+                  <label htmlFor="contact-message" className="block text-xs font-bold text-charcoal/80 mb-1">Message Details *</label>
                   <textarea
+                    id="contact-message"
                     {...register('message')}
                     rows={4}
                     placeholder="Describe your inquiry or preferred dates..."
