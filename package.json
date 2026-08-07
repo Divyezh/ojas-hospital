@@ -11,6 +11,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "clsx": "^2.1.1",
