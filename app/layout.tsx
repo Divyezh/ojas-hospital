@@ -50,7 +50,10 @@ export default function RootLayout({
           }
         `}} />
       </head>
-      <body className={`antialiased min-h-screen bg-white text-charcoal selection:bg-maroon-700 selection:text-white ${fraunces.variable} ${inter.variable}`} style={{ fontFamily: 'var(--font-inter)' }} suppressHydrationWarning>
+      <body
+        className={`antialiased min-h-screen bg-white text-charcoal selection:bg-maroon-700 selection:text-white ${fraunces.variable} ${inter.variable}`}
+        style={{ fontFamily: 'var(--font-inter)' }}
+      >
         <div id="google_translate_element" style={{ display: 'none' }} suppressHydrationWarning />
         <div suppressHydrationWarning>
           <ToastProvider>
