@@ -3,91 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Award, Heart, Stethoscope, Sparkles, Clock, ShieldCheck } from 'lucide-react';
-import { BentoGrid, BentoCard } from '@/registry/magicui/bento-grid';
-import { Marquee } from '@/registry/magicui/marquee';
-import { DEPARTMENTS } from '@/constants/hospitalData';
-import { cn } from '@/lib/utils';
-
-const hospitalFeatures = [
-  {
-    Icon: Clock,
-    name: "24/7 Emergency",
-    description: "Round the clock trauma and emergency care.",
-    href: "#",
-    cta: "Contact Hotline",
-    className: "lg:col-span-1",
-    background: (
-      <div className="absolute inset-0 bg-maroon-50/50 flex items-center justify-center mask-[linear-gradient(to_top,transparent_10%,#000_100%)]">
-        <Image src="/2477.png" alt="24/7 Emergency Care" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-60 group-hover:opacity-80 transition-opacity" />
-      </div>
-    ),
-  },
-  {
-    Icon: Heart,
-    name: "Comprehensive Care",
-    description: "Multispeciality departments offering world-class treatments.",
-    href: "/departments",
-    cta: "View Departments",
-    className: "lg:col-span-2",
-    background: (
-      <Marquee
-        pauseOnHover
-        className="absolute top-10 mask-[linear-gradient(to_top,transparent_40%,#000_100%)] [--duration:20s]"
-      >
-        {DEPARTMENTS.slice(0, 5).map((d, idx) => (
-          <figure
-            key={idx}
-            className={cn(
-              "relative w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
-              "border-maroon-900/10 bg-maroon-900/1 hover:bg-maroon-900/5",
-              "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
-            )}
-          >
-            <div className="flex flex-col">
-              <figcaption className="text-sm font-bold text-maroon-900">{d.name}</figcaption>
-              <blockquote className="mt-2 text-[10px] text-charcoal/60 line-clamp-3">{d.description}</blockquote>
-            </div>
-          </figure>
-        ))}
-      </Marquee>
-    ),
-  },
-  {
-    Icon: Award,
-    name: "Award-Winning",
-    description: "Voted Top 10 International Hospital Facilities in Ahmedabad.",
-    href: "#",
-    cta: "Read More",
-    className: "lg:col-span-2",
-    background: (
-      <div className="absolute inset-0 mask-[linear-gradient(to_top,transparent_10%,#000_100%)] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-br from-maroon-900 via-maroon-800 to-maroon-700 opacity-80" />
-        <div className="relative flex flex-col items-center justify-center gap-3 opacity-30 group-hover:opacity-50 transition-opacity duration-300">
-          <Award className="h-24 w-24 text-gold" strokeWidth={0.8} />
-          <div className="flex gap-2">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="h-1.5 w-1.5 rounded-full bg-gold" />
-            ))}
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    Icon: ShieldCheck,
-    name: "25+ Years",
-    description: "Of medical leadership, innovation, and trust.",
-    className: "lg:col-span-1",
-    href: "#",
-    cta: "Our History",
-    background: (
-      <div className="absolute inset-0 bg-maroon-900 mask-[linear-gradient(to_top,transparent_10%,#000_100%)]">
-        <Image src="/years.png" alt="25+ Years Experience" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-60 group-hover:opacity-80 transition-opacity" />
-      </div>
-    ),
-  },
-];
+import { CheckCircle2, Heart, Sparkles, ShieldCheck, Award } from 'lucide-react';
 
 export function About() {
   const pillars = [
@@ -107,7 +23,7 @@ export function About() {
     <section id="about" className="py-20 lg:py-28 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Bento Grid */}
+          {/* Left Column: Featured Hospital Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -115,11 +31,16 @@ export function About() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-6 relative"
           >
-            <BentoGrid>
-              {hospitalFeatures.map((feature, idx) => (
-                <BentoCard key={idx} {...feature} />
-              ))}
-            </BentoGrid>
+            <div className="relative w-full h-95 sm:h-120 lg:h-135 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.25)] border border-maroon-100 group">
+              <Image
+                src="/hospital.png"
+                alt="Ojas Multispeciality Hospital Building in Rakhial, Ahmedabad"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+            </div>
           </motion.div>
 
           {/* Right Column: Content */}
