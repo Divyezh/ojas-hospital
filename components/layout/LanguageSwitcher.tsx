@@ -115,42 +115,77 @@ export function LanguageSwitcher() {
     };
   }, []);
 
-  const handleLanguageChange = (langCode: string) => {
-    const domain = window.location.hostname;
-    
-    // Clear old cookies to prevent conflicts
-    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain}`;
-    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
+  const clearGoogleTranslateCookies = () => {
+    if (typeof window === 'undefined') return;
+    const host = window.location.hostname;
+    const hostParts = host.split('.');
 
-    if (langCode !== 'en') {
-      // Set new cookies (avoid domain param on localhost and IP addresses)
-      document.cookie = `googtrans=/en/${langCode}; path=/;`;
-      const isLocalhost = domain === 'localhost' || domain === '127.0.0.1' || domain.includes('::1');
-      if (!isLocalhost) {
-        document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${domain}`;
-        document.cookie = `googtrans=/en/${langCode}; path=/; domain=${domain}`;
-      }
-    } else {
-      // Set cookie for English to reset translation
-      document.cookie = `googtrans=/en/en; path=/;`;
-      const isLocalhost = domain === 'localhost' || domain === '127.0.0.1' || domain.includes('::1');
-      if (!isLocalhost) {
-        document.cookie = `googtrans=/en/en; path=/; domain=.${domain}`;
-        document.cookie = `googtrans=/en/en; path=/; domain=${domain}`;
+    const domains = ['', host, `.${host}`];
+    if (hostParts.length >= 2) {
+      const rootDomain = hostParts.slice(-2).join('.');
+      domains.push(rootDomain, `.${rootDomain}`);
+    }
+    if (hostParts.length >= 3) {
+      const subDomain = hostParts.slice(-3).join('.');
+      domains.push(subDomain, `.${subDomain}`);
+    }
+
+    const paths = ['/', '/en', '/en/'];
+
+    domains.forEach((d) => {
+      paths.forEach((p) => {
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; ${d ? `domain=${d};` : ''} path=${p};`;
+      });
+    });
+  };
+
+  const setGoogleTranslateCookie = (langCode: string) => {
+    if (typeof window === 'undefined') return;
+    
+    clearGoogleTranslateCookies();
+
+    const host = window.location.hostname;
+    const isLocalhost = host === 'localhost' || host === '127.0.0.1' || host.includes('::1');
+    const cookieValue = `/en/${langCode}`;
+
+    document.cookie = `googtrans=${cookieValue}; path=/;`;
+
+    if (!isLocalhost) {
+      const hostParts = host.split('.');
+      document.cookie = `googtrans=${cookieValue}; path=/; domain=${host};`;
+      document.cookie = `googtrans=${cookieValue}; path=/; domain=.${host};`;
+
+      if (hostParts.length >= 2) {
+        const rootDomain = hostParts.slice(-2).join('.');
+        document.cookie = `googtrans=${cookieValue}; path=/; domain=${rootDomain};`;
+        document.cookie = `googtrans=${cookieValue}; path=/; domain=.${rootDomain};`;
       }
     }
-    
+  };
+
+  const syncGoogleTranslateSelect = (langCode: string) => {
+    const selectEl = document.querySelector('select.goog-te-combo') as HTMLSelectElement;
+    if (selectEl) {
+      if (langCode === 'en') {
+        const hasEnOption = Array.from(selectEl.options).some(opt => opt.value === 'en');
+        selectEl.value = hasEnOption ? 'en' : '';
+        if (selectEl.value !== 'en' && selectEl.value !== '') {
+          selectEl.selectedIndex = 0;
+        }
+      } else {
+        selectEl.value = langCode;
+      }
+      selectEl.dispatchEvent(new Event('change'));
+    }
+  };
+
+  const handleLanguageChange = (langCode: string) => {
+    setGoogleTranslateCookie(langCode);
     setCurrentLang(langCode);
     setIsOpen(false);
 
-    // Update dropdown in DOM if available
-    const selectEl = document.querySelector('select.goog-te-combo') as HTMLSelectElement;
-    if (selectEl) {
-      selectEl.value = langCode === 'en' ? '' : langCode;
-      selectEl.dispatchEvent(new Event('change'));
-    }
-    
+    syncGoogleTranslateSelect(langCode);
+
     // Force a reload to guarantee translation initialization and persistence
     setTimeout(() => {
       window.location.reload();
