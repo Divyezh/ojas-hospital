@@ -30,11 +30,7 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    localPatterns: [
-      {
-        pathname: '/**',
-      },
-    ],
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
