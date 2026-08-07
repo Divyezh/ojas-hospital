@@ -131,6 +131,14 @@ export function LanguageSwitcher() {
         document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${domain}`;
         document.cookie = `googtrans=/en/${langCode}; path=/; domain=${domain}`;
       }
+    } else {
+      // Set cookie for English to reset translation
+      document.cookie = `googtrans=/en/en; path=/;`;
+      const isLocalhost = domain === 'localhost' || domain === '127.0.0.1' || domain.includes('::1');
+      if (!isLocalhost) {
+        document.cookie = `googtrans=/en/en; path=/; domain=.${domain}`;
+        document.cookie = `googtrans=/en/en; path=/; domain=${domain}`;
+      }
     }
     
     setCurrentLang(langCode);
