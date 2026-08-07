@@ -89,6 +89,7 @@ export function LanguageSwitcher() {
             node.childNodes.forEach(replaceText);
           }
         };
+        
         const heroHeadline = document.querySelector('#hero h1');
         if (heroHeadline) {
           replaceText(heroHeadline);
