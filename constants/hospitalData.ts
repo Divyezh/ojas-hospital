@@ -50,7 +50,7 @@ export const DEPARTMENTS: Department[] = [
       "Fever & Infection Treatment",
       "Adult Immunizations"
     ],
-    image: "/general medicine.png?v=2",
+    image: "/general medicine.png",
     stats: { surgeries: "N/A", satisfaction: "98%", specialists: 4 }
   },
   {
@@ -84,7 +84,7 @@ export const DEPARTMENTS: Department[] = [
       "Sports Injuries",
       "Spine Care"
     ],
-    image: "/orthopedics.png?v=2",
+    image: "/orthopedics.png",
     stats: { surgeries: "5,000+", satisfaction: "98.5%", specialists: 3 }
   },
   {

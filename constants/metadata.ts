@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   url: "https://ojas-health.vercel.app",
   ogImage: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200",
   telephone: EMERGENCY_INFO.hotline,
-  email: "dr.hjsoni@gmail.com",
+  email: "ojashospitalo123@gmail.com",
   address: {
     street: "Jasval Bhavan, Char Rasta",
     suite: "Rakhial",
@@ -49,6 +49,9 @@ export const DEFAULT_METADATA: Metadata = {
     telephone: false,
   },
   metadataBase: new URL(SITE_CONFIG.url),
+  alternates: {
+    canonical: SITE_CONFIG.url,
+  },
   openGraph: {
     title: SITE_CONFIG.name,
     description: SITE_CONFIG.description,

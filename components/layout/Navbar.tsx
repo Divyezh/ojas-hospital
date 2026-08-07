@@ -36,6 +36,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
   const moreRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
@@ -44,9 +45,23 @@ export function Navbar() {
   };
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    const updateNavHeight = () => {
+      if (headerRef.current) {
+        const height = headerRef.current.offsetHeight;
+        document.documentElement.style.setProperty('--navbar-height', `${height}px`);
+      }
+    };
+    updateNavHeight();
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+      updateNavHeight();
+    };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', updateNavHeight);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateNavHeight);
+    };
   }, []);
 
   // Close "More" dropdown on outside click
@@ -75,6 +90,7 @@ export function Navbar() {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed top-0 left-0 z-40 w-full transition-all duration-300 bg-white shadow-soft-sm border-b border-maroon-100 ${
         isScrolled ? 'py-2' : 'py-3'
       }`}
@@ -85,10 +101,10 @@ export function Navbar() {
           <Image
             src="/ojas.png"
             alt="Ojas Multispeciality Hospital Logo"
-            width={320}
-            height={100}
+            width={380}
+            height={120}
             priority
-            className="h-20 lg:h-24 w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-14 sm:h-20 lg:h-26 w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>
 

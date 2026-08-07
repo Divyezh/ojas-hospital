@@ -59,7 +59,7 @@ export default function RootLayout({
             <ScrollProgress />
             <Navbar />
 
-            <main>{children}</main>
+            <main suppressHydrationWarning>{children}</main>
 
             <Footer />
             <FloatingWhatsApp />

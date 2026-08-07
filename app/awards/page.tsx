@@ -59,7 +59,7 @@ export default function AwardsPage() {
                   About Ojas Hospital
                 </Link>
                 <a
-                  href="mailto:dr.hjsoni@gmail.com"
+                  href="mailto:ojashospitalo123@gmail.com"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-maroon-200 text-sm font-semibold text-charcoal/70 hover:bg-maroon-50 transition-all"
                 >
                   Submit Award Info →

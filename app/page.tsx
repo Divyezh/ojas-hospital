@@ -17,7 +17,7 @@ const slides = [
     id: 1,
     title: 'Best Multispeciality Hospital in Ahmedabad',
     subtitle: 'Compassionate care, experienced specialists, and 24/7 emergency services at the heart of Rakhial.',
-    badge: 'Multispeciality Care in Rakhial',
+    badge: 'Ojas Hospital',
     image: null,
     type: 'portraits',
   },
@@ -25,8 +25,8 @@ const slides = [
     id: 2,
     title: '24/7 Emergency & Trauma Care',
     subtitle: 'Our emergency team is always ready — immediate resuscitation, critical care, and round-the-clock casualty services.',
-    badge: 'Emergency Care',
-    image: '/emergency care.png?v=2',
+    badge: 'Ojas Hospital',
+    image: '/emergency care.png',
     type: 'image',
   },
 ];
@@ -126,7 +126,8 @@ function HeroSlider() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-linear-to-br from-maroon-900 to-maroon-800 pt-24 pb-16 px-6"
+      className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden bg-linear-to-br from-maroon-900 to-maroon-800 pt-52 sm:pt-60 pb-16 px-6"
+      style={{ paddingTop: 'calc(var(--navbar-height, 130px) + 3.5rem)' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       aria-label="Hospital hero slider"
@@ -144,9 +145,9 @@ function HeroSlider() {
           className="relative z-10 flex flex-col items-center text-center w-full max-w-4xl"
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-cream border border-gold/40 px-4 py-2 rounded-full shadow-lg shadow-black/20 mb-7">
-            <ShieldPlus className="h-4 w-4 text-maroon-700" />
-            <span className="text-[13px] font-bold tracking-[0.04em] text-maroon-900 uppercase">{slide.badge}</span>
+          <div className="inline-flex items-center gap-2.5 bg-cream border border-gold/50 px-5 py-2.5 rounded-full shadow-lg shadow-black/20 mb-6">
+            <ShieldPlus className="h-5 w-5 text-maroon-700" />
+            <span className="text-sm sm:text-base font-extrabold tracking-[0.06em] text-maroon-900 uppercase">{slide.badge}</span>
           </div>
 
           {/* Headline */}
@@ -305,9 +306,9 @@ function UtilityBelt() {
             <Phone className="h-3 w-3 text-gold" />
             {EMERGENCY_INFO.hotline}
           </a>
-          <a href="mailto:dr.hjsoni@gmail.com" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+          <a href="mailto:ojashospitalo123@gmail.com" className="flex items-center gap-1.5 hover:text-gold transition-colors">
             <Mail className="h-3 w-3" />
-            dr.hjsoni@gmail.com
+            ojashospitalo123@gmail.com
           </a>
         </div>
         <div className="flex items-center gap-1.5">

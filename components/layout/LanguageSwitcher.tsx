@@ -74,6 +74,33 @@ export function LanguageSwitcher() {
       }
     }, 300);
 
+    // Fix Hindi translation string "सर्वश्रेष्ठ" -> "श्रेष्ठ" for hero headline
+    const applyHindiFix = () => {
+      const currentCookie = getCookie('googtrans');
+      if (currentCookie && currentCookie.includes('/hi')) {
+        const replaceText = (node: Node) => {
+          if (node.nodeType === Node.TEXT_NODE && node.nodeValue && node.nodeValue.includes('सर्वश्रेष्ठ')) {
+            node.nodeValue = node.nodeValue.replace(/सर्वश्रेष्ठ/g, 'श्रेष्ठ');
+          } else if (node.nodeType === Node.ELEMENT_NODE) {
+            node.childNodes.forEach(replaceText);
+          }
+        };
+        const heroHeadline = document.querySelector('#hero h1');
+        if (heroHeadline) {
+          replaceText(heroHeadline);
+        } else {
+          replaceText(document.body);
+        }
+      }
+    };
+
+    applyHindiFix();
+
+    const mutationObserver = new MutationObserver(() => {
+      applyHindiFix();
+    });
+    mutationObserver.observe(document.body, { childList: true, subtree: true, characterData: true });
+
     // Click outside handler
     const handleClickOutside = (event: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
@@ -83,6 +110,7 @@ export function LanguageSwitcher() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       clearInterval(interval);
+      mutationObserver.disconnect();
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);

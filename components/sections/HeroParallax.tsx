@@ -72,7 +72,8 @@ export function HeroParallax() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-linear-to-br from-maroon-900 to-maroon-800 pt-24 pb-16 px-6"
+      className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden bg-linear-to-br from-maroon-900 to-maroon-800 pt-52 sm:pt-60 pb-16 px-6"
+      style={{ paddingTop: 'calc(var(--navbar-height, 130px) + 3.5rem)' }}
     >
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-175 rounded-full bg-[radial-gradient(circle,rgba(199,154,75,0.12),transparent_70%)] pointer-events-none z-0" />
@@ -80,22 +81,22 @@ export function HeroParallax() {
       {/* ── HERO TOP — badge + headline ── */}
       <div className="relative z-10 flex flex-col items-center text-center w-full max-w-4xl mb-12">
 
-        {/* Badge */}
+        {/* Badge Pill with Ojas Hospital */}
         <motion.div
           variants={fadeUp(0.1)}
           initial="hidden"
           animate="visible"
-          className="inline-flex items-center gap-2 bg-cream border border-gold/40 px-4 py-2 rounded-full shadow-lg shadow-black/20 mb-7"
+          className="inline-flex items-center gap-2.5 bg-cream border border-gold/50 px-5 py-2.5 rounded-full shadow-lg shadow-black/20 mb-6"
         >
-          <ShieldCheck className="h-4 w-4 text-maroon-700" />
-          <span className="text-[13px] font-bold tracking-[0.04em] text-maroon-900 uppercase">
-            Multispeciality Care in Rakhial
+          <ShieldCheck className="h-5 w-5 text-maroon-700" />
+          <span className="text-sm sm:text-base font-extrabold tracking-[0.06em] text-maroon-900 uppercase">
+            OJAS HOSPITAL
           </span>
         </motion.div>
 
         {/* Headline — capped to avoid overflow */}
         <motion.h1
-          className="text-[clamp(36px,5.5vw,68px)] leading-[1.15] font-bold text-white max-w-225 flex flex-wrap justify-center gap-x-3 drop-shadow-lg"
+          className="text-[clamp(36px,5.5vw,68px)] leading-[1.15] font-bold text-white max-w-225 flex flex-wrap justify-center gap-x-3 drop-shadow-lg mt-3"
           style={{ fontFamily: 'var(--font-fraunces)' }}
           variants={wordContainer}
           initial="hidden"

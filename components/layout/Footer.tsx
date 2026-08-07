@@ -48,9 +48,23 @@ export function Footer() {
 
           {/* Col 1: Brand Info */}
           <motion.div custom={0} variants={columnVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10%' }} className="lg:col-span-1 space-y-4">
-            <div className="flex items-center">
-              <div className="inline-block">
-                <Image src="/logo.png" alt="Ojas Multispeciality Hospital Logo" width={240} height={80} className="h-16 w-auto object-contain" />
+            <div className="flex items-center gap-3">
+              <div className="bg-white p-2.5 rounded-2xl shadow-lg border border-white/10 shrink-0">
+                <Image
+                  src="/icon-512.png"
+                  alt="Ojas Hospital Icon"
+                  width={160}
+                  height={160}
+                  className="h-16 w-16 sm:h-20 sm:w-20 object-contain"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl sm:text-2xl font-bold text-white tracking-wide" style={{ fontFamily: 'var(--font-fraunces)' }}>
+                  OJAS
+                </span>
+                <span className="text-xs font-bold text-gold tracking-[0.14em] uppercase">
+                  HOSPITAL
+                </span>
               </div>
             </div>
             <p className="text-cream/70 leading-relaxed text-xs sm:text-sm">
