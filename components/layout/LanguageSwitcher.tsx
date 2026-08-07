@@ -64,11 +64,15 @@ export function LanguageSwitcher() {
         const currentCookie = getCookie('googtrans');
         if (currentCookie) {
           const lang = currentCookie.split('/').pop();
-          if (lang && LANGUAGES.some(l => l.code === lang)) {
+          if (lang && lang !== 'en' && LANGUAGES.some(l => l.code === lang)) {
             selectEl.value = lang;
             selectEl.dispatchEvent(new Event('change'));
             setCurrentLang(lang);
           }
+        } else {
+          selectEl.selectedIndex = 0;
+          selectEl.value = '';
+          setCurrentLang('en');
         }
         clearInterval(interval);
       }
@@ -142,7 +146,11 @@ export function LanguageSwitcher() {
   const setGoogleTranslateCookie = (langCode: string) => {
     if (typeof window === 'undefined') return;
     
+    // Always clear existing cookies on all paths/domains
     clearGoogleTranslateCookies();
+
+    // If English, do NOT set googtrans cookie (clearing it restores original page language)
+    if (langCode === 'en') return;
 
     const host = window.location.hostname;
     const isLocalhost = host === 'localhost' || host === '127.0.0.1' || host.includes('::1');
@@ -167,11 +175,8 @@ export function LanguageSwitcher() {
     const selectEl = document.querySelector('select.goog-te-combo') as HTMLSelectElement;
     if (selectEl) {
       if (langCode === 'en') {
-        const hasEnOption = Array.from(selectEl.options).some(opt => opt.value === 'en');
-        selectEl.value = hasEnOption ? 'en' : '';
-        if (selectEl.value !== 'en' && selectEl.value !== '') {
-          selectEl.selectedIndex = 0;
-        }
+        selectEl.selectedIndex = 0;
+        selectEl.value = '';
       } else {
         selectEl.value = langCode;
       }
