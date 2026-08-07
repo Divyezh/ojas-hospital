@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { DEPARTMENTS, DOCTORS } from '@/constants/hospitalData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://ojas-health.vercel.app';
+  const baseUrl = 'https://ojas-hospital.in';
 
   const staticRoutes = [
     '',
