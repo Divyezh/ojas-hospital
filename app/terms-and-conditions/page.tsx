@@ -8,7 +8,7 @@ export default function TermsAndConditions() {
         <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#6D1B2B] mb-8">Terms and Conditions</h1>
 
         <div className="space-y-6 text-gray-700 text-sm md:text-base leading-relaxed">
-          <p><strong>Effective Date:</strong> {new Date().toLocaleDateString()}</p>
+          <p><strong>Effective Date:</strong> January 1, 2026</p>
 
           <section>
             <h2 className="text-xl font-bold text-[#6D1B2B] mb-3">1. Acceptance of Terms</h2>
@@ -23,8 +23,8 @@ export default function TermsAndConditions() {
           <section>
             <h2 className="text-xl font-bold text-[#6D1B2B] mb-3">3. Appointments and Services</h2>
             <ul className="list-disc pl-5 mt-2 space-y-1">
-              <li>Appointments does not book through our website you can directly whatsapp US and also can calll on any number our website are subject to availability and confirmation by our hospital staff.</li>
-              <li>In case of medical emergencies, please do not rely solely on our website. Visit the nearest emergency room or call our hotline immediately.</li>
+              <li>Appointments are not booked directly through our website form; you can contact us via WhatsApp or call our emergency hotlines. All consultations are subject to doctor availability and confirmation by hospital staff.</li>
+              <li>In case of medical emergencies, please do not rely solely on website messages. Visit the nearest emergency room or call our 24/7 hotline immediately.</li>
             </ul>
           </section>
 

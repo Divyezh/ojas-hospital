@@ -312,6 +312,7 @@ class App {
   createRenderer() {
     this.renderer = new Renderer({ alpha: true, antialias: true, dpr: Math.min(window.devicePixelRatio || 1, 2) });
     this.gl = this.renderer.gl;
+    if (!this.gl || !this.renderer.gl?.canvas) return;
     this.gl.clearColor(0, 0, 0, 0);
     this.container.appendChild(this.renderer.gl.canvas as HTMLCanvasElement);
   }

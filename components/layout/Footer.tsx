@@ -184,8 +184,8 @@ export function Footer() {
         <div className="pt-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-cream/40 font-medium">
           <p>© 2026 Ojas Hospital. All Rights Reserved.</p>
           <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
-            <a href="/privacy-policy" className="hover:text-cream/80 transition-colors">Privacy Policy</a>
-            <a href="/terms-and-conditions" className="hover:text-cream/80 transition-colors">Terms & Conditions</a>
+            <Link href="/privacy-policy" className="hover:text-cream/80 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-cream/80 transition-colors">Terms & Conditions</Link>
           </div>
         </div>
       </div>

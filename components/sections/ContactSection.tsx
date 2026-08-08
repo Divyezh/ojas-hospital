@@ -96,13 +96,13 @@ export function ContactSection() {
                 <div>
                   <h3 className="text-sm font-bold text-charcoal">Emergency & General Hotlines</h3>
                   <p className="text-xs text-charcoal/70 mt-1">
-                    Phone: <a href={`tel:+91${'75748'}${'40735'}`} className="font-bold text-charcoal">+91 75748 40735</a>
+                    Phone: <a href="tel:+917574840735" className="font-bold text-charcoal">+91 75748 40735</a>
                   </p>
                   <p className="text-xs text-charcoal/70">
-                    Alternate: <a href={`tel:+91${'97372'}${'90729'}`} className="font-bold text-charcoal">+91 97372 90729</a>
+                    Alternate: <a href="tel:+919737290729" className="font-bold text-charcoal">+91 97372 90729</a>
                   </p>
                   <p className="text-xs text-charcoal/70 mt-1">
-                    Emergency: <a href={`tel:+91${'98251'}${'37766'}`} className="font-bold text-maroon-700">+91 98251 37766</a>
+                    Emergency: <a href="tel:+919825137766" className="font-bold text-maroon-700">+91 98251 37766</a>
                   </p>
                 </div>
               </div>

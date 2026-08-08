@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
@@ -168,13 +169,13 @@ export function HeroParallax() {
             <WhatsAppIcon className="h-5 w-5" />
             Chat on WhatsApp
           </a>
-          <a
+          <Link
             href="/departments"
             className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl border-[1.5px] border-white/40 text-white font-semibold hover:bg-white/10 hover:border-white transition-all group tracking-[0.02em]"
           >
             Explore Departments
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </a>
+          </Link>
         </motion.div>
 
         {/* Stats row */}

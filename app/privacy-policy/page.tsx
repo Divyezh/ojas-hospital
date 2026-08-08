@@ -9,7 +9,7 @@ export default function PrivacyPolicy() {
         <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#6D1B2B] mb-8">Privacy Policy</h1>
         
         <div className="space-y-6 text-gray-700 text-sm md:text-base leading-relaxed">
-          <p><strong>Effective Date:</strong> {new Date().toLocaleDateString()}</p>
+          <p><strong>Effective Date:</strong> January 1, 2026</p>
           
           <section>
             <h2 className="text-xl font-bold text-[#6D1B2B] mb-3">1. Introduction</h2>

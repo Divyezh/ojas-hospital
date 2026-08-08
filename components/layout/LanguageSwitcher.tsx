@@ -79,9 +79,12 @@ export function LanguageSwitcher() {
     }, 300);
 
     // Fix Hindi translation string "सर्वश्रेष्ठ" -> "श्रेष्ठ" for hero headline
+    let isFixing = false;
     const applyHindiFix = () => {
+      if (isFixing) return;
       const currentCookie = getCookie('googtrans');
       if (currentCookie && currentCookie.includes('/hi')) {
+        isFixing = true;
         const replaceText = (node: Node) => {
           if (node.nodeType === Node.TEXT_NODE && node.nodeValue && node.nodeValue.includes('सर्वश्रेष्ठ')) {
             node.nodeValue = node.nodeValue.replace(/सर्वश्रेष्ठ/g, 'श्रेष्ठ');
@@ -96,6 +99,7 @@ export function LanguageSwitcher() {
         } else {
           replaceText(document.body);
         }
+        isFixing = false;
       }
     };
 

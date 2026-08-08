@@ -1,4 +1,9 @@
 import type { NextConfig } from 'next';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const cspHeader = `
   default-src 'self';
@@ -16,6 +21,8 @@ const cspHeader = `
 `;
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  outputFileTracingRoot: __dirname,
   async headers() {
     return [
       {
