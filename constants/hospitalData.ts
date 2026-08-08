@@ -169,7 +169,7 @@ export const DEPARTMENTS: Department[] = [
       "Immediate Resuscitation",
       "Critical Care Transport"
     ],
-    image: "/emergency care.png?v=2",
+    image: "/emergency care.png",
     stats: { surgeries: "N/A", satisfaction: "99%", specialists: 5 }
   }
 ];
@@ -368,7 +368,7 @@ export const FACILITIES: Facility[] = [
     title: "Special Room 2",
     category: "Inpatient",
     description: "Modern special room providing a peaceful environment for recovery.",
-    image: "/special room 2.png?v=2",
+    image: "/special room 2.png",
     features: ["Quiet Environment", "Modern Amenities", "24/7 Nursing"]
   },
   {
@@ -391,15 +391,6 @@ export const FACILITIES: Facility[] = [
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: "t1",
-    name: "Dr Hemant. Toshikhane",
-    meta: "Local Guide · 772 reviews · 4,061 photos",
-    rating: 5,
-    text: "The doctors and staff treated my family with great care and professionalism. The entire experience was smooth and reassuring. 🙏",
-    avatar: "https://avatar.vercel.sh/hemant",
-    timeAgo: "a year ago"
-  },
   {
     id: "t3",
     name: "Vikas Patel",

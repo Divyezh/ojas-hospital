@@ -1,4 +1,3 @@
-import type { NextConfig } from 'next';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -20,7 +19,8 @@ const cspHeader = `
   upgrade-insecure-requests;
 `;
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   outputFileTracingRoot: __dirname,
   async headers() {
