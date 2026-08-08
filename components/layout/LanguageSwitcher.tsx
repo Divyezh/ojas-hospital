@@ -15,7 +15,6 @@ export function LanguageSwitcher() {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // local references for cleanup
     let intervalId: any = null;
     let mutationObserver: MutationObserver | null = null;
 
@@ -49,7 +48,7 @@ export function LanguageSwitcher() {
           );
         }
       } catch {
-        // keep silent in production
+        // silent in production
       }
     };
 
@@ -72,7 +71,7 @@ export function LanguageSwitcher() {
         }
       }
     } catch {
-      // ignore script insertion errors
+      // ignore
     }
 
     // restore language from cookie if present
@@ -110,13 +109,13 @@ export function LanguageSwitcher() {
                   setCurrentLang(lang);
                 }
               }
-              if (intervalId) {
+              if (intervalId && safeWindow) {
                 safeWindow.clearInterval(intervalId);
                 intervalId = null;
               }
             }
           } catch {
-            // ignore polling errors
+            // ignore
           }
         }, 300);
       }
@@ -128,9 +127,9 @@ export function LanguageSwitcher() {
     let isFixing = false;
     const applyHindiFix = () => {
       try {
-        if (isFixing) return;
+        if (isFixing || !safeDocument) return;
         const currentCookie = getCookie('googtrans');
-        if (!currentCookie || !currentCookie.includes('/hi') || !safeDocument) return;
+        if (!currentCookie || !currentCookie.includes('/hi')) return;
 
         isFixing = true;
         const replaceText = (node: Node) => {
@@ -143,7 +142,7 @@ export function LanguageSwitcher() {
               Array.from(node.childNodes).forEach(replaceText);
             }
           } catch {
-            // continue even if one subtree fails
+            // continue
           }
         };
 
@@ -174,7 +173,7 @@ export function LanguageSwitcher() {
         mutationObserver.observe(safeDocument.body, { childList: true, subtree: true, characterData: true });
       }
     } catch {
-      // ignore observer setup errors
+      // ignore
     }
 
     // Click outside to close dropdown (only if DOM available)
@@ -253,7 +252,7 @@ export function LanguageSwitcher() {
             const securePart = isLocalhost ? '' : ' Secure; SameSite=None;';
             document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; max-age=0; ${domainPart} path=${p};${securePart}`;
           } catch {
-            // ignore individual cookie failures
+            // ignore
           }
         });
       });
@@ -270,6 +269,21 @@ export function LanguageSwitcher() {
 
       const host = window.location.hostname || '';
       const isLocalhost = host === 'localhost' || host === '127.0.0.1' || host.includes('::1');
+
+      if (langCode === 'en') {
+        // Reset cookie to English
+        document.cookie = `googtrans=/en/en; path=/;${isLocalhost ? '' : ' Secure; SameSite=None;'}`;
+        if (!isLocalhost) {
+          try {
+            document.cookie = `googtrans=/en/en; path=/; domain=${host}; Secure; SameSite=None;`;
+            document.cookie = `googtrans=/en/en; path=/; domain=.${host}; Secure; SameSite=None;`;
+          } catch {
+            // ignore
+          }
+        }
+        return;
+      }
+
       const cookieValue = `/en/${langCode}`;
 
       // Always set a basic cookie for path=/
@@ -287,7 +301,7 @@ export function LanguageSwitcher() {
             document.cookie = `googtrans=${cookieValue}; path=/; domain=.${rootDomain}; Secure; SameSite=None;`;
           }
         } catch {
-          // ignore domain cookie failures
+          // ignore
         }
       }
     } catch {
