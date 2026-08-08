@@ -89,6 +89,8 @@ export function LanguageSwitcher() {
           if (node.nodeType === Node.TEXT_NODE && node.nodeValue && node.nodeValue.includes('सर्वश्रेष्ठ')) {
             node.nodeValue = node.nodeValue.replace(/सर्वश्रेष्ठ/g, 'श्रेष्ठ');
           } else if (node.nodeType === Node.ELEMENT_NODE) {
+            const tagName = (node as Element).tagName?.toLowerCase();
+            if (tagName === 'script' || tagName === 'style' || tagName === 'svg') return;
             node.childNodes.forEach(replaceText);
           }
         };
@@ -143,7 +145,8 @@ export function LanguageSwitcher() {
 
     domains.forEach((d) => {
       paths.forEach((p) => {
-        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; ${d ? `domain=${d};` : ''} path=${p};`;
+        const domainStr = d ? `domain=${d};` : '';
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; max-age=0; ${domainStr} path=${p};`;
       });
     });
   };
