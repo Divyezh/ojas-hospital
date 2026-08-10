@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://ojas-hospital.in/sitemap.xml',
+    sitemap: 'https://www.ojashospitalmultispecility.com/sitemap.xml',
   };
 }

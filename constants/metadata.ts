@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   name: "Ojas Hospital",
   shortName: "Ojas",
   description: "Ojas Hospital is a trusted multispeciality hospital in Rakhial, Ahmedabad offering emergency care, experienced doctors, modern diagnostics, surgery, and compassionate healthcare.",
-  url: "https://ojas-hospital.in",
+  url: "https://www.ojashospitalmultispecility.com",
   ogImage: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200",
   telephone: EMERGENCY_INFO.hotline,
   email: "ojashospitalo123@gmail.com",
