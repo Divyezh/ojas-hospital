@@ -6,8 +6,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'About Us — Ojas Multispeciality Hospital Ahmedabad',
-  description: 'Learn about Ojas Hospital — trusted multispeciality care in Rakhial, Ahmedabad since 2000. Meet our leadership, mission, and 24 years of healthcare excellence.',
+  title: 'About Us — Ojas Hospital Multispeciality Ahmedabad',
+  description: 'Learn about Ojas Hospital Multispeciality — trusted multispeciality care in Rakhial, Ahmedabad, Gujarat since 2000. Meet our medical leadership and 24 years of healthcare excellence.',
   alternates: { canonical: `${SITE_CONFIG.url}/about` },
 };
 
@@ -27,8 +27,57 @@ const leadership = [
 ];
 
 export default function AboutPage() {
+  const aboutSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    'name': 'About Ojas Hospital Multispeciality',
+    'url': `${SITE_CONFIG.url}/about`,
+    'mainEntity': {
+      '@type': 'Hospital',
+      '@id': `${SITE_CONFIG.url}/#hospital`,
+      'name': SITE_CONFIG.officialName,
+      'url': SITE_CONFIG.url,
+      'foundingDate': '2000',
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': `${SITE_CONFIG.address.street}, ${SITE_CONFIG.address.suite}`,
+        'addressLocality': SITE_CONFIG.address.city,
+        'addressRegion': SITE_CONFIG.address.state,
+        'postalCode': SITE_CONFIG.address.zip,
+        'addressCountry': SITE_CONFIG.address.country
+      }
+    }
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': SITE_CONFIG.url
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'About Us',
+        'item': `${SITE_CONFIG.url}/about`
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Page header */}
       <div className="pt-28 pb-6 bg-linear-to-br from-maroon-900 to-maroon-800 text-white text-center px-4">
         <nav className="text-xs text-white/50 mb-3">
@@ -40,7 +89,7 @@ export default function AboutPage() {
           About <span className="text-gold">Ojas Hospital</span>
         </h1>
         <p className="text-white/75 max-w-2xl mx-auto text-base">
-          Trusted multispeciality care in the heart of Rakhial, Ahmedabad — for over two decades.
+          Trusted multispeciality care in Jasval Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat — for over two decades.
         </p>
       </div>
 
@@ -95,3 +144,4 @@ export default function AboutPage() {
     </>
   );
 }
+

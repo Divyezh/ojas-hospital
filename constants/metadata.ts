@@ -3,8 +3,9 @@ import { DEPARTMENTS, DOCTORS, FAQ_ITEMS, EMERGENCY_INFO } from './hospitalData'
 
 export const SITE_CONFIG = {
   name: "Ojas Hospital",
+  officialName: "Ojas Hospital Multispeciality",
   shortName: "Ojas",
-  description: "Ojas Hospital is a trusted multispeciality hospital in Rakhial, Ahmedabad offering emergency care, experienced doctors, modern diagnostics, surgery, and compassionate healthcare.",
+  description: "Ojas Hospital Multispeciality is a trusted multispeciality hospital in Rakhial, Ahmedabad, Gujarat, India offering 24/7 emergency care, experienced general physicians, surgeons, specialists, diagnostics, and surgery.",
   url: "https://www.ojashospitalmultispecility.com",
   ogImage: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200",
   telephone: EMERGENCY_INFO.hotline,
@@ -16,33 +17,42 @@ export const SITE_CONFIG = {
     state: "Gujarat",
     zip: "380021",
     country: "India"
-  }
+  },
+  geo: {
+    latitude: "23.0236317",
+    longitude: "72.6198512"
+  },
+  sameAs: [
+    "https://www.google.com/maps/place/Ojas+Hospital/@23.0236317,72.6198512,17z",
+    "https://wa.me/917574840735",
+    "https://www.linkedin.com/in/dr-ayush-soni-2134703a7/"
+  ]
 };
 
 export const DEFAULT_METADATA: Metadata = {
   title: {
-    default: "Ojas Hospital | Multispeciality Hospital in Rakhial, Ahmedabad",
+    default: "Ojas Hospital Multispeciality | Hospital in Rakhial, Ahmedabad",
     template: `%s | ${SITE_CONFIG.name}`
   },
   description: SITE_CONFIG.description,
   keywords: [
     "Ojas Hospital",
+    "Ojas Hospital Multispeciality",
     "Hospital in Ahmedabad",
-    "Best Hospital in Rakhial",
+    "Hospital in Rakhial",
     "General Physician Ahmedabad",
     "Emergency Hospital Ahmedabad",
     "Multispeciality Hospital Ahmedabad",
-    "Cardiology",
-    "Orthopedic",
-    "Gynecology",
-    "Pediatrics",
-    "Laboratory",
-    "ICU",
-    "Emergency Care"
+    "Cardiology Ahmedabad",
+    "Orthopedic Hospital Ahmedabad",
+    "Gynecologist Rakhial",
+    "Pediatrician Ahmedabad",
+    "Skin Care Specialist Ahmedabad",
+    "24/7 Emergency Care Ahmedabad"
   ],
-  authors: [{ name: "Ojas Health Institute Medical Board" }],
-  creator: SITE_CONFIG.name,
-  publisher: SITE_CONFIG.name,
+  authors: [{ name: "Ojas Multispeciality Hospital Medical Board" }],
+  creator: SITE_CONFIG.officialName,
+  publisher: SITE_CONFIG.officialName,
   formatDetection: {
     email: false,
     address: false,
@@ -53,16 +63,16 @@ export const DEFAULT_METADATA: Metadata = {
     canonical: SITE_CONFIG.url,
   },
   openGraph: {
-    title: SITE_CONFIG.name,
+    title: SITE_CONFIG.officialName,
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
-    siteName: SITE_CONFIG.name,
+    siteName: SITE_CONFIG.officialName,
     images: [
       {
         url: SITE_CONFIG.ogImage,
         width: 1200,
         height: 630,
-        alt: SITE_CONFIG.name,
+        alt: `${SITE_CONFIG.officialName} Ahmedabad`,
       },
     ],
     locale: 'en_IN',
@@ -70,7 +80,7 @@ export const DEFAULT_METADATA: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: SITE_CONFIG.name,
+    title: SITE_CONFIG.officialName,
     description: SITE_CONFIG.description,
     images: [SITE_CONFIG.ogImage],
     creator: '@OjasHealth',
@@ -92,12 +102,16 @@ export function generateHospitalJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': ['Hospital', 'MedicalOrganization', 'LocalBusiness'],
-    'name': SITE_CONFIG.name,
+    '@id': `${SITE_CONFIG.url}/#hospital`,
+    'name': SITE_CONFIG.officialName,
+    'legalName': SITE_CONFIG.officialName,
+    'alternateName': SITE_CONFIG.name,
     'description': SITE_CONFIG.description,
     'url': SITE_CONFIG.url,
     'telephone': SITE_CONFIG.telephone,
     'email': SITE_CONFIG.email,
     'image': SITE_CONFIG.ogImage,
+    'sameAs': SITE_CONFIG.sameAs,
     'address': {
       '@type': 'PostalAddress',
       'streetAddress': `${SITE_CONFIG.address.street}, ${SITE_CONFIG.address.suite}`,
@@ -108,8 +122,8 @@ export function generateHospitalJsonLd() {
     },
     'geo': {
       '@type': 'GeoCoordinates',
-      'latitude': '23.0238',
-      'longitude': '72.6171'
+      'latitude': SITE_CONFIG.geo.latitude,
+      'longitude': SITE_CONFIG.geo.longitude
     },
     'openingHoursSpecification': {
       '@type': 'OpeningHoursSpecification',
@@ -126,16 +140,25 @@ export function generateHospitalJsonLd() {
       'closes': '23:59'
     },
     'medicalSpecialty': DEPARTMENTS.map(d => d.name),
+    'medicalStaff': DOCTORS.map(doc => ({
+      '@type': 'Physician',
+      '@id': `${SITE_CONFIG.url}/doctors/${doc.id}#doctor`,
+      'name': doc.name,
+      'jobTitle': doc.title,
+      'medicalSpecialty': doc.departmentName
+    })),
     'availableService': [
       ...DEPARTMENTS.map(d => ({
         '@type': 'MedicalProcedure',
         'name': d.name,
-        'description': d.description
+        'description': d.description,
+        'url': `${SITE_CONFIG.url}/departments/${d.id}`
       })),
       {
         '@type': 'MedicalClinic',
         'name': '24/7 Emergency & Trauma Care',
-        'medicalSpecialty': 'Emergency'
+        'medicalSpecialty': 'Emergency Care',
+        'description': 'Round-the-clock emergency medical services, trauma care, and casualty response.'
       }
     ]
   };
@@ -145,14 +168,33 @@ export function generatePhysicianJsonLd() {
   return DOCTORS.map(doc => ({
     '@context': 'https://schema.org',
     '@type': 'Physician',
+    '@id': `${SITE_CONFIG.url}/doctors/${doc.id}#doctor`,
     'name': doc.name,
     'jobTitle': doc.title,
     'medicalSpecialty': doc.departmentName,
+    'url': `${SITE_CONFIG.url}/doctors/${doc.id}`,
+    'telephone': SITE_CONFIG.telephone,
     'worksFor': {
       '@type': 'Hospital',
-      'name': SITE_CONFIG.name
+      '@id': `${SITE_CONFIG.url}/#hospital`,
+      'name': SITE_CONFIG.officialName,
+      'url': SITE_CONFIG.url
     },
-    'image': doc.image,
+    'hospitalAffiliation': {
+      '@type': 'Hospital',
+      '@id': `${SITE_CONFIG.url}/#hospital`,
+      'name': SITE_CONFIG.officialName,
+      'url': SITE_CONFIG.url
+    },
+    'address': {
+      '@type': 'PostalAddress',
+      'streetAddress': `${SITE_CONFIG.address.street}, ${SITE_CONFIG.address.suite}`,
+      'addressLocality': SITE_CONFIG.address.city,
+      'addressRegion': SITE_CONFIG.address.state,
+      'postalCode': SITE_CONFIG.address.zip,
+      'addressCountry': SITE_CONFIG.address.country
+    },
+    'image': doc.image ? `${SITE_CONFIG.url}${doc.image}` : SITE_CONFIG.ogImage,
     'description': doc.bio,
     'aggregateRating': {
       '@type': 'AggregateRating',
@@ -176,3 +218,4 @@ export function generateFaqJsonLd() {
     }))
   };
 }
+
