@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { SITE_CONFIG } from '@/constants/metadata';
 import Link from 'next/link';
-import { Award, ShieldCheck } from 'lucide-react';
+import { AwardsClient, HospitalAward } from './AwardsClient';
 
 export const metadata: Metadata = {
   title: 'Awards & Recognition — Ojas Hospital Ahmedabad',
@@ -9,18 +9,161 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_CONFIG.url}/awards` },
 };
 
-interface HospitalAward {
-  id: string;
-  title: string;
-  issuingBody: string;
-  year: string;
-  recipient: string;
-  description?: string;
-  image?: string;
-}
-
-// Awaiting client-supplied award data — honest empty state displayed.
-const AWARDS: HospitalAward[] = [];
+const AWARDS: HospitalAward[] = [
+  {
+    id: 'a1',
+    title: 'Certificate of Appreciation',
+    issuingBody: 'Gujarat Ayurvedic Medical Association (GAMA) - Rakhial Branch',
+    year: '2023',
+    recipient: 'Dr. Hasmukh Soni (Ojas Hospital)',
+    description: 'Awarded for outstanding support, leadership, and contribution to community healthcare initiatives and Ayurveda promotion.',
+    image: '/ojas-hospital-award-1.webp'
+  },
+  {
+    id: 'a2',
+    title: 'Certificate of Appreciation (Medical Coordinator)',
+    issuingBody: 'Gujarat Ayurvedic Medical Association (GAMA)',
+    year: '2023',
+    recipient: 'Dr. Hasmukh Soni',
+    description: 'Honoured for selfless services and dedication as a Medical Expert and Coordinator in various public health camps.',
+    image: '/ojas-hospital-award-2.webp'
+  },
+  {
+    id: 'a3',
+    title: 'Certificate of Appreciation (Honorary Medical Officer)',
+    issuingBody: 'Shri Swaminarayan Gurukul, Ahmedabad',
+    year: '2023',
+    recipient: 'Dr. Hasmukh Soni',
+    description: 'Presented in gratitude for providing voluntary medical consultation and healthcare services during the Multi-speciality Free Medical Camp.',
+    image: '/ojas-hospital-award-3.webp'
+  },
+  {
+    id: 'a4',
+    title: 'Women Power Of India "Swarnashakti" Trophy',
+    issuingBody: 'Swarnashakti Swarnkar Women Foundation',
+    year: '2024',
+    recipient: 'Ojas Hospital',
+    description: 'Awarded to Ojas Hospital and its leadership in recognition of outstanding support towards women empowerment and community healthcare.',
+    image: '/ojas-hospital-award-4.webp'
+  },
+  {
+    id: 'a5',
+    title: 'Memento of Honour (Guest of Honour)',
+    issuingBody: 'Khadi and Village Industries Commission (KVIC)',
+    year: '2023',
+    recipient: 'Dr. Hasmukh Soni',
+    description: 'Presented to Dr. Hasmukh Soni as a Guest of Honour at the Swadeshi Promotion and Gandhi Commemoration event.',
+    image: '/ojas-hospital-award-5.webp'
+  },
+  {
+    id: 'a6',
+    title: 'Corona Warrior Award',
+    issuingBody: 'Brahmin Swarnkar Godwad Samaj (BSGS)',
+    year: '2020',
+    recipient: 'Dr. Hasmukh J. Soni (Ojas Hospital)',
+    description: 'Felicitation for tireless services, providing medical support, food, and essentials to the needy in Rakhial and Pali district during the COVID-19 pandemic.',
+    image: '/ojas-hospital-award-6.webp'
+  },
+  {
+    id: 'a7',
+    title: 'Recognition and Appreciation Trophy',
+    issuingBody: 'Aamani Spaces Ltd.',
+    year: '2013',
+    recipient: 'Dr. Hasmukh Soni',
+    description: 'Presented for outstanding guidance, medical support, and advisory services to the organization.',
+    image: '/ojas-hospital-award-7.webp'
+  },
+  {
+    id: 'a8',
+    title: 'Star 2020 National Corona Warrior Certificate',
+    issuingBody: 'World Record Publishing Limited, United Kingdom (Indo-UK Cultural Forum)',
+    year: '2020',
+    recipient: 'Dr. Hasmukh J. Soni',
+    description: 'National and international recognition for outstanding contribution and serving as a silent warrior during the Corona pandemic.',
+    image: '/ojas-hospital-award-8.webp'
+  },
+  {
+    id: 'a9',
+    title: 'Symposium Honour (Defeat Diabetes Initiative)',
+    issuingBody: 'Dr. Prakash Kurmi, Founder of Defeat Diabetes Initiative',
+    year: '2026',
+    recipient: 'All Gujarat Ayurved Medical Association (GAMA)',
+    description: 'Presented at the Hyatt Regency CME Symposium for valuable participation and leading regional diabetes awareness campaigns.',
+    image: '/ojas-hospital-award-9.webp'
+  },
+  {
+    id: 'a10',
+    title: 'Social Leadership Recognition (સામાજીક આગેવાન)',
+    issuingBody: 'Rajasthan Soni Samaj',
+    year: '2021',
+    recipient: 'Dr. Hasmukhbhai Soni',
+    description: 'Felicitation in Ahmedabad for leadership, dedication to community development, and public healthcare welfare services.',
+    image: '/ojas-hospital-award-10.webp'
+  },
+  {
+    id: 'a11',
+    title: 'Ayush India Expo Appreciation Award',
+    issuingBody: 'GAMA Ayush Conference',
+    year: '2024',
+    recipient: 'Dr. Hasmukh Soni',
+    description: 'Awarded to GAMA Chairman Dr. Hasmukh Soni for outstanding contribution to the successful organization of the Ayush India Expo.',
+    image: '/ojas-hospital-award-11.webp'
+  },
+  {
+    id: 'a12',
+    title: 'Guest of Honour (Practical Ayurveda Workshop)',
+    issuingBody: 'J.S. Ayurveda Mahavidyalaya & P.D. Patel Ayurveda Hospital, Nadiad',
+    year: '2023',
+    recipient: 'Dr. Hasmukh Soni',
+    description: 'Felicitation for delivering expert lecture on practical and diagnostic principles of Ayurveda.',
+    image: '/ojas-hospital-award-12.webp'
+  },
+  {
+    id: 'a13',
+    title: 'Gratitude of Respect Plaque',
+    issuingBody: 'Sushrusha Hospital in association with GAMA',
+    year: '2025',
+    recipient: 'Dr. Hasmukh Soni',
+    description: 'Presented at the Welcome Hotel by ITC Hotels for his distinguished contribution to integrated medical practices.',
+    image: '/ojas-hospital-award-13.webp'
+  },
+  {
+    id: 'a14',
+    title: 'Lifetime Achievement Award',
+    issuingBody: 'Ayush India Expo (5th Edition)',
+    year: '2025',
+    recipient: 'Dr. Hasmukh Soni',
+    description: "A prestigious honor presented in recognition of Dr. Soni's decades-long dedication to medical practice, education, and Ayurveda promotion in Gujarat.",
+    image: '/ojas-hospital-award-14.webp'
+  },
+  {
+    id: 'a15',
+    title: 'Memento of Honour',
+    issuingBody: 'Ayurved Vyaspeeth',
+    year: '2024',
+    recipient: 'Dr. Hasmukh Soni',
+    description: 'Awarded for exceptional leadership in promoting holistic healthcare practices and training programs.',
+    image: '/ojas-hospital-award-15.webp'
+  },
+  {
+    id: 'a16',
+    title: 'CME Program Appreciation Award',
+    issuingBody: 'Akhil Bhartiya Ayurved Mahasammelan',
+    year: '2021',
+    recipient: 'Dr. Hasmukh Soni',
+    description: 'Recognized for hosting and coordinating the Continuing Medical Education Programme for Ayurvedic Medical Officers and private practitioners.',
+    image: '/ojas-hospital-award-16.webp'
+  },
+  {
+    id: 'a17',
+    title: 'Memento of Appreciation (Arogyadham Model)',
+    issuingBody: 'Hiramani Arogyadham (J.P. Hiramani Healthcare)',
+    year: '2024',
+    recipient: 'Dr. Hasmukh Soni',
+    description: 'Presented to Dr. Hasmukh Soni for his contribution to the development and guidance of regional healthcare models.',
+    image: '/ojas-hospital-award-17.webp'
+  }
+];
 
 export default function AwardsPage() {
   return (
@@ -39,56 +182,8 @@ export default function AwardsPage() {
         </p>
       </div>
 
-      <div className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {AWARDS.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-gold/40 bg-cream p-16 text-center max-w-2xl mx-auto">
-              <Award className="h-12 w-12 text-gold mx-auto mb-4" />
-              <h2 className="text-xl font-bold text-charcoal mb-3">Awards listing coming soon</h2>
-              <p className="text-sm text-charcoal/65 leading-relaxed mb-6">
-                Ojas Hospital has been serving the Rakhial community for over 24 years. We are currently compiling our awards and certifications list.
-                If you have information about a specific recognition, please contact us.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-maroon-200 text-sm font-semibold text-maroon-700 hover:bg-maroon-700 hover:text-white transition-all"
-                >
-                  <ShieldCheck className="h-4 w-4" />
-                  About Ojas Hospital
-                </Link>
-                <a
-                  href="mailto:ojashospitalo123@gmail.com"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-maroon-200 text-sm font-semibold text-charcoal/70 hover:bg-maroon-50 transition-all"
-                >
-                  Submit Award Info →
-                </a>
-              </div>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {AWARDS.map((award) => (
-                <div key={award.id} className="bg-white rounded-2xl border border-maroon-100 shadow-soft-sm p-6 hover:-translate-y-1 hover:shadow-lg transition-all">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-xl bg-gold/10 shrink-0">
-                      <Award className="h-6 w-6 text-gold" />
-                    </div>
-                    <div>
-                      <span className="text-xs font-bold text-maroon-600">{award.year}</span>
-                      <h3 className="text-base font-bold text-charcoal mt-0.5 leading-tight">{award.title}</h3>
-                      <p className="text-xs text-charcoal/60 mt-1">{award.issuingBody}</p>
-                      <span className="inline-block mt-2 px-2 py-0.5 rounded-full bg-cream text-xs font-semibold text-charcoal/70">{award.recipient}</span>
-                      {award.description && <p className="text-sm text-charcoal/70 mt-3 leading-relaxed">{award.description}</p>}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-        </div>
-      </div>
+      <AwardsClient awards={AWARDS} />
     </>
   );
 }
+
