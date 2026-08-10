@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Fraunces, Inter } from 'next/font/google';
 import './globals.css';
 
@@ -27,6 +28,16 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth" suppressHydrationWarning>
+      {/* Google Analytics */}
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-4DNVY9LXEJ" strategy="afterInteractive" />
+      <Script id="gtag-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4DNVY9LXEJ');
+        `}
+      </Script>
       <head>
         {/* SEO Structured Data JSON-LD */}
         <script
