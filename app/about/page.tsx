@@ -33,10 +33,11 @@ export default function AboutPage() {
     'name': 'About Ojas Hospital Multispeciality',
     'url': `${SITE_CONFIG.url}/about`,
     'mainEntity': {
-      '@type': 'Hospital',
+      '@type': ['Hospital', 'MedicalOrganization', 'Organization'],
       '@id': `${SITE_CONFIG.url}/#hospital`,
       'name': SITE_CONFIG.officialName,
       'url': SITE_CONFIG.url,
+      'logo': `${SITE_CONFIG.url}/logo.png`,
       'foundingDate': '2000',
       'address': {
         '@type': 'PostalAddress',

@@ -7,6 +7,8 @@ export const SITE_CONFIG = {
   shortName: "Ojas",
   description: "Ojas Hospital Multispeciality is a trusted multispeciality hospital in Rakhial, Ahmedabad, Gujarat, India offering 24/7 emergency care, experienced general physicians, surgeons, specialists, diagnostics, and surgery.",
   url: "https://www.ojashospitalmultispecility.com",
+  logo: "https://www.ojashospitalmultispecility.com/logo.png",
+  favicon: "https://www.ojashospitalmultispecility.com/favicon.png",
   ogImage: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200",
   telephone: EMERGENCY_INFO.hotline,
   email: "ojashospitalo123@gmail.com",
@@ -35,6 +37,17 @@ export const DEFAULT_METADATA: Metadata = {
     template: `%s | ${SITE_CONFIG.name}`
   },
   description: SITE_CONFIG.description,
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.png',
+    apple: [
+      { url: '/apple-touch-icon.png', type: 'image/png' },
+    ],
+  },
   keywords: [
     "Ojas Hospital",
     "Ojas Hospital Multispeciality",
@@ -101,13 +114,14 @@ export const DEFAULT_METADATA: Metadata = {
 export function generateHospitalJsonLd() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['Hospital', 'MedicalOrganization', 'LocalBusiness'],
+    '@type': ['Hospital', 'MedicalOrganization', 'Organization', 'LocalBusiness'],
     '@id': `${SITE_CONFIG.url}/#hospital`,
     'name': SITE_CONFIG.officialName,
     'legalName': SITE_CONFIG.officialName,
     'alternateName': SITE_CONFIG.name,
     'description': SITE_CONFIG.description,
     'url': SITE_CONFIG.url,
+    'logo': `${SITE_CONFIG.url}/logo.png`,
     'telephone': SITE_CONFIG.telephone,
     'email': SITE_CONFIG.email,
     'image': SITE_CONFIG.ogImage,
@@ -175,16 +189,18 @@ export function generatePhysicianJsonLd() {
     'url': `${SITE_CONFIG.url}/doctors/${doc.id}`,
     'telephone': SITE_CONFIG.telephone,
     'worksFor': {
-      '@type': 'Hospital',
+      '@type': ['Hospital', 'MedicalOrganization', 'Organization'],
       '@id': `${SITE_CONFIG.url}/#hospital`,
       'name': SITE_CONFIG.officialName,
-      'url': SITE_CONFIG.url
+      'url': SITE_CONFIG.url,
+      'logo': `${SITE_CONFIG.url}/logo.png`
     },
     'hospitalAffiliation': {
-      '@type': 'Hospital',
+      '@type': ['Hospital', 'MedicalOrganization', 'Organization'],
       '@id': `${SITE_CONFIG.url}/#hospital`,
       'name': SITE_CONFIG.officialName,
-      'url': SITE_CONFIG.url
+      'url': SITE_CONFIG.url,
+      'logo': `${SITE_CONFIG.url}/logo.png`
     },
     'address': {
       '@type': 'PostalAddress',

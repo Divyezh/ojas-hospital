@@ -70,16 +70,18 @@ export default async function DoctorPage({ params }: Props) {
     'url': `${SITE_CONFIG.url}/doctors/${doctor.id}`,
     'telephone': EMERGENCY_INFO.hotline,
     'worksFor': {
-      '@type': 'Hospital',
+      '@type': ['Hospital', 'MedicalOrganization', 'Organization'],
       '@id': `${SITE_CONFIG.url}/#hospital`,
       'name': SITE_CONFIG.officialName,
-      'url': SITE_CONFIG.url
+      'url': SITE_CONFIG.url,
+      'logo': `${SITE_CONFIG.url}/logo.png`
     },
     'hospitalAffiliation': {
-      '@type': 'Hospital',
+      '@type': ['Hospital', 'MedicalOrganization', 'Organization'],
       '@id': `${SITE_CONFIG.url}/#hospital`,
       'name': SITE_CONFIG.officialName,
-      'url': SITE_CONFIG.url
+      'url': SITE_CONFIG.url,
+      'logo': `${SITE_CONFIG.url}/logo.png`
     },
     'knowsAbout': doctor.specialties,
     'address': {

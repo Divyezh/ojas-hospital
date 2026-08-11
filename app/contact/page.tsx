@@ -17,9 +17,11 @@ export default function ContactPage() {
     'name': 'Contact Ojas Hospital Multispeciality',
     'url': `${SITE_CONFIG.url}/contact`,
     'mainEntity': {
-      '@type': 'Hospital',
+      '@type': ['Hospital', 'MedicalOrganization', 'Organization'],
       '@id': `${SITE_CONFIG.url}/#hospital`,
       'name': SITE_CONFIG.officialName,
+      'url': SITE_CONFIG.url,
+      'logo': `${SITE_CONFIG.url}/logo.png`,
       'telephone': EMERGENCY_INFO.hotline,
       'email': SITE_CONFIG.email,
       'address': {

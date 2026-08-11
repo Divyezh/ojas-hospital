@@ -113,10 +113,11 @@ export default async function DepartmentPage({ params }: Props) {
       'jobTitle': doc.title
     })),
     'parentOrganization': {
-      '@type': 'Hospital',
+      '@type': ['Hospital', 'MedicalOrganization', 'Organization'],
       '@id': `${SITE_CONFIG.url}/#hospital`,
       'name': SITE_CONFIG.officialName,
-      'url': SITE_CONFIG.url
+      'url': SITE_CONFIG.url,
+      'logo': `${SITE_CONFIG.url}/logo.png`
     }
   };
 
