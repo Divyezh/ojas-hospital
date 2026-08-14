@@ -387,6 +387,15 @@ export const FACILITIES: Facility[] = [
     image: "/ojas medicial store.png",
     features: ["All Medicines Available", "24/7 Access", "Doctor-prescribed Supplies"],
     badgeText: "In-House"
+  },
+  {
+    id: "fac-12",
+    title: "Mediclaim Assistance",
+    category: "Insurance",
+    description: "Dedicated mediclaim and insurance assistance desk to help patients with cashless claims and documentation.",
+    image: "/mediclaim.png",
+    features: ["Cashless Claims", "Documentation Help", "Insurance Guidance"],
+    badgeText: "Support"
   }
 ];
 

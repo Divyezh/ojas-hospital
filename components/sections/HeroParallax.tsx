@@ -95,6 +95,15 @@ export function HeroParallax() {
           </span>
         </motion.div>
 
+        <motion.p
+          variants={fadeUp(0.2)}
+          initial="hidden"
+          animate="visible"
+          className="text-base sm:text-lg font-semibold tracking-[0.08em] text-gold uppercase mb-2"
+        >
+          Caring for Humanity
+        </motion.p>
+
         {/* Headline — capped to avoid overflow */}
         <motion.h1
           className="text-[clamp(36px,5.5vw,68px)] leading-[1.15] font-bold text-white max-w-225 flex flex-wrap justify-center gap-x-3 drop-shadow-lg mt-3"

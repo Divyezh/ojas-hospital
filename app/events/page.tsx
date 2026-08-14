@@ -83,7 +83,7 @@ const EVENTS: HospitalEvent[] = [
   },
   {
     id: 'e8',
-    title: 'Honor Ceremony by Union Home Minister',
+    title: 'Public Forum Greeting with Union Minister',
     date: '2023',
     location: 'Ahmedabad, Gujarat',
     description: 'Dr. Hasmukh Soni being recognized and receiving honours from Union Home Minister Amit Shah for his leadership in public healthcare and ayurvedic medical councils.',
@@ -93,7 +93,7 @@ const EVENTS: HospitalEvent[] = [
   },
   {
     id: 'e9',
-    title: 'Ambedkar Award Felicitation by Chief Minister',
+    title: 'Shri Ambedkar Award Felicitation by Chief Minister',
     date: '2023',
     location: 'Ahmedabad, Gujarat',
     description: 'Dr. Hasmukh Soni receiving blessings and greeting Chief Minister of Gujarat, Bhupendrabhai Patel, during the Dr. Ambedkar Samaj Sammelan and award presentation.',
