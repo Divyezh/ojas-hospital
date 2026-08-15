@@ -90,7 +90,7 @@ export default function AboutPage() {
           About <span className="text-gold">Ojas Hospital</span>
         </h1>
         <p className="text-white/75 max-w-2xl mx-auto text-base">
-          Trusted multispeciality care in Jasval Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat — for over two decades.
+          Trusted multispeciality care in Jaysval Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat — for over two decades.
         </p>
       </div>
 

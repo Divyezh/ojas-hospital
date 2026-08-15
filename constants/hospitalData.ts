@@ -5,7 +5,7 @@ export const EMERGENCY_INFO: EmergencyInfo = {
   ambulance: "+91 7574840735",
   erWaitTime: "Available 24×7",
   traumaCenterLevel: "Emergency Care",
-  address: "Jasval Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat – 380021",
+  address: "Jaysval Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat – 380021",
 };
 
 export const HOSPITAL_STATS: HospitalStat[] = [
@@ -17,7 +17,7 @@ export const HOSPITAL_STATS: HospitalStat[] = [
   },
   {
     label: "Expert Doctors",
-    value: 13,
+    value: 16,
     suffix: "",
     description: "Experienced medical professionals across specialties."
   },
@@ -51,7 +51,7 @@ export const DEPARTMENTS: Department[] = [
       "Adult Immunizations"
     ],
     image: "/general medicine.png",
-    stats: { surgeries: "N/A", satisfaction: "98%", specialists: 4 }
+    stats: { surgeries: "N/A", satisfaction: "98%", specialists: 2 }
   },
   {
     id: "general-surgery",
@@ -68,7 +68,7 @@ export const DEPARTMENTS: Department[] = [
       "Gallbladder Surgery"
     ],
     image: "/general surgery.png",
-    stats: { surgeries: "10,000+", satisfaction: "90%", specialists: 3 }
+    stats: { surgeries: "10,000+", satisfaction: "90%", specialists: 2 }
   },
   {
     id: "orthopedics",
@@ -85,7 +85,7 @@ export const DEPARTMENTS: Department[] = [
       "Spine Care"
     ],
     image: "/orthopedics.png",
-    stats: { surgeries: "5,000+", satisfaction: "98.5%", specialists: 3 }
+    stats: { surgeries: "5,000+", satisfaction: "98.5%", specialists: 1 }
   },
   {
     id: "gynecology",
@@ -102,7 +102,7 @@ export const DEPARTMENTS: Department[] = [
       "Gynecological Surgeries"
     ],
     image: "/gynacologist.png",
-    stats: { surgeries: "8,000+", satisfaction: "99%", specialists: 4 }
+    stats: { surgeries: "8,000+", satisfaction: "99%", specialists: 2 }
   },
   {
     id: "pediatrics",
@@ -119,24 +119,126 @@ export const DEPARTMENTS: Department[] = [
       "Growth & Development"
     ],
     image: "/Pediatrics.png",
-    stats: { surgeries: "N/A", satisfaction: "99.5%", specialists: 2 }
+    stats: { surgeries: "N/A", satisfaction: "99.5%", specialists: 1 }
   },
   {
     id: "dermatology",
-    name: "Skin & Hair",
+    name: "Skin & Cosmetology",
     slug: "dermatology",
     iconName: "Activity",
-    description: "Skin, hair & nail treatment by expert dermatologists in Ahmedabad.",
-    fullDescription: "Trusted skin & hair clinic in Ahmedabad treating acne, skin allergies, hair loss, and offering cosmetic skin care procedures.",
+    description: "Skin, cosmetology & hair treatments by expert dermatologists in Ahmedabad.",
+    fullDescription: "Trusted skin, cosmetology & hair clinic in Ahmedabad treating skin conditions, aesthetics, hair loss, and offering advanced cosmetic procedures.",
     headOfDepartment: "Chief Dermatologist",
     features: [
-      "Acne Treatment",
-      "Skin Allergies",
-      "Hair Loss Treatment",
-      "Cosmetic Procedures"
+      "Cosmetology & Aesthetics",
+      "Skin Disease Treatment",
+      "Hair Care & PRP",
+      "Acne & Scar Therapy"
     ],
     image: "/skin care.png",
-    stats: { surgeries: "N/A", satisfaction: "98%", specialists: 2 }
+    stats: { surgeries: "N/A", satisfaction: "98%", specialists: 4 }
+  },
+  {
+    id: "ayurveda",
+    name: "Ayurveda",
+    slug: "ayurveda",
+    iconName: "Activity",
+    description: "Authentic Ayurvedic healing, holistic consultations & lifestyle medicine.",
+    fullDescription: "Traditional and evidence-informed Ayurvedic care at Ojas Hospital under the visionary leadership of veteran Ayurvedic practitioners.",
+    headOfDepartment: "Managing Trustee / Chief Ayurvedic Physician",
+    features: [
+      "Holistic Consultations",
+      "Chronic Disease Management",
+      "Panchakarma & Detox",
+      "Diet & Lifestyle Guidance"
+    ],
+    image: "/hospital.png",
+    stats: { surgeries: "N/A", satisfaction: "99%", specialists: 1 }
+  },
+  {
+    id: "ent",
+    name: "ENT",
+    slug: "ent",
+    iconName: "Activity",
+    description: "Comprehensive ear, nose, and throat diagnostic and surgical care in Ahmedabad.",
+    fullDescription: "Advanced ENT consultations, endoscopic examinations, and surgeries for hearing issues, sinusitis, tonsillitis, and vocal cord conditions.",
+    headOfDepartment: "Chief ENT Specialist",
+    features: [
+      "Ear & Hearing Care",
+      "Sinus & Nasal Surgery",
+      "Throat & Tonsil Care",
+      "Head & Neck Consultations"
+    ],
+    image: "/office cabin.png",
+    stats: { surgeries: "2,500+", satisfaction: "98%", specialists: 1 }
+  },
+  {
+    id: "critical-care",
+    name: "Critical Care",
+    slug: "critical-care",
+    iconName: "HeartPulse",
+    description: "Specialized intensive care and life support management at Ojas Hospital.",
+    fullDescription: "Comprehensive critical care medicine led by FCCS and CTCCM specialists equipped with state-of-the-art ICU monitoring.",
+    headOfDepartment: "Critical Care Specialist",
+    features: [
+      "Intensive Care Unit (ICU)",
+      "Ventilator Support",
+      "Hemodynamic Monitoring",
+      "Post-Surgical Critical Care"
+    ],
+    image: "/emergency care.png",
+    stats: { surgeries: "N/A", satisfaction: "99%", specialists: 1 }
+  },
+  {
+    id: "homeopathic",
+    name: "Homeopathic",
+    slug: "homeopathic",
+    iconName: "Activity",
+    description: "Holistic homeopathic therapies for chronic diseases and constitutional wellness.",
+    fullDescription: "Gentle, non-invasive homeopathic care for allergies, skin issues, arthritis, and lifestyle disorders at Ojas Hospital.",
+    headOfDepartment: "Homeopathic Consultant",
+    features: [
+      "Constitutional Prescribing",
+      "Chronic Allergy Treatment",
+      "Pediatric & Geriatric Homeopathy",
+      "Holistic Wellness Plans"
+    ],
+    image: "/deluxe room.png",
+    stats: { surgeries: "N/A", satisfaction: "97%", specialists: 1 }
+  },
+  {
+    id: "physiotherapy",
+    name: "Physiotherapy",
+    slug: "physiotherapy",
+    iconName: "Activity",
+    description: "Targeted physical therapy, rehabilitation, and pain management in Ahmedabad.",
+    fullDescription: "Evidence-based physiotherapy and musculoskeletal rehabilitation helping patients regain strength, mobility, and pain-free living.",
+    headOfDepartment: "Chief Physiotherapist",
+    features: [
+      "Orthopedic Rehab",
+      "Post-Operative Therapy",
+      "Neuro Rehab",
+      "Sports Injury Management"
+    ],
+    image: "/deluxe room.png",
+    stats: { surgeries: "N/A", satisfaction: "98.5%", specialists: 1 }
+  },
+  {
+    id: "unani",
+    name: "Unani",
+    slug: "unani",
+    iconName: "Activity",
+    description: "Classical Unani medicine, natural healing & preventative healthcare.",
+    fullDescription: "Traditional Unani Tibb medical consultations offering natural herbal therapies, lifestyle counseling, and preventive health solutions.",
+    headOfDepartment: "Unani Medicine Consultant",
+    features: [
+      "Natural Herbal Remedies",
+      "Metabolic & Digestive Health",
+      "Preventive Health Regimens",
+      "Holistic Wellness"
+    ],
+    image: "/deluxe room.png",
+    stats: { surgeries: "N/A", satisfaction: "97%", specialists: 1 }
   },
   {
     id: "cardiology",
@@ -177,10 +279,42 @@ export const DEPARTMENTS: Department[] = [
 export const DOCTORS: Doctor[] = [
   {
     id: "doc-1",
+    name: "Dr. Ekraj Ansari",
+    title: "Consultant Physician",
+    departmentId: "general-medicine",
+    departmentName: "Medicine",
+    qualifications: "M.D. Medicine",
+    experienceYears: 12,
+    rating: 4.8,
+    reviewCount: 118,
+    availability: "Mon - Sat",
+    initials: "EA",
+    color: "Royal Blue",
+    specialties: ["Internal Medicine", "Chronic Diseases", "Preventive Care"],
+    bio: "Experienced Physician specializing in M.D. Medicine, providing comprehensive diagnosis and clinical care at Ojas Hospital."
+  },
+  {
+    id: "doc-2",
+    name: "Dr. Karan Shah",
+    title: "Physician & Critical Care Specialist",
+    departmentId: "general-medicine",
+    departmentName: "Medicine",
+    qualifications: "M.B.B.S., FCCS",
+    experienceYears: 10,
+    rating: 4.8,
+    reviewCount: 112,
+    availability: "Mon - Sat",
+    initials: "KS",
+    color: "Steel Blue",
+    specialties: ["Internal Medicine", "FCCS", "Emergency Medicine"],
+    bio: "Consultant Physician with expertise in FCCS, dedicated to patient care and internal medicine at Ojas Hospital."
+  },
+  {
+    id: "doc-3",
     name: "Dr. Anand Tank",
     title: "General Surgeon",
     departmentId: "general-surgery",
-    departmentName: "General Surgery",
+    departmentName: "Surgical",
     qualifications: "M.S. Surgeon",
     experienceYears: 15,
     rating: 4.8,
@@ -188,15 +322,15 @@ export const DOCTORS: Doctor[] = [
     availability: "Mon - Sat",
     initials: "AT",
     color: "Royal Blue",
-    specialties: ["General Surgery", "Consultation", "Treatment"],
-    bio: "Experienced General Surgeon dedicated to providing premium healthcare services at Ojas Hospital."
+    specialties: ["General Surgery", "Laparoscopic Surgery", "Surgical Care"],
+    bio: "Experienced General Surgeon dedicated to providing premium surgical and healthcare services at Ojas Hospital."
   },
   {
-    id: "doc-2",
+    id: "doc-4",
     name: "Dr. Dipakbhai",
     title: "General Surgeon",
     departmentId: "general-surgery",
-    departmentName: "General Surgery",
+    departmentName: "Surgical",
     qualifications: "M.S. Surgeon",
     experienceYears: 16,
     rating: 4.7,
@@ -204,40 +338,8 @@ export const DOCTORS: Doctor[] = [
     availability: "Mon - Sat",
     initials: "DK",
     color: "Emerald Green",
-    specialties: ["General Surgery", "Consultation", "Treatment"],
-    bio: "Experienced General Surgeon dedicated to providing premium healthcare services at Ojas Hospital."
-  },
-  {
-    id: "doc-3",
-    name: "Dr. Vikas Gupta",
-    title: "Gynecologist",
-    departmentId: "gynecology",
-    departmentName: "Gynecology",
-    qualifications: "M.S. Gynecology",
-    experienceYears: 12,
-    rating: 4.9,
-    reviewCount: 135,
-    availability: "Mon - Sat",
-    initials: "VG",
-    color: "Rose Pink",
-    specialties: ["Gynecology", "Consultation", "Treatment"],
-    bio: "Experienced Gynecologist dedicated to providing premium healthcare services at Ojas Hospital."
-  },
-  {
-    id: "doc-4",
-    name: "Dr. Chetna Soni",
-    title: "Gynecologist",
-    departmentId: "gynecology",
-    departmentName: "Gynecology",
-    qualifications: "M.S.P.G. Scholar",
-    experienceYears: 8,
-    rating: 4.6,
-    reviewCount: 95,
-    availability: "Mon - Sat",
-    initials: "CS",
-    color: "Magenta",
-    specialties: ["Gynecology", "Consultation", "Treatment"],
-    bio: "Dedicated Gynecologist offering comprehensive women's healthcare services at Ojas Hospital."
+    specialties: ["General Surgery", "Open Surgery", "Consultation"],
+    bio: "Experienced General Surgeon dedicated to providing premium surgical healthcare services at Ojas Hospital."
   },
   {
     id: "doc-5",
@@ -250,6 +352,7 @@ export const DOCTORS: Doctor[] = [
     rating: 4.7,
     reviewCount: 105,
     availability: "Mon - Sat",
+    image: "/Dr Ayush.png",
     initials: "AS",
     color: "Cyan",
     specialties: ["Skin & Hair", "Skin Care", "Hair Treatment"],
@@ -257,38 +360,151 @@ export const DOCTORS: Doctor[] = [
   },
   {
     id: "doc-6",
+    name: "Dr. Sheela Shah",
+    title: "Cosmetologist",
+    departmentId: "dermatology",
+    departmentName: "Skin & Cosmetology",
+    qualifications: "Cosmetologist",
+    experienceYears: 11,
+    rating: 4.8,
+    reviewCount: 114,
+    availability: "Mon - Sat",
+    initials: "SS",
+    color: "Rose Pink",
+    specialties: ["Cosmetology", "Skin Rejuvenation", "Aesthetic Care"],
+    bio: "Expert Cosmetologist specializing in aesthetic skin treatments, cosmetology, and advanced skincare at Ojas Hospital."
+  },
+  {
+    id: "doc-7",
+    name: "Dr. Adhik Karajaniya",
+    title: "Dermatologist & Skin Specialist",
+    departmentId: "dermatology",
+    departmentName: "Skin & Cosmetology",
+    qualifications: "M.D. Skin",
+    experienceYears: 13,
+    rating: 4.9,
+    reviewCount: 128,
+    availability: "Mon - Sat",
+    initials: "AK",
+    color: "Magenta",
+    specialties: ["Dermatology", "Skin Conditions", "Hair Care"],
+    bio: "Qualified M.D. Skin Specialist providing advanced dermatological care and skin condition treatments at Ojas Hospital."
+  },
+  {
+    id: "doc-8",
+    name: "Dr. Sohail Kureshi",
+    title: "Skin & Cosmetology Consultant",
+    departmentId: "dermatology",
+    departmentName: "Skin & Cosmetology",
+    qualifications: "B.A.M.S.",
+    experienceYears: 9,
+    rating: 4.7,
+    reviewCount: 98,
+    availability: "Mon - Sat",
+    initials: "SK",
+    color: "Teal",
+    specialties: ["Skin & Cosmetology", "Ayurvedic Dermatology", "Holistic Skin Care"],
+    bio: "Dedicated Skin & Cosmetology practitioner blending holistic and clinical care for skin health at Ojas Hospital."
+  },
+  {
+    id: "doc-9",
+    name: "Dr. Hasmukhbhai Soni",
+    title: "Managing Trustee & Ayurvedic Physician",
+    departmentId: "ayurveda",
+    departmentName: "Managing Trustee / Ayurveda",
+    qualifications: "B.A.M.S., LL.B",
+    experienceYears: 25,
+    rating: 5.0,
+    reviewCount: 210,
+    availability: "Mon - Sat",
+    image: "/dr-hasmukh.png",
+    initials: "HS",
+    color: "Gold",
+    specialties: ["Ayurveda", "Holistic Healing", "Hospital Management"],
+    bio: "Managing Trustee of Ojas Hospital and veteran Ayurvedic Physician with over 25 years of leadership and clinical expertise."
+  },
+  {
+    id: "doc-10",
+    name: "Dr. Atulbhai Patel",
+    title: "Pediatrician / Child Specialist",
+    departmentId: "pediatrics",
+    departmentName: "Pediatrics",
+    qualifications: "M.D. Ped.",
+    experienceYears: 15,
+    rating: 4.9,
+    reviewCount: 140,
+    availability: "Mon - Sat",
+    initials: "AP",
+    color: "Amber",
+    specialties: ["Pediatrics", "Neonatal Care", "Child Vaccinations"],
+    bio: "Senior M.D. Pediatrician dedicated to compassionate pediatric care, newborn wellness, and childhood development at Ojas Hospital."
+  },
+  {
+    id: "doc-11",
     name: "Dr. Vishalbhai",
     title: "ENT Specialist",
     departmentId: "ent",
     departmentName: "ENT",
-    qualifications: "M.S. ENT",
+    qualifications: "M.S. E.N.T.",
     experienceYears: 14,
     rating: 4.8,
     reviewCount: 125,
     availability: "Mon - Sat",
-    initials: "VS",
+    initials: "VB",
     color: "Lime Green",
-    specialties: ["Ear, Nose & Throat", "Consultation", "Treatment"],
-    bio: "Experienced ENT Specialist dedicated to providing premium healthcare services at Ojas Hospital."
+    specialties: ["Ear, Nose & Throat", "ENT Surgery", "Hearing & Sinus"],
+    bio: "Experienced ENT Specialist dedicated to providing premium ear, nose, throat and surgical care at Ojas Hospital."
   },
   {
-    id: "doc-7",
+    id: "doc-12",
     name: "Dr. Paritosh Solanki",
     title: "Orthopedic Surgeon",
     departmentId: "orthopedics",
     departmentName: "Orthopedics",
-    qualifications: "M.S. Orthopedics",
+    qualifications: "M.S. Ortho.",
     experienceYears: 16,
     rating: 4.9,
     reviewCount: 145,
     availability: "Mon - Sat",
     initials: "PS",
     color: "Deep Purple",
-    specialties: ["Orthopedics", "Joint Care", "Surgery"],
-    bio: "Experienced Orthopedic Surgeon dedicated to providing premium healthcare services at Ojas Hospital."
+    specialties: ["Orthopedics", "Joint Care", "Fracture Surgery"],
+    bio: "Experienced Orthopedic Surgeon dedicated to providing bone, joint, and trauma care at Ojas Hospital."
   },
   {
-    id: "doc-8",
+    id: "doc-13",
+    name: "Dr. Karan Shah",
+    title: "Critical Care Medicine Specialist",
+    departmentId: "critical-care",
+    departmentName: "Critical Care",
+    qualifications: "MB.FCCS, CTCCM — Critical Care Medicine Specialist",
+    experienceYears: 11,
+    rating: 4.9,
+    reviewCount: 130,
+    availability: "24/7 On-Call",
+    initials: "KS",
+    color: "Crimson Red",
+    specialties: ["Critical Care", "ICU Management", "Emergency Resuscitation", "CTCCM"],
+    bio: "Critical Care Specialist with CTCCM & FCCS certifications, leading ICU, emergency response, and intensive life support at Ojas Hospital."
+  },
+  {
+    id: "doc-14",
+    name: "Dr. Pujan K. Jain",
+    title: "Homeopathic Consultant",
+    departmentId: "homeopathic",
+    departmentName: "Homeopathic",
+    qualifications: "M.H.M.S.",
+    experienceYears: 12,
+    rating: 4.8,
+    reviewCount: 108,
+    availability: "Mon - Sat",
+    initials: "PJ",
+    color: "Indigo",
+    specialties: ["Homeopathic Medicine", "Chronic Ailments", "Holistic Wellness"],
+    bio: "Experienced Homeopathic Physician providing holistic and constitutional treatment for acute and chronic conditions at Ojas Hospital."
+  },
+  {
+    id: "doc-15",
     name: "Dr. Kunjal Modi",
     title: "Physiotherapist",
     departmentId: "physiotherapy",
@@ -299,9 +515,25 @@ export const DOCTORS: Doctor[] = [
     reviewCount: 115,
     availability: "Mon - Sat",
     initials: "KM",
-    color: "Amber",
+    color: "Orange",
     specialties: ["Physiotherapy", "Rehabilitation", "Pain Management"],
     bio: "Experienced Physiotherapist dedicated to providing premium rehabilitation services at Ojas Hospital."
+  },
+  {
+    id: "doc-16",
+    name: "Dr. Asrar Ansari",
+    title: "Unani Medicine Consultant",
+    departmentId: "unani",
+    departmentName: "Unani",
+    qualifications: "B.U.M.S.",
+    experienceYears: 11,
+    rating: 4.7,
+    reviewCount: 96,
+    availability: "Mon - Sat",
+    initials: "AA",
+    color: "Forest Green",
+    specialties: ["Unani Medicine", "Natural Therapeutics", "Preventive Care"],
+    bio: "Qualified B.U.M.S. Unani Physician offering natural healing, traditional remedies, and lifestyle medicine at Ojas Hospital."
   }
 ];
 

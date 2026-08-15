@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Contact Us — Ojas Hospital Multispeciality Rakhial, Ahmedabad',
-  description: 'Contact Ojas Hospital Multispeciality in Jasval Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat 380021. 24/7 emergency hotline +91 7574840735, WhatsApp, and location directions.',
+  description: 'Contact Ojas Hospital Multispeciality in Jaysval Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat 380021. 24/7 emergency hotline +91 7574840735, WhatsApp, and location directions.',
   alternates: { canonical: `${SITE_CONFIG.url}/contact` },
 };
 
@@ -74,7 +74,7 @@ export default function ContactPage() {
           Contact <span className="text-gold">Ojas Hospital</span>
         </h1>
         <p className="text-white/75 max-w-2xl mx-auto text-base">
-          Jasval Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat 380021. 24/7 Emergency Care Hotline: {EMERGENCY_INFO.hotline}
+          Jayswal Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat 380021. 24/7 Emergency Care Hotline: {EMERGENCY_INFO.hotline}
         </p>
       </div>
 

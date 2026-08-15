@@ -18,7 +18,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const doctor = DOCTORS.find((d) => d.id === id);
-  
+
   if (!doctor) {
     return {
       title: 'Doctor Not Found',
@@ -165,11 +165,11 @@ export default async function DoctorPage({ params }: Props) {
                   )}
                 </div>
               </div>
-              
+
               <div className="w-full md:w-2/3 flex flex-col justify-between">
                 <div>
                   <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <Link 
+                    <Link
                       href={`/departments/${doctor.departmentId}`}
                       className="inline-block px-3 py-1 bg-maroon-50 text-maroon-700 hover:bg-maroon-100 transition-colors rounded-full text-xs font-bold"
                     >
@@ -186,7 +186,7 @@ export default async function DoctorPage({ params }: Props) {
                   <p className="text-lg text-slate-600 font-semibold mb-4">
                     {doctor.title} <span className="text-slate-400">({doctor.qualifications})</span>
                   </p>
-                  
+
                   <div className="flex items-center gap-2 mb-6 text-sm text-slate-500">
                     <div className="flex text-amber-400">
                       {[...Array(5)].map((_, i) => (
@@ -201,11 +201,11 @@ export default async function DoctorPage({ params }: Props) {
                 </div>
 
                 <div className="pt-4 border-t border-slate-100 flex flex-wrap gap-4">
-                  <a 
+                  <a
                     href={`tel:${EMERGENCY_INFO.hotline.replace(/\s+/g, '')}`}
                     className="inline-flex items-center gap-2 bg-maroon-700 text-white px-6 py-3 rounded-xl text-sm font-semibold shadow-sm hover:bg-maroon-800 transition-colors"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                     Call Hospital Desk: {EMERGENCY_INFO.hotline}
                   </a>
                   <a
@@ -289,7 +289,7 @@ export default async function DoctorPage({ params }: Props) {
                   </Link>
                 </p>
                 <p>
-                  <strong>Address:</strong> Jasval Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat 380021, India
+                  <strong>Address:</strong> Jaysval Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat 380021, India
                 </p>
                 <p>
                   <strong>Hotline:</strong> {EMERGENCY_INFO.hotline} (Available 24/7 for emergency inquiries)

@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Our Doctors — Expert Medical Specialists | Ojas Hospital Ahmedabad',
-  description: 'Meet the experienced doctors and specialists at Ojas Multispeciality Hospital in Rakhial, Ahmedabad. Surgeons, gynecologists, orthopedic, dermatology, ENT and more.',
+  description: 'Meet the 16 experienced doctors and specialists at Ojas Multispeciality Hospital in Rakhial, Ahmedabad — Medicine, Surgery, Cosmetology, Ayurveda, Pediatrics, ENT, Orthopedics, Critical Care, Homeopathy, Physiotherapy & Unani.',
   alternates: { canonical: `${SITE_CONFIG.url}/doctors` },
 };
 
@@ -22,7 +22,7 @@ export default function DoctorsPage() {
           Our <span className="text-gold">Doctors</span>
         </h1>
         <p className="text-white/75 max-w-2xl mx-auto text-base">
-          13 experienced specialists across every major discipline — dedicated to your health and recovery.
+          16 experienced specialists across every major discipline — dedicated to your health and recovery.
         </p>
       </div>
       <DoctorCards />
