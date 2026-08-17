@@ -153,10 +153,10 @@ const EVENTS: HospitalEvent[] = [
   },
   {
     id: 'e15',
-    title: 'Samaj Sammelan & Welfare Felicitation',
-    date: '2023',
+    title: 'BJP Gujarat State President Shri Jagdishbhai Vishwakarma',
+    date: '2025',
     location: 'Ahmedabad, Gujarat',
-    description: 'Dr. Hasmukh Soni and Chief Minister Bhupendrabhai Patel participating in a commemorative event honoring outstanding social leadership and medical work.',
+    description: 'Dr. Hasmukh Soni greeting BJP Gujarat State President Shri Jagdishbhai Vishwakarma during a commemorative event honoring social leadership and healthcare welfare.',
     category: 'Community Event',
     image: '/ojas-hospital-event-10.webp',
     isUpcoming: false,

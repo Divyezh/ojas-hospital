@@ -145,9 +145,12 @@ function HeroSlider() {
           className="relative z-10 flex flex-col items-center text-center w-full max-w-4xl"
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2.5 bg-cream border border-gold/50 px-5 py-2.5 rounded-full shadow-lg shadow-black/20 mb-6">
-            <ShieldPlus className="h-5 w-5 text-maroon-700" />
-            <span className="text-sm sm:text-base font-extrabold tracking-[0.06em] text-maroon-900 uppercase">{slide.badge}</span>
+          <div className="inline-flex items-center gap-2.5 bg-cream border border-gold/50 px-5 py-2 rounded-full shadow-lg shadow-black/20 mb-6">
+            <ShieldPlus className="h-5 w-5 text-maroon-700 shrink-0" />
+            <div className="flex flex-col items-center leading-tight">
+              <span className="text-xs sm:text-sm font-extrabold tracking-[0.06em] text-maroon-900 uppercase">{slide.badge}</span>
+              <span className="text-[10px] sm:text-xs font-semibold tracking-wider text-maroon-700">Caring For Humanity</span>
+            </div>
           </div>
 
           {/* Headline */}
