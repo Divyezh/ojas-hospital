@@ -88,7 +88,7 @@ const dashboardCards = [
     accent: 'border-purple-200',
   },
   {
-    title: 'Medical Store',
+    title: 'Medical Facilities',
     description: 'In-house pharmacy — all prescriptions covered',
     href: '/facilities',
     icon: Pill,
