@@ -83,7 +83,7 @@ const EVENTS: HospitalEvent[] = [
   },
   {
     id: 'e8',
-    title: 'Well Wish Social Meeting with Home minister of India, Shri Amit Shah',
+    title: 'Well Wish Social Meeting with Home minister of India, Shri Amitbhai Shah',
     date: '2023',
     location: 'Ahmedabad, Gujarat',
     description: 'Dr. Hasmukh Soni in a well-wish social meeting with Union Home Minister Amit Shah.',
