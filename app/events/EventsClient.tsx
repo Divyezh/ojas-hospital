@@ -15,14 +15,6 @@ export interface HospitalEvent {
   isUpcoming: boolean;
 }
 
-const categoryColors: Record<HospitalEvent['category'], string> = {
-  'Health Camp': 'bg-emerald-100 text-emerald-700',
-  'Medical Campaign': 'bg-blue-100 text-blue-700',
-  'Awareness Drive': 'bg-amber-100 text-amber-700',
-  'Vaccination Drive': 'bg-purple-100 text-purple-700',
-  'Community Event': 'bg-rose-100 text-rose-700',
-};
-
 function EventCard({ event, onOpenModal }: { event: HospitalEvent; onOpenModal: (event: HospitalEvent) => void }) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden border border-maroon-100 shadow-soft-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col group">
@@ -44,9 +36,6 @@ function EventCard({ event, onOpenModal }: { event: HospitalEvent; onOpenModal: 
             View Photo
           </span>
         </div>
-        <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold ${categoryColors[event.category]}`}>
-          {event.category}
-        </span>
       </div>
 
       {/* Card Body */}
@@ -179,10 +168,7 @@ export function EventsClient({ events }: { events: HospitalEvent[] }) {
             {/* Modal Caption Footer */}
             <div className="p-5 bg-maroon-950 text-white border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${categoryColors[activeEvent.category]}`}>
-                  {activeEvent.category}
-                </span>
-                <h3 className="text-lg font-bold text-white mt-1">{activeEvent.title}</h3>
+                <h3 className="text-lg font-bold text-white">{activeEvent.title}</h3>
                 <p className="text-xs text-slate-300 flex items-center gap-4 mt-1">
                   <span>📅 {activeEvent.date}</span>
                   <span>📍 {activeEvent.location}</span>

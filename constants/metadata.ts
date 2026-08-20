@@ -13,8 +13,8 @@ export const SITE_CONFIG = {
   telephone: EMERGENCY_INFO.hotline,
   email: "ojashospitalo123@gmail.com",
   address: {
-    street: "Jaysval Bhavan, Char Rasta",
-    suite: "Rakhial",
+    street: "Rakhiyal Cross Road, Dynasore Circle",
+    suite: "Rakhiyal",
     city: "Ahmedabad",
     state: "Gujarat",
     zip: "380021",

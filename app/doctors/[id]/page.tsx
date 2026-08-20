@@ -289,7 +289,7 @@ export default async function DoctorPage({ params }: Props) {
                   </Link>
                 </p>
                 <p>
-                  <strong>Address:</strong> Jaysval Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat 380021, India
+                  <strong>Address:</strong> {EMERGENCY_INFO.address}, India
                 </p>
                 <p>
                   <strong>Hotline:</strong> {EMERGENCY_INFO.hotline} (Available 24/7 for emergency inquiries)

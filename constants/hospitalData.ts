@@ -5,7 +5,7 @@ export const EMERGENCY_INFO: EmergencyInfo = {
   ambulance: "+91 7574840735",
   erWaitTime: "Available 24×7",
   traumaCenterLevel: "Emergency Care",
-  address: "Jaysval Bhavan, Char Rasta, Rakhial, Ahmedabad, Gujarat – 380021",
+  address: "Rakhiyal Cross Road, Dynasore Circle, Rakhiyal, Ahmedabad, Gujarat – 380021",
 };
 
 export const HOSPITAL_STATS: HospitalStat[] = [

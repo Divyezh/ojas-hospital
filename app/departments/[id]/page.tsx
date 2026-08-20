@@ -214,7 +214,7 @@ export default async function DepartmentPage({ params }: Props) {
                 What is {department.name} Care at Ojas Hospital?
               </h2>
               <p className="text-base text-slate-700 leading-relaxed mb-4">
-                The <strong>{department.name} Department</strong> at Ojas Multispeciality Hospital delivers comprehensive diagnostic, therapeutic, and surgical care to patients in Rakhial and across Ahmedabad. Located at Jaysval Bhavan, Char Rasta, our department is equipped with modern infrastructure and clinical facilities to manage routine conditions as well as complex medical cases.
+                The <strong>{department.name} Department</strong> at Ojas Multispeciality Hospital delivers comprehensive diagnostic, therapeutic, and surgical care to patients in Rakhial and across Ahmedabad. Located at Rakhiyal Cross Road, Dynasore Circle, our department is equipped with modern infrastructure and clinical facilities to manage routine conditions as well as complex medical cases.
               </p>
               <p className="text-sm text-slate-600 leading-relaxed">
                 {department.fullDescription || department.description}
@@ -311,7 +311,7 @@ export default async function DepartmentPage({ params }: Props) {
             <section className="bg-maroon-900 text-white rounded-3xl p-6 sm:p-8 shadow-soft-md">
               <h2 className="text-2xl font-bold mb-2">Book a Consultation with {department.name}</h2>
               <p className="text-cream/80 text-sm mb-6">
-                Consult with our specialists at Ojas Hospital, Jayswal Bhavan, Char Rasta, Rakhial, Ahmedabad. Emergency services available 24/7.
+                Consult with our specialists at Ojas Hospital, Rakhiyal Cross Road, Dynasore Circle, Rakhiyal, Ahmedabad. Emergency services available 24/7.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
