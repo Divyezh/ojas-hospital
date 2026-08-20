@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Activity, Phone, Mail, MapPin, ShieldCheck, Heart, Award, ArrowUpRight } from 'lucide-react';
 import { SITE_CONFIG } from '@/constants/metadata';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
-import { DEPARTMENTS, EMERGENCY_INFO } from '@/constants/hospitalData';
+import { DEPARTMENTS, DOCTORS, EMERGENCY_INFO } from '@/constants/hospitalData';
 import { motion, Variants } from 'framer-motion';
 
 const columnVariants: Variants = {
@@ -90,14 +90,14 @@ export function Footer() {
           </motion.div>
 
           {/* Col 3: Clinical Services */}
-          <motion.div custom={2} variants={columnVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10%' }}>
+          <motion.div custom={2} variants={columnVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10%' }} className="lg:col-span-1">
             <h4 className="text-white font-semibold mb-4 tracking-wide text-base">Departments</h4>
-            <ul className="space-y-3 text-xs sm:text-sm flex flex-col items-start">
-              {DEPARTMENTS.slice(0, 8).map((dept) => (
+            <ul className="space-y-2 text-xs flex flex-col items-start max-h-72 overflow-y-auto pr-1">
+              {DEPARTMENTS.map((dept) => (
                 <li key={dept.id}>
-                  <Link href={`/departments/${dept.id}`} className="footer-link footer-link-external space-x-1">
+                  <Link href={`/departments/${dept.id}`} className="footer-link footer-link-external space-x-1 inline-flex items-center">
                     <span>{dept.name}</span>
-                    <ArrowUpRight className="icon-arrow h-3 w-3 opacity-60" />
+                    <ArrowUpRight className="icon-arrow h-2.5 w-2.5 opacity-60" />
                   </Link>
                 </li>
               ))}
@@ -158,7 +158,23 @@ export function Footer() {
 
 
           </motion.div>
+        </div>
 
+        {/* 2.5 Specialists Directory (SEO internal linking) */}
+        <div className="pt-8 pb-6 border-b border-maroon-800/80">
+          <p className="text-white text-xs font-bold uppercase tracking-wider mb-3">Our Medical Specialists</p>
+          <div className="flex flex-wrap gap-2 text-xs">
+            {DOCTORS.map((doc) => (
+              <Link
+                key={doc.id}
+                href={`/doctors/${doc.id}`}
+                className="px-2.5 py-1 rounded-lg bg-maroon-900/60 hover:bg-gold hover:text-maroon-950 text-cream/80 border border-maroon-800 transition-colors inline-flex items-center gap-1 text-[11px]"
+              >
+                <span>{doc.name}</span>
+                <span className="text-gold/70 text-[10px]">({doc.title})</span>
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* 3. Map Card Enhancement */}
