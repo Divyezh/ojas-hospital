@@ -216,14 +216,16 @@ function DoctorColumn({ doctors, direction, speed = 30 }: DoctorColumnProps) {
                 </p>
 
                 {/* Availability & Experience */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2 pt-2 border-t border-slate-100 text-[10px] sm:text-xs text-slate-600">
-                  <div className="flex items-center space-x-1 sm:space-x-1.5 font-medium">
-                    <Award className="h-3 w-3 sm:h-4 sm:w-4 text-maroon-700 shrink-0" />
-                    <span>{doc.experienceYears}+ Yrs</span>
+                <div className="space-y-1.5 pt-2 border-t border-slate-100 text-[10px] sm:text-xs text-slate-600">
+                  <div className="flex items-center justify-between font-medium">
+                    <span className="flex items-center space-x-1 sm:space-x-1.5">
+                      <Award className="h-3 w-3 sm:h-4 sm:w-4 text-maroon-700 shrink-0" />
+                      <span>{doc.experienceYears}+ Yrs Experience</span>
+                    </span>
                   </div>
-                  <div className="flex items-center space-x-1 sm:space-x-1.5 font-medium">
-                    <Clock className="h-3 w-3 sm:h-4 sm:w-4 text-maroon-700 shrink-0" />
-                    <span className="truncate">{doc.availability}</span>
+                  <div className="flex items-center space-x-1 sm:space-x-1.5 font-semibold text-maroon-950 bg-maroon-50/70 px-2 py-1 rounded-lg border border-maroon-100/80">
+                    <Clock className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-maroon-700 shrink-0" />
+                    <span className="truncate" title={doc.availability}>{doc.availability}</span>
                   </div>
                 </div>
 
