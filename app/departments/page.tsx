@@ -6,14 +6,13 @@ import { DepartmentCards } from '@/components/sections/DepartmentCards';
 
 export const metadata: Metadata = {
   title: 'Departments — Specialized Clinical Wings | Ojas Hospital Ahmedabad',
-  description: 'Explore all 15 specialized departments at Ojas Multispeciality Hospital — General Medicine, Surgery, Orthopedics, Gynecology, Critical Care, ENT, Pediatrics, Dermatology, Dental Care and more in Rakhial, Ahmedabad.',
+  description: 'Explore specialized clinical departments at Ojas Multispeciality Hospital — General Medicine, Surgery, Orthopedics, Gynecology, Critical Care, Pediatrics, Dermatology, Dental Care, Cardiology and more in Rakhial, Ahmedabad.',
   keywords: [
     'Hospital Departments Ahmedabad',
     'Clinical Departments Rakhial',
     'Critical Care Hospital Ahmedabad',
     'Gynecology Department Rakhial',
     'General Surgery Hospital Ahmedabad',
-    'ENT Department Ahmedabad',
   ],
   robots: {
     index: true,
@@ -59,7 +58,7 @@ export default function DepartmentsPage() {
           Clinical <span className="text-gold">Departments</span>
         </h1>
         <p className="text-white/75 max-w-2xl mx-auto text-base">
-          15 specialized medical wings powered by board-certified doctors, ultra-modern diagnostics, and 24/7 casualty care in Rakhiyal, Ahmedabad.
+          Specialized medical wings powered by board-certified doctors, ultra-modern diagnostics, and 24/7 casualty care in Rakhiyal, Ahmedabad.
         </p>
       </div>
 

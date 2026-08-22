@@ -22,7 +22,7 @@ const leadership = [
     src: '/Dr Ayush.png',
     name: 'Dr. Ayush Soni',
     role: 'Director — Skin & Hair Specialist',
-    bio: 'Dr. Ayush Soni leads hospital operations and heads the Dermatology department. His focus on patient experience and modern care protocols drives the hospital\'s daily excellence.',
+    bio: 'With 3 years of clinical excellence in dermatology and modern care protocols, Dr. Ayush Soni leads hospital operations, aesthetic skin care, and patient experience.',
   },
 ];
 

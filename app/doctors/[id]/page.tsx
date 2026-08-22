@@ -101,7 +101,7 @@ export default async function DoctorPage({ params }: Props) {
     },
     {
       question: `What documents should I carry for consultation with ${doctor.name}?`,
-      answer: `Please bring your previous medical records, recent diagnostic/lab test reports, prescription history, and your government health card / insurance documents (Ayushman Bharat / PMJAY if applicable).`
+      answer: `Please bring your previous medical records, recent diagnostic/lab test reports, prescription history, and your government photo ID or cashless health insurance policy documents.`
     }
   ];
 
@@ -380,7 +380,7 @@ export default async function DoctorPage({ params }: Props) {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-maroon-700 font-bold">•</span>
-                  <span><strong>Government / Insurance Cards:</strong> Keep your Ayushman Bharat / PMJAY card, government ID, or private health insurance policy documents handy for seamless billing and cashless assistance.</span>
+                  <span><strong>Government / Insurance Cards:</strong> Keep your government photo ID, health insurance policy documents, or TPA cashless insurance card handy for seamless billing.</span>
                 </li>
               </ul>
             </section>
@@ -411,6 +411,11 @@ export default async function DoctorPage({ params }: Props) {
                 <p>
                   <strong>Hospital:</strong> Ojas Multispeciality Hospital
                 </p>
+                {doctor.branch && (
+                  <p className="p-3 bg-maroon-50 rounded-xl border border-maroon-200 text-maroon-900">
+                    <strong>Clinic / Branch Location:</strong> {doctor.branch}
+                  </p>
+                )}
                 <p>
                   <strong>Department:</strong>{' '}
                   <Link href={`/departments/${doctor.departmentId}`} className="text-maroon-700 hover:underline font-semibold">
@@ -418,10 +423,10 @@ export default async function DoctorPage({ params }: Props) {
                   </Link>
                 </p>
                 <p>
-                  <strong>Address:</strong> {EMERGENCY_INFO.address}, India
+                  <strong>Main Campus Address:</strong> {EMERGENCY_INFO.address}, India
                 </p>
                 <p>
-                  <strong>Hotline:</strong> {EMERGENCY_INFO.hotline} (Available 24/7 for emergency inquiries)
+                  <strong>Hotline:</strong> {EMERGENCY_INFO.hotline} (Available 24/7 for appointments & inquiries)
                 </p>
               </div>
             </section>

@@ -25,12 +25,8 @@ export function DoctorCards({ selectedDepartmentFilter }: DoctorCardsProps) {
     { id: 'dermatology', label: 'Skin & Cosmetology' },
     { id: 'ayurveda', label: 'Ayurveda' },
     { id: 'pediatrics', label: 'Pediatrics' },
-    { id: 'ent', label: 'ENT' },
     { id: 'orthopedics', label: 'Orthopedics' },
     { id: 'critical-care', label: 'Critical Care' },
-    { id: 'homeopathic', label: 'Homeopathic' },
-    { id: 'physiotherapy', label: 'Physiotherapy' },
-    { id: 'unani', label: 'Unani' },
   ];
 
   const filteredDoctors = activeTab === 'all'

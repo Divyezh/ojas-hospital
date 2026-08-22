@@ -106,11 +106,21 @@ export function Footer() {
 
           {/* Col 4: Emergency Contact */}
           <motion.div custom={3} variants={columnVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10%' }}>
-            <h4 className="text-white font-semibold mb-4 tracking-wide text-base">Emergency & Contact</h4>
+            <h4 className="text-white font-semibold mb-4 tracking-wide text-base">Locations & Contact</h4>
             <div className="space-y-4 text-xs sm:text-sm">
               <div className="flex items-start space-x-3 cursor-pointer group">
                 <MapPin className="h-5 w-5 text-gold shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                <span className="text-cream/90">{EMERGENCY_INFO.address}</span>
+                <div>
+                  <span className="text-[11px] font-bold text-gold uppercase tracking-wider block">Main Campus</span>
+                  <span className="text-cream/90">{EMERGENCY_INFO.address}</span>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3 cursor-pointer group">
+                <MapPin className="h-5 w-5 text-gold/80 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                <div>
+                  <span className="text-[11px] font-bold text-gold uppercase tracking-wider block">Our Bapunagar Branch</span>
+                  <span className="text-cream/80">Ojas Clinic, Gandhi Chowk, Opp. Old Post Office, Opp. Arban Nagar, Old Bapunagar, Ahmedabad – 380023</span>
+                </div>
               </div>
               <div className="flex items-start space-x-3">
                 <motion.div whileHover={{ rotate: [-8, 8, -8, 8, 0] }} transition={{ duration: 0.4 }}>

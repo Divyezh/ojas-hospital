@@ -31,6 +31,7 @@ export interface Doctor {
   color?: string;
   specialties: string[];
   bio: string;
+  branch?: string;
 }
 
 export interface Facility {

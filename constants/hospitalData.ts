@@ -8,6 +8,25 @@ export const EMERGENCY_INFO: EmergencyInfo = {
   address: "Rakhiyal Cross Road, Dynasore Circle, Rakhiyal, Ahmedabad, Gujarat – 380021",
 };
 
+export const BRANCHES = [
+  {
+    id: "main-branch",
+    name: "Main Hospital Campus (Rakhial)",
+    tag: "Main Campus & 24/7 Casualty",
+    address: "Rakhiyal Cross Road, Dynasore Circle, Rakhiyal, Ahmedabad, Gujarat – 380021",
+    phone: "+91 75748 40735",
+    hours: "24×7 Emergency, ICU & Inpatient Services",
+  },
+  {
+    id: "bapunagar-branch",
+    name: "Our Bapunagar Branch (Ojas Clinic)",
+    tag: "Specialist Clinic & OPD",
+    address: "Ojas Clinic, Gandhi Chowk, Opp. Old Post Office, Opp. Arban Nagar, Old Bapunagar, Ahmedabad – 380023",
+    phone: "+91 93165 59726 / +91 75748 40735",
+    hours: "OPD & Specialized Pediatric / Clinical Consultations",
+  },
+];
+
 export const HOSPITAL_STATS: HospitalStat[] = [
   {
     label: "Patients Treated",
@@ -17,7 +36,7 @@ export const HOSPITAL_STATS: HospitalStat[] = [
   },
   {
     label: "Expert Doctors",
-    value: 16,
+    value: 15,
     suffix: "",
     description: "Experienced medical professionals across specialties."
   },
@@ -145,7 +164,7 @@ export const DEPARTMENTS: Department[] = [
     iconName: "Activity",
     description: "Authentic Ayurvedic healing, holistic consultations & lifestyle medicine.",
     fullDescription: "Traditional and evidence-informed Ayurvedic care at Ojas Hospital under the visionary leadership of veteran Ayurvedic practitioners.",
-    headOfDepartment: "Managing Trustee / Chief Ayurvedic Physician",
+    headOfDepartment: "Chief Ayurvedic Physician",
     features: [
       "Holistic Consultations",
       "Chronic Disease Management",
@@ -154,23 +173,6 @@ export const DEPARTMENTS: Department[] = [
     ],
     image: "/hospital.png",
     stats: { surgeries: "N/A", satisfaction: "99%", specialists: 1 }
-  },
-  {
-    id: "ent",
-    name: "ENT",
-    slug: "ent",
-    iconName: "Activity",
-    description: "Comprehensive ear, nose, and throat diagnostic and surgical care in Ahmedabad.",
-    fullDescription: "Advanced ENT consultations, endoscopic examinations, and surgeries for hearing issues, sinusitis, tonsillitis, and vocal cord conditions.",
-    headOfDepartment: "Chief ENT Specialist",
-    features: [
-      "Ear & Hearing Care",
-      "Sinus & Nasal Surgery",
-      "Throat & Tonsil Care",
-      "Head & Neck Consultations"
-    ],
-    image: "/office cabin.png",
-    stats: { surgeries: "2,500+", satisfaction: "98%", specialists: 1 }
   },
   {
     id: "critical-care",
@@ -188,57 +190,6 @@ export const DEPARTMENTS: Department[] = [
     ],
     image: "/emergency care.png",
     stats: { surgeries: "N/A", satisfaction: "99%", specialists: 1 }
-  },
-  {
-    id: "homeopathic",
-    name: "Homeopathic",
-    slug: "homeopathic",
-    iconName: "Activity",
-    description: "Holistic homeopathic therapies for chronic diseases and constitutional wellness.",
-    fullDescription: "Gentle, non-invasive homeopathic care for allergies, skin issues, arthritis, and lifestyle disorders at Ojas Hospital.",
-    headOfDepartment: "Homeopathic Consultant",
-    features: [
-      "Constitutional Prescribing",
-      "Chronic Allergy Treatment",
-      "Pediatric & Geriatric Homeopathy",
-      "Holistic Wellness Plans"
-    ],
-    image: "/deluxe room.png",
-    stats: { surgeries: "N/A", satisfaction: "97%", specialists: 1 }
-  },
-  {
-    id: "physiotherapy",
-    name: "Physiotherapy",
-    slug: "physiotherapy",
-    iconName: "Activity",
-    description: "Targeted physical therapy, rehabilitation, and pain management in Ahmedabad.",
-    fullDescription: "Evidence-based physiotherapy and musculoskeletal rehabilitation helping patients regain strength, mobility, and pain-free living.",
-    headOfDepartment: "Chief Physiotherapist",
-    features: [
-      "Orthopedic Rehab",
-      "Post-Operative Therapy",
-      "Neuro Rehab",
-      "Sports Injury Management"
-    ],
-    image: "/deluxe room.png",
-    stats: { surgeries: "N/A", satisfaction: "98.5%", specialists: 1 }
-  },
-  {
-    id: "unani",
-    name: "Unani",
-    slug: "unani",
-    iconName: "Activity",
-    description: "Classical Unani medicine, natural healing & preventative healthcare.",
-    fullDescription: "Traditional Unani Tibb medical consultations offering natural herbal therapies, lifestyle counseling, and preventive health solutions.",
-    headOfDepartment: "Unani Medicine Consultant",
-    features: [
-      "Natural Herbal Remedies",
-      "Metabolic & Digestive Health",
-      "Preventive Health Regimens",
-      "Holistic Wellness"
-    ],
-    image: "/deluxe room.png",
-    stats: { surgeries: "N/A", satisfaction: "97%", specialists: 1 }
   },
   {
     id: "cardiology",
@@ -288,7 +239,7 @@ export const DEPARTMENTS: Department[] = [
       "Teeth Cleaning & Scaling",
       "Tooth Extraction & Dental Surgery"
     ],
-    image: "/office cabin.png",
+    image: "/dentist.png",
     stats: { surgeries: "3,000+", satisfaction: "98.5%", specialists: 1 }
   }
 ];
@@ -296,7 +247,7 @@ export const DEPARTMENTS: Department[] = [
 export const DOCTORS: Doctor[] = [
   {
     id: "doc-1",
-    name: "Dr. Ekraj Ansari",
+    name: "Dr. Azaz Ansari",
     title: "Consultant Physician",
     departmentId: "general-medicine",
     departmentName: "Medicine",
@@ -305,7 +256,7 @@ export const DOCTORS: Doctor[] = [
     rating: 4.8,
     reviewCount: 118,
     availability: "Evening 6:00 PM – 7:00 PM (Mon - Sat)",
-    initials: "EA",
+    initials: "AA",
     color: "Royal Blue",
     specialties: ["Internal Medicine", "Heart Disease & Diabetes", "Respiratory Illnesses", "Preventive Healthcare"],
     bio: "Senior Consultant Physician with M.D. Medicine qualifications, specializing in cardiology screening, diabetes management, chronic internal conditions, and respiratory healthcare at Ojas Hospital."
@@ -365,7 +316,7 @@ export const DOCTORS: Doctor[] = [
     departmentId: "dermatology",
     departmentName: "Skin & Cosmetology",
     qualifications: "Skin & Hair Consultant",
-    experienceYears: 10,
+    experienceYears: 3,
     rating: 4.7,
     reviewCount: 105,
     availability: "Afternoon 12:00 PM – 1:00 PM (Mon - Sat)",
@@ -373,23 +324,7 @@ export const DOCTORS: Doctor[] = [
     initials: "AS",
     color: "Cyan",
     specialties: ["Skin & Hair", "Advanced Cosmetology", "PRP Hair Therapy", "Acne & Scar Treatments"],
-    bio: "Director and Skin & Hair Specialist at Ojas Hospital, leading clinical dermatology, aesthetic skincare, hair restoration therapies, and personalized patient care protocols."
-  },
-  {
-    id: "doc-6",
-    name: "Dr. Jenis Parmar",
-    title: "Dental Surgeon & Specialist",
-    departmentId: "dental",
-    departmentName: "Dental Care",
-    qualifications: "B.D.S.",
-    experienceYears: 8,
-    rating: 4.8,
-    reviewCount: 95,
-    availability: "Evening 8:00 PM – 9:00 PM (Mon - Sat)",
-    initials: "JP",
-    color: "Rose Pink",
-    specialties: ["Dental Surgery", "Root Canal Treatment (RCT)", "Teeth Cleaning & Scaling", "Oral Health & Care"],
-    bio: "Qualified Dental Surgeon (B.D.S.) providing comprehensive oral healthcare, teeth restoration, painless root canal procedures, cosmetic fillings, and dental surgeries at Ojas Hospital."
+    bio: "Director and Skin & Hair Specialist with 3 years of clinical excellence at Ojas Hospital, leading clinical dermatology, aesthetic skincare, hair restoration therapies, and personalized patient care protocols."
   },
   {
     id: "doc-7",
@@ -426,9 +361,9 @@ export const DOCTORS: Doctor[] = [
   {
     id: "doc-9",
     name: "Dr. Hasmukhbhai Soni",
-    title: "Managing Trustee & Senior Ayurvedic Physician",
+    title: "Chief Ayurvedic Physician",
     departmentId: "ayurveda",
-    departmentName: "Managing Trustee / Ayurveda",
+    departmentName: "Ayurveda",
     qualifications: "B.A.M.S., LL.B",
     experienceYears: 25,
     rating: 5.0,
@@ -438,7 +373,7 @@ export const DOCTORS: Doctor[] = [
     initials: "HS",
     color: "Gold",
     specialties: ["Ayurveda & Panchakarma", "Holistic Healing", "Chronic Disease Management", "Hospital Leadership"],
-    bio: "Founder and Managing Trustee of Ojas Hospital, veteran Ayurvedic Physician with over 25 years of healthcare leadership and holistic clinical practice serving the Ahmedabad community."
+    bio: "Founder of Ojas Hospital, veteran Ayurvedic Physician with over 25 years of healthcare leadership and holistic clinical practice serving the Ahmedabad community."
   },
   {
     id: "doc-10",
@@ -446,15 +381,16 @@ export const DOCTORS: Doctor[] = [
     title: "Senior Pediatrician & Child Specialist",
     departmentId: "pediatrics",
     departmentName: "Pediatrics",
-    qualifications: "M.D. Ped.",
+    qualifications: "MB. D. Ped",
     experienceYears: 15,
     rating: 4.9,
     reviewCount: 140,
     availability: "Mon, Wed, Fri (Afternoon 1:00 PM – 2:00 PM)",
     initials: "AP",
     color: "Amber",
+    branch: "Our Bapunagar Branch — Ojas Clinic, Gandhi Chowk, Opp. Old Post Office, Opp. Arban Nagar, Old Bapunagar, Ahmedabad",
     specialties: ["Pediatrics", "Neonatal Care", "Childhood Immunization", "Growth & Nutrition"],
-    bio: "Senior M.D. Pediatrician dedicated to compassionate child healthcare, newborn wellness, developmental monitoring, and vaccination schedules at Ojas Hospital."
+    bio: "Senior Pediatrician & Child Specialist (MB. D. Ped) dedicated to compassionate child healthcare, newborn wellness, developmental monitoring, and vaccination schedules at Ojas Hospital and Our Bapunagar Branch (Ojas Clinic)."
   },
   {
     id: "doc-11",
@@ -574,7 +510,7 @@ export const FACILITIES: Facility[] = [
   },
   {
     id: "fac-3",
-    title: "Doctor Consultation Room",
+    title: "Consultation Cabin",
     category: "Outpatient",
     description: "Private and comfortable cabins for patient consultations.",
     image: "/office cabin.png",
@@ -768,9 +704,9 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     id: "faq-5",
-    question: "Do you support Ayushman Bharat?",
-    answer: "Yes, we provide assistance and treatments for eligible patients under the PMJAY Ayushman Bharat scheme.",
-    category: "insurance"
+    question: "Where are Ojas Hospital and Clinics located?",
+    answer: "Our Main Multispeciality Campus is located at Rakhiyal Cross Road, Dynasore Circle, Rakhial, Ahmedabad. We also operate Our Bapunagar Branch (Ojas Clinic) at Gandhi Chowk, Opp. Old Post Office, Opp. Arban Nagar, Old Bapunagar, Ahmedabad.",
+    category: "general"
   },
   {
     id: "faq-6",

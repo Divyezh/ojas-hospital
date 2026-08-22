@@ -12,6 +12,7 @@ export interface HospitalEvent {
   description: string;
   category: 'Health Camp' | 'Medical Campaign' | 'Awareness Drive' | 'Vaccination Drive' | 'Community Event';
   image: string;
+  imagePosition?: string;
   isUpcoming: boolean;
 }
 
@@ -23,12 +24,17 @@ function EventCard({ event, onOpenModal }: { event: HospitalEvent; onOpenModal: 
         onClick={() => onOpenModal(event)}
         className="relative h-52 w-full cursor-pointer overflow-hidden bg-slate-100"
       >
+        {event.isUpcoming && (
+          <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-maroon-700 text-white text-[11px] font-extrabold shadow-md uppercase tracking-wider border border-white/20">
+            ★ Upcoming Camp
+          </span>
+        )}
         <Image 
           src={event.image} 
           alt={event.title} 
           fill 
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
-          className="object-cover transition-transform duration-500 group-hover:scale-105" 
+          className={`object-cover ${event.imagePosition || 'object-center'} transition-transform duration-500 group-hover:scale-105`} 
         />
         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 text-maroon-950 text-xs font-bold shadow-md">

@@ -5,12 +5,43 @@ import { EventsClient, HospitalEvent } from './EventsClient';
 
 export const metadata: Metadata = {
   title: 'Events & Medical Camps — Ojas Hospital Ahmedabad',
-  description: 'Stay updated on upcoming health camps, medical campaigns, and community events organized by Ojas Multispeciality Hospital in Rakhial, Ahmedabad.',
+  description: 'Stay updated on upcoming health camps, free diabetes screening drives, medical campaigns, and community health events organized by Ojas Multispeciality Hospital in Ahmedabad.',
+  keywords: [
+    'Free Diabetes Camp Ahmedabad',
+    'Free Medical Camp Rakhial',
+    'Free BP and Sugar Checkup Camp Bapunagar',
+    'Ojas Hospital Health Camps',
+    'Community Medical Events Ahmedabad',
+  ],
   alternates: { canonical: `${SITE_CONFIG.url}/events` },
+  openGraph: {
+    title: 'Events & Free Medical Camps — Ojas Hospital Ahmedabad',
+    description: 'Upcoming Free Defeat Diabetes & Blood Pressure Diagnosis & Treatment Camp by Ojas Hospital in Bapunagar, Ahmedabad.',
+    url: `${SITE_CONFIG.url}/events`,
+    images: [
+      {
+        url: '/free-diabetes-camp-ojas-hospital.webp',
+        width: 1200,
+        height: 1800,
+        alt: 'Free Defeat Diabetes and Blood Pressure Checkup Camp - Ojas Hospital Ahmedabad',
+      },
+    ],
+  },
 };
 
 // Seeded from GALLERY_ITEMS — real camps the hospital has actually run
 const EVENTS: HospitalEvent[] = [
+  {
+    id: 'e-upcoming-diabetes-2026',
+    title: 'Free Defeat Diabetes & Blood Pressure Diagnosis & Treatment Camp',
+    date: '02-09-2026 (Wednesday) | 06:00 PM – 09:00 PM',
+    location: 'Ojas Clinic, Gandhi Chowk, Old Post Office, Juna Bapunagar, Ahmedabad - 380023',
+    description: 'Free community health screening camp organized by Ojas Hospital in joint collaboration with Dr. Hasmukh Soni, Dr. Paras Jain, and Dr. Jaydeep Parmar. Offering free Blood Sugar checkup, Blood Pressure (BP) testing, and specialist medical guidance. Contact: 93165 59726 / 75748 40735.',
+    category: 'Health Camp',
+    image: '/free-diabetes-camp-ojas-hospital.webp',
+    imagePosition: 'object-top',
+    isUpcoming: true,
+  },
   {
     id: 'e1',
     title: 'Community Free Health Camp',
@@ -43,10 +74,10 @@ const EVENTS: HospitalEvent[] = [
   },
   {
     id: 'e4',
-    title: 'Medical Community Outreach Camp',
+    title: 'Medical Community Outreach Camp With Bapunagar MLA Shri Dineshsinh Kushwahji',
     date: '2023',
     location: 'Rakhial, Ahmedabad',
-    description: 'Dedicated outreach program providing healthcare access to underserved communities, including free medicines and doctor consultations.',
+    description: 'Dedicated outreach program providing healthcare access to underserved communities with Bapunagar MLA Shri Dineshsinh Kushwahji, including free medicines and doctor consultations.',
     category: 'Community Event',
     image: '/camp4.webp',
     isUpcoming: false,
@@ -86,7 +117,7 @@ const EVENTS: HospitalEvent[] = [
     title: 'Well Wish Social Meeting with Home minister of India, Shri Amitbhai Shah',
     date: '2023',
     location: 'Ahmedabad, Gujarat',
-    description: 'Dr. Hasmukh Soni in a well-wish social meeting with Union Home Minister Amit Shah.',
+    description: 'Dr. Hasmukh Soni in a well-wish social meeting with Union Home Minister Shri Amitbhai Shah.',
     category: 'Community Event',
     image: '/ojas-hospital-event-3.webp',
     isUpcoming: false,
@@ -99,6 +130,7 @@ const EVENTS: HospitalEvent[] = [
     description: 'Dr. Hasmukh Soni honouring Chief Minister Shri Bhupendrabhai Patel Sir during Shri Babasaheb Ambedkarji Janm Jayanti.',
     category: 'Community Event',
     image: '/ojas-hospital-event-4.webp',
+    imagePosition: 'object-top',
     isUpcoming: false,
   },
   {
@@ -109,6 +141,7 @@ const EVENTS: HospitalEvent[] = [
     description: 'Dr. Hasmukh Soni presenting an appreciation memento and welcome bouquet to guest medical practitioners at the GAMA and Sushrusha Hospital collaborative clinical conference.',
     category: 'Medical Campaign',
     image: '/ojas-hospital-event-5.webp',
+    imagePosition: 'object-top',
     isUpcoming: false,
   },
   {
@@ -153,22 +186,24 @@ const EVENTS: HospitalEvent[] = [
   },
   {
     id: 'e15',
-    title: 'BJP Gujarat State President Shri Jagdishbhai Vishwakarma',
+    title: 'Honouring Gujarat Chief Minister Shri Bhupendrabhai Patel',
     date: '2025',
     location: 'Ahmedabad, Gujarat',
-    description: 'Dr. Hasmukh Soni greeting BJP Gujarat State President Shri Jagdishbhai Vishwakarma during a commemorative event honoring social leadership and healthcare welfare.',
+    description: 'Dr. Hasmukh Soni honouring Gujarat Chief Minister Shri Bhupendrabhai Patel during a commemorative event honoring social leadership and healthcare welfare.',
     category: 'Community Event',
     image: '/ojas-hospital-event-10.webp',
+    imagePosition: 'object-top',
     isUpcoming: false,
   },
   {
     id: 'e16',
-    title: 'GAMA Medical Conference Guest Welcoming',
+    title: 'GAMA Medical Conference Guest Welcoming With BJP Ahmedabad President Shri Prerakbhai Shah Sir',
     date: '2025',
     location: 'Ahmedabad, Gujarat',
-    description: 'Dr. Hasmukh Soni welcoming key medical speakers and research delegates to the annual integrated medicine symposium.',
+    description: 'Dr. Hasmukh Soni welcoming BJP Ahmedabad President Shri Prerakbhai Shah Sir, key medical speakers, and research delegates to the annual integrated medicine symposium.',
     category: 'Community Event',
     image: '/ojas-hospital-event-11.webp',
+    imagePosition: 'object-top',
     isUpcoming: false,
   },
   {
@@ -183,12 +218,13 @@ const EVENTS: HospitalEvent[] = [
   },
   {
     id: 'e18',
-    title: 'National Summit Greeting with PM Narendra Modi',
+    title: 'National Summit Greeting with Prime Minister Shri Narendrabhai Modi Sir',
     date: '2014',
     location: 'Gandhinagar, Gujarat',
-    description: 'Dr. Hasmukh Soni shaking hands with Narendra Modi at the National Ayurveda Summit and Expo during discussions on strengthening the traditional medical systems in Gujarat.',
+    description: 'Dr. Hasmukh Soni shaking hands with Prime Minister Shri Narendrabhai Modi Sir at the National Ayurveda Summit and Expo during discussions on strengthening the traditional medical systems in Gujarat.',
     category: 'Community Event',
     image: '/ojas-hospital-event-13.webp',
+    imagePosition: 'object-top',
     isUpcoming: false,
   },
   {
@@ -203,10 +239,10 @@ const EVENTS: HospitalEvent[] = [
   },
   {
     id: 'e20',
-    title: 'Public Forum Greeting with Union Minister',
+    title: 'Public Forum Greeting with Union Minister Shri Amitbhai Shah',
     date: '2024',
     location: 'Ahmedabad, Gujarat',
-    description: 'Dr. Hasmukh Soni bowing in respect and greeting Union Home Minister Amit Shah at a community forum for health development.',
+    description: 'Dr. Hasmukh Soni bowing in respect and greeting Union Home Minister Shri Amitbhai Shah at a community forum for health development.',
     category: 'Community Event',
     image: '/ojas-hospital-event-16.webp',
     isUpcoming: false,
@@ -219,16 +255,6 @@ const EVENTS: HospitalEvent[] = [
     description: 'Dr. Hasmukh Soni delivering a keynote speech at the podium of the National Summit & Expo on Ayurveda organized by Central Council of Indian Medicine (CCIM).',
     category: 'Community Event',
     image: '/ojas-hospital-event-17.webp',
-    isUpcoming: false,
-  },
-  {
-    id: 'e22',
-    title: 'State Public Representative Forum Meet',
-    date: '2022',
-    location: 'Ahmedabad, Gujarat',
-    description: 'Dr. Hasmukh Soni participating in a state-level representative meeting at a public forum focused on regional developmental works.',
-    category: 'Community Event',
-    image: '/ojas-hospital-event-18.webp',
     isUpcoming: false,
   },
   {
@@ -266,7 +292,7 @@ const EVENTS: HospitalEvent[] = [
     title: 'Plenary Session of National Summit & Expo',
     date: '2017',
     location: 'Mahatma Mandir, Gandhinagar',
-    description: 'View of the audience of over 2,000 medical practitioners and delegates listening to plenary talks during the National Ayurveda Summit.',
+    description: 'View of the audience of over 10,000 medical practitioners and delegates listening to plenary talks during the National Ayurveda Summit.',
     category: 'Community Event',
     image: '/ojas-hospital-event-22.webp',
     isUpcoming: false,
@@ -284,8 +310,50 @@ const EVENTS: HospitalEvent[] = [
 ];
 
 export default function EventsPage() {
+  const eventsSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'itemListElement': EVENTS.map((ev, index) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'item': {
+        '@type': 'Event',
+        'name': ev.title,
+        'description': ev.description,
+        'image': `${SITE_CONFIG.url}${ev.image}`,
+        'eventStatus': 'https://schema.org/EventScheduled',
+        'eventAttendanceMode': 'https://schema.org/OfflineEventAttendanceMode',
+        'location': {
+          '@type': 'Place',
+          'name': 'Ojas Hospital / Clinic',
+          'address': {
+            '@type': 'PostalAddress',
+            'addressLocality': 'Ahmedabad',
+            'addressRegion': 'Gujarat',
+            'addressCountry': 'IN',
+          },
+        },
+        'organizer': {
+          '@type': 'Hospital',
+          'name': 'Ojas Multispeciality Hospital',
+          'url': SITE_CONFIG.url,
+        },
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'INR',
+          'availability': 'https://schema.org/InStock',
+        },
+      },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventsSchema) }}
+      />
       <div className="pt-28 pb-6 bg-linear-to-br from-maroon-900 to-maroon-800 text-white text-center px-4">
         <nav className="text-xs text-white/50 mb-3">
           <Link href="/" className="hover:text-gold transition-colors">Home</Link>

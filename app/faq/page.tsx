@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'FAQ — Frequently Asked Questions | Ojas Hospital Ahmedabad',
-  description: 'Find answers about appointments, emergency timings, insurance, Ayushman Bharat, and hospital services at Ojas Multispeciality Hospital in Rakhial, Ahmedabad.',
+  description: 'Find answers about appointments, emergency timings, cashless insurance, hospital branches, and medical services at Ojas Multispeciality Hospital in Ahmedabad.',
   alternates: { canonical: `${SITE_CONFIG.url}/faq` },
 };
 

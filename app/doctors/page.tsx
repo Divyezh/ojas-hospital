@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Our Doctors — Expert Medical Specialists | Ojas Hospital Ahmedabad',
-  description: 'Meet the 16 experienced doctors and specialists at Ojas Multispeciality Hospital in Rakhial, Ahmedabad — Medicine, Surgery, Cosmetology, Ayurveda, Pediatrics, ENT, Orthopedics, Critical Care, Homeopathy, Physiotherapy & Unani.',
+  description: 'Meet the experienced doctors and specialists at Ojas Multispeciality Hospital in Rakhial & Bapunagar, Ahmedabad — Medicine, Surgery, Cosmetology, Ayurveda, Pediatrics, Orthopedics, and Critical Care.',
   keywords: [
     'Doctors in Ahmedabad',
     'Specialist Doctors Rakhial',

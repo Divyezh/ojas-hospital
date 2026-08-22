@@ -101,8 +101,8 @@ export default async function DepartmentPage({ params }: Props) {
       answer: `Yes. Ojas Hospital operates a 24/7 Emergency & Trauma Centre in Rakhiyal, Ahmedabad. Critical emergencies, acute trauma, and intensive care needs are managed around the clock with immediate doctor triage and ICU support.`
     },
     {
-      question: `Are Ayushman Bharat / PMJAY and cashless health insurance accepted for ${department.name}?`,
-      answer: `Yes, Ojas Hospital supports government healthcare schemes such as Ayushman Bharat (PMJAY) along with major private health insurance and TPA cashless hospitalization for eligible treatments and procedures.`
+      question: `Are cashless health insurance and mediclaim facilities accepted for ${department.name}?`,
+      answer: `Yes, Ojas Hospital supports major private health insurance providers and TPA cashless hospitalization for eligible treatments and surgical procedures.`
     },
     {
       question: `How can I schedule an appointment with a ${department.name} specialist?`,
@@ -284,15 +284,20 @@ export default async function DepartmentPage({ params }: Props) {
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {departmentDoctors.map((doc) => (
-                      <div key={doc.id} className="p-4 rounded-2xl border border-slate-200 bg-slate-50 flex items-center justify-between hover:border-maroon-300 transition-all">
+                      <div key={doc.id} className="p-4 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-maroon-300 transition-all">
                         <div>
                           <h3 className="font-bold text-slate-900 text-base">{doc.name}</h3>
                           <p className="text-xs text-slate-600 font-medium">{doc.title} ({doc.qualifications})</p>
                           <p className="text-xs text-amber-700 font-semibold mt-1">{doc.experienceYears}+ Years Clinical Experience</p>
+                          {doc.branch && (
+                            <div className="mt-2 text-[11px] text-maroon-900 bg-maroon-50 border border-maroon-200 px-2.5 py-1.5 rounded-lg leading-snug">
+                              <span className="font-bold">📍 Branch:</span> {doc.branch}
+                            </div>
+                          )}
                         </div>
                         <Link
                           href={`/doctors/${doc.id}`}
-                          className="px-3 py-1.5 rounded-xl bg-maroon-700 text-white text-xs font-semibold hover:bg-maroon-800 transition-colors shrink-0"
+                          className="px-3 py-1.5 rounded-xl bg-maroon-700 text-white text-xs font-semibold hover:bg-maroon-800 transition-colors shrink-0 text-center"
                         >
                           View Profile →
                         </Link>

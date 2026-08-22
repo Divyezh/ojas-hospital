@@ -84,8 +84,20 @@ export function ContactSection() {
                   <MapPin className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-charcoal">Hospital Campus Address</h3>
+                  <h3 className="text-sm font-bold text-charcoal">Main Hospital Campus (Rakhial)</h3>
                   <p className="text-xs text-charcoal/70 mt-1">{EMERGENCY_INFO.address}</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4 p-4 rounded-2xl bg-white border border-maroon-100 shadow-soft-sm">
+                <div className="p-3 rounded-xl bg-gold/20 text-maroon-800 shrink-0">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-charcoal">Our Bapunagar Branch</h3>
+                  <p className="text-xs text-charcoal/70 mt-1 leading-relaxed">
+                    <strong>Ojas Clinic</strong> — Gandhi Chowk, Opp. Old Post Office, Opp. Arban Nagar, Old Bapunagar, Ahmedabad – 380023
+                  </p>
                 </div>
               </div>
 
