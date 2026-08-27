@@ -91,7 +91,7 @@ export const DEPARTMENTS: Department[] = [
   },
   {
     id: "orthopedics",
-    name: "Orthopedics",
+    name: "Orthopedic",
     slug: "orthopedics",
     iconName: "Bone",
     description: "Bone, joint & spine care for pain relief and mobility in Ahmedabad.",
@@ -125,7 +125,7 @@ export const DEPARTMENTS: Department[] = [
   },
   {
     id: "pediatrics",
-    name: "Pediatrics",
+    name: "Pediatric",
     slug: "pediatrics",
     iconName: "Smile",
     description: "Compassionate child healthcare & vaccinations in Ahmedabad.",

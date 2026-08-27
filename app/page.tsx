@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   CalendarDays, ShieldPlus, Building2, Stethoscope, Users, Camera,
-  Pill, Phone, ArrowRight, ChevronLeft, ChevronRight, Mail, Clock
+  Award, Newspaper, Phone, ArrowRight, ChevronLeft, ChevronRight, Mail, Clock
 } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import { EMERGENCY_INFO } from '@/constants/hospitalData';
@@ -88,22 +88,22 @@ const dashboardCards = [
     accent: 'border-purple-200',
   },
   {
-    title: 'Medical Facilities',
-    description: 'In-house pharmacy — all prescriptions covered',
-    href: '/facilities',
-    icon: Pill,
-    color: 'from-teal-500/10 to-teal-600/5',
-    iconColor: 'text-teal-600',
-    accent: 'border-teal-200',
+    title: 'Awards',
+    description: 'Honors, achievements & healthcare excellence',
+    href: '/awards',
+    icon: Award,
+    color: 'from-amber-500/10 to-amber-600/5',
+    iconColor: 'text-amber-600',
+    accent: 'border-amber-200',
   },
   {
-    title: 'Contact Us',
-    description: 'Locate us, send a message, or call directly',
-    href: '/contact',
-    icon: Phone,
-    color: 'from-slate-500/10 to-slate-600/5',
-    iconColor: 'text-slate-600',
-    accent: 'border-slate-200',
+    title: 'Media',
+    description: 'News features, press clippings & publications',
+    href: '/media',
+    icon: Newspaper,
+    color: 'from-indigo-500/10 to-indigo-600/5',
+    iconColor: 'text-indigo-600',
+    accent: 'border-indigo-200',
   },
 ];
 

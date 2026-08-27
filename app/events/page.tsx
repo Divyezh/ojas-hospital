@@ -255,6 +255,7 @@ const EVENTS: HospitalEvent[] = [
     description: 'Dr. Hasmukh Soni delivering a keynote speech at the podium of the National Summit & Expo on Ayurveda organized by Central Council of Indian Medicine (CCIM).',
     category: 'Community Event',
     image: '/ojas-hospital-event-17.webp',
+    imagePosition: 'object-top',
     isUpcoming: false,
   },
   {

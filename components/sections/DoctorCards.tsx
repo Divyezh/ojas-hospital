@@ -24,8 +24,8 @@ export function DoctorCards({ selectedDepartmentFilter }: DoctorCardsProps) {
     { id: 'general-surgery', label: 'Surgical' },
     { id: 'dermatology', label: 'Skin & Cosmetology' },
     { id: 'ayurveda', label: 'Ayurveda' },
-    { id: 'pediatrics', label: 'Pediatrics' },
-    { id: 'orthopedics', label: 'Orthopedics' },
+    { id: 'pediatrics', label: 'Pediatric' },
+    { id: 'orthopedics', label: 'Orthopedic' },
     { id: 'critical-care', label: 'Critical Care' },
   ];
 
