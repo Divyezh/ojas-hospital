@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Star, Clock, Award } from 'lucide-react';
+import { Star, Clock, Award, Stethoscope } from 'lucide-react';
 import { Card, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs } from '@/components/ui/tabs';
-import { DOCTORS } from '@/constants/hospitalData';
+import { DOCTORS, CONSULTATION_SCHEDULE } from '@/constants/hospitalData';
 import { Doctor } from '@/types';
 
 interface DoctorCardsProps {
@@ -22,11 +22,15 @@ export function DoctorCards({ selectedDepartmentFilter }: DoctorCardsProps) {
     { id: 'all', label: 'All Specialists', count: DOCTORS.length },
     { id: 'general-medicine', label: 'Medicine' },
     { id: 'general-surgery', label: 'Surgical' },
+    { id: 'gynecology', label: 'Gynecology' },
     { id: 'dermatology', label: 'Skin & Cosmetology' },
-    { id: 'ayurveda', label: 'Ayurveda' },
     { id: 'pediatrics', label: 'Pediatric' },
     { id: 'orthopedics', label: 'Orthopedic' },
-    { id: 'critical-care', label: 'Critical Care' },
+    { id: 'homeopathic', label: 'Homeopathy' },
+    { id: 'physiotherapy', label: 'Physiotherapy' },
+    { id: 'unani', label: 'Unani' },
+    { id: 'pulmonary-medicine', label: 'Pulmonary' },
+    { id: 'management', label: 'Management' },
   ];
 
   const filteredDoctors = activeTab === 'all'
@@ -46,7 +50,7 @@ export function DoctorCards({ selectedDepartmentFilter }: DoctorCardsProps) {
   const col4 = getCol(3);
 
   return (
-    <section id="doctors" className="py-16 sm:py-20 lg:py-32 bg-maroon-900 text-white relative overflow-hidden">
+    <section id="doctors" className="py-16 sm:py-20 lg:py-28 bg-maroon-900 text-white relative overflow-hidden">
       {/* Subtle Background Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-120 sm:w-175 bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -54,7 +58,7 @@ export function DoctorCards({ selectedDepartmentFilter }: DoctorCardsProps) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <Badge variant="primary" className="bg-maroon-800 text-gold border-maroon-600/60">
-            Automated Showcase
+            Medical Faculty & OPD Schedule
           </Badge>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-black tracking-tight text-white">
@@ -62,11 +66,11 @@ export function DoctorCards({ selectedDepartmentFilter }: DoctorCardsProps) {
           </h2>
 
           <p className="text-sm sm:text-base text-cream/70 leading-relaxed">
-            Board-certified surgeons and medical department directors leading world-recognized patient care teams.
+            Board-certified surgeons, consultants, and clinical department directors leading patient care teams at Ojas Hospital.
           </p>
 
           {/* Department Filter Tabs */}
-          <div className="pt-4 flex justify-center">
+          <div className="pt-4 flex justify-center overflow-x-auto pb-2 scrollbar-none">
             <Tabs
               tabs={filterTabs}
               activeTab={activeTab}
@@ -77,8 +81,8 @@ export function DoctorCards({ selectedDepartmentFilter }: DoctorCardsProps) {
         </div>
       </div>
 
-      {/* Automated Multi-Column Gallery */}
-      <div className="relative h-[65vh] sm:h-[75vh] min-h-120 sm:min-h-150 overflow-hidden bg-maroon-900/60 border-y border-maroon-800/80 px-3 sm:px-8 py-4">
+      {/* Multi-Column Doctor Cards Showcase */}
+      <div className="relative h-[60vh] sm:h-[70vh] min-h-120 sm:min-h-140 overflow-hidden bg-maroon-900/60 border-y border-maroon-800/80 px-3 sm:px-8 py-4 mb-16">
         {/* Top/Bottom Fade Overlays */}
         <div className="absolute top-0 left-0 w-full h-1/5 bg-linear-to-b from-maroon-900 via-maroon-900/80 to-transparent z-10 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-full h-1/5 bg-linear-to-t from-maroon-900 via-maroon-900/80 to-transparent z-10 pointer-events-none" />
@@ -92,6 +96,103 @@ export function DoctorCards({ selectedDepartmentFilter }: DoctorCardsProps) {
           </div>
           <div className="hidden lg:block h-full">
             <DoctorColumn doctors={col4} direction="down" speed={42} />
+          </div>
+        </div>
+      </div>
+
+      {/* OPD Consultation Timings Table Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="bg-maroon-950/80 backdrop-blur-md rounded-3xl border border-gold/20 p-6 sm:p-10 shadow-2xl space-y-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-maroon-800 pb-6">
+            <div>
+              <div className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-wider mb-1">
+                <Clock className="w-4 h-4 text-gold" />
+                OPD Schedule & Consultation Hours
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+                Department <span className="text-gold">Consultation Timings</span>
+              </h3>
+            </div>
+            <p className="text-xs sm:text-sm text-cream/70 max-w-md">
+              Complete directory of hospital departments, qualified medical practitioners, and regular daily OPD consultation hours.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-2xl border border-maroon-800 bg-maroon-900/40">
+            <table className="w-full text-left text-xs sm:text-sm text-cream/90 border-collapse">
+              <thead>
+                <tr className="bg-maroon-800/90 text-gold font-bold uppercase text-[11px] sm:text-xs tracking-wider border-b border-maroon-700">
+                  <th scope="col" className="py-4 px-4 sm:px-6 w-1/3">Department</th>
+                  <th scope="col" className="py-4 px-4 sm:px-6 w-1/3">Doctor&apos;s Name & Qualification</th>
+                  <th scope="col" className="py-4 px-4 sm:px-6 w-1/3">Consultation Timings</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-maroon-800/60">
+                {CONSULTATION_SCHEDULE.map((item, idx) => (
+                  <tr key={idx} className="hover:bg-maroon-800/40 transition-colors">
+                    <td className="py-4 px-4 sm:px-6 align-top">
+                      <div className="font-bold text-white text-sm sm:text-base flex items-center gap-2">
+                        <Stethoscope className="w-4 h-4 text-gold shrink-0 hidden sm:inline-block" />
+                        {item.department}
+                      </div>
+                      {item.subtitle && (
+                        <div className="text-[11px] sm:text-xs text-gold/80 font-medium mt-0.5">
+                          ({item.subtitle})
+                        </div>
+                      )}
+                    </td>
+                    <td className="py-4 px-4 sm:px-6 align-top space-y-2.5">
+                      {item.doctors.map((doc, dIdx) => {
+                        const cleanName = doc.name.toLowerCase().replace(/^dr\.\s*/, '').trim();
+                        const matchedDoctor = DOCTORS.find((d) => {
+                          const dClean = d.name.toLowerCase().replace(/^dr\.\s*/, '').trim();
+                          return dClean === cleanName || dClean.includes(cleanName) || cleanName.includes(dClean);
+                        });
+
+                        return (
+                          <div key={dIdx} className="flex items-center gap-1.5 flex-wrap">
+                            <span className="text-gold font-bold">•</span>
+                            {doc.isCrossedOut ? (
+                              <span className="line-through text-slate-400 italic text-xs sm:text-sm">
+                                {doc.name} {doc.qualification !== '—' && `(${doc.qualification})`}
+                              </span>
+                            ) : matchedDoctor ? (
+                              <Link
+                                href={`/doctors/${matchedDoctor.id}`}
+                                className="group/btn inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-maroon-800/80 hover:bg-gold text-white hover:text-maroon-950 font-bold text-xs sm:text-sm border border-maroon-700/80 hover:border-gold transition-all duration-200 shadow-xs cursor-pointer"
+                                title={`View ${doc.name}'s profile & details`}
+                              >
+                                <span>{doc.name}</span>
+                                <span className="text-[10px] text-gold group-hover/btn:text-maroon-950 font-bold transition-colors">↗</span>
+                              </Link>
+                            ) : (
+                              <span className="font-semibold text-white">{doc.name}</span>
+                            )}
+                            {!doc.isCrossedOut && (
+                              <span className="text-xs text-cream/70 font-mono">({doc.qualification})</span>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </td>
+                    <td className="py-4 px-4 sm:px-6 align-top space-y-2">
+                      {item.doctors.map((doc, dIdx) => (
+                        <div key={dIdx} className="flex items-center gap-1.5">
+                          {doc.isCrossedOut || doc.timing === '—' ? (
+                            <span className="text-slate-400 font-mono">—</span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1.5 bg-maroon-800/80 text-gold px-2.5 py-1 rounded-md text-xs font-medium border border-maroon-700">
+                              <Clock className="w-3 h-3 text-gold shrink-0" />
+                              {doc.timing}
+                            </span>
+                          )}
+                        </div>
+                      ))}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

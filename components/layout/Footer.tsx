@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Activity, Phone, Mail, MapPin, ShieldCheck, Heart, Award, ArrowUpRight } from 'lucide-react';
 import { SITE_CONFIG } from '@/constants/metadata';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
-import { DEPARTMENTS, DOCTORS, EMERGENCY_INFO } from '@/constants/hospitalData';
+import { DEPARTMENTS, EMERGENCY_INFO } from '@/constants/hospitalData';
 import { motion, Variants } from 'framer-motion';
 
 const columnVariants: Variants = {
@@ -170,22 +170,7 @@ export function Footer() {
           </motion.div>
         </div>
 
-        {/* 2.5 Specialists Directory (SEO internal linking) */}
-        <div className="pt-8 pb-6 border-b border-maroon-800/80">
-          <p className="text-white text-xs font-bold uppercase tracking-wider mb-3">Our Medical Specialists</p>
-          <div className="flex flex-wrap gap-2 text-xs">
-            {DOCTORS.map((doc) => (
-              <Link
-                key={doc.id}
-                href={`/doctors/${doc.id}`}
-                className="px-2.5 py-1 rounded-lg bg-maroon-900/60 hover:bg-gold hover:text-maroon-950 text-cream/80 border border-maroon-800 transition-colors inline-flex items-center gap-1 text-[11px]"
-              >
-                <span>{doc.name}</span>
-                <span className="text-gold/70 text-[10px]">({doc.title})</span>
-              </Link>
-            ))}
-          </div>
-        </div>
+
 
         {/* 3. Map Card Enhancement */}
         <div className="mt-8 mb-12">

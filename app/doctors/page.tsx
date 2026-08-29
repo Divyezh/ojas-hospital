@@ -60,7 +60,7 @@ export default function DoctorsPage() {
           Our <span className="text-gold">Doctors</span>
         </h1>
         <p className="text-white/75 max-w-2xl mx-auto text-base">
-          16 experienced specialists across every major medical discipline — dedicated to your health and recovery in Rakhial, Ahmedabad.
+          Experienced specialists across every major medical discipline — dedicated to your health, OPD consultation, and recovery in Rakhial, Ahmedabad.
         </p>
       </div>
 

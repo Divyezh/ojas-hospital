@@ -71,7 +71,7 @@ const dashboardCards = [
   },
   {
     title: 'Our Doctors',
-    description: '13 expert specialists across all disciplines',
+    description: 'Expert specialists across all disciplines',
     href: '/doctors',
     icon: Users,
     color: 'from-emerald-500/10 to-emerald-600/5',
@@ -216,7 +216,7 @@ function HeroSlider() {
 
           {/* Stats */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 pt-8 border-t border-white/15 w-full max-w-2xl">
-            {[{ value: '24×7', label: 'Emergency Care' }, { value: '13', label: 'Specialists' }, { value: '4.2★', label: 'Google Rating' }].map(({ value, label }, i) => (
+            {[{ value: '24×7', label: 'Emergency Care' }, { value: '20+', label: 'Specialists' }, { value: '4.2★', label: 'Google Rating' }].map(({ value, label }, i) => (
               <React.Fragment key={label}>
                 {i > 0 && <div className="hidden sm:block w-px h-10 bg-white/15" />}
                 <div className="flex flex-col items-center text-center">
