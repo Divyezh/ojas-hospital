@@ -263,7 +263,7 @@ export const DOCTORS: Doctor[] = [
   },
   {
     id: "doc-2",
-    name: "Dr. Manishabhai Soni",
+    name: "Dr. Manishbhai Soni",
     title: "Consultant Physician",
     departmentId: "general-medicine",
     departmentName: "Medicine",
@@ -407,8 +407,8 @@ export const DOCTORS: Doctor[] = [
   },
   {
     id: "doc-11",
-    name: "Dr. Ayush Koni",
-    title: "Skin, Hair & Face Care Specialist",
+    name: "Dr. Ayush Soni",
+    title: "Skin, Hair & Face Care Specialist & Director",
     departmentId: "dermatology",
     departmentName: "Skin & Cosmetology",
     qualifications: "PGDCC",
@@ -416,10 +416,11 @@ export const DOCTORS: Doctor[] = [
     rating: 4.8,
     reviewCount: 106,
     availability: "Consultation by Appointment",
-    initials: "AK",
+    image: "/Dr Ayush.png",
+    initials: "AS",
     color: "Cyan",
     specialties: ["Skin Care", "Hair Restoration", "Face Care & Cosmetology"],
-    bio: "Specialist in Skin, Hair & Face Care (PGDCC), providing advanced cosmetic dermatology, hair therapies, and facial treatments at Ojas Hospital."
+    bio: "Specialist in Skin, Hair & Face Care (PGDCC) and Director at Ojas Hospital, providing advanced cosmetic dermatology, hair therapies, and facial treatments."
   },
   {
     id: "doc-12",
@@ -437,22 +438,6 @@ export const DOCTORS: Doctor[] = [
     color: "Gold",
     specialties: ["Ayurveda & Panchakarma", "Hospital Leadership", "Healthcare Administration"],
     bio: "Founder of Ojas Hospital, veteran Ayurvedic Physician and Director with over 25 years of healthcare leadership and clinical service in Ahmedabad."
-  },
-  {
-    id: "doc-13",
-    name: "Dr. Kusmush Koni",
-    title: "Managing Director",
-    departmentId: "management",
-    departmentName: "Management",
-    qualifications: "B.A.M.S., M.B.A.",
-    experienceYears: 15,
-    rating: 4.9,
-    reviewCount: 135,
-    availability: "Available during OPD Hours",
-    initials: "KK",
-    color: "Amber",
-    specialties: ["Hospital Administration", "Healthcare Management", "Ayurvedic Medicine"],
-    bio: "Managing Director (B.A.M.S., M.B.A.) overseeing hospital operations, clinical excellence, and patient-centered care strategies at Ojas Hospital."
   },
   {
     id: "doc-14",
@@ -652,7 +637,7 @@ export const CONSULTATION_SCHEDULE: ScheduleDepartment[] = [
     subtitle: "Heart, Diabetes & Respiratory",
     doctors: [
       { name: "Dr. Aijaz Ansari", qualification: "M.D. Medicine", timing: "Evening 6:00 to 9:00" },
-      { name: "Dr. Manishabhai Soni", qualification: "M.D. Medicine", timing: "Evening 5:00 to 6:00" },
+      { name: "Dr. Manishbhai Soni", qualification: "M.D. Medicine", timing: "Evening 5:00 to 6:00" },
       { name: "Dr. Karan Shah", qualification: "M.B.B.S., FCCS", timing: "Evening 7:30 to 9:00" },
     ]
   },
@@ -687,7 +672,7 @@ export const CONSULTATION_SCHEDULE: ScheduleDepartment[] = [
     doctors: [
       { name: "Dr. Arif Karoliya", qualification: "M.D. Skin", timing: "—" },
       { name: "Dr. Sodeb Qureshi", qualification: "B.A.M.S.", timing: "Evening 7:30 to 8:30" },
-      { name: "Dr. Ayush Koni", qualification: "PGDCC", timing: "On Consultation" },
+      { name: "Dr. Ayush Soni", qualification: "PGDCC", timing: "On Consultation" },
     ]
   },
   {
@@ -695,7 +680,6 @@ export const CONSULTATION_SCHEDULE: ScheduleDepartment[] = [
     subtitle: "Hospital Leadership & Management",
     doctors: [
       { name: "Dr. Hasmukhbhai Soni", qualification: "B.A.M.S., LLB", timing: "Afternoon 12:00 to 1:00 / Evening 5:00 to 6:00" },
-      { name: "Dr. Kusmush Koni", qualification: "B.A.M.S., M.B.A.", timing: "Available during OPD Hours" },
     ]
   },
   {
