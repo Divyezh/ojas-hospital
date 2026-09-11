@@ -1,35 +1,107 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   CalendarDays, ShieldPlus, Building2, Stethoscope, Users, Camera,
-  Award, Newspaper, Phone, ArrowRight, ChevronLeft, ChevronRight, Mail, Clock
+  Award, Newspaper, Phone, ArrowRight, Mail, Clock
 } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import { EMERGENCY_INFO } from '@/constants/hospitalData';
+import { SITE_CONFIG } from '@/constants/metadata';
+import { UpcomingEventSlim } from '@/components/sections/UpcomingEventSlim';
 
-// ── Hero Slides ──────────────────────────────────────────────────────────────
-const slides = [
-  {
-    id: 1,
-    title: 'Best Multispeciality Hospital in Ahmedabad',
-    subtitle: 'Compassionate care, experienced specialists, and 24/7 emergency services at the heart of Rakhial.',
-    badge: 'Ojas Hospital',
-    image: null,
-    type: 'portraits',
-  },
-  {
-    id: 2,
-    title: '24/7 Emergency & Trauma Care',
-    subtitle: 'Our emergency team is always ready — immediate resuscitation, critical care, and round-the-clock casualty services.',
-    badge: 'Ojas Hospital',
-    image: '/emergency care.png',
-    type: 'image',
-  },
-];
+// ── Hero Section (Static, No Transition Effect) ─────────────────────────────────
+function HeroSection() {
+  return (
+    <section
+      className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden bg-linear-to-br from-maroon-900 to-maroon-800 pt-52 sm:pt-60 pb-16 px-6"
+      style={{ paddingTop: 'calc(var(--navbar-height, 130px) + 3.5rem)' }}
+      aria-label="Hospital hero section"
+    >
+      {/* Radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-175 rounded-full bg-[radial-gradient(circle,rgba(199,154,75,0.12),transparent_70%)] pointer-events-none z-0" />
+
+      <div className="relative z-10 flex flex-col items-center text-center w-full max-w-4xl">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2.5 bg-cream border border-gold/50 px-5 py-2 rounded-full shadow-lg shadow-black/20 mb-6">
+          <ShieldPlus className="h-5 w-5 text-maroon-700 shrink-0" />
+          <div className="flex flex-col items-center leading-tight">
+            <span className="text-xs sm:text-sm font-extrabold tracking-[0.06em] text-maroon-900 uppercase">Ojas Hospital</span>
+            <span className="text-[10px] sm:text-xs font-semibold tracking-wider text-maroon-700">Caring For Humanity</span>
+          </div>
+        </div>
+
+        {/* Headline */}
+        <h1
+          className="text-[clamp(32px,5.5vw,66px)] leading-[1.15] font-bold text-white mb-6 drop-shadow-lg"
+          style={{ fontFamily: 'var(--font-fraunces)' }}
+        >
+          Best Multispeciality <span className="text-gold">Hospital</span> in <span className="text-gold">Ahmedabad</span>
+        </h1>
+
+        {/* Portraits */}
+        <div className="flex flex-col sm:flex-row justify-center items-center sm:items-end gap-6 sm:gap-8 w-full mb-8 px-4">
+          {[
+            { src: '/dr-hasmukh.png', name: 'Dr. Hasmukh Soni', role: 'Managing Director' },
+            { src: '/Dr Ayush.png', name: 'Dr. Ayush Soni', role: 'Director' },
+          ].map((p) => (
+            <figure
+              key={p.name}
+              className="relative w-[min(85vw,280px)] h-[min(65vw,360px)] sm:w-[clamp(180px,22vw,300px)] sm:h-[clamp(240px,32vw,400px)] rounded-2xl overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.45)]"
+            >
+              <Image src={p.src} alt={`${p.name}, ${p.role} – Ojas Hospital`} fill priority sizes="(max-width: 640px) 85vw, 300px" className="object-cover object-top" />
+              <figcaption className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-black/85 via-black/50 to-transparent flex flex-col justify-end items-center pb-4 gap-0.5">
+                <span className="text-white text-[14px] font-bold" style={{ fontFamily: 'var(--font-fraunces)' }}>{p.name}</span>
+                <span className="text-gold text-[12px] font-bold uppercase tracking-widest" style={{ fontFamily: 'var(--font-fraunces)' }}>{p.role}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        {/* Subtitle */}
+        <p className="text-[17px] leading-[1.75] text-white/85 mb-9 max-w-2xl">
+          Compassionate care, experienced specialists, and 24/7 emergency services at the heart of Rakhial.
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-wrap justify-center gap-4 mb-10">
+          <a
+            href="https://wa.me/917574840735"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl bg-gold text-maroon-900 font-bold hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(199,154,75,0.35)] transition-all tracking-[0.02em]"
+          >
+            <WhatsAppIcon className="h-5 w-5" />
+            Book Appointment
+          </a>
+          <Link
+            href="/departments"
+            className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl border-[1.5px] border-white/40 text-white font-semibold hover:bg-white/10 hover:border-white transition-all group tracking-[0.02em]"
+          >
+            Explore Departments
+            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
+
+        {/* Stats */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 pt-8 border-t border-white/15 w-full max-w-2xl">
+          {[{ value: '24×7', label: 'Emergency Care' }, { value: '20+', label: 'Specialists' }, { value: '4.2★', label: 'Google Rating' }].map(({ value, label }, i) => (
+            <React.Fragment key={label}>
+              {i > 0 && <div className="hidden sm:block w-px h-10 bg-white/15" />}
+              <div className="flex flex-col items-center text-center">
+                <strong className="text-3xl text-gold font-bold" style={{ fontFamily: 'var(--font-fraunces)' }}>{value}</strong>
+                <span className="text-[13px] text-white/70 tracking-wide uppercase mt-1 font-semibold">{label}</span>
+              </div>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 // ── Dashboard Cards ───────────────────────────────────────────────────────────
 const dashboardCards = [
@@ -107,151 +179,6 @@ const dashboardCards = [
   },
 ];
 
-// ── Hero Component ────────────────────────────────────────────────────────────
-function HeroSlider() {
-  const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const advance = () => setCurrent((c) => (c + 1) % slides.length);
-  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
-
-  useEffect(() => {
-    if (paused) return;
-    timerRef.current = setInterval(advance, 6000);
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, [paused, current]);
-
-  const slide = slides[current];
-
-  return (
-    <section
-      className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden bg-linear-to-br from-maroon-900 to-maroon-800 pt-52 sm:pt-60 pb-16 px-6"
-      style={{ paddingTop: 'calc(var(--navbar-height, 130px) + 3.5rem)' }}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      aria-label="Hospital hero slider"
-    >
-      {/* Radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-175 rounded-full bg-[radial-gradient(circle,rgba(199,154,75,0.12),transparent_70%)] pointer-events-none z-0" />
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={slide.id}
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -24 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="relative z-10 flex flex-col items-center text-center w-full max-w-4xl"
-        >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2.5 bg-cream border border-gold/50 px-5 py-2 rounded-full shadow-lg shadow-black/20 mb-6">
-            <ShieldPlus className="h-5 w-5 text-maroon-700 shrink-0" />
-            <div className="flex flex-col items-center leading-tight">
-              <span className="text-xs sm:text-sm font-extrabold tracking-[0.06em] text-maroon-900 uppercase">{slide.badge}</span>
-              <span className="text-[10px] sm:text-xs font-semibold tracking-wider text-maroon-700">Caring For Humanity</span>
-            </div>
-          </div>
-
-          {/* Headline */}
-          <h1
-            className="text-[clamp(32px,5.5vw,66px)] leading-[1.15] font-bold text-white mb-6 drop-shadow-lg"
-            style={{ fontFamily: 'var(--font-fraunces)' }}
-          >
-            {slide.title.split(' ').map((word, i) => (
-              <span key={i} className={word === 'Hospital' || word === 'Ahmedabad' ? 'text-gold' : 'text-white'}>
-                {word}{' '}
-              </span>
-            ))}
-          </h1>
-
-          {/* Image or Portraits */}
-          {slide.type === 'portraits' ? (
-            <div className="flex flex-col sm:flex-row justify-center items-center sm:items-end gap-6 sm:gap-8 w-full mb-8 px-4">
-              {[
-                { src: '/dr-hasmukh.png', name: 'Dr. Hasmukh Soni', role: 'Managing Director' },
-                { src: '/Dr Ayush.png', name: 'Dr. Ayush Soni', role: 'Director' },
-              ].map((p) => (
-                <figure
-                  key={p.name}
-                  className="relative w-[min(85vw,280px)] h-[min(65vw,360px)] sm:w-[clamp(180px,22vw,300px)] sm:h-[clamp(240px,32vw,400px)] rounded-2xl overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.45)]"
-                >
-                  <Image src={p.src} alt={`${p.name}, ${p.role} – Ojas Hospital`} fill priority sizes="(max-width: 640px) 85vw, 300px" className="object-cover object-top" />
-                  <figcaption className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-black/85 via-black/50 to-transparent flex flex-col justify-end items-center pb-4 gap-0.5">
-                    <span className="text-white text-[14px] font-bold" style={{ fontFamily: 'var(--font-fraunces)' }}>{p.name}</span>
-                    <span className="text-gold text-[12px] font-bold uppercase tracking-widest" style={{ fontFamily: 'var(--font-fraunces)' }}>{p.role}</span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          ) : (
-            <div className="relative w-full max-w-2xl h-64 sm:h-80 rounded-2xl overflow-hidden mb-8 shadow-[0_24px_60px_rgba(0,0,0,0.4)]">
-              <Image src={slide.image!} alt={slide.title} fill sizes="(max-width: 768px) 100vw, 700px" className="object-cover" priority />
-              <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
-            </div>
-          )}
-
-          {/* Subtitle */}
-          <p className="text-[17px] leading-[1.75] text-white/85 mb-9 max-w-2xl">{slide.subtitle}</p>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-10">
-            <a
-              href="https://wa.me/917574840735"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl bg-gold text-maroon-900 font-bold hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(199,154,75,0.35)] transition-all tracking-[0.02em]"
-            >
-              <WhatsAppIcon className="h-5 w-5" />
-              Chat on WhatsApp
-            </a>
-            <Link
-              href="/departments"
-              className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl border-[1.5px] border-white/40 text-white font-semibold hover:bg-white/10 hover:border-white transition-all group tracking-[0.02em]"
-            >
-              Explore Departments
-              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-
-          {/* Stats */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 pt-8 border-t border-white/15 w-full max-w-2xl">
-            {[{ value: '24×7', label: 'Emergency Care' }, { value: '20+', label: 'Specialists' }, { value: '4.2★', label: 'Google Rating' }].map(({ value, label }, i) => (
-              <React.Fragment key={label}>
-                {i > 0 && <div className="hidden sm:block w-px h-10 bg-white/15" />}
-                <div className="flex flex-col items-center text-center">
-                  <strong className="text-3xl text-gold font-bold" style={{ fontFamily: 'var(--font-fraunces)' }}>{value}</strong>
-                  <span className="text-[13px] text-white/70 tracking-wide uppercase mt-1 font-semibold">{label}</span>
-                </div>
-              </React.Fragment>
-            ))}
-          </div>
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Slider controls */}
-      <div className="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-6 z-20">
-        <button onClick={prev} aria-label="Previous slide" className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors">
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-        <div className="flex gap-2">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              aria-label={`Go to slide ${i + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-gold' : 'w-2 bg-white/30'}`}
-            />
-          ))}
-        </div>
-        <button onClick={advance} aria-label="Next slide" className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors">
-          <ChevronRight className="h-5 w-5" />
-        </button>
-      </div>
-    </section>
-  );
-}
-
 // ── Dashboard Grid ─────────────────────────────────────────────────────────────
 function DashboardGrid() {
   return (
@@ -309,9 +236,9 @@ function UtilityBelt() {
             <Phone className="h-3 w-3 text-gold" />
             {EMERGENCY_INFO.hotline}
           </a>
-          <a href="mailto:ojashospitalo123@gmail.com" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+          <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-1.5 hover:text-gold transition-colors">
             <Mail className="h-3 w-3" />
-            ojashospitalo123@gmail.com
+            {SITE_CONFIG.email}
           </a>
         </div>
         <div className="flex items-center gap-1.5">
@@ -326,7 +253,8 @@ export default function Home() {
   return (
     <>
       <UtilityBelt />
-      <HeroSlider />
+      <HeroSection />
+      <UpcomingEventSlim />
       <DashboardGrid />
     </>
   );

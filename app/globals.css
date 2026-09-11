@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 @theme {
+  --font-serif: var(--font-fraunces), "Fraunces", Georgia, serif;
   --color-maroon-100: #F4E4E6;
   --color-maroon-600: #7A1024;
   --color-maroon-700: #5C0E1A;
   --color-maroon-800: #3A0F14;
   --color-maroon-900: #220A0C;
+  --color-maroon-950: #160507;
   --color-gold: #C79A4B;
   --color-gold-soft: #E8D3A5;
   --color-cream: #F5EFEA;
@@ -47,6 +49,11 @@
   --border: var(--color-maroon-100);
   --muted: #64748b;
   --radius-main: 24px;
+}
+
+/* Headings & Display Titles: Google Serif Display (Fraunces for main titles) */
+h1, h2, .font-serif, [class*="font-serif"] {
+  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif;
 }
 
 html {

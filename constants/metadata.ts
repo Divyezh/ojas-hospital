@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   favicon: "https://www.ojashospitalmultispecility.com/favicon.png",
   ogImage: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200",
   telephone: EMERGENCY_INFO.hotline,
-  email: "ojashospitalo123@gmail.com",
+  email: "ojashospital104@gmail.com",
   address: {
     street: "Rakhiyal Cross Road, Dynasore Circle",
     suite: "Rakhiyal",
@@ -114,6 +114,9 @@ export const DEFAULT_METADATA: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  verification: {
+    google: 'd1a697e54b4ff7a7',
   },
 };
 

@@ -48,7 +48,7 @@ export default function DepartmentsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
       {/* Page header */}
-      <div className="pt-28 pb-8 bg-linear-to-br from-maroon-900 to-maroon-800 text-white text-center px-4">
+      <div className="w-full pt-28 pb-8 bg-linear-to-br from-maroon-900 to-maroon-800 text-white text-center px-4">
         <nav className="text-xs text-white/50 mb-3">
           <Link href="/" className="hover:text-gold transition-colors">Home</Link>
           <span className="mx-2">›</span>

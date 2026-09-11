@@ -66,6 +66,18 @@ export const HorizontalScrollCarousel = ({ items }: HorizontalScrollCarouselProp
 
   const x = useTransform(scrollYProgress, [0, 1], ["0px", `-${travelDistance}px`]);
 
+  if (cardItems.length <= 2) {
+    return (
+      <section className="w-full relative min-h-[60vh] py-12 flex flex-col justify-center items-center bg-maroon-950 px-4 overflow-x-hidden">
+        <div className="w-full flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
+          {cardItems.map((card) => (
+            <Card card={card} key={card.id} />
+          ))}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-maroon-950">
       <div className="sticky top-0 z-20 flex h-screen items-center overflow-hidden py-8 sm:py-12">
@@ -89,7 +101,7 @@ const Card = ({ card }: { card: DepartmentCardItem }) => {
   return (
     <Link
       href={href}
-      className="group relative h-120 w-85 sm:w-100 shrink-0 overflow-hidden rounded-3xl bg-maroon-950 border border-maroon-700/50 shadow-2xl transition-all duration-300 hover:border-gold/60 hover:shadow-[0_20px_50px_rgba(155,28,48,0.4)] flex flex-col justify-between p-6 cursor-pointer"
+      className="group relative h-120 w-[min(90vw,340px)] sm:w-100 shrink-0 overflow-hidden rounded-3xl bg-maroon-950 border border-maroon-700/50 shadow-2xl transition-all duration-300 hover:border-gold/60 hover:shadow-[0_20px_50px_rgba(155,28,48,0.4)] flex flex-col justify-between p-6 cursor-pointer"
     >
       {/* Background Image with Zoom & Dark Maroon Gradient Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden">

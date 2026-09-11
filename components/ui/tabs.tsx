@@ -15,20 +15,28 @@ export interface TabsProps {
   activeTab: string;
   onChange: (id: string) => void;
   className?: string;
+  variant?: 'light' | 'dark';
 }
 
-export function Tabs({ tabs, activeTab, onChange, className }: TabsProps) {
+export function Tabs({ tabs, activeTab, onChange, className, variant = 'light' }: TabsProps) {
+  const isDark = variant === 'dark';
+
   return (
-    <div className={cn('flex flex-wrap gap-2 p-1.5 bg-slate-100 rounded-full w-fit', className)}>
+    <div className={cn('flex flex-wrap gap-2 p-1.5 rounded-full w-fit', isDark ? 'bg-maroon-900/90' : 'bg-slate-100', className)}>
       {tabs.map((tab) => {
         const isActive = tab.id === activeTab;
         return (
           <button
             key={tab.id}
+            type="button"
             onClick={() => onChange(tab.id)}
             className={cn(
-              'relative rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-maroon-600 cursor-pointer',
-              isActive ? 'text-charcoal' : 'text-slate-600 hover:text-slate-900'
+              'relative rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-maroon-600 cursor-pointer whitespace-nowrap',
+              isActive
+                ? 'text-charcoal'
+                : isDark
+                  ? 'text-cream/80 hover:text-white'
+                  : 'text-slate-600 hover:text-slate-900'
             )}
           >
             {isActive && (
@@ -44,7 +52,11 @@ export function Tabs({ tabs, activeTab, onChange, className }: TabsProps) {
                 <span
                   className={cn(
                     'px-2 py-0.5 rounded-full text-xs font-bold',
-                    isActive ? 'bg-maroon-100 text-maroon-900' : 'bg-slate-200 text-slate-700'
+                    isActive
+                      ? 'bg-maroon-100 text-maroon-900'
+                      : isDark
+                        ? 'bg-maroon-800 text-gold border border-maroon-700'
+                        : 'bg-slate-200 text-slate-700'
                   )}
                 >
                   {tab.count}

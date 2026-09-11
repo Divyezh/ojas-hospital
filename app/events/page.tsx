@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/events`,
     images: [
       {
+        url: '/diabetes2.jpeg',
+        width: 1200,
+        height: 1200,
+        alt: 'Free Diabetes and Blood Pressure Checkup Camp - Rakhial Police Station - Ojas Hospital Ahmedabad',
+      },
+      {
         url: '/free-diabetes-camp-ojas-hospital.webp',
         width: 1200,
         height: 1800,
@@ -31,6 +37,17 @@ export const metadata: Metadata = {
 
 // Seeded from GALLERY_ITEMS — real camps the hospital has actually run
 const EVENTS: HospitalEvent[] = [
+  {
+    id: 'e-upcoming-diabetes-police-2026',
+    title: 'નિ:શુલ્ક ડાયાબિટીસ અને બ્લડ પ્રેશર ચેક-અપ કેમ્પ — Rakhial Police Station',
+    date: '09-09-2026 | 03:30 PM – 05:30 PM',
+    location: 'Rakhial Police Station, Near Rakhial Cross Road, Rakhial, Ahmedabad - 380021',
+    description: 'Special community and police health initiative "Healthy Police, Stronger Community" (સ્વસ્થ પોલીસ, સુરક્ષિત સમાજ) jointly organized by Ojas Hospital & Defeat Diabetese. Offering free Blood Sugar testing, Blood Pressure (BP) check-up, and expert physician guidance. Contact: 8238221169.',
+    category: 'Health Camp',
+    image: '/diabetes2.jpeg',
+    imagePosition: 'object-top',
+    isUpcoming: true,
+  },
   {
     id: 'e-upcoming-diabetes-2026',
     title: 'Free Defeat Diabetes & Blood Pressure Diagnosis & Treatment Camp',
@@ -114,7 +131,7 @@ const EVENTS: HospitalEvent[] = [
   },
   {
     id: 'e8',
-    title: 'Well Wish Social Meeting with Home minister of India, Shri Amitbhai Shah',
+    title: 'Well-Wish Meeting with Union Home Minister Shri Amitbhai Shah',
     date: '2023',
     location: 'Ahmedabad, Gujarat',
     description: 'Dr. Hasmukh Soni in a well-wish social meeting with Union Home Minister Shri Amitbhai Shah.',
@@ -124,10 +141,10 @@ const EVENTS: HospitalEvent[] = [
   },
   {
     id: 'e9',
-    title: 'Honouring Chief Minister Shri Bhupendrabhai Patel Sir During Shri Babasaheb Ambedakarji janm jayanti',
+    title: 'Honouring Chief Minister Shri Bhupendrabhai Patel on Dr. Babasaheb Ambedkar Jayanti',
     date: '2023',
     location: 'Ahmedabad, Gujarat',
-    description: 'Dr. Hasmukh Soni honouring Chief Minister Shri Bhupendrabhai Patel Sir during Shri Babasaheb Ambedkarji Janm Jayanti.',
+    description: 'Dr. Hasmukh Soni honouring Gujarat Chief Minister Shri Bhupendrabhai Patel during Dr. Babasaheb Ambedkar Jayanti celebrations.',
     category: 'Community Event',
     image: '/ojas-hospital-event-4.webp',
     imagePosition: 'object-top',

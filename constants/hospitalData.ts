@@ -36,7 +36,7 @@ export const HOSPITAL_STATS: HospitalStat[] = [
   },
   {
     label: "Expert Doctors",
-    value: 15,
+    value: 18,
     suffix: "",
     description: "Experienced medical professionals across specialties."
   },
@@ -155,7 +155,7 @@ export const DEPARTMENTS: Department[] = [
       "Acne & Scar Therapy"
     ],
     image: "/skin care.png",
-    stats: { surgeries: "N/A", satisfaction: "98%", specialists: 4 }
+    stats: { surgeries: "N/A", satisfaction: "98%", specialists: 1 }
   },
   {
     id: "ayurveda",
@@ -280,9 +280,9 @@ export const DOCTORS: Doctor[] = [
   {
     id: "doc-3",
     name: "Dr. Karan Shah",
-    title: "Physician & Critical Care Specialist",
-    departmentId: "general-medicine",
-    departmentName: "Medicine",
+    title: "Medical Superintendent & Critical Care Specialist",
+    departmentId: "superintendent",
+    departmentName: "Superintendent",
     qualifications: "M.B.B.S., FCCS",
     experienceYears: 10,
     rating: 4.8,
@@ -290,8 +290,8 @@ export const DOCTORS: Doctor[] = [
     availability: "Evening 7:30 PM – 9:00 PM",
     initials: "KS",
     color: "Navy Blue",
-    specialties: ["Internal Medicine", "FCCS Critical Care", "Emergency Resuscitation"],
-    bio: "Consultant Physician with FCCS credentials, dedicated to acute medical care and critical care interventions at Ojas Hospital."
+    specialties: ["Medical Superintendent", "Internal Medicine", "FCCS Critical Care", "Emergency Resuscitation"],
+    bio: "Medical Superintendent and Consultant Physician with FCCS credentials, dedicated to acute medical care and critical care interventions at Ojas Hospital."
   },
   {
     id: "doc-4",
@@ -327,83 +327,35 @@ export const DOCTORS: Doctor[] = [
   },
   {
     id: "doc-6",
-    name: "Dr. Priyank Parekh",
+    name: "Dr. Priyank Barot",
     title: "General & Laparoscopic Surgeon",
     departmentId: "general-surgery",
     departmentName: "Surgical",
-    qualifications: "M.S.",
+    qualifications: "M.S. (General and Laparoscopic Surgeon)",
     experienceYears: 12,
     rating: 4.8,
     reviewCount: 104,
-    availability: "Consultation by Appointment",
-    initials: "PP",
+    availability: "Evening 5:00 PM – 6:00 PM",
+    initials: "PB",
     color: "Teal",
     specialties: ["General Surgery", "Laparoscopy", "Abdominal Procedures"],
     bio: "Consultant General & Laparoscopic Surgeon (M.S.) delivering advanced surgical procedures and clinical care at Ojas Hospital."
   },
   {
-    id: "doc-7",
-    name: "Dr. Shweta Soni",
-    title: "Consultant Gynecologist",
-    departmentId: "gynecology",
-    departmentName: "Gynecology",
-    qualifications: "M.S., D.G.O. Gynaec",
-    experienceYears: 13,
-    rating: 4.9,
-    reviewCount: 122,
-    availability: "Consultation by Appointment",
-    initials: "SS",
-    color: "Rose Pink",
-    specialties: ["Gynecology", "Obstetrics", "Women's Healthcare", "D.G.O. Services"],
-    bio: "Expert Gynecologist (M.S., D.G.O.) providing comprehensive women's healthcare, maternity support, and gynecological consultations at Ojas Hospital."
-  },
-  {
     id: "doc-8",
-    name: "Dr. Vikas Yadav",
-    title: "Consultant Gynecologist",
+    name: "Dr. Vikas Gupta",
+    title: "Consultant Gynecologist & Laparoscopic Surgeon",
     departmentId: "gynecology",
     departmentName: "Gynecology",
-    qualifications: "M.S.",
+    qualifications: "M.S. (Gynec)",
     experienceYears: 11,
     rating: 4.8,
     reviewCount: 98,
-    availability: "Consultation by Appointment",
-    initials: "VY",
+    availability: "Evening 4:00 PM – 5:00 PM",
+    initials: "VG",
     color: "Violet",
-    specialties: ["Gynecology", "Obstetrics", "Reproductive Wellness"],
-    bio: "Consultant Gynecologist (M.S.) specializing in obstetrics, reproductive health, and women's wellness treatments at Ojas Hospital."
-  },
-  {
-    id: "doc-9",
-    name: "Dr. Arif Karoliya",
-    title: "Dermatologist & Skin Specialist",
-    departmentId: "dermatology",
-    departmentName: "Skin & Cosmetology",
-    qualifications: "M.D. Skin",
-    experienceYears: 13,
-    rating: 4.9,
-    reviewCount: 128,
-    availability: "Consultation by Appointment",
-    initials: "AK",
-    color: "Magenta",
-    specialties: ["Dermatology", "Clinical Skin Diseases", "Cosmetic Dermatology"],
-    bio: "Qualified M.D. Skin Specialist providing expert diagnosis and clinical management for complex dermatological and aesthetic skin conditions at Ojas Hospital."
-  },
-  {
-    id: "doc-10",
-    name: "Dr. Sodeb Qureshi",
-    title: "Skin & Cosmetology Consultant",
-    departmentId: "dermatology",
-    departmentName: "Skin & Cosmetology",
-    qualifications: "B.A.M.S.",
-    experienceYears: 9,
-    rating: 4.7,
-    reviewCount: 98,
-    availability: "Evening 7:30 PM – 8:30 PM",
-    initials: "SQ",
-    color: "Turquoise",
-    specialties: ["Skin & Cosmetology", "Holistic Skin Care", "Aesthetic Care"],
-    bio: "Skin & Cosmetology practitioner blending holistic principles and clinical care for skin health and cosmetic wellness at Ojas Hospital."
+    specialties: ["Gynecology & Obstetrics", "Laparoscopic Surgery", "Women's Health", "Reproductive Wellness"],
+    bio: "Consultant Gynecologist & Laparoscopic Surgeon (M.S.) specializing in obstetrics, laparoscopic surgeries, and women's healthcare treatments at Ojas Hospital."
   },
   {
     id: "doc-11",
@@ -415,7 +367,7 @@ export const DOCTORS: Doctor[] = [
     experienceYears: 8,
     rating: 4.8,
     reviewCount: 106,
-    availability: "Consultation by Appointment",
+    availability: "Afternoon 12:00 PM – 5:00 PM",
     image: "/Dr Ayush.png",
     initials: "AS",
     color: "Cyan",
@@ -432,12 +384,12 @@ export const DOCTORS: Doctor[] = [
     experienceYears: 25,
     rating: 5.0,
     reviewCount: 210,
-    availability: "Afternoon 12:00 PM – 1:00 PM & Evening 5:00 PM – 6:00 PM",
+    availability: "Afternoon 12:00 PM – 2:00 PM & Evening 7:00 PM – 10:00 PM",
     image: "/dr-hasmukh.png",
     initials: "HS",
     color: "Gold",
-    specialties: ["Ayurveda & Panchakarma", "Hospital Leadership", "Healthcare Administration"],
-    bio: "Founder of Ojas Hospital, veteran Ayurvedic Physician and Director with over 25 years of healthcare leadership and clinical service in Ahmedabad."
+    specialties: ["Ayurveda & Panchakarma", "Hospital Mentor & Management", "Healthcare Administration"],
+    bio: "Founder of Ojas Hospital, veteran Ayurvedic Physician and Director with over 25 years of hospital mentorship, management, and clinical service in Ahmedabad."
   },
   {
     id: "doc-14",
@@ -457,32 +409,16 @@ export const DOCTORS: Doctor[] = [
     bio: "Senior Pediatrician & Child Specialist (M.B.B.S., D.Ped.) dedicated to compassionate child healthcare and vaccination schedules at Ojas Hospital."
   },
   {
-    id: "doc-15",
-    name: "Dr. Vishalbhai",
-    title: "Ear, Nose, Throat Specialist",
-    departmentId: "ear-nose-throat",
-    departmentName: "Ear, Nose, Throat",
-    qualifications: "M.S. E.N.T.",
-    experienceYears: 14,
-    rating: 4.8,
-    reviewCount: 125,
-    availability: "Evening 6:00 PM – 8:00 PM",
-    initials: "VB",
-    color: "Lime Green",
-    specialties: ["Ear, Nose & Throat", "Sinus Surgery", "Hearing Impairment", "Throat Care"],
-    bio: "Experienced Ear, Nose, Throat Specialist & Surgeon (M.S. E.N.T.) providing diagnostics and surgical care for ear, nose, and throat conditions at Ojas Hospital."
-  },
-  {
     id: "doc-16",
     name: "Dr. Vishal Prajapati",
     title: "Pulmonary Medicine Specialist",
     departmentId: "pulmonary-medicine",
     departmentName: "Pulmonary Medicine",
-    qualifications: "M.D.",
+    qualifications: "M.D. (Medicine, Pulmonologist)",
     experienceYears: 10,
     rating: 4.8,
     reviewCount: 95,
-    availability: "Consultation by Appointment",
+    availability: "Evening 4:00 PM – 6:00 PM",
     initials: "VP",
     color: "Deep Cyan",
     specialties: ["Pulmonology", "Respiratory Illnesses", "Asthma & Chest Care"],
@@ -505,64 +441,32 @@ export const DOCTORS: Doctor[] = [
     bio: "Leading Orthopedic Surgeon (M.S. Ortho.) specializing in bone and joint care, fracture fixation, and trauma recovery at Ojas Hospital."
   },
   {
-    id: "doc-18",
-    name: "Dr. Puja K. Jain",
+    id: "doc-19",
+    name: "Dr. Mayur Mishra",
     title: "Homeopathic Consultant",
     departmentId: "homeopathic",
     departmentName: "Homeopathy",
     qualifications: "B.H.M.S.",
-    experienceYears: 12,
-    rating: 4.8,
-    reviewCount: 108,
-    availability: "Evening 6:30 PM – 8:00 PM",
-    initials: "PJ",
-    color: "Indigo",
-    specialties: ["Homeopathic Medicine", "Chronic Ailments", "Holistic Wellness"],
-    bio: "Experienced Homeopathic Physician (B.H.M.S.) providing personalized, non-invasive remedies for chronic disorders at Ojas Hospital."
-  },
-  {
-    id: "doc-19",
-    name: "Dr. Mayur Mishra",
-    title: "Homeopathic Specialist & Healthcare Administrator",
-    departmentId: "homeopathic",
-    departmentName: "Homeopathy",
-    qualifications: "B.H.M.S., M.H.A.",
     experienceYears: 11,
     rating: 4.8,
     reviewCount: 92,
-    availability: "Consultation by Appointment",
+    availability: "Afternoon 2:00 PM – 4:00 PM",
     initials: "MM",
     color: "Violet",
     specialties: ["Homeopathy", "Chronic Care", "Healthcare Administration"],
     bio: "Consultant Homeopath (B.H.M.S., M.H.A.) specializing in holistic healing and health administration at Ojas Hospital."
   },
   {
-    id: "doc-20",
-    name: "Dr. Kunjal Modi",
-    title: "Consultant Physiotherapist",
-    departmentId: "physiotherapy",
-    departmentName: "Physiotherapy",
-    qualifications: "B.P.T.",
-    experienceYears: 10,
-    rating: 4.8,
-    reviewCount: 115,
-    availability: "Evening 5:30 PM – 7:00 PM",
-    initials: "KM",
-    color: "Orange",
-    specialties: ["Physiotherapy", "Rehabilitation", "Post-Surgical Rehab"],
-    bio: "Qualified Physiotherapist (B.P.T.) specializing in musculoskeletal recovery, post-operative rehab, and joint mobility at Ojas Hospital."
-  },
-  {
     id: "doc-21",
-    name: "Dr. Bhargav",
+    name: "Dr. Bhargav Vadhel",
     title: "Consultant Physiotherapist",
     departmentId: "physiotherapy",
     departmentName: "Physiotherapy",
-    qualifications: "B.P.T.",
+    qualifications: "B.P.T. (Physiotherapist)",
     experienceYears: 9,
     rating: 4.7,
     reviewCount: 88,
-    availability: "Consultation by Appointment",
+    availability: "Afternoon 2:00 PM – 4:00 PM",
     initials: "DB",
     color: "Orange",
     specialties: ["Physiotherapy", "Sports Injury Rehab", "Pain Management"],
@@ -585,36 +489,52 @@ export const DOCTORS: Doctor[] = [
     bio: "Certified Unani Physician (B.U.M.S.) delivering herbal therapeutics and holistic natural healing at Ojas Hospital."
   },
   {
-    id: "doc-23",
-    name: "Dr. Abdur Rehman Ansari",
-    title: "Unani Medicine Specialist",
-    departmentId: "unani",
-    departmentName: "Unani Department",
-    qualifications: "B.U.M.S., M.D.",
-    experienceYears: 13,
-    rating: 4.9,
-    reviewCount: 102,
-    availability: "Consultation by Appointment",
-    initials: "RA",
-    color: "Forest Green",
-    specialties: ["Unani Medicine", "Advanced Unani Therapeutics", "Metabolic Health"],
-    bio: "Senior Unani Specialist (B.U.M.S., M.D.) specializing in classical herbal treatments, metabolic care, and wellness at Ojas Hospital."
-  },
-  {
     id: "doc-24",
     name: "Dr. Viralben Patel",
-    title: "Dental Surgeon",
+    title: "Dental Specialist",
     departmentId: "dental",
     departmentName: "Dental Department",
     qualifications: "B.D.S.",
     experienceYears: 8,
     rating: 4.8,
     reviewCount: 90,
-    availability: "Consultation by Appointment",
+    availability: "Morning 9:00 AM – 1:00 PM",
     initials: "VP",
     color: "Cyan",
-    specialties: ["Dental Surgery", "Root Canal Treatment", "Oral Health"],
-    bio: "Dental Surgeon (B.D.S.) offering tooth extractions, root canal treatments, scaling, and oral healthcare services at Ojas Hospital."
+    specialties: ["Dental Surgery", "Dental Specialist Care", "Root Canal Treatment", "Oral Health"],
+    bio: "Dental Specialist (B.D.S.) offering tooth extractions, root canal treatments, scaling, and oral healthcare services at Ojas Hospital."
+  },
+  {
+    id: "doc-25",
+    name: "Dr. J. M. Shah",
+    title: "Pediatrician & Child Specialist",
+    departmentId: "pediatrics",
+    departmentName: "Pediatrics",
+    qualifications: "M.B., D.Ped.",
+    experienceYears: 14,
+    rating: 4.8,
+    reviewCount: 95,
+    availability: "Evening 5:00 PM – 6:00 PM",
+    initials: "JS",
+    color: "Amber",
+    specialties: ["Pediatrics", "Childhood Immunization", "Neonatal Care", "Pediatric Healthcare"],
+    bio: "Pediatrician & Child Specialist (M.B.B.S., D.Ped.) dedicated to pediatric healthcare, childhood immunization, and neonatal care at Ojas Hospital."
+  },
+  {
+    id: "doc-26",
+    name: "Dr. Pulakbhai Godiyawala",
+    title: "Consultant Orthopedic Surgeon",
+    departmentId: "orthopedics",
+    departmentName: "Orthopedics",
+    qualifications: "M.S. Ortho.",
+    experienceYears: 15,
+    rating: 4.8,
+    reviewCount: 110,
+    availability: "Evening 5:00 PM – 6:00 PM",
+    initials: "PG",
+    color: "Deep Purple",
+    specialties: ["Orthopedic Surgery", "Fracture Fixation", "Bone & Joint Care", "Trauma Recovery"],
+    bio: "Consultant Orthopedic Surgeon (M.S. Ortho.) specializing in fracture management, trauma recovery, and bone & joint healthcare at Ojas Hospital."
   }
 ];
 
@@ -638,7 +558,6 @@ export const CONSULTATION_SCHEDULE: ScheduleDepartment[] = [
     doctors: [
       { name: "Dr. Aijaz Ansari", qualification: "M.D. Medicine", timing: "Evening 6:00 to 9:00" },
       { name: "Dr. Manishbhai Soni", qualification: "M.D. Medicine", timing: "Evening 5:00 to 6:00" },
-      { name: "Dr. Karan Shah", qualification: "M.B.B.S., FCCS", timing: "Evening 7:30 to 9:00" },
     ]
   },
   {
@@ -647,39 +566,35 @@ export const CONSULTATION_SCHEDULE: ScheduleDepartment[] = [
     doctors: [
       { name: "Dr. Anand Tank", qualification: "M.S. Surgeon", timing: "Evening 5:00 to 6:00" },
       { name: "Dr. Deepakbhai", qualification: "M.S. Surgeon", timing: "Evening 5:30 to 8:00" },
-      { name: "Dr. Priyank Parekh", qualification: "M.S.", timing: "On Consultation" },
+      { name: "Dr. Priyank Barot", qualification: "M.S. (General & Laparoscopic Surgeon)", timing: "Evening 5:00 to 6:00" },
     ]
   },
   {
     department: "Gynecology Department",
     subtitle: "Women's Healthcare",
     doctors: [
-      { name: "Dr. Shweta Soni", qualification: "M.S., D.G.O. Gynaec", timing: "—" },
-      { name: "Dr. Vikas Yadav", qualification: "M.S.", timing: "On Consultation" },
+      { name: "Dr. Vikas Gupta", qualification: "M.S. (Gynec), Laparoscopic Surgeon", timing: "Evening 4:00 to 5:00" },
     ]
   },
   {
     department: "Dental Department",
     subtitle: "Oral & Dental Surgery",
     doctors: [
-      { name: "Dr. Viralben Patel", qualification: "B.D.S.", timing: "On Consultation" },
-      { name: "No Doctor Listed", qualification: "—", timing: "—", isCrossedOut: true }
+      { name: "Dr. Viralben Patel", qualification: "B.D.S., Dental Specialist", timing: "Morning 9:00 to 1:00" },
     ]
   },
   {
     department: "Skin & Cosmetology",
     subtitle: "Plastic Surgery & Facial Care",
     doctors: [
-      { name: "Dr. Arif Karoliya", qualification: "M.D. Skin", timing: "—" },
-      { name: "Dr. Sodeb Qureshi", qualification: "B.A.M.S.", timing: "Evening 7:30 to 8:30" },
-      { name: "Dr. Ayush Soni", qualification: "PGDCC", timing: "On Consultation" },
+      { name: "Dr. Ayush Soni", qualification: "PGDCC", timing: "Afternoon 12:00 to 5:00" },
     ]
   },
   {
     department: "Managing Trustee / Director",
-    subtitle: "Hospital Leadership & Management",
+    subtitle: "Hospital Mentor & Management",
     doctors: [
-      { name: "Dr. Hasmukhbhai Soni", qualification: "B.A.M.S., LLB", timing: "Afternoon 12:00 to 1:00 / Evening 5:00 to 6:00" },
+      { name: "Dr. Hasmukhbhai Soni", qualification: "B.A.M.S., LLB", timing: "Afternoon 12:00 to 2:00 / Evening 7:00 to 10:00" },
     ]
   },
   {
@@ -687,26 +602,21 @@ export const CONSULTATION_SCHEDULE: ScheduleDepartment[] = [
     subtitle: "Children's Health & Vaccination",
     doctors: [
       { name: "Dr. Atulbhai Patel", qualification: "M.B.B.S., D.Ped. (M.D. Ped.)", timing: "Mon-Wed-Fri: Afternoon 1:00 to 2:00" },
-    ]
-  },
-  {
-    department: "Ear, Nose, Throat",
-    subtitle: "Ear, Nose & Throat Care",
-    doctors: [
-      { name: "Dr. Vishalbhai", qualification: "M.S. E.N.T.", timing: "Evening 6:00 to 8:00" },
+      { name: "Dr. J. M. Shah", qualification: "M.B., D.Ped.", timing: "Evening 5:00 to 6:00" },
     ]
   },
   {
     department: "Pulmonary Medicine",
     subtitle: "Chest & Respiratory Medicine",
     doctors: [
-      { name: "Dr. Vishal Prajapati", qualification: "M.D.", timing: "On Consultation" },
+      { name: "Dr. Vishal Prajapati", qualification: "M.D. (Medicine, Pulmonologist)", timing: "Evening 4:00 to 6:00" },
     ]
   },
   {
     department: "Orthopedic Department",
     subtitle: "Bone, Joint & Fracture Care",
     doctors: [
+      { name: "Dr. Pulakbhai Godiyawala", qualification: "M.S. Ortho.", timing: "Evening 5:00 to 6:00" },
       { name: "Dr. Paritosh Solanki", qualification: "M.S. Ortho.", timing: "Evening 6:00 to 7:00" },
     ]
   },
@@ -714,23 +624,21 @@ export const CONSULTATION_SCHEDULE: ScheduleDepartment[] = [
     department: "Superintendent",
     subtitle: "Medical Superintendent",
     doctors: [
-      { name: "No Doctor Listed", qualification: "—", timing: "—", isCrossedOut: true }
+      { name: "Dr. Karan Shah", qualification: "M.B.B.S., FCCS", timing: "Evening 7:30 to 9:00" }
     ]
   },
   {
     department: "Homeopathic Department",
     subtitle: "Homeopathy & Holistic Care",
     doctors: [
-      { name: "Dr. Puja K. Jain", qualification: "B.H.M.S.", timing: "Evening 6:30 to 8:00" },
-      { name: "Dr. Mayur Mishra", qualification: "B.H.M.S.", timing: "On Consultation" },
+      { name: "Dr. Mayur Mishra", qualification: "B.H.M.S., Homeopathic Consultant", timing: "Afternoon 2:00 to 4:00" },
     ]
   },
   {
     department: "Physiotherapy",
     subtitle: "Rehabilitation & Physical Therapy",
     doctors: [
-      { name: "Dr. Kunjal Modi", qualification: "B.P.T.", timing: "Evening 5:30 to 7:00" },
-      { name: "Dr. Bhargav", qualification: "B.P.T.", timing: "On Consultation" },
+      { name: "Dr. Bhargav Vadhel", qualification: "B.P.T. (Physiotherapist)", timing: "Afternoon 2:00 to 4:00" },
     ]
   },
   {
@@ -738,7 +646,6 @@ export const CONSULTATION_SCHEDULE: ScheduleDepartment[] = [
     subtitle: "Herbal & Natural Therapeutics",
     doctors: [
       { name: "Dr. Asharaf Ansari", qualification: "B.U.M.S.", timing: "Afternoon 2:00 to 2:30" },
-      { name: "Dr. Abdur Rehman Ansari", qualification: "B.U.M.S., M.D.", timing: "On Consultation" },
     ]
   }
 ];

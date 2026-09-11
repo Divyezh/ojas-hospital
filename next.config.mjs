@@ -16,7 +16,6 @@ const cspHeader = `
   form-action 'self';
   frame-ancestors 'none';
   frame-src 'self' https://maps.google.com https://www.google.com https://translate.google.com;
-  upgrade-insecure-requests;
 `;
 
 /** @type {import('next').NextConfig} */
