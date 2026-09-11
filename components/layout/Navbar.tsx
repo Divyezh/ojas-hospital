@@ -16,7 +16,7 @@ const primaryLinks = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Departments', href: '/departments' },
-  { name: 'Doctors', href: '/doctors' },
+  { name: 'Consultation Timings', href: '/doctors' },
   { name: 'Contact', href: '/contact' },
 ];
 

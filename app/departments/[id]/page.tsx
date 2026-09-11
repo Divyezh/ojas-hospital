@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { DEPARTMENTS, DOCTORS, EMERGENCY_INFO } from '@/constants/hospitalData';
 import { SITE_CONFIG } from '@/constants/metadata';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
+import { DoctorCard } from '@/components/ui/DoctorCard';
 import { CheckCircle2, Phone, HelpCircle, Activity, ShieldCheck, HeartPulse, Building2, Stethoscope, AlertCircle } from 'lucide-react';
 
 interface Props {
@@ -19,7 +20,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const department = DEPARTMENTS.find((d) => d.id === id);
+  const department = DEPARTMENTS.find((d) => d.id === id || d.slug === id || d.id === id.replace(/_/g, '-'));
 
   if (!department) {
     return {
@@ -76,7 +77,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function DepartmentPage({ params }: Props) {
   const { id } = await params;
-  const department = DEPARTMENTS.find((d) => d.id === id);
+  const department = DEPARTMENTS.find((d) => d.id === id || d.slug === id || d.id === id.replace(/_/g, '-'));
 
   if (!department) {
     notFound();
@@ -282,26 +283,9 @@ export default async function DepartmentPage({ params }: Props) {
                   <p className="text-sm text-slate-600 mb-6">
                     Consult our experienced doctors practicing in the {department.name} Department at Ojas Hospital, Rakhiyal, Ahmedabad:
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                     {departmentDoctors.map((doc) => (
-                      <div key={doc.id} className="p-4 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-maroon-300 transition-all">
-                        <div>
-                          <h3 className="font-bold text-slate-900 text-base">{doc.name}</h3>
-                          <p className="text-xs text-slate-600 font-medium">{doc.title} ({doc.qualifications})</p>
-                          <p className="text-xs text-amber-700 font-semibold mt-1">{doc.experienceYears}+ Years Clinical Experience</p>
-                          {doc.branch && (
-                            <div className="mt-2 text-[11px] text-maroon-900 bg-maroon-50 border border-maroon-200 px-2.5 py-1.5 rounded-lg leading-snug">
-                              <span className="font-bold">📍 Branch:</span> {doc.branch}
-                            </div>
-                          )}
-                        </div>
-                        <Link
-                          href={`/doctors/${doc.id}`}
-                          className="px-3 py-1.5 rounded-xl bg-maroon-700 text-white text-xs font-semibold hover:bg-maroon-800 transition-colors shrink-0 text-center"
-                        >
-                          View Profile →
-                        </Link>
-                      </div>
+                      <DoctorCard key={doc.id} doctor={doc} />
                     ))}
                   </div>
                 </>
