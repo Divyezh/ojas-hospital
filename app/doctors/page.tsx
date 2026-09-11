@@ -5,10 +5,11 @@ import { DoctorCards } from '@/components/sections/DoctorCards';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Our Doctors — Expert Medical Specialists | Ojas Hospital Ahmedabad',
-  description: 'Meet the experienced doctors and specialists at Ojas Multispeciality Hospital in Rakhial & Bapunagar, Ahmedabad — Medicine, Surgery, Cosmetology, Ayurveda, Pediatrics, Orthopedics, and Critical Care.',
+  title: 'Consultation Timings — Expert Medical Specialists | Ojas Hospital Ahmedabad',
+  description: 'Meet the experienced doctors and consultation timings at Ojas Multispeciality Hospital in Rakhial & Bapunagar, Ahmedabad — Medicine, Surgery, Cosmetology, Ayurveda, Pediatrics, Orthopedics, and Critical Care.',
   keywords: [
     'Doctors in Ahmedabad',
+    'Consultation Timings Ahmedabad',
     'Specialist Doctors Rakhial',
     'General Surgeon Ahmedabad',
     'ENT Specialist Ahmedabad',
@@ -54,10 +55,10 @@ export default function DoctorsPage() {
         <nav className="text-xs text-white/50 mb-3">
           <Link href="/" className="hover:text-gold transition-colors">Home</Link>
           <span className="mx-2">›</span>
-          <span className="text-white/80">Doctors</span>
+          <span className="text-white/80">Consultation Timings</span>
         </nav>
         <h1 className="text-4xl md:text-5xl font-bold mb-3" style={{ fontFamily: 'var(--font-fraunces)' }}>
-          Our <span className="text-gold">Doctors</span>
+          Consultation <span className="text-gold">Timings</span>
         </h1>
         <p className="text-white/75 max-w-2xl mx-auto text-base">
           Experienced specialists across every major medical discipline — dedicated to your health, OPD consultation, and recovery in Rakhial, Ahmedabad.

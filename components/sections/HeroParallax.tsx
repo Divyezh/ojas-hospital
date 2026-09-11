@@ -90,7 +90,7 @@ export function HeroParallax() {
           className="inline-flex items-center gap-2.5 bg-cream border border-gold/50 px-5 py-2.5 rounded-full shadow-lg shadow-black/20 mb-6"
         >
           <ShieldCheck className="h-5 w-5 text-maroon-700" />
-          <span className="text-sm sm:text-base font-extrabold tracking-[0.06em] text-maroon-900 uppercase">
+          <span className="text-sm sm:text-base font-extrabold tracking-[0.06em] text-maroon-900 uppercase font-sinkin">
             OJAS HOSPITAL
           </span>
         </motion.div>

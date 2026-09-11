@@ -39,7 +39,7 @@ export function Footer() {
             </a>
           </div>
         </div>
-        <span className="cta-band-wordmark" aria-hidden="true">OJAS</span>
+        <span className="cta-band-wordmark" aria-hidden="true">OJAS HOSPITAL</span>
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
@@ -59,10 +59,10 @@ export function Footer() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl sm:text-2xl font-bold text-white tracking-wide" style={{ fontFamily: 'var(--font-fraunces)' }}>
+                <span className="text-xl sm:text-2xl font-bold text-white tracking-wide font-sinkin">
                   OJAS
                 </span>
-                <span className="text-xs font-bold text-gold tracking-[0.14em] uppercase">
+                <span className="text-xs font-bold text-gold tracking-[0.14em] uppercase font-sinkin">
                   HOSPITAL
                 </span>
               </div>
@@ -79,7 +79,7 @@ export function Footer() {
               <li><Link href="/" className="footer-link">Home</Link></li>
               <li><Link href="/about" className="footer-link">About</Link></li>
               <li><Link href="/departments" className="footer-link">Departments</Link></li>
-              <li><Link href="/doctors" className="footer-link">Doctors</Link></li>
+              <li><Link href="/doctors" className="footer-link">Consultation Timings</Link></li>
               <li><Link href="/facilities" className="footer-link">Facilities</Link></li>
               <li><Link href="/gallery" className="footer-link">Gallery</Link></li>
               <li><Link href="/events" className="footer-link">Events & Camps</Link></li>
@@ -193,7 +193,7 @@ export function Footer() {
 
         {/* 4. Bottom Bar */}
         <div className="pt-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-cream/40 font-medium">
-          <p>© 2026 Ojas Hospital. All Rights Reserved.</p>
+          <p>© 2026 <span className="font-sinkin">Ojas Hospital</span>. All Rights Reserved.</p>
           <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
             <Link href="/privacy-policy" className="hover:text-cream/80 transition-colors">Privacy Policy</Link>
             <Link href="/terms-and-conditions" className="hover:text-cream/80 transition-colors">Terms & Conditions</Link>

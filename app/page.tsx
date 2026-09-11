@@ -29,7 +29,7 @@ function HeroSection() {
         <div className="inline-flex items-center gap-2.5 bg-cream border border-gold/50 px-5 py-2 rounded-full shadow-lg shadow-black/20 mb-6">
           <ShieldPlus className="h-5 w-5 text-maroon-700 shrink-0" />
           <div className="flex flex-col items-center leading-tight">
-            <span className="text-xs sm:text-sm font-extrabold tracking-[0.06em] text-maroon-900 uppercase">Ojas Hospital</span>
+            <span className="text-xs sm:text-sm font-bold tracking-[0.06em] text-maroon-900 uppercase font-sinkin">Ojas Hospital</span>
             <span className="text-[10px] sm:text-xs font-semibold tracking-wider text-maroon-700">Caring For Humanity</span>
           </div>
         </div>
@@ -142,10 +142,10 @@ const dashboardCards = [
     accent: 'border-maroon-200',
   },
   {
-    title: 'Our Doctors',
+    title: 'Consultation Timings',
     description: 'Expert specialists across all disciplines',
     href: '/doctors',
-    icon: Users,
+    icon: Clock,
     color: 'from-emerald-500/10 to-emerald-600/5',
     iconColor: 'text-emerald-600',
     accent: 'border-emerald-200',

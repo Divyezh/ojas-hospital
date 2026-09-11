@@ -132,7 +132,7 @@ export default function AboutPage() {
             {[
               { label: 'Our Facilities', href: '/facilities' },
               { label: 'Awards & Recognition', href: '/awards' },
-              { label: 'Our Doctors', href: '/doctors' },
+              { label: 'Consultation Timings', href: '/doctors' },
               { label: 'Contact Us', href: '/contact' },
             ].map(({ label, href }) => (
               <Link key={href} href={href} className="px-5 py-2.5 rounded-full border border-maroon-200 text-sm font-semibold text-maroon-700 hover:bg-maroon-700 hover:text-white hover:border-maroon-700 transition-all">

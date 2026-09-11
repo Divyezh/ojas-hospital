@@ -1,10 +1,22 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Fraunces, Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 
 const fraunces = Fraunces({ subsets: ['latin'], variable: '--font-fraunces' });
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const sinkinSans = localFont({
+  src: [
+    {
+      path: '../public/fonts/SinkinSans-700Bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-sinkin',
+  display: 'swap',
+});
 import { DEFAULT_METADATA, generateHospitalJsonLd, generatePhysicianJsonLd, generateFaqJsonLd } from '@/constants/metadata';
 import { ToastProvider } from '@/components/ui/toast';
 import { ScrollProgress } from '@/components/layout/ScrollProgress';
@@ -63,7 +75,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className={`antialiased min-h-screen bg-white text-charcoal selection:bg-maroon-700 selection:text-white ${fraunces.variable} ${inter.variable}`}
+        className={`antialiased min-h-screen bg-white text-charcoal selection:bg-maroon-700 selection:text-white ${fraunces.variable} ${inter.variable} ${sinkinSans.variable}`}
         style={{ fontFamily: 'var(--font-inter)' }}
       >
         <div id="google_translate_element" style={{ display: 'none' }} suppressHydrationWarning />
