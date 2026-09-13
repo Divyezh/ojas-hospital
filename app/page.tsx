@@ -45,7 +45,7 @@ function HeroSection() {
         {/* Portraits */}
         <div className="flex flex-col sm:flex-row justify-center items-center sm:items-end gap-6 sm:gap-8 w-full mb-8 px-4">
           {[
-            { src: '/dr-hasmukh.png', name: 'Dr. Hasmukh Soni', role: 'Managing Director' },
+            { src: '/dr-hasmukh-new.png', name: 'Dr. Hasmukh Soni', role: 'Managing Director' },
             { src: '/Dr Ayush.png', name: 'Dr. Ayush Soni', role: 'Director' },
           ].map((p) => (
             <figure

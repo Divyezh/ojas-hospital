@@ -132,7 +132,7 @@ export function HeroParallax() {
         className="relative z-10 flex flex-col sm:flex-row justify-center items-center sm:items-end gap-6 sm:gap-8 w-full mb-10 px-4"
       >
         <PortraitCard
-          src="/dr-hasmukh.png"
+          src="/dr-hasmukh-new.png"
           alt="Dr. Hasmukh Soni, Managing Director – Ojas Multispeciality Hospital"
           name="Dr. Hasmukh Soni"
           org="Ojas Hospital"

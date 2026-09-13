@@ -60,6 +60,17 @@ const EVENTS: HospitalEvent[] = [
     isUpcoming: true,
   },
   {
+    id: 'e-video-police-camp',
+    title: 'Free Health & Diabetes Check-up Camp — Rakhial Police Station',
+    date: '2026',
+    location: 'Rakhial Police Station, Rakhial, Ahmedabad',
+    description: 'Video coverage of the "Healthy Police, Stronger Community" free health checkup and diabetes screening camp organized at Rakhial Police Station by Ojas Hospital & Defeat Diabetes.',
+    category: 'Health Camp',
+    image: '/event-video-poster.jpg',
+    video: '/event-video.mp4',
+    isUpcoming: false,
+  },
+  {
     id: 'e1',
     title: 'Community Free Health Camp',
     date: '2024',

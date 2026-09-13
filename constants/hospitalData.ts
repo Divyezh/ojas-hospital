@@ -241,13 +241,30 @@ export const DEPARTMENTS: Department[] = [
     ],
     image: "/dentist.png",
     stats: { surgeries: "3,000+", satisfaction: "98.5%", specialists: 1 }
+  },
+  {
+    id: "physiotherapy",
+    name: "Physiotherapy",
+    slug: "physiotherapy",
+    iconName: "Activity",
+    description: "Physical therapy, rehabilitation & pain relief by expert physiotherapists in Ahmedabad.",
+    fullDescription: "Dedicated Physiotherapy and Rehabilitation Department at Ojas Hospital offering physical therapy, pain relief, spine mobilization, sports injury recovery, and post-operative rehabilitation in Rakhial, Ahmedabad.",
+    headOfDepartment: "Dr. Bhargav Vadhel",
+    features: [
+      "Physical Rehabilitation",
+      "Pain Relief & Mobility",
+      "Post-Surgical Physical Therapy",
+      "Sports Injury Care"
+    ],
+    image: "/physiotherapy.png",
+    stats: { surgeries: "N/A", satisfaction: "99%", specialists: 1 }
   }
 ];
 
 export const DOCTORS: Doctor[] = [
   {
     id: "doc-1",
-    name: "Dr. Aijaz Ansari",
+    name: "Dr. Azaz Ansari",
     title: "Consultant Physician",
     departmentId: "general-medicine",
     departmentName: "Medicine",
@@ -255,7 +272,7 @@ export const DOCTORS: Doctor[] = [
     experienceYears: 12,
     rating: 4.8,
     reviewCount: 118,
-    availability: "Evening 6:00 PM – 9:00 PM",
+    availability: "Evening 5:00 PM – 6:00 PM",
     initials: "AA",
     color: "Royal Blue",
     specialties: ["Internal Medicine", "Heart Disease & Diabetes", "Respiratory Illnesses", "Preventive Care"],
@@ -385,7 +402,7 @@ export const DOCTORS: Doctor[] = [
     rating: 5.0,
     reviewCount: 210,
     availability: "Afternoon 12:00 PM – 2:00 PM & Evening 7:00 PM – 10:00 PM",
-    image: "/dr-hasmukh.png",
+    image: "/dr-hasmukh-new.png",
     initials: "HS",
     color: "Gold",
     specialties: ["Ayurveda & Panchakarma", "Hospital Mentor & Management", "Healthcare Administration"],
@@ -397,7 +414,7 @@ export const DOCTORS: Doctor[] = [
     title: "Senior Pediatrician & Child Specialist",
     departmentId: "pediatrics",
     departmentName: "Pediatrics",
-    qualifications: "M.B.B.S., D.Ped. (M.D. Ped.)",
+    qualifications: "M.B.B.S., D.Ped. (M. B.D Ped.)",
     experienceYears: 15,
     rating: 4.9,
     reviewCount: 140,
@@ -463,14 +480,14 @@ export const DOCTORS: Doctor[] = [
     departmentId: "physiotherapy",
     departmentName: "Physiotherapy",
     qualifications: "B.P.T. (Physiotherapist)",
-    experienceYears: 9,
-    rating: 4.7,
+    experienceYears: 7,
+    rating: 4.8,
     reviewCount: 88,
     availability: "Afternoon 2:00 PM – 4:00 PM",
-    initials: "DB",
-    color: "Orange",
-    specialties: ["Physiotherapy", "Sports Injury Rehab", "Pain Management"],
-    bio: "Physiotherapist (B.P.T.) delivering physical rehabilitation, muscle recovery, and therapeutic exercise plans at Ojas Hospital."
+    initials: "BV",
+    color: "Emerald",
+    specialties: ["Physical Rehabilitation", "Pain Management", "Post-Surgical Rehab", "Sports Injury Recovery", "Mobility Restoration"],
+    bio: "Consultant Physiotherapist (B.P.T.) specializing in post-surgical physical rehabilitation, pain management, and mobility restoration at Ojas Hospital."
   },
   {
     id: "doc-22",
@@ -556,7 +573,7 @@ export const CONSULTATION_SCHEDULE: ScheduleDepartment[] = [
     department: "Medicine Department",
     subtitle: "Heart, Diabetes & Respiratory",
     doctors: [
-      { name: "Dr. Aijaz Ansari", qualification: "M.D. Medicine", timing: "Evening 6:00 to 9:00" },
+      { name: "Dr. Azaz Ansari", qualification: "M.D. Medicine", timing: "Evening 5:00 to 6:00" },
       { name: "Dr. Manishbhai Soni", qualification: "M.D. Medicine", timing: "Evening 5:00 to 6:00" },
     ]
   },
@@ -601,7 +618,7 @@ export const CONSULTATION_SCHEDULE: ScheduleDepartment[] = [
     department: "Pediatrics",
     subtitle: "Children's Health & Vaccination",
     doctors: [
-      { name: "Dr. Atulbhai Patel", qualification: "M.B.B.S., D.Ped. (M.D. Ped.)", timing: "Mon-Wed-Fri: Afternoon 1:00 to 2:00" },
+      { name: "Dr. Atulbhai Patel", qualification: "M.B.B.S., D.Ped. (M. B.D Ped.)", timing: "Mon-Wed-Fri: Afternoon 1:00 to 2:00" },
       { name: "Dr. J. M. Shah", qualification: "M.B., D.Ped.", timing: "Evening 5:00 to 6:00" },
     ]
   },

@@ -113,6 +113,7 @@ export interface HospitalEvent {
   description: string;
   category: 'Health Camp' | 'Medical Campaign' | 'Awareness Drive' | 'Vaccination Drive' | 'Community Event';
   image: string;
+  video?: string;
   isUpcoming: boolean;
 }
 
