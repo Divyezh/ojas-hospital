@@ -28,9 +28,10 @@ interface PortraitCardProps {
   name: string;
   org: string;
   role: string;
+  imageClassName?: string;
 }
 
-function PortraitCard({ src, alt, name, org, role }: PortraitCardProps) {
+function PortraitCard({ src, alt, name, org, role, imageClassName }: PortraitCardProps) {
   return (
     <figure className="relative w-[min(85vw,320px)] h-[min(70vw,400px)] sm:w-[clamp(200px,24vw,340px)] sm:h-[clamp(280px,34vw,440px)] rounded-2xl overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
       <Image
@@ -39,7 +40,7 @@ function PortraitCard({ src, alt, name, org, role }: PortraitCardProps) {
         fill
         priority
         sizes="(max-width: 640px) 85vw, (max-width: 1024px) 40vw, 340px"
-        className="object-cover object-top"
+        className={`object-cover object-top ${imageClassName ?? ''}`}
       />
       {/* Gradient scrim — text lives here, never outside the card */}
       <figcaption className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-black/85 via-black/50 to-transparent flex flex-col justify-end items-center pb-4 px-4 gap-0.5">
@@ -104,7 +105,9 @@ export function HeroParallax() {
           Caring for Humanity
         </motion.p>
 
-        {/* Headline — capped to avoid overflow */}
+        {/* Headline 
+        
+        — capped to avoid overflow */}
         <motion.h1
           className="text-[clamp(36px,5.5vw,68px)] leading-[1.15] font-bold text-white max-w-225 flex flex-wrap justify-center gap-x-3 drop-shadow-lg mt-3"
           style={{ fontFamily: 'var(--font-fraunces)' }}
@@ -132,7 +135,7 @@ export function HeroParallax() {
         className="relative z-10 flex flex-col sm:flex-row justify-center items-center sm:items-end gap-6 sm:gap-8 w-full mb-10 px-4"
       >
         <PortraitCard
-          src="/dr-hasmukh-new.png"
+          src="/Dr Hasmukh 2.png"
           alt="Dr. Hasmukh Soni, Managing Director – Ojas Multispeciality Hospital"
           name="Dr. Hasmukh Soni"
           org="Ojas Hospital"
@@ -144,6 +147,7 @@ export function HeroParallax() {
           name="Dr. Ayush Soni"
           org="Ojas Hospital"
           role="Director"
+          imageClassName="scale-[1.25] origin-center"
         />
       </motion.div>
 
