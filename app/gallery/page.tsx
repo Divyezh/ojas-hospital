@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SITE_CONFIG } from '@/constants/metadata';
+import { SITE_CONFIG, STANDARD_ROBOTS } from '@/constants/metadata';
 import { Gallery } from '@/components/sections/Gallery';
 import Link from 'next/link';
 
@@ -7,6 +7,20 @@ export const metadata: Metadata = {
   title: 'Gallery — Medical Camps & Hospital Photos | Ojas Hospital Ahmedabad',
   description: 'View photos from Ojas Hospital\'s community medical camps, health awareness drives, and hospital facilities in Rakhial, Ahmedabad.',
   alternates: { canonical: `${SITE_CONFIG.url}/gallery` },
+  robots: STANDARD_ROBOTS,
+  openGraph: {
+    title: 'Gallery — Medical Camps & Hospital Photos | Ojas Hospital Ahmedabad',
+    description: 'View photos from Ojas Hospital\'s community medical camps, health awareness drives, and hospital facilities in Rakhial, Ahmedabad.',
+    url: `${SITE_CONFIG.url}/gallery`,
+    type: 'website',
+    images: [{ url: SITE_CONFIG.ogImage, width: 1200, height: 630, alt: 'Ojas Hospital Photo Gallery Ahmedabad' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Gallery — Medical Camps & Hospital Photos | Ojas Hospital Ahmedabad',
+    description: 'View photos from Ojas Hospital community camps and facilities.',
+    images: [SITE_CONFIG.ogImage],
+  },
 };
 
 export default function GalleryPage() {

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SITE_CONFIG } from '@/constants/metadata';
+import { SITE_CONFIG, STANDARD_ROBOTS } from '@/constants/metadata';
 import Link from 'next/link';
 import { MediaSection } from '@/components/sections/MediaSection';
 
@@ -7,6 +7,20 @@ export const metadata: Metadata = {
   title: 'Media Coverage — Press & News | Ojas Hospital Ahmedabad',
   description: 'Media coverage of Ojas Multispeciality Hospital in Rakhial, Ahmedabad — electronic media, print media, and press features.',
   alternates: { canonical: `${SITE_CONFIG.url}/media` },
+  robots: STANDARD_ROBOTS,
+  openGraph: {
+    title: 'Media Coverage — Press & News | Ojas Hospital Ahmedabad',
+    description: 'Media coverage of Ojas Multispeciality Hospital in Rakhial, Ahmedabad — electronic media, print media, and press features.',
+    url: `${SITE_CONFIG.url}/media`,
+    type: 'website',
+    images: [{ url: SITE_CONFIG.ogImage, width: 1200, height: 630, alt: 'Ojas Hospital Media Coverage' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Media Coverage — Press & News | Ojas Hospital Ahmedabad',
+    description: 'Media coverage and press features of Ojas Hospital in Ahmedabad.',
+    images: [SITE_CONFIG.ogImage],
+  },
 };
 
 export default function MediaPage() {

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SITE_CONFIG } from '@/constants/metadata';
+import { SITE_CONFIG, STANDARD_ROBOTS } from '@/constants/metadata';
 import { EMERGENCY_INFO } from '@/constants/hospitalData';
 import { ContactSection } from '@/components/sections/ContactSection';
 import Link from 'next/link';
@@ -8,6 +8,20 @@ export const metadata: Metadata = {
   title: 'Contact Us — Ojas Hospital Multispeciality Rakhial, Ahmedabad',
   description: 'Contact Ojas Hospital Multispeciality at Rakhiyal Cross Road, Dynasore Circle, Rakhiyal, Ahmedabad, Gujarat 380021. 24/7 emergency hotline +91 7574840735, WhatsApp, and location directions.',
   alternates: { canonical: `${SITE_CONFIG.url}/contact` },
+  robots: STANDARD_ROBOTS,
+  openGraph: {
+    title: 'Contact Us — Ojas Hospital Multispeciality Rakhial, Ahmedabad',
+    description: 'Contact Ojas Hospital Multispeciality in Rakhial, Ahmedabad. 24/7 emergency hotline +91 7574840735 and directions.',
+    url: `${SITE_CONFIG.url}/contact`,
+    type: 'website',
+    images: [{ url: SITE_CONFIG.ogImage, width: 1200, height: 630, alt: 'Contact Ojas Hospital Ahmedabad' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Us — Ojas Hospital Multispeciality Rakhial, Ahmedabad',
+    description: 'Contact Ojas Hospital Multispeciality in Rakhial, Ahmedabad. 24/7 emergency hotline +91 7574840735.',
+    images: [SITE_CONFIG.ogImage],
+  },
 };
 
 export default function ContactPage() {

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SITE_CONFIG } from '@/constants/metadata';
+import { SITE_CONFIG, STANDARD_ROBOTS } from '@/constants/metadata';
 import Link from 'next/link';
 import { AwardsClient, HospitalAward } from './AwardsClient';
 
@@ -7,6 +7,20 @@ export const metadata: Metadata = {
   title: 'Awards & Recognition — Ojas Hospital Ahmedabad',
   description: 'Awards, certifications, and recognitions received by Ojas Multispeciality Hospital and its doctors in Rakhial, Ahmedabad.',
   alternates: { canonical: `${SITE_CONFIG.url}/awards` },
+  robots: STANDARD_ROBOTS,
+  openGraph: {
+    title: 'Awards & Recognition — Ojas Hospital Ahmedabad',
+    description: 'Awards, certifications, and recognitions received by Ojas Multispeciality Hospital and its doctors in Rakhial, Ahmedabad.',
+    url: `${SITE_CONFIG.url}/awards`,
+    type: 'website',
+    images: [{ url: '/ojas-hospital-award-1.webp', width: 1200, height: 800, alt: 'Ojas Hospital Awards and Recognitions' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Awards & Recognition — Ojas Hospital Ahmedabad',
+    description: 'Awards, certifications, and recognitions received by Ojas Hospital.',
+    images: ['/ojas-hospital-award-1.webp'],
+  },
 };
 
 const AWARDS: HospitalAward[] = [

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SITE_CONFIG } from '@/constants/metadata';
+import { SITE_CONFIG, STANDARD_ROBOTS } from '@/constants/metadata';
 import { DOCTORS } from '@/constants/hospitalData';
 import { DoctorCards } from '@/components/sections/DoctorCards';
 import Link from 'next/link';
@@ -17,13 +17,7 @@ export const metadata: Metadata = {
     'Pediatrician Rakhial',
     'Dermatologist Ahmedabad',
   ],
-  robots: {
-    index: true,
-    follow: true,
-    'max-snippet': -1,
-    'max-image-preview': 'large',
-    'max-video-preview': -1,
-  },
+  robots: STANDARD_ROBOTS,
   alternates: { canonical: `${SITE_CONFIG.url}/doctors` },
 };
 

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SITE_CONFIG } from '@/constants/metadata';
+import { SITE_CONFIG, STANDARD_ROBOTS } from '@/constants/metadata';
 import { About } from '@/components/sections/About';
 import { Statistics } from '@/components/sections/Statistics';
 import Link from 'next/link';
@@ -9,11 +9,25 @@ export const metadata: Metadata = {
   title: 'About Us — Ojas Hospital Multispeciality Ahmedabad',
   description: 'Learn about Ojas Hospital Multispeciality — trusted multispeciality care in Rakhial, Ahmedabad, Gujarat since 2000. Meet our medical leadership and 24 years of healthcare excellence.',
   alternates: { canonical: `${SITE_CONFIG.url}/about` },
+  robots: STANDARD_ROBOTS,
+  openGraph: {
+    title: 'About Us — Ojas Hospital Multispeciality Ahmedabad',
+    description: 'Learn about Ojas Hospital Multispeciality — trusted multispeciality care in Rakhial, Ahmedabad, Gujarat since 2000.',
+    url: `${SITE_CONFIG.url}/about`,
+    type: 'website',
+    images: [{ url: SITE_CONFIG.ogImage, width: 1200, height: 630, alt: 'About Ojas Hospital Ahmedabad' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Us — Ojas Hospital Multispeciality Ahmedabad',
+    description: 'Learn about Ojas Hospital Multispeciality — trusted multispeciality care in Rakhial, Ahmedabad, Gujarat since 2000.',
+    images: [SITE_CONFIG.ogImage],
+  },
 };
 
 const leadership = [
   {
-    src: '/dr-hasmukh.png',
+    src: '/Dr Hasmukh 2.png',
     name: 'Dr. Hasmukh Soni',
     role: 'Managing Director',
     bio: 'With decades of clinical experience, Dr. Hasmukh Soni founded Ojas Hospital to bring compassionate, high-quality, and affordable healthcare to the Rakhial community.',
@@ -23,6 +37,7 @@ const leadership = [
     name: 'Dr. Ayush Soni',
     role: 'Director — Skin & Hair Specialist',
     bio: 'With 3 years of clinical excellence in dermatology and modern care protocols, Dr. Ayush Soni leads hospital operations, aesthetic skin care, and patient experience.',
+    imageClassName: 'scale-[1.35] origin-center',
   },
 ];
 
@@ -113,7 +128,13 @@ export default function AboutPage() {
             {leadership.map((person) => (
               <div key={person.name} className="flex flex-col items-center text-center bg-white rounded-2xl shadow-soft-sm border border-maroon-100 p-8 hover:-translate-y-1 transition-transform duration-300">
                 <div className="relative w-48 h-56 rounded-2xl overflow-hidden shadow-lg mb-6">
-                  <Image src={person.src} alt={`${person.name} — ${person.role} at Ojas Hospital`} fill className="object-cover object-top" sizes="192px" />
+                  <Image
+                    src={person.src}
+                    alt={`${person.name} — ${person.role} at Ojas Hospital`}
+                    fill
+                    className={`object-cover object-top ${person.imageClassName ?? ''}`}
+                    sizes="192px"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-charcoal mb-1">{person.name}</h3>
                 <span className="text-sm font-semibold text-maroon-700 mb-4">{person.role}</span>

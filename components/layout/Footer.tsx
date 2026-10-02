@@ -82,10 +82,12 @@ export function Footer() {
               <li><Link href="/doctors" className="footer-link">Consultation Timings</Link></li>
               <li><Link href="/facilities" className="footer-link">Facilities</Link></li>
               <li><Link href="/gallery" className="footer-link">Gallery</Link></li>
+              <li><Link href="/testimonials" className="footer-link">Testimonials</Link></li>
               <li><Link href="/events" className="footer-link">Events & Camps</Link></li>
               <li><Link href="/media" className="footer-link">Media</Link></li>
               <li><Link href="/awards" className="footer-link">Awards</Link></li>
               <li><Link href="/contact" className="footer-link">Contact</Link></li>
+              <li><Link href="/faq" className="footer-link">FAQ</Link></li>
             </ul>
           </motion.div>
 

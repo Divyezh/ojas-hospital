@@ -31,10 +31,25 @@ export const SITE_CONFIG = {
   ]
 };
 
+export const STANDARD_ROBOTS: Metadata['robots'] = {
+  index: true,
+  follow: true,
+  'max-snippet': -1,
+  'max-image-preview': 'large',
+  'max-video-preview': -1,
+  googleBot: {
+    index: true,
+    follow: true,
+    'max-video-preview': -1,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+  },
+};
+
 export const DEFAULT_METADATA: Metadata = {
   title: {
     default: "Ojas Hospital Multispeciality | Hospital in Rakhial, Ahmedabad",
-    template: `%s | ${SITE_CONFIG.name}`
+    template: "%s"
   },
   description: SITE_CONFIG.description,
   icons: {
@@ -67,6 +82,8 @@ export const DEFAULT_METADATA: Metadata = {
     "Homeopathic Doctor Ahmedabad",
     "Physiotherapy Clinic Ahmedabad",
     "Unani Doctor Ahmedabad",
+    "Pulmonologist Ahmedabad",
+    "Chest Specialist Ahmedabad",
     "24/7 Emergency Care Ahmedabad"
   ],
   authors: [{ name: "Ojas Multispeciality Hospital Medical Board" }],
@@ -104,17 +121,7 @@ export const DEFAULT_METADATA: Metadata = {
     images: [SITE_CONFIG.ogImage],
     creator: '@OjasHealth',
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  robots: STANDARD_ROBOTS,
   verification: {
     google: 'd1a697e54b4ff7a7',
   },

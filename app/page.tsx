@@ -12,6 +12,7 @@ import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import { EMERGENCY_INFO } from '@/constants/hospitalData';
 import { SITE_CONFIG } from '@/constants/metadata';
 import { UpcomingEventSlim } from '@/components/sections/UpcomingEventSlim';
+import { TestimonialCards } from '@/components/sections/TestimonialCards';
 
 // ── Hero Section (Static, No Transition Effect) ─────────────────────────────────
 function HeroSection() {
@@ -141,7 +142,7 @@ const dashboardCards = [
   },
   {
     title: 'Departments',
-    description: '8+ specialized clinical departments',
+    description: '15+ specialized clinical departments',
     href: '/departments',
     icon: Stethoscope,
     color: 'from-maroon-500/10 to-maroon-700/5',
@@ -263,6 +264,7 @@ export default function Home() {
       <HeroSection />
       <UpcomingEventSlim />
       <DashboardGrid />
+      <TestimonialCards />
     </>
   );
 }

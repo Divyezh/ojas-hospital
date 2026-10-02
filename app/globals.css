@@ -524,6 +524,10 @@ body {
 .animate-marquee-vertical {
   animation: marquee-vertical var(--duration) linear infinite;
 }
+.marquee-paused .animate-marquee,
+.marquee-paused .animate-marquee-vertical {
+  animation-play-state: paused !important;
+}
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(calc(-100% - var(--gap))); }

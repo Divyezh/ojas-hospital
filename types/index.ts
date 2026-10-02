@@ -52,6 +52,8 @@ export interface Testimonial {
   text: string;
   avatar: string;
   timeAgo: string;
+  videoUrl?: string;
+  videoPoster?: string;
 }
 
 export interface GalleryItem {
@@ -126,6 +128,7 @@ export interface MediaCoverage {
   link?: string;
   thumbnail: string;
   summary: string;
+  video?: string;
 }
 
 export interface Award {

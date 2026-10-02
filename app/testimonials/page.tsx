@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SITE_CONFIG } from '@/constants/metadata';
+import { SITE_CONFIG, STANDARD_ROBOTS } from '@/constants/metadata';
 import { TestimonialCards } from '@/components/sections/TestimonialCards';
 import Link from 'next/link';
 
@@ -7,6 +7,20 @@ export const metadata: Metadata = {
   title: 'Patient Testimonials — Real Stories | Ojas Hospital Ahmedabad',
   description: 'Read authentic patient testimonials and recovery stories from Ojas Multispeciality Hospital in Rakhial, Ahmedabad. Rated 4.2★ on Google.',
   alternates: { canonical: `${SITE_CONFIG.url}/testimonials` },
+  robots: STANDARD_ROBOTS,
+  openGraph: {
+    title: 'Patient Testimonials — Real Stories | Ojas Hospital Ahmedabad',
+    description: 'Read authentic patient testimonials and recovery stories from Ojas Multispeciality Hospital in Rakhial, Ahmedabad.',
+    url: `${SITE_CONFIG.url}/testimonials`,
+    type: 'website',
+    images: [{ url: SITE_CONFIG.ogImage, width: 1200, height: 630, alt: 'Ojas Hospital Patient Testimonials' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Patient Testimonials — Real Stories | Ojas Hospital Ahmedabad',
+    description: 'Read authentic patient recovery stories from Ojas Hospital.',
+    images: [SITE_CONFIG.ogImage],
+  },
 };
 
 export default function TestimonialsPage() {

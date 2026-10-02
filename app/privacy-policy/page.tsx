@@ -1,6 +1,22 @@
 import React from 'react';
-import { SITE_CONFIG } from '@/constants/metadata';
+import { Metadata } from 'next';
+import { SITE_CONFIG, STANDARD_ROBOTS } from '@/constants/metadata';
 import { EMERGENCY_INFO } from '@/constants/hospitalData';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | Ojas Hospital Multispeciality Ahmedabad',
+  description: 'Read the privacy policy of Ojas Hospital Multispeciality in Rakhial, Ahmedabad. Learn how we protect visitor privacy and confidential patient inquiries.',
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/privacy-policy`,
+  },
+  robots: STANDARD_ROBOTS,
+  openGraph: {
+    title: 'Privacy Policy | Ojas Hospital Multispeciality Ahmedabad',
+    description: 'Read the privacy policy of Ojas Hospital Multispeciality in Rakhial, Ahmedabad.',
+    url: `${SITE_CONFIG.url}/privacy-policy`,
+    type: 'website',
+  },
+};
 
 export default function PrivacyPolicy() {
   return (

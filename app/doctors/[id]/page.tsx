@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { DOCTORS, EMERGENCY_INFO, DEPARTMENTS } from '@/constants/hospitalData';
-import { SITE_CONFIG } from '@/constants/metadata';
+import { SITE_CONFIG, STANDARD_ROBOTS } from '@/constants/metadata';
 import { CheckCircle2, Clock, Calendar, MapPin, Phone, Award, ShieldCheck, HeartPulse, HelpCircle, UserCheck } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 
@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = `${doctor.name} - ${doctor.title} (${doctor.qualifications}) | Ojas Hospital Ahmedabad`;
   const description = `Consult ${doctor.name} (${doctor.qualifications}), leading ${doctor.title} specializing in ${doctor.departmentName} at Ojas Hospital Multispeciality, Rakhial, Ahmedabad. ${doctor.experienceYears}+ years of clinical experience. Book an appointment today.`;
+  const ogImg = doctor.image ? `${SITE_CONFIG.url}${encodeURI(doctor.image)}` : SITE_CONFIG.ogImage;
 
   return {
     title,
@@ -42,13 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       'Doctor in Rakhial Ahmedabad',
       'Multispeciality Hospital Ahmedabad',
     ],
-    robots: {
-      index: true,
-      follow: true,
-      'max-snippet': -1,
-      'max-image-preview': 'large',
-      'max-video-preview': -1,
-    },
+    robots: STANDARD_ROBOTS,
     alternates: {
       canonical: `${SITE_CONFIG.url}/doctors/${doctor.id}`,
     },
@@ -59,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'profile',
       images: [
         {
-          url: doctor.image ? `${SITE_CONFIG.url}${doctor.image}` : SITE_CONFIG.ogImage,
+          url: ogImg,
           width: 1200,
           height: 630,
           alt: `${doctor.name} — ${doctor.title} at Ojas Hospital Ahmedabad`,
@@ -70,7 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title,
       description,
-      images: [doctor.image ? `${SITE_CONFIG.url}${doctor.image}` : SITE_CONFIG.ogImage],
+      images: [ogImg],
     },
   };
 }

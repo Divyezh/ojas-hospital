@@ -1,8 +1,9 @@
+
 'use client';
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { CalendarDays, Eye, Newspaper, Radio, Tv, ExternalLink } from 'lucide-react';
+import { CalendarDays, Eye, Newspaper, Radio, Tv, ExternalLink, Play, Video } from 'lucide-react';
 import { Modal } from '@/components/ui/modal';
 
 export interface MediaCoverage {
@@ -14,9 +15,21 @@ export interface MediaCoverage {
   link?: string;
   thumbnail: string;
   summary: string;
+  video?: string;
 }
 
 const MEDIA_ITEMS: MediaCoverage[] = [
+  {
+    id: 'm-gastro-conference-2020',
+    title: 'Zee 24 Kalak Coverage: Single Theme Master Class of Gastroenterology (MGCON 2020)',
+    outlet: 'Zee 24 Kalak',
+    type: 'Electronic Media',
+    date: '19/01/2020',
+    thumbnail: '/gastro-conference-poster.jpg',
+    video: '/gastro-conference.mp4',
+    summary:
+      'Television news feature broadcast by Zee 24 Kalak covering the mega Single Theme Master Class of Gastroenterology (MGCON 2020) in Ahmedabad. Organized by Mission Gastro Hospital in joint association with Gujarat Ayurved Medical Association (GAMA), featuring clinical dialogues and addresses by Dr. Hasmukh Soni alongside prominent gastroenterology and medical specialists.',
+  },
   {
     id: 'm1',
     title: 'Free Diabetes Diagnosis, HbA1c Test & Treatment Camp Flyer',
@@ -24,7 +37,8 @@ const MEDIA_ITEMS: MediaCoverage[] = [
     type: 'Print Media',
     date: '17/05/2026',
     thumbnail: '/media1.webp',
-    summary: 'A public campaign flyer announcing the free diabetes diagnosis, HbA1c testing, and medical treatment camp organized under the "Defeat Diabetes" initiative by Ojas Hospital and Dr. Hasmukh Soni at Rakhial, Ahmedabad.',
+    summary:
+      'A public campaign flyer announcing the free diabetes diagnosis, HbA1c testing, and medical treatment camp organized under the "Defeat Diabetes" initiative by Ojas Hospital and Dr. Hasmukh Soni at Rakhial, Ahmedabad.',
   },
   {
     id: 'm2',
@@ -33,7 +47,8 @@ const MEDIA_ITEMS: MediaCoverage[] = [
     type: 'Print Media',
     date: '17/01/2026',
     thumbnail: '/media2.webp',
-    summary: 'Press coverage highlighting the civic initiative led by Ojas Charitable Trust Managing Trustee Dr. Hasmukh Soni and local leaders to safely collect and dispose of dangerous kite strings (manjha) from roads and trees.',
+    summary:
+      'Press coverage highlighting the civic initiative led by Ojas Charitable Trust Managing Trustee Dr. Hasmukh Soni and local leaders to safely collect and dispose of dangerous kite strings (manjha) from roads and trees.',
   },
   {
     id: 'm3',
@@ -42,7 +57,8 @@ const MEDIA_ITEMS: MediaCoverage[] = [
     type: 'Print Media',
     date: '01/02/2026',
     thumbnail: '/media3.webp',
-    summary: 'Flyer details of the mega free diagnosis camp at Bapunagar, sponsored by Prerak Swa Sahay Juth Trust. Offering screening profiles for kidney, liver, cancer, thyroid, anemia, and diabetes.',
+    summary:
+      'Flyer details of the mega free diagnosis camp at Bapunagar, sponsored by Prerak Swa Sahay Juth Trust. Offering screening profiles for kidney, liver, cancer, thyroid, anemia, and diabetes.',
   },
   {
     id: 'm4',
@@ -51,7 +67,8 @@ const MEDIA_ITEMS: MediaCoverage[] = [
     type: 'Print Media',
     date: '26/01/2026',
     thumbnail: '/media4.webp',
-    summary: 'News article detailing the free medical checkup drive and emergency primary treatment care launched by Gujarat Ayurved Medical Association (GAMA) Chairman & Ojas Hospital founder Dr. Hasmukh Soni.',
+    summary:
+      'News article detailing the free medical checkup drive and emergency primary treatment care launched by Gujarat Ayurved Medical Association (GAMA) Chairman & Ojas Hospital founder Dr. Hasmukh Soni.',
   },
   {
     id: 'm5',
@@ -60,7 +77,8 @@ const MEDIA_ITEMS: MediaCoverage[] = [
     type: 'Print Media',
     date: '01/02/2026',
     thumbnail: '/media5.webp',
-    summary: 'Newspaper clipping covering the announcement and detailed clinical tests offered at the Bapunagar free multi-specialty diagnosis camp on 1st February by Ojas Hospital.',
+    summary:
+      'Newspaper clipping covering the announcement and detailed clinical tests offered at the Bapunagar free multi-specialty diagnosis camp on 1st February by Ojas Hospital.',
   },
 ];
 
@@ -73,7 +91,7 @@ function EmptyState({ label, icon: Icon }: { label: string; icon: React.ElementT
         If you are a journalist or media organisation and would like to feature Ojas Hospital, please reach out to us directly.
       </p>
       <a
-        href="mailto:dr.hjsoni@gmail.com"
+        href="mailto:ojashospital104@gmail.com"
         className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-maroon-200 text-sm font-semibold text-maroon-700 hover:bg-maroon-700 hover:text-white transition-all"
       >
         Media Inquiry →
@@ -98,12 +116,12 @@ export function MediaSection() {
         {/* Electronic Media */}
         <section>
           <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 rounded-xl bg-blue-50">
-              <Tv className="h-5 w-5 text-blue-600" />
+            <div className="p-2.5 rounded-xl bg-blue-50 text-blue-700 border border-blue-100 shadow-xs">
+              <Tv className="h-5 w-5" />
             </div>
             <div>
               <h2 className="text-2xl font-extrabold text-charcoal">Electronic Media</h2>
-              <p className="text-sm text-charcoal/60">TV, online video, and radio coverage</p>
+              <p className="text-sm text-charcoal/60">TV news broadcasts, online conference coverage, and video press releases</p>
             </div>
           </div>
           {electronic.length === 0 ? (
@@ -120,12 +138,12 @@ export function MediaSection() {
         {/* Print Media */}
         <section>
           <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 rounded-xl bg-amber-50">
-              <Newspaper className="h-5 w-5 text-amber-600" />
+            <div className="p-2.5 rounded-xl bg-amber-50 text-amber-700 border border-amber-100 shadow-xs">
+              <Newspaper className="h-5 w-5" />
             </div>
             <div>
               <h2 className="text-2xl font-extrabold text-charcoal">Print & Press Media</h2>
-              <p className="text-sm text-charcoal/60">Newspaper clippings, flyers, and camp announcements</p>
+              <p className="text-sm text-charcoal/60">Newspaper clippings, press releases, and health camp announcements</p>
             </div>
           </div>
           {print.length === 0 ? (
@@ -147,16 +165,28 @@ export function MediaSection() {
           onClose={() => setSelectedMedia(null)}
           title={selectedMedia.title}
           description={`${selectedMedia.outlet} — ${selectedMedia.date}`}
+          className={selectedMedia.video ? 'max-w-3xl sm:max-w-4xl' : undefined}
         >
-          <div className="relative h-[70vh] w-full rounded-2xl overflow-hidden mt-4 bg-slate-950 flex items-center justify-center border border-slate-100 shadow-inner">
-            <Image
-              src={selectedMedia.thumbnail}
-              alt={selectedMedia.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 608px"
-              className="object-contain"
-              priority
-            />
+          <div className="relative h-[55vh] sm:h-[65vh] w-full rounded-2xl overflow-hidden mt-4 bg-slate-950 flex items-center justify-center border border-slate-100 shadow-inner">
+            {selectedMedia.video ? (
+              <video
+                src={selectedMedia.video}
+                poster={selectedMedia.thumbnail}
+                controls
+                autoPlay
+                playsInline
+                className="w-full h-full max-h-[65vh] object-contain"
+              />
+            ) : (
+              <Image
+                src={selectedMedia.thumbnail}
+                alt={selectedMedia.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 608px"
+                className="object-contain"
+                priority
+              />
+            )}
           </div>
           <div className="mt-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
             <h4 className="text-sm font-bold text-slate-800 mb-1">Details & Description</h4>
@@ -169,29 +199,48 @@ export function MediaSection() {
 }
 
 function MediaCard({ media, onOpen }: { media: MediaCoverage; onOpen: (m: MediaCoverage) => void }) {
+  const isVideo = !!media.video || media.type === 'Electronic Media';
+
   return (
-    <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-soft-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
-      <div 
+    <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-soft-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col h-full group">
+      <div
         onClick={() => onOpen(media)}
-        className="relative h-56 w-full cursor-pointer group bg-slate-100 overflow-hidden"
+        className="relative h-56 w-full cursor-pointer bg-slate-900 overflow-hidden"
       >
-        <Image 
-          src={media.thumbnail} 
-          alt={media.title} 
-          fill 
-          sizes="(max-width: 768px) 100vw, 33vw" 
-          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+        <Image
+          src={media.thumbnail}
+          alt={media.title}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
         />
-        <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
-          <span className="flex items-center gap-1.5 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-xs font-semibold">
-            <Eye className="h-4 w-4" /> View Full Image
-          </span>
-        </div>
+        {isVideo ? (
+          <div className="absolute inset-0 bg-slate-950/30 group-hover:bg-slate-950/40 transition-colors flex items-center justify-center text-white">
+            <div className="h-12 w-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <Play className="h-5 w-5 fill-white ml-0.5" />
+            </div>
+            <span className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-md text-[11px] font-bold text-white flex items-center gap-1.5 border border-white/10">
+              <Video className="h-3.5 w-3.5 text-red-400" /> TV Broadcast
+            </span>
+          </div>
+        ) : (
+          <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
+            <span className="flex items-center gap-1.5 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-xs font-semibold">
+              <Eye className="h-4 w-4" /> View Full Image
+            </span>
+          </div>
+        )}
       </div>
-      
+
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-center justify-between gap-2 mb-2">
-          <span className="px-2.5 py-1 bg-maroon-50 text-maroon-700 rounded-md text-[10px] font-bold tracking-wider uppercase">
+          <span
+            className={`px-2.5 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase ${
+              isVideo
+                ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                : 'bg-maroon-50 text-maroon-700'
+            }`}
+          >
             {media.outlet}
           </span>
           <span className="flex items-center gap-1 text-[11px] text-slate-500 font-medium">
@@ -199,11 +248,11 @@ function MediaCard({ media, onOpen }: { media: MediaCoverage; onOpen: (m: MediaC
             {media.date}
           </span>
         </div>
-        
+
         <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug line-clamp-2">
           {media.title}
         </h3>
-        
+
         <p className="text-sm text-slate-600 leading-relaxed flex-1 line-clamp-3 mb-4">
           {media.summary}
         </p>
@@ -211,9 +260,15 @@ function MediaCard({ media, onOpen }: { media: MediaCoverage; onOpen: (m: MediaC
         <div className="flex gap-2">
           <button
             onClick={() => onOpen(media)}
-            className="flex-1 text-center py-2.5 rounded-xl border border-maroon-200 text-maroon-700 hover:bg-maroon-700 hover:text-white text-xs font-semibold transition-all cursor-pointer"
+            className="flex-1 text-center py-2.5 rounded-xl border border-maroon-200 text-maroon-700 hover:bg-maroon-700 hover:text-white text-xs font-semibold transition-all cursor-pointer flex items-center justify-center gap-1.5"
           >
-            View Document
+            {isVideo ? (
+              <>
+                <Play className="h-3.5 w-3.5 fill-current" /> Watch Broadcast
+              </>
+            ) : (
+              'View Document'
+            )}
           </button>
           {media.link && (
             <a

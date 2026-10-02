@@ -258,6 +258,57 @@ export const DEPARTMENTS: Department[] = [
     ],
     image: "/physiotherapy.png",
     stats: { surgeries: "N/A", satisfaction: "99%", specialists: 1 }
+  },
+  {
+    id: "pulmonary-medicine",
+    name: "Pulmonary Medicine",
+    slug: "pulmonary-medicine",
+    iconName: "Activity",
+    description: "Specialized respiratory, lung & asthma care by expert pulmonologists in Ahmedabad.",
+    fullDescription: "Dedicated Pulmonary and Chest Medicine Department at Ojas Hospital treating asthma, COPD, chronic bronchitis, respiratory infections, allergy disorders, and lung conditions under specialist care in Rakhial, Ahmedabad.",
+    headOfDepartment: "Dr. Vishal Prajapati",
+    features: [
+      "Asthma & Allergy Management",
+      "COPD & Chronic Bronchitis Care",
+      "Pulmonary Function Testing (PFT)",
+      "Chest Infections & Pneumonia Care"
+    ],
+    image: "/pulmonary-medicine.jpg",
+    stats: { surgeries: "N/A", satisfaction: "98.5%", specialists: 1 }
+  },
+  {
+    id: "homeopathy",
+    name: "Homeopathy",
+    slug: "homeopathy",
+    iconName: "Activity",
+    description: "Holistic homeopathic treatments & individualized constitutional healing in Ahmedabad.",
+    fullDescription: "Gentle, holistic and constitutional homeopathic healthcare at Ojas Hospital. Our Homeopathy department offers natural healing remedies for chronic conditions, allergies, skin disorders, respiratory issues, and lifestyle wellness in Rakhial, Ahmedabad.",
+    headOfDepartment: "Dr. Mayur Mishra",
+    features: [
+      "Chronic Disease Management",
+      "Allergy & Respiratory Relief",
+      "Pediatric & Adult Homeopathy",
+      "Constitutional & Holistic Care"
+    ],
+    image: "/homeopathy.jpg",
+    stats: { surgeries: "N/A", satisfaction: "99%", specialists: 1 }
+  },
+  {
+    id: "unani",
+    name: "Unani Medicine",
+    slug: "unani",
+    iconName: "Activity",
+    description: "Traditional Unani healing, herbal therapeutics & natural wellness in Ahmedabad.",
+    fullDescription: "Authentic Unani Tibb and holistic herbal therapeutics at Ojas Hospital. Led by certified Unani practitioners, we provide specialized treatment for digestive disorders, metabolic health, musculoskeletal pain, and natural lifestyle management in Rakhial, Ahmedabad.",
+    headOfDepartment: "Dr. Asharaf Ansari",
+    features: [
+      "Natural Herbal Therapeutics",
+      "Digestive & Metabolic Care",
+      "Joint & Musculoskeletal Relief",
+      "Preventive & Regimental Wellness"
+    ],
+    image: "/unani.jpg",
+    stats: { surgeries: "N/A", satisfaction: "98%", specialists: 1 }
   }
 ];
 
@@ -402,7 +453,7 @@ export const DOCTORS: Doctor[] = [
     rating: 5.0,
     reviewCount: 210,
     availability: "Afternoon 12:00 PM – 2:00 PM & Evening 7:00 PM – 10:00 PM",
-    image: "/dr-hasmukh-new.png",
+    image: "/Dr Hasmukh 2.png",
     initials: "HS",
     color: "Gold",
     specialties: ["Ayurveda & Panchakarma", "Hospital Mentor & Management", "Healthcare Administration"],
@@ -461,7 +512,7 @@ export const DOCTORS: Doctor[] = [
     id: "doc-19",
     name: "Dr. Mayur Mishra",
     title: "Homeopathic Consultant",
-    departmentId: "homeopathic",
+    departmentId: "homeopathy",
     departmentName: "Homeopathy",
     qualifications: "B.H.M.S.",
     experienceYears: 11,
@@ -764,6 +815,17 @@ export const FACILITIES: Facility[] = [
 
 export const TESTIMONIALS: Testimonial[] = [
   {
+    id: "t-vid-1",
+    name: "Shri Babubhai Arora",
+    meta: "Patient Recovery Story",
+    rating: 5,
+    text: "Hear directly from Shri Babubhai Arora about his treatment, recovery journey, and compassionate care received at Ojas Multispeciality Hospital.",
+    avatar: "/testimonialvid-poster.jpg",
+    timeAgo: "Verified Patient",
+    videoUrl: "/testimonialvid.mp4",
+    videoPoster: "/testimonialvid-poster.jpg"
+  },
+  {
     id: "t3",
     name: "Vikas Patel",
     rating: 4,
@@ -889,7 +951,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     id: "faq-6",
     question: "Which departments are available?",
-    answer: "We offer General Medicine, General Surgery, Orthopedics, Gynecology, Pediatrics, Ophthalmology, ENT, Skin & Hair, Cardiology, Urology, and more.",
+    answer: "We offer General Medicine, General Surgery, Orthopedics, Gynecology, Pediatrics, Pulmonary Medicine, Dermatology & Cosmetology, Homeopathy, Unani Medicine, Ayurveda, Critical Care, Cardiology, Dental Care, and Physiotherapy.",
     category: "general"
   },
   {

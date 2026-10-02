@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { DEPARTMENTS, DOCTORS, EMERGENCY_INFO } from '@/constants/hospitalData';
-import { SITE_CONFIG } from '@/constants/metadata';
+import { SITE_CONFIG, STANDARD_ROBOTS } from '@/constants/metadata';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import { DoctorCard } from '@/components/ui/DoctorCard';
 import { CheckCircle2, Phone, HelpCircle, Activity, ShieldCheck, HeartPulse, Building2, Stethoscope, AlertCircle } from 'lucide-react';
@@ -13,14 +13,18 @@ interface Props {
 }
 
 export function generateStaticParams() {
-  return DEPARTMENTS.map((dept) => ({
+  const params = DEPARTMENTS.map((dept) => ({
     id: dept.id,
   }));
+  params.push({ id: 'homeopathic' });
+  return params;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const department = DEPARTMENTS.find((d) => d.id === id || d.slug === id || d.id === id.replace(/_/g, '-'));
+  const department = DEPARTMENTS.find(
+    (d) => d.id === id || d.slug === id || d.id === id.replace(/_/g, '-') || (id === 'homeopathic' && d.id === 'homeopathy')
+  );
 
   if (!department) {
     return {
@@ -30,6 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = `${department.name} Department & Specialists in Ahmedabad | Ojas Hospital`;
   const description = `The ${department.name} Department at Ojas Hospital Multispeciality in Rakhial, Ahmedabad offers advanced treatment, experienced specialists, state-of-the-art diagnostics, and 24/7 emergency care. Book a consultation.`;
+
+  const ogImg = department.image ? `${SITE_CONFIG.url}${encodeURI(department.image)}` : SITE_CONFIG.ogImage;
 
   return {
     title,
@@ -42,13 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       'Hospital in Rakhial Ahmedabad',
       'Emergency Care Ahmedabad',
     ],
-    robots: {
-      index: true,
-      follow: true,
-      'max-snippet': -1,
-      'max-image-preview': 'large',
-      'max-video-preview': -1,
-    },
+    robots: STANDARD_ROBOTS,
     alternates: {
       canonical: `${SITE_CONFIG.url}/departments/${department.id}`,
     },
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'website',
       images: [
         {
-          url: department.image ? `${SITE_CONFIG.url}${department.image}` : SITE_CONFIG.ogImage,
+          url: ogImg,
           width: 1200,
           height: 630,
           alt: `Ojas Hospital ${department.name} Department Ahmedabad`,
@@ -70,20 +70,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title,
       description,
-      images: [department.image ? `${SITE_CONFIG.url}${department.image}` : SITE_CONFIG.ogImage],
+      images: [ogImg],
     },
   };
 }
 
 export default async function DepartmentPage({ params }: Props) {
   const { id } = await params;
-  const department = DEPARTMENTS.find((d) => d.id === id || d.slug === id || d.id === id.replace(/_/g, '-'));
+  const department = DEPARTMENTS.find(
+    (d) => d.id === id || d.slug === id || d.id === id.replace(/_/g, '-') || (id === 'homeopathic' && d.id === 'homeopathy')
+  );
 
   if (!department) {
     notFound();
   }
 
-  const departmentDoctors = DOCTORS.filter((doc) => doc.departmentId === department.id);
+  const departmentDoctors = DOCTORS.filter(
+    (doc) => doc.departmentId === department.id || (department.id === 'homeopathy' && doc.departmentId === 'homeopathic')
+  );
   const otherDepartments = DEPARTMENTS.filter((d) => d.id !== department.id).slice(0, 4);
 
   const deptFaqs = [

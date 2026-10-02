@@ -1,5 +1,21 @@
 import React from 'react';
-import { SITE_CONFIG } from '@/constants/metadata';
+import { Metadata } from 'next';
+import { SITE_CONFIG, STANDARD_ROBOTS } from '@/constants/metadata';
+
+export const metadata: Metadata = {
+  title: 'Terms and Conditions | Ojas Hospital Multispeciality Ahmedabad',
+  description: 'Read the terms and conditions for using the Ojas Hospital Multispeciality website and healthcare services in Rakhial, Ahmedabad.',
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/terms-and-conditions`,
+  },
+  robots: STANDARD_ROBOTS,
+  openGraph: {
+    title: 'Terms and Conditions | Ojas Hospital Multispeciality Ahmedabad',
+    description: 'Read the terms and conditions for Ojas Hospital Multispeciality in Rakhial, Ahmedabad.',
+    url: `${SITE_CONFIG.url}/terms-and-conditions`,
+    type: 'website',
+  },
+};
 
 export default function TermsAndConditions() {
   return (

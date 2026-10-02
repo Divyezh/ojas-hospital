@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SITE_CONFIG } from '@/constants/metadata';
+import { SITE_CONFIG, STANDARD_ROBOTS } from '@/constants/metadata';
 import Link from 'next/link';
 import { EventsClient, HospitalEvent } from './EventsClient';
 
@@ -14,9 +14,10 @@ export const metadata: Metadata = {
     'Community Medical Events Ahmedabad',
   ],
   alternates: { canonical: `${SITE_CONFIG.url}/events` },
+  robots: STANDARD_ROBOTS,
   openGraph: {
     title: 'Events & Free Medical Camps — Ojas Hospital Ahmedabad',
-    description: 'Upcoming Free Defeat Diabetes & Blood Pressure Diagnosis & Treatment Camp by Ojas Hospital in Bapunagar, Ahmedabad.',
+    description: 'Free Defeat Diabetes & Blood Pressure Diagnosis & Treatment Camps and community medical events organized by Ojas Hospital in Ahmedabad.',
     url: `${SITE_CONFIG.url}/events`,
     images: [
       {
@@ -46,7 +47,7 @@ const EVENTS: HospitalEvent[] = [
     category: 'Health Camp',
     image: '/diabetes2.jpeg',
     imagePosition: 'object-top',
-    isUpcoming: true,
+    isUpcoming: false,
   },
   {
     id: 'e-upcoming-diabetes-2026',
@@ -57,7 +58,7 @@ const EVENTS: HospitalEvent[] = [
     category: 'Health Camp',
     image: '/free-diabetes-camp-ojas-hospital.webp',
     imagePosition: 'object-top',
-    isUpcoming: true,
+    isUpcoming: false,
   },
   {
     id: 'e-video-police-camp',

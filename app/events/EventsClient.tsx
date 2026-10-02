@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { CalendarDays, MapPin, Tag, Clock, X, Maximize2, Play } from 'lucide-react';
+import { CalendarDays, MapPin, Tag, Clock, X, Maximize2, Play, Video } from 'lucide-react';
 
 export interface HospitalEvent {
   id: string;
@@ -19,21 +19,15 @@ export interface HospitalEvent {
 
 function EventCard({ event, onOpenModal }: { event: HospitalEvent; onOpenModal: (event: HospitalEvent) => void }) {
   return (
-    <div className="bg-white rounded-2xl overflow-hidden border border-maroon-100 shadow-soft-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col group">
+    <div className="bg-white rounded-2xl overflow-hidden border border-maroon-100 shadow-soft-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col h-full group">
       {/* Clickable & Viewable Image / Video */}
       <div 
         onClick={() => onOpenModal(event)}
-        className="relative h-52 w-full cursor-pointer overflow-hidden bg-slate-100"
+        className="relative h-56 w-full cursor-pointer overflow-hidden bg-slate-900"
       >
         {event.isUpcoming && (
           <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-maroon-700 text-white text-[11px] font-extrabold shadow-md uppercase tracking-wider border border-white/20">
             ★ Upcoming Camp
-          </span>
-        )}
-        {event.video && (
-          <span className="absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-[11px] font-extrabold shadow-md uppercase tracking-wider border border-white/20">
-            <Play className="h-3 w-3 fill-white" />
-            Video
           </span>
         )}
         <Image 
@@ -41,20 +35,21 @@ function EventCard({ event, onOpenModal }: { event: HospitalEvent; onOpenModal: 
           alt={event.title} 
           fill 
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
-          className={`object-cover ${event.imagePosition || 'object-center'} transition-transform duration-500 group-hover:scale-105`} 
+          className={`object-cover ${event.imagePosition || 'object-center'} transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100`} 
         />
         {event.video ? (
-          <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-all duration-300 group-hover:bg-black/40">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 text-maroon-950 text-xs font-extrabold shadow-xl group-hover:scale-105 transition-transform">
-              <Play className="h-4 w-4 text-maroon-700 fill-maroon-700" />
-              Watch Video
+          <div className="absolute inset-0 bg-slate-950/30 group-hover:bg-slate-950/40 transition-colors flex items-center justify-center text-white">
+            <div className="h-12 w-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <Play className="h-5 w-5 fill-white ml-0.5" />
+            </div>
+            <span className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-md text-[11px] font-bold text-white flex items-center gap-1.5 border border-white/10">
+              <Video className="h-3.5 w-3.5 text-red-400" /> Event Video
             </span>
           </div>
         ) : (
-          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 text-maroon-950 text-xs font-bold shadow-md">
-              <Maximize2 className="h-3.5 w-3.5 text-maroon-700" />
-              View Photo
+          <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
+            <span className="flex items-center gap-1.5 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-xs font-semibold">
+              <Maximize2 className="h-4 w-4" /> View Photo
             </span>
           </div>
         )}
@@ -62,23 +57,50 @@ function EventCard({ event, onOpenModal }: { event: HospitalEvent; onOpenModal: 
 
       {/* Card Body */}
       <div className="p-5 flex flex-col flex-1">
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <span
+            className={`px-2.5 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase ${
+              event.video
+                ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                : 'bg-maroon-50 text-maroon-700'
+            }`}
+          >
+            {event.category}
+          </span>
+          <span className="flex items-center gap-1 text-[11px] text-slate-500 font-medium">
+            <CalendarDays className="h-3.5 w-3.5 text-slate-400" />
+            {event.date}
+          </span>
+        </div>
+
         <h3 
           onClick={() => onOpenModal(event)}
-          className="text-base font-bold text-charcoal hover:text-maroon-700 transition-colors cursor-pointer mb-2 leading-tight"
+          className="text-base font-bold text-charcoal hover:text-maroon-700 transition-colors cursor-pointer mb-2 leading-snug line-clamp-2"
         >
           {event.title}
         </h3>
         <div className="flex flex-col gap-1 mb-3 text-xs text-charcoal/60">
           <span className="flex items-center gap-1.5">
-            <CalendarDays className="h-3.5 w-3.5 text-maroon-600" />
-            {event.date}
-          </span>
-          <span className="flex items-center gap-1.5">
-            <MapPin className="h-3.5 w-3.5 text-maroon-600" />
-            {event.location}
+            <MapPin className="h-3.5 w-3.5 text-maroon-600 shrink-0" />
+            <span className="truncate">{event.location}</span>
           </span>
         </div>
-        <p className="text-sm text-charcoal/70 leading-relaxed flex-1">{event.description}</p>
+        <p className="text-sm text-charcoal/70 leading-relaxed flex-1 line-clamp-3 mb-4">{event.description}</p>
+
+        <div className="flex gap-2">
+          <button
+            onClick={() => onOpenModal(event)}
+            className="flex-1 text-center py-2.5 rounded-xl border border-maroon-200 text-maroon-700 hover:bg-maroon-700 hover:text-white text-xs font-semibold transition-all cursor-pointer flex items-center justify-center gap-1.5"
+          >
+            {event.video ? (
+              <>
+                <Play className="h-3.5 w-3.5 fill-current" /> Watch Video
+              </>
+            ) : (
+              'View Photo'
+            )}
+          </button>
+        </div>
       </div>
     </div>
   );
