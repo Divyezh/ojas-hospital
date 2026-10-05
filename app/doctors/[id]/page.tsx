@@ -413,9 +413,13 @@ export default async function DoctorPage({ params }: Props) {
                 )}
                 <p>
                   <strong>Department:</strong>{' '}
-                  <Link href={`/departments/${doctor.departmentId}`} className="text-maroon-700 hover:underline font-semibold">
-                    {doctor.departmentName} Department →
-                  </Link>
+                  {department ? (
+                    <Link href={`/departments/${department.id}`} className="text-maroon-700 hover:underline font-semibold">
+                      {department.name} Department →
+                    </Link>
+                  ) : (
+                    <span className="font-semibold text-slate-800">{doctor.departmentName}</span>
+                  )}
                 </p>
                 <p>
                   <strong>Main Campus Address:</strong> {EMERGENCY_INFO.address}, India

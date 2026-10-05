@@ -131,7 +131,7 @@ function VideoTestimonialCardItem({
         src={test.videoUrl}
         poster={test.videoPoster || test.avatar}
         playsInline
-        preload="metadata"
+        preload="none"
         onTimeUpdate={() => {
           if (videoRef.current) setCurrentTime(videoRef.current.currentTime);
         }}

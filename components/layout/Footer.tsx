@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Activity, Phone, Mail, MapPin, ShieldCheck, Heart, Award, ArrowUpRight } from 'lucide-react';
 import { SITE_CONFIG } from '@/constants/metadata';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
-import { DEPARTMENTS, EMERGENCY_INFO } from '@/constants/hospitalData';
+import { DEPARTMENTS, EMERGENCY_INFO, MAP_LOCATIONS } from '@/constants/hospitalData';
 import { motion, Variants } from 'framer-motion';
 
 const columnVariants: Variants = {
@@ -19,6 +19,7 @@ const columnVariants: Variants = {
 };
 
 export function Footer() {
+  const [activeBranch, setActiveBranch] = React.useState<'main' | 'bapunagar'>('main');
 
 
   return (
@@ -110,20 +111,38 @@ export function Footer() {
           <motion.div custom={3} variants={columnVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10%' }}>
             <h4 className="text-white font-semibold mb-4 tracking-wide text-base">Locations & Contact</h4>
             <div className="space-y-4 text-xs sm:text-sm">
-              <div className="flex items-start space-x-3 cursor-pointer group">
+              <a
+                href={MAP_LOCATIONS.mainCampus.placeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start space-x-3 group hover:opacity-95 transition-opacity"
+                title="View Main Campus on Google Maps"
+              >
                 <MapPin className="h-5 w-5 text-gold shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                 <div>
-                  <span className="text-[11px] font-bold text-gold uppercase tracking-wider block">Main Campus</span>
-                  <span className="text-cream/90">{EMERGENCY_INFO.address}</span>
+                  <span className="text-[11px] font-bold text-gold uppercase tracking-wider flex items-center gap-1">
+                    Main Campus
+                    <ArrowUpRight className="h-3 w-3 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-gold" />
+                  </span>
+                  <span className="text-cream/90 group-hover:text-white transition-colors block">{MAP_LOCATIONS.mainCampus.address}</span>
                 </div>
-              </div>
-              <div className="flex items-start space-x-3 cursor-pointer group">
+              </a>
+              <a
+                href={MAP_LOCATIONS.bapunagarBranch.placeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start space-x-3 group hover:opacity-95 transition-opacity"
+                title="View Bapunagar Branch on Google Maps"
+              >
                 <MapPin className="h-5 w-5 text-gold/80 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                 <div>
-                  <span className="text-[11px] font-bold text-gold uppercase tracking-wider block">Our Bapunagar Branch</span>
-                  <span className="text-cream/80">Ojas Clinic, Gandhi Chowk, Opp. Old Post Office, Opp. Arban Nagar, Old Bapunagar, Ahmedabad – 380023</span>
+                  <span className="text-[11px] font-bold text-gold uppercase tracking-wider flex items-center gap-1">
+                    Our Bapunagar Branch
+                    <ArrowUpRight className="h-3 w-3 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-gold" />
+                  </span>
+                  <span className="text-cream/80 group-hover:text-white transition-colors block">{MAP_LOCATIONS.bapunagarBranch.address}</span>
                 </div>
-              </div>
+              </a>
               <div className="flex items-start space-x-3">
                 <motion.div whileHover={{ rotate: [-8, 8, -8, 8, 0] }} transition={{ duration: 0.4 }}>
                   <Phone className="h-5 w-5 text-maroon-400 shrink-0 mt-0.5 cursor-pointer" />
@@ -174,20 +193,85 @@ export function Footer() {
 
 
 
-        {/* 3. Map Card Enhancement */}
+        {/* 3. Map Card Enhancement with Branch Switcher */}
         <div className="mt-8 mb-12">
-          <div className="map-card shadow-soft-lg w-full h-48 sm:h-64 relative rounded-xl overflow-hidden">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+            <div className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-gold" />
+              <span className="text-sm font-semibold text-white">Find Us on Google Maps:</span>
+            </div>
+            <div className="inline-flex p-1 rounded-xl bg-maroon-800/80 border border-maroon-700/80 gap-1">
+              <button
+                type="button"
+                onClick={() => setActiveBranch('main')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  activeBranch === 'main'
+                    ? 'bg-gold text-maroon-900 shadow-sm'
+                    : 'text-cream/80 hover:text-white'
+                }`}
+              >
+                Main Campus (Rakhial)
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveBranch('bapunagar')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  activeBranch === 'bapunagar'
+                    ? 'bg-gold text-maroon-900 shadow-sm'
+                    : 'text-cream/80 hover:text-white'
+                }`}
+              >
+                Bapunagar Branch
+              </button>
+            </div>
+          </div>
+
+          <div className="map-card shadow-soft-lg w-full h-56 sm:h-72 relative rounded-2xl overflow-hidden border border-maroon-800">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.011093468482!2d72.6172763!3d23.0236317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8680a3df0bfd%3A0x17f2ff07e7c7d8b!2sOjas%20Hospital!5e0!3m2!1sen!2sin!4v1753847087000!5m2!1sen!2sin"
+              key={activeBranch}
+              src={activeBranch === 'main' ? MAP_LOCATIONS.mainCampus.embedUrl : MAP_LOCATIONS.bapunagarBranch.embedUrl}
               className="absolute inset-0 w-full h-full border-0"
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Ojas Hospital Location on Google Maps"
+              title={activeBranch === 'main' ? "Ojas Hospital Main Campus on Google Maps" : "Ojas Clinic Bapunagar on Google Maps"}
             ></iframe>
             <div className="map-overlay">
-              <a href="https://www.google.com/maps/place/Ojas+Hospital/@23.0236317,72.6198512,17z" target="_blank" rel="noopener noreferrer" className="btn-gold-fill shadow-lg">
-                <MapPin className="h-4 w-4 mr-2" /> Get Directions
+              <a
+                href={activeBranch === 'main' ? MAP_LOCATIONS.mainCampus.placeUrl : MAP_LOCATIONS.bapunagarBranch.placeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold-fill shadow-lg text-xs sm:text-sm py-2.5 px-5"
+              >
+                <MapPin className="h-4 w-4 mr-2" />
+                {activeBranch === 'main' ? 'Open Rakhial Campus on Maps' : 'Open Bapunagar Branch on Maps'}
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Direct Directions Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-3 text-xs text-cream/70">
+            <span className="text-cream/80">
+              Selected: <strong className="text-gold">{activeBranch === 'main' ? 'Rakhial Main Campus' : 'Bapunagar Extension Clinic'}</strong>
+            </span>
+            <div className="flex flex-wrap gap-2">
+              <a
+                href={MAP_LOCATIONS.mainCampus.placeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-maroon-800/80 hover:bg-gold hover:text-maroon-900 border border-maroon-700/60 text-cream/90 transition-all font-medium"
+              >
+                <span>Main Campus Pin</span>
+                <ArrowUpRight className="h-3 w-3" />
+              </a>
+              <a
+                href={MAP_LOCATIONS.bapunagarBranch.placeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-maroon-800/80 hover:bg-gold hover:text-maroon-900 border border-maroon-700/60 text-cream/90 transition-all font-medium"
+              >
+                <span>Bapunagar Branch Pin</span>
+                <ArrowUpRight className="h-3 w-3" />
               </a>
             </div>
           </div>

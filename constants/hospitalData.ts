@@ -5,7 +5,7 @@ export const EMERGENCY_INFO: EmergencyInfo = {
   ambulance: "+91 7574840735",
   erWaitTime: "Available 24×7",
   traumaCenterLevel: "Emergency Care",
-  address: "Rakhiyal Cross Road, Dynasore Circle, Rakhiyal, Ahmedabad, Gujarat – 380021",
+  address: "Ojas Hospital, Daynasor Circle, Rakhiyal Cross Road, Rakhiyal, Ahmedabad – 380021",
 };
 
 export const BRANCHES = [
@@ -13,7 +13,7 @@ export const BRANCHES = [
     id: "main-branch",
     name: "Main Hospital Campus (Rakhial)",
     tag: "Main Campus & 24/7 Casualty",
-    address: "Rakhiyal Cross Road, Dynasore Circle, Rakhiyal, Ahmedabad, Gujarat – 380021",
+    address: "Ojas Hospital, Daynasor Circle, Rakhiyal Cross Road, Rakhiyal, Ahmedabad – 380021",
     phone: "+91 75748 40735",
     hours: "24×7 Emergency, ICU & Inpatient Services",
   },
@@ -21,11 +21,30 @@ export const BRANCHES = [
     id: "bapunagar-branch",
     name: "Our Bapunagar Branch (Ojas Clinic)",
     tag: "Specialist Clinic & OPD",
-    address: "Ojas Clinic, Gandhi Chowk, Opp. Old Post Office, Opp. Arban Nagar, Old Bapunagar, Ahmedabad – 380023",
+    address: "Ojas Clinic, Gandhi Chowk, Old Post Office, 344/1767, Gujarat Housing Board, Bapunagar, Ahmedabad – 380024",
     phone: "+91 93165 59726 / +91 75748 40735",
     hours: "OPD & Specialized Pediatric / Clinical Consultations",
   },
 ];
+
+export const MAP_LOCATIONS = {
+  mainCampus: {
+    name: "Main Hospital Campus (Rakhial)",
+    tag: "Main Campus & 24/7 Casualty",
+    address: "Ojas Hospital, Daynasor Circle, Rakhiyal Cross Road, Rakhiyal, Ahmedabad – 380021",
+    placeUrl: "https://www.google.com/maps/place/Ojas+Hospital/@23.0236317,72.6198512,17z",
+    directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=23.0236317,72.6198512",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.011093468482!2d72.6172763!3d23.0236317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8680a3df0bfd%3A0x17f2ff07e7c7d8b!2sOjas%20Hospital!5e0!3m2!1sen!2sin!4v1753847087000!5m2!1sen!2sin",
+  },
+  bapunagarBranch: {
+    name: "Our Bapunagar Branch (Ojas Clinic)",
+    tag: "Specialist Clinic & OPD",
+    address: "Gandhi Chowk, Old Post Office, 344/1767, Gujarat Housing Board, Bapunagar, Ahmedabad – 380024",
+    placeUrl: "https://maps.app.goo.gl/AXrxy7yDUSSw6LcR7?g_st=aw",
+    directionsUrl: "https://maps.app.goo.gl/AXrxy7yDUSSw6LcR7?g_st=aw",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.860888258384!2d72.6249993!3d23.0296967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e879ea9e744d9%3A0x9f4a694b419d9293!2sGandhi%20chowk%2C%20old%20post%20office%2C%20344%2F1767%2C%20Gujarat%20Housing%20Board%2C%20Bapunagar%2C%20Ahmedabad%2C%20Gujarat%20380024!5e0!3m2!1sen!2sin!4v1753847087000!5m2!1sen!2sin",
+  },
+};
 
 export const HOSPITAL_STATS: HospitalStat[] = [
   {
@@ -349,8 +368,8 @@ export const DOCTORS: Doctor[] = [
     id: "doc-3",
     name: "Dr. Karan Shah",
     title: "Medical Superintendent & Critical Care Specialist",
-    departmentId: "superintendent",
-    departmentName: "Superintendent",
+    departmentId: "critical-care",
+    departmentName: "Critical Care",
     qualifications: "M.B.B.S., FCCS",
     experienceYears: 10,
     rating: 4.8,
@@ -446,8 +465,8 @@ export const DOCTORS: Doctor[] = [
     id: "doc-12",
     name: "Dr. Hasmukhbhai Soni",
     title: "Managing Trustee / Director",
-    departmentId: "management",
-    departmentName: "Management & Director",
+    departmentId: "ayurveda",
+    departmentName: "Ayurveda & Management",
     qualifications: "B.A.M.S., LLB",
     experienceYears: 25,
     rating: 5.0,
@@ -945,7 +964,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     id: "faq-5",
     question: "Where are Ojas Hospital and Clinics located?",
-    answer: "Our Main Multispeciality Campus is located at Rakhiyal Cross Road, Dynasore Circle, Rakhial, Ahmedabad. We also operate Our Bapunagar Branch (Ojas Clinic) at Gandhi Chowk, Opp. Old Post Office, Opp. Arban Nagar, Old Bapunagar, Ahmedabad.",
+    answer: "Our Main Multispeciality Campus is located at Ojas Hospital, Daynasor Circle, Rakhiyal Cross Road, Rakhiyal, Ahmedabad. We also operate Our Bapunagar Branch (Ojas Clinic) at Gandhi Chowk, Old Post Office, 344/1767, Gujarat Housing Board, Bapunagar, Ahmedabad.",
     category: "general"
   },
   {

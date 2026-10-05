@@ -11,7 +11,7 @@ import {
   AlertCircle,
   CheckCircle2
 } from 'lucide-react';
-import { EMERGENCY_INFO } from '@/constants/hospitalData';
+import { EMERGENCY_INFO, MAP_LOCATIONS } from '@/constants/hospitalData';
 
 export function ContactSection() {
   return (
@@ -50,7 +50,7 @@ export function ContactSection() {
                   Main Hospital Campus (Rakhial)
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Rakhiyal Cross Road, Dynasore Circle, Rakhiyal, Ahmedabad, Gujarat – 380021
+                  Ojas Hospital, Daynasor Circle, Rakhiyal Cross Road, Rakhiyal, Ahmedabad – 380021
                 </p>
               </div>
             </div>
@@ -60,7 +60,7 @@ export function ContactSection() {
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Full Emergency, OPD & IPD
               </span>
               <a
-                href="https://maps.google.com/?q=Ojas+Hospital+Rakhial+Ahmedabad"
+                href={MAP_LOCATIONS.mainCampus.placeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-xs font-bold text-maroon-800 hover:text-maroon-950 bg-maroon-50 hover:bg-maroon-100 px-3 py-1.5 rounded-xl border border-maroon-200 transition-colors"
@@ -84,7 +84,7 @@ export function ContactSection() {
                   Our Bapunagar Branch
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  <strong>Ojas Clinic</strong> — Gandhi Chowk, Opp. Old Post Office, Opp. Arban Nagar, Old Bapunagar, Ahmedabad – 380023
+                  <strong>Ojas Clinic</strong> — {MAP_LOCATIONS.bapunagarBranch.address}
                 </p>
               </div>
             </div>
@@ -94,7 +94,7 @@ export function ContactSection() {
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Pediatric & OPD Consultations
               </span>
               <a
-                href="https://maps.google.com/?q=Ojas+Clinic+Bapunagar+Ahmedabad"
+                href={MAP_LOCATIONS.bapunagarBranch.placeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-xs font-bold text-maroon-800 hover:text-maroon-950 bg-maroon-50 hover:bg-maroon-100 px-3 py-1.5 rounded-xl border border-maroon-200 transition-colors"

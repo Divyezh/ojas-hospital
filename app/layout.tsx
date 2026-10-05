@@ -4,8 +4,8 @@ import { Fraunces, Inter } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 
-const fraunces = Fraunces({ subsets: ['latin'], variable: '--font-fraunces' });
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const fraunces = Fraunces({ subsets: ['latin'], variable: '--font-fraunces', display: 'swap' });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 const sinkinSans = localFont({
   src: [
     {
@@ -22,7 +22,6 @@ import { ToastProvider } from '@/components/ui/toast';
 import { ScrollProgress } from '@/components/layout/ScrollProgress';
 import { FloatingWhatsApp } from '@/components/layout/FloatingWhatsApp';
 import { BackToTop } from '@/components/layout/BackToTop';
-import { LoadingScreen } from '@/components/layout/LoadingScreen';
 import { CustomCursor } from '@/components/layout/CustomCursor';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
@@ -42,8 +41,8 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         {/* Google tag (gtag.js) */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-4DNVY9LXEJ" strategy="afterInteractive" />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-4DNVY9LXEJ" strategy="lazyOnload" />
+        <Script id="gtag-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -105,7 +104,6 @@ export default function RootLayout({
         <div suppressHydrationWarning>
           <ToastProvider>
             <CustomCursor />
-            <LoadingScreen />
             <ScrollProgress />
             <Navbar />
 

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Contact Us — Ojas Hospital Multispeciality Rakhial, Ahmedabad',
-  description: 'Contact Ojas Hospital Multispeciality at Rakhiyal Cross Road, Dynasore Circle, Rakhiyal, Ahmedabad, Gujarat 380021. 24/7 emergency hotline +91 7574840735, WhatsApp, and location directions.',
+  description: 'Contact Ojas Hospital Multispeciality at Ojas Hospital, Daynasor Circle, Rakhiyal Cross Road, Rakhiyal, Ahmedabad - 380021. 24/7 emergency hotline +91 7574840735, WhatsApp, and location directions.',
   alternates: { canonical: `${SITE_CONFIG.url}/contact` },
   robots: STANDARD_ROBOTS,
   openGraph: {

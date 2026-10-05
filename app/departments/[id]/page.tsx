@@ -13,11 +13,9 @@ interface Props {
 }
 
 export function generateStaticParams() {
-  const params = DEPARTMENTS.map((dept) => ({
+  return DEPARTMENTS.map((dept) => ({
     id: dept.id,
   }));
-  params.push({ id: 'homeopathic' });
-  return params;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -248,7 +246,7 @@ export default async function DepartmentPage({ params }: Props) {
                 What is {department.name} Care at Ojas Hospital?
               </h2>
               <p className="text-base text-slate-700 leading-relaxed mb-4">
-                The <strong>{department.name} Department</strong> at Ojas Multispeciality Hospital delivers comprehensive diagnostic, therapeutic, and clinical care to patients in Rakhiyal and across Ahmedabad. Located at Rakhiyal Cross Road, Dynasore Circle, our department is equipped with state-of-the-art medical technology, dedicated diagnostic testing facilities, modern operation theatres, and continuous monitoring beds.
+                The <strong>{department.name} Department</strong> at Ojas Multispeciality Hospital delivers comprehensive diagnostic, therapeutic, and clinical care to patients in Rakhiyal and across Ahmedabad. Located at Ojas Hospital, Daynasor Circle, Rakhiyal Cross Road, Rakhiyal, Ahmedabad, our department is equipped with state-of-the-art medical technology, dedicated diagnostic testing facilities, modern operation theatres, and continuous monitoring beds.
               </p>
               <p className="text-sm text-slate-600 leading-relaxed mb-4">
                 {department.fullDescription || department.description}
@@ -364,7 +362,7 @@ export default async function DepartmentPage({ params }: Props) {
             <section className="bg-maroon-900 text-white rounded-3xl p-6 sm:p-8 shadow-soft-md">
               <h2 className="text-2xl font-bold mb-2">Book a Consultation with {department.name}</h2>
               <p className="text-cream/80 text-sm mb-6">
-                Consult with our specialists at Ojas Hospital, Rakhiyal Cross Road, Dynasore Circle, Rakhiyal, Ahmedabad. Emergency services available 24/7.
+                Consult with our specialists at Ojas Hospital, Daynasor Circle, Rakhiyal Cross Road, Rakhiyal, Ahmedabad. Emergency services available 24/7.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a

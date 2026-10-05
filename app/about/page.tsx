@@ -105,7 +105,7 @@ export default function AboutPage() {
           About <span className="text-gold">Ojas Hospital</span>
         </h1>
         <p className="text-white/75 max-w-2xl mx-auto text-base">
-          Trusted multispeciality care at Rakhiyal Cross Road, Dynasore Circle, Rakhiyal, Ahmedabad, Gujarat — for over two decades.
+          Trusted multispeciality care at Ojas Hospital, Daynasor Circle, Rakhiyal Cross Road, Rakhiyal, Ahmedabad — for over two decades.
         </p>
       </div>
 

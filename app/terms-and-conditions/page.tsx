@@ -18,8 +18,25 @@ export const metadata: Metadata = {
 };
 
 export default function TermsAndConditions() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Terms and Conditions | Ojas Hospital Multispeciality',
+    description: 'Terms and conditions for using the Ojas Hospital Multispeciality website and healthcare services in Rakhial, Ahmedabad.',
+    url: `${SITE_CONFIG.url}/terms-and-conditions`,
+    publisher: {
+      '@type': 'Hospital',
+      name: SITE_CONFIG.officialName,
+      url: SITE_CONFIG.url,
+    },
+  };
+
   return (
     <main className="min-h-screen bg-gray-50 pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl shadow-gray-200/50">
         <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#6D1B2B] mb-8">Terms and Conditions</h1>
 

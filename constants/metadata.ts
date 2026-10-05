@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
   telephone: EMERGENCY_INFO.hotline,
   email: "ojashospital104@gmail.com",
   address: {
-    street: "Rakhiyal Cross Road, Dynasore Circle",
+    street: "Ojas Hospital, Daynasor Circle, Rakhiyal Cross Road",
     suite: "Rakhiyal",
     city: "Ahmedabad",
     state: "Gujarat",
@@ -26,6 +26,7 @@ export const SITE_CONFIG = {
   },
   sameAs: [
     "https://www.google.com/maps/place/Ojas+Hospital/@23.0236317,72.6198512,17z",
+    "https://maps.app.goo.gl/AXrxy7yDUSSw6LcR7?g_st=aw",
     "https://wa.me/917574840735",
     "https://www.linkedin.com/in/dr-ayush-soni-2134703a7/"
   ]

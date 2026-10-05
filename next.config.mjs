@@ -28,6 +28,25 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/departments/homeopathic',
+        destination: '/departments/homeopathy',
+        permanent: true,
+      },
+      {
+        source: '/departments/superintendent',
+        destination: '/departments/critical-care',
+        permanent: true,
+      },
+      {
+        source: '/departments/management',
+        destination: '/departments/ayurveda',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
