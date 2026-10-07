@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Clock, Stethoscope, ArrowUpRight } from 'lucide-react';
 import { DOCTORS, CONSULTATION_SCHEDULE } from '@/constants/hospitalData';
@@ -8,12 +8,11 @@ interface DoctorCardsProps {
 }
 
 export function DoctorCards({ selectedDepartmentFilter }: DoctorCardsProps) {
-  const filteredSchedule = useMemo(() => {
-    if (!selectedDepartmentFilter) return CONSULTATION_SCHEDULE;
-    return CONSULTATION_SCHEDULE.filter((s) =>
-      s.department.toLowerCase().includes(selectedDepartmentFilter.toLowerCase())
-    );
-  }, [selectedDepartmentFilter]);
+  const filteredSchedule = !selectedDepartmentFilter
+    ? CONSULTATION_SCHEDULE
+    : CONSULTATION_SCHEDULE.filter((s) =>
+        s.department.toLowerCase().includes(selectedDepartmentFilter.toLowerCase())
+      );
 
   return (
     <section id="doctors" className="py-12 sm:py-16 lg:py-20 bg-linear-to-b from-maroon-900 via-maroon-950 to-maroon-950 text-white relative overflow-hidden">
