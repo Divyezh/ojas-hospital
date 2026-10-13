@@ -56,7 +56,7 @@ export function DoctorCard({ doctor, className = '' }: DoctorCardProps) {
             alt={`${doctor.name} - ${doctor.title} at Ojas Hospital`}
             fill
             sizes="(max-width: 640px) 96px, 144px"
-            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            className="object-cover object-top origin-top group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
           <div className="absolute inset-0 bg-linear-to-br from-maroon-950 via-maroon-900 to-maroon-800 flex flex-col items-center justify-between p-2.5 text-center select-none group-hover:scale-105 transition-transform duration-500">

@@ -215,7 +215,7 @@ export default async function DoctorPage({ params }: Props) {
                       src={doctor.image}
                       alt={`${doctor.name}, ${doctor.title} at Ojas Hospital Ahmedabad`}
                       fill
-                      className="object-cover object-center"
+                      className="object-cover object-top"
                       priority
                     />
                   ) : (

@@ -22,7 +22,6 @@ import { ToastProvider } from '@/components/ui/toast';
 import { ScrollProgress } from '@/components/layout/ScrollProgress';
 import { FloatingWhatsApp } from '@/components/layout/FloatingWhatsApp';
 import { BackToTop } from '@/components/layout/BackToTop';
-import { CustomCursor } from '@/components/layout/CustomCursor';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 
@@ -63,7 +62,8 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           .skiptranslate, iframe.skiptranslate, #google_translate_element {
             display: none !important;
           }
@@ -103,7 +103,6 @@ export default function RootLayout({
         <div id="google_translate_element" style={{ display: 'none' }} suppressHydrationWarning />
         <div suppressHydrationWarning>
           <ToastProvider>
-            <CustomCursor />
             <ScrollProgress />
             <Navbar />
 
